@@ -342,8 +342,8 @@ function Invoke-PriceDiscovery {
       $signalMatches += [pscustomobject]@{ Signal = $signal; Place = $place }
     }
     if ($null -ne $signal.price) {
-      $discussion = ($text -match '(?i)коммент|обсужд|совету|по словам|в чате|подписчик|тред|форум')
-      $origin = if ($discussion) { 'discussion' } elseif ([string]$signal.sourceId -match '^(tg-|instagram|ig-)') { 'post' } else { 'source-text' }
+      $discussion = ($text -match '(?i)коммент|обсужд|совету|по словам|в чате|подписчик|тред|форум') -or ([string]$signal.sourceKind -eq 'community')
+      $origin = if ($discussion) { 'discussion' } elseif ([string]$signal.sourceKind -eq 'telegram' -or [string]$signal.sourceId -match '^instagram|^ig-') { 'post' } else { 'source-text' }
       Set-DiscoveredField $signal 'priceOrigin' $origin
       Set-DiscoveredField $signal 'priceConfidence' $(if ($discussion) { 'discussion' } elseif ($origin -eq 'post') { 'post' } else { 'source' })
     }

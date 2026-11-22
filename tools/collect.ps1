@@ -393,6 +393,7 @@ foreach ($src in $config.sources) {
           url = $link
           sourceId = $src.id
           sourceName = $src.name
+          sourceKind = $src.kind
           publisher = $publisher
           publishedAt = $pub.ToString('yyyy-MM-ddTHH:mm:sszzz')
           category = $category
@@ -501,6 +502,7 @@ foreach ($s in $selected) {
     url = $s.url
     sourceId = $s.sourceId
     sourceName = $s.sourceName
+    sourceKind = $s.sourceKind
     publisher = [string]$s.publisher
     publishedAt = $s.publishedAt
     category = $s.category
