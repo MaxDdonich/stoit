@@ -1757,7 +1757,11 @@ button { cursor: pointer; }
   .feature-foot .link-arrow { font-size: 9.5px; }
   .hero-meta { margin-top: 26px; padding-top: 18px; gap: 18px; }
   .metric strong { font-size: 20px; }
-  .hero-actions .btn { flex: 1; min-width: 140px; }
+  .hero-actions .btn { flex: 1; min-width: 140px; padding-top: 14px; padding-bottom: 14px; font-size: 14px; }
+  .hero-actions .btn svg { width: 21px; height: 21px; }
+  .link-arrow svg { width: 19px; height: 19px; }
+  .feature-foot .link-arrow { font-size: 10.5px; }
+  .feature-foot .link-arrow svg { width: 18px; height: 18px; }
   .plan-banner { margin-top: 0; }
 }
 

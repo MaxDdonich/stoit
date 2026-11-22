@@ -1843,7 +1843,7 @@
           }
         }
         showToast(changed ? t("toast.refreshed") : t("toast.refreshTimeout"));
-      } else if (await checkServer()) {
+      } else if ((location.hostname === "localhost" || location.hostname === "127.0.0.1") && await checkServer()) {
         await fetch("/api/refresh", { method: "POST" });
         for (let i = 0; i < 90; i += 1) {
           await new Promise((resolve) => setTimeout(resolve, 1400));
@@ -2115,7 +2115,7 @@
     renderHeader();
     renderFooter();
     bindEvents();
-    checkServer();
+    if (location.hostname === "localhost" || location.hostname === "127.0.0.1") checkServer();
     loadFeed(false, true);
     setTimeout(hideSplash, 5000);
 
