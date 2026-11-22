@@ -486,6 +486,10 @@ if ($null -ne $osmMeta -and $null -ne $osmMeta.places) {
       if ($k.Length -ge 4 -and $c -and ($c -eq $k -or $c.Contains($k))) { $dup = $true; break }
     }
     if ($dup) { continue }
+    $p.price = $null
+    $p.priceApprox = $false
+    $p.priceConfidence = 'unknown'
+    $p.priceNote = [ordered]@{ ru = 'Цена уточняется — проверьте на месте или на сайте заведения.'; en = 'Price TBD — check on location or the venue website.' }
     $osmPlaces += $p
     $allPlaces += $p
     if ($c.Length -ge 3) { $knownCores += $c }
@@ -519,6 +523,10 @@ if ($null -ne $wikiMeta -and $null -ne $wikiMeta.places) {
       if ($k.Length -ge 4 -and $c -and ($c -eq $k -or $c.Contains($k))) { $dup = $true; break }
     }
     if ($dup) { continue }
+    $p.price = $null
+    $p.priceApprox = $false
+    $p.priceConfidence = 'unknown'
+    $p.priceNote = [ordered]@{ ru = 'Цена уточняется — проверьте на месте или на сайте заведения.'; en = 'Price TBD — check on location or the venue website.' }
     $wikiPlaces += $p
     $allPlaces += $p
     if ($c.Length -ge 3) { $knownCores += $c }

@@ -206,12 +206,12 @@ foreach ($batch in $queries) {
     if (-not $description) { $description = Tag $el.tags 'description' }
     $hours = Tag $el.tags 'opening_hours'
     if (-not $hours) { $hours = 'Уточните на месте' }
-    $price = [int]$estimates[$category]
-    $approx = $price -gt 0
+    $price = $null
+    $approx = $false
     $hookRu = [string]::Format($hooksRu[$category], $district)
     $hookEn = [string]::Format($hooksEn[$category], $district)
-    $aboutRu = if ($description) { "$description $name находится по адресу: $address. Цена ориентировочная — проверьте перед выходом." } else { "$name — $($hooksRu[$category].ToLowerInvariant()). Адрес: $address. Это карточка из OpenStreetMap: цену и часы работы лучше уточнить перед выходом." }
-    $aboutEn = if ($description) { "$description $name is at $address. The price is approximate — check before you go." } else { "$name is $($hooksEn[$category].ToLowerInvariant()). Address: $address. This card comes from OpenStreetMap: check the price and opening hours before you go." }
+    $aboutRu = if ($description) { "$description $name находится по адресу: $address. Цену нужно уточнить на месте или на сайте." } else { "$name — $($hooksRu[$category].ToLowerInvariant()). Адрес: $address. Это карточка из OpenStreetMap: цену и часы работы нужно уточнить перед выходом." }
+    $aboutEn = if ($description) { "$description $name is at $address. Check the price on site or on location." } else { "$name is $($hooksEn[$category].ToLowerInvariant()). Address: $address. This card comes from OpenStreetMap: check the price and opening hours before you go." }
 
     $lat = $el.lat
     $lon = $el.lon
@@ -226,8 +226,8 @@ foreach ($batch in $queries) {
       priceApprox = $approx
       priceUnit = $units[$category]
       priceNote = [ordered]@{
-        ru = if ($price -eq 0) { 'Вход обычно свободный; проверьте на месте.' } else { 'Ориентировочная цена. Точную стоимость уточните на месте или на сайте.' }
-        en = if ($price -eq 0) { 'Entry is usually free; check on site.' } else { 'Approximate price. Check the exact cost on site or online.' }
+        ru = 'Цена уточняется — проверьте на месте или на сайте заведения.'
+        en = 'Price TBD — check on location or the venue website.'
       }
       rating = $null
       district = [ordered]@{ ru = $district; en = $district }
@@ -247,7 +247,7 @@ foreach ($batch in $queries) {
       lat = $lat
       lon = $lon
       source = [ordered]@{ id = 'osm'; name = [ordered]@{ ru = 'OpenStreetMap'; en = 'OpenStreetMap' } }
-      priceConfidence = 'estimated'
+      priceConfidence = 'unknown'
     }
     if (-not $counts.ContainsKey($category)) { $counts[$category] = 0 }
     $counts[$category] += 1

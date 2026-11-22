@@ -154,8 +154,8 @@ SELECT ?item ?itemLabel ?coord ?image WHERE {
     if ($m.Success) { $lon = [double]$m.Groups[1].Value; $lat = [double]$m.Groups[2].Value }
     $image = ''
     if ($null -ne $row.image) { $image = ([string]$row.image.value) -replace '^http://', 'https://' }
-    $price = [int]$estimates[$category]
-    $approx = $price -gt 0
+    $price = $null
+    $approx = $false
     $district = 'Москва'
     $all += [ordered]@{
       id = "wd-$qid"
@@ -166,8 +166,8 @@ SELECT ?item ?itemLabel ?coord ?image WHERE {
       priceApprox = $approx
       priceUnit = $units[$category]
       priceNote = [ordered]@{
-        ru = if ($price -eq 0) { 'Вход обычно свободный; проверьте на месте.' } else { 'Ориентировочная цена. Точную стоимость уточните на месте или на сайте.' }
-        en = if ($price -eq 0) { 'Entry is usually free; check on site.' } else { 'Approximate price. Check the exact cost on site or online.' }
+        ru = 'Цена уточняется — проверьте на месте или на сайте заведения.'
+        en = 'Price TBD — check on location or the venue website.'
       }
       rating = $null
       district = [ordered]@{ ru = $district; en = 'Moscow' }
@@ -179,7 +179,7 @@ SELECT ?item ?itemLabel ?coord ?image WHERE {
       badge = $null
       hook = [ordered]@{ ru = $hooksRu[$category]; en = $hooksEn[$category] }
       about = [ordered]@{
-        ru = "$label — $($hooksRu[$category].ToLowerInvariant()). Карточка собрана из Wikidata и OpenStreetMap: цену и часы работы лучше уточнить перед выходом."
+        ru = "$label — $($hooksRu[$category].ToLowerInvariant()). Карточка собрана из Wikidata и OpenStreetMap: цену и часы работы нужно уточнить перед выходом."
         en = "$label is $($hooksEn[$category].ToLowerInvariant()). This card comes from Wikidata and OpenStreetMap: check the price and opening hours before you go."
       }
       whatYouGet = [ordered]@{ ru = $getRu[$category]; en = $getEn[$category] }
@@ -191,7 +191,7 @@ SELECT ?item ?itemLabel ?coord ?image WHERE {
       lon = $lon
       image = $image
       source = [ordered]@{ id = 'wikidata'; name = [ordered]@{ ru = 'Wikidata'; en = 'Wikidata' } }
-      priceConfidence = 'estimated'
+      priceConfidence = 'unknown'
     }
   }
 }
