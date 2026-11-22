@@ -175,7 +175,9 @@ Workflow `.github/workflows/update.yml`:
 Кнопка «Обновить сейчас» работает через **Cloudflare Worker** (`backend/`):
 - Worker хранит GitHub-токен в секретах, не во фронтенде;
 - лимит — **20 минут** на запуск и на IP;
-- после деплоя Worker укажите его URL в `assets/config.js`;
+- деплой — workflow **Deploy refresh Worker** (нужны секреты `CLOUDFLARE_API_TOKEN`, `CLOUDFLARE_ACCOUNT_ID`);
+- после деплоя добавьте URL Worker в **Settings → Variables → Actions** как `WORKER_URL`;
+- следующий workflow сам подставит URL в `assets/config.js`;
 - без Worker кнопка просто перечитывает уже опубликованную ленту.
 
 Инструкция по Worker: `backend/README.md`.
