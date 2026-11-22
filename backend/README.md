@@ -10,7 +10,18 @@
 
 Лимит: **20 минут** на глобальный запуск и на IP. Повторный запрос вернёт `429` с `Retry-After`.
 
-## Настройка
+## Быстрый деплой из GitHub Actions
+
+1. Создайте Cloudflare API Token с правом **Edit Cloudflare Workers**.
+2. Добавьте в GitHub → Settings → Secrets and variables → Actions:
+   - `CLOUDFLARE_API_TOKEN`
+   - `CLOUDFLARE_ACCOUNT_ID`
+3. Запустите workflow **Deploy refresh Worker**.
+4. Скопируйте URL Worker и добавьте его в GitHub → Settings → Variables → Actions:
+   - `WORKER_URL=https://stoit-refresh.<account>.workers.dev`
+5. Следующий запуск **Update and deploy STOIT** сам подставит URL в `assets/config.js`.
+
+## Настройка вручную
 
 1. Создайте fine-grained GitHub token:
    - доступ только к репозиторию `MaxDdonich/stoit`;

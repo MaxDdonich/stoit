@@ -49,6 +49,10 @@ jobs:
           Copy-Item assets -Destination _site -Recurse
           Copy-Item data/feed.json -Destination _site/data/feed.json
           if (-not (Test-Path _site/data/feed.json)) { throw "feed.json is missing" }
+          if ("${{ vars.WORKER_URL }}" -ne "") {
+            $config = 'window.STOIT_CONFIG = { refreshApi: "' + "${{ vars.WORKER_URL }}" + '" };'
+            Set-Content -Path _site/assets/config.js -Value $config -Encoding UTF8
+          }
 
       - name: Configure Pages
         uses: actions/configure-pages@v5
