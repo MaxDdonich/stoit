@@ -241,7 +241,7 @@ button { cursor: pointer; }
 }
 .btn:hover { border-color: var(--accent); background: var(--accent-soft); }
 .btn:active { transform: translateY(1px); }
-.btn svg { width: 16px; height: 16px; }
+.btn svg { width: 16px; height: 16px; flex: none; }
 .btn-primary {
   background: var(--accent);
   border-color: transparent;
@@ -263,7 +263,7 @@ button { cursor: pointer; }
   font-weight: 550;
   white-space: nowrap;
 }
-.link-arrow svg { width: 15px; height: 15px; transition: transform 0.18s; }
+.link-arrow svg { width: 15px; height: 15px; flex: none; transition: transform 0.18s; }
 .link-arrow:hover svg { transform: translateX(3px); }
 
 /* ---------- common ---------- */
