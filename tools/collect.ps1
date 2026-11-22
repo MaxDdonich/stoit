@@ -16,6 +16,7 @@ $DataDir     = Join-Path $Root 'data'
 $CacheDir    = Join-Path $DataDir 'cache'
 $ConfigPath  = Join-Path $Root 'config\sources.json'
 $SeedPath    = Join-Path $DataDir 'seed.json'
+$PricesPath  = Join-Path $DataDir 'prices.json'
 $FeedPath    = Join-Path $DataDir 'feed.json'
 $TrCachePath = Join-Path $DataDir 'translation-cache.json'
 $TrBudgetPath = Join-Path $DataDir 'translation-budget.json'
@@ -174,6 +175,39 @@ function Normalize-Key([string]$Text) {
   $s = $s -replace '\s+', ' '
   if ($s.Length -gt 45) { $s = $s.Substring(0, 45) }
   return $s.Trim()
+}
+
+function Set-PlaceField($Place, [string]$Name, $Value) {
+  if ($null -ne $Place.PSObject.Properties[$Name]) { $Place.$Name = $Value }
+  else { $Place | Add-Member -NotePropertyName $Name -NotePropertyValue $Value -Force }
+}
+
+function Normalize-MatchName([string]$Text) {
+  if (-not $Text) { return '' }
+  $s = $Text.ToLowerInvariant() -replace 'ё', 'е'
+  $s = $s -replace '[^\wа-я]+', ' '
+  return ($s -replace '\s+', ' ').Trim()
+}
+
+function Get-PriceOverride($Place) {
+  $id = [string]$Place.id
+  if ($id -and $script:PriceById.ContainsKey($id)) { return $script:PriceById[$id] }
+  foreach ($n in @([string]$Place.name.ru, [string]$Place.name.en)) {
+    $key = Normalize-MatchName $n
+    if ($key -and $script:PriceByName.ContainsKey($key)) { return $script:PriceByName[$key] }
+  }
+  return $null
+}
+
+function Test-PlaceQuality($Place) {
+  $name = ([string]$Place.name.ru).ToLowerInvariant()
+  $cat = [string]$Place.category
+  if ($name -match 'трансвааль|румянцевск|антирелигиозн|музей в\. и\. ленина|голицынск|дом нащокина|институт русского реалистического искусства|кочерга|good republic|хорошая республика|вольчек') { return $false }
+  if ($cat -eq 'culture' -and $name -match 'академ|институт|училище|университет|школ|лицей|гимнази|больниц|поликлиник|госпитал|библиотек|архив') { return $false }
+  if ($cat -in @('walk','culture') -and $name -match 'церковь|храм|собор|монастыр|часовн|синагог|мечеть|кладбищ|крематор') { return $false }
+  if ($cat -in @('walk','active') -and $name -match 'академ|институт|училище|университет|школ|лицей|гимнази|больниц|поликлиник|госпитал|библиотек|архив|тюрьм|прокуратур|полици|мвд|фсб|фсо|налогов|таможн') { return $false }
+  if ($cat -eq 'active' -and $name -match 'военн|арми|флот|авиац|ркка|пограничн|оборон|стадион|арена|мегаспорт|спортивный комплекс|лдс|лск') { return $false }
+  return $true
 }
 
 # ---------- перевод (MyMemory, без ключа, с кэшем и дневным лимитом) ----------
@@ -480,16 +514,31 @@ if ($null -ne $osmMeta -and $null -ne $osmMeta.places) {
     if ($k.Length -ge 3) { $knownCores += $k }
   }
   foreach ($p in $osmMeta.places) {
+    if (-not (Test-PlaceQuality $p)) { continue }
     $c = Get-NameCore ([string]$p.name.ru)
     $dup = $false
     foreach ($k in $knownCores) {
-      if ($k.Length -ge 4 -and $c -and ($c -eq $k -or $c.Contains($k))) { $dup = $true; break }
+      if ($k.Length -ge 4 -and $c.Length -ge 4 -and ($c -eq $k -or $c.Contains($k) -or $k.Contains($c))) { $dup = $true; break }
     }
     if ($dup) { continue }
     $p.price = $null
     $p.priceApprox = $false
+    Set-PlaceField $p 'priceFrom' $false
     $p.priceConfidence = 'unknown'
-    $p.priceNote = [ordered]@{ ru = 'Цена уточняется — проверьте на месте или на сайте заведения.'; en = 'Price TBD — check on location or the venue website.' }
+    $p.priceNote = [ordered]@{ ru = 'Цена не указана в открытом источнике — проверьте на сайте заведения.'; en = 'Price is not listed in the public source — check the venue website.' }
+    if ([string]$p.fee -eq 'no') {
+      $p.price = 0
+      $p.priceConfidence = 'osm'
+      $p.priceNote = [ordered]@{ ru = 'Вход свободный по данным OpenStreetMap; платные услуги уточняйте.'; en = 'Free entry according to OpenStreetMap; check paid extras.' }
+      Set-PlaceField $p 'priceSource' 'https://www.openstreetmap.org/'
+      Set-PlaceField $p 'priceCheckedAt' ([string]$osmMeta.updatedAt)
+    } elseif ([string]$p.charge -match '^\s*(\d{2,5})\s*(?:₽|руб|rub)?\s*$') {
+      $p.price = [int]$Matches[1]
+      $p.priceConfidence = 'osm'
+      $p.priceNote = [ordered]@{ ru = 'Цена указана в OpenStreetMap; проверьте перед выходом.'; en = 'Price from OpenStreetMap; check before you go.' }
+      Set-PlaceField $p 'priceSource' 'https://www.openstreetmap.org/'
+      Set-PlaceField $p 'priceCheckedAt' ([string]$osmMeta.updatedAt)
+    }
     $osmPlaces += $p
     $allPlaces += $p
     if ($c.Length -ge 3) { $knownCores += $c }
@@ -503,7 +552,7 @@ if ($null -ne $osmMeta -and $null -ne $osmMeta.places) {
     status = 'ok'
     items = $osmPlaces.Count
     lastSync = [string]$osmMeta.updatedAt
-    note = [ordered]@{ ru = '© OpenStreetMap contributors, ODbL 1.0. Цены ориентировочные.'; en = '© OpenStreetMap contributors, ODbL 1.0. Prices are approximate.' }
+    note = [ordered]@{ ru = '© OpenStreetMap contributors, ODbL 1.0. Цены не выдумываются: если тарифа нет в OSM, указано «цена не указана».'; en = '© OpenStreetMap contributors, ODbL 1.0. Prices are not invented: if OSM has no tariff, the card says the price is not listed.' }
   }
 }
 
@@ -517,16 +566,18 @@ if ($null -ne $wikiMeta -and $null -ne $wikiMeta.places) {
     if ($k.Length -ge 3) { $knownCores += $k }
   }
   foreach ($p in $wikiMeta.places) {
+    if (-not (Test-PlaceQuality $p)) { continue }
     $c = Get-NameCore ([string]$p.name.ru)
     $dup = $false
     foreach ($k in $knownCores) {
-      if ($k.Length -ge 4 -and $c -and ($c -eq $k -or $c.Contains($k))) { $dup = $true; break }
+      if ($k.Length -ge 4 -and $c.Length -ge 4 -and ($c -eq $k -or $c.Contains($k) -or $k.Contains($c))) { $dup = $true; break }
     }
     if ($dup) { continue }
     $p.price = $null
     $p.priceApprox = $false
+    Set-PlaceField $p 'priceFrom' $false
     $p.priceConfidence = 'unknown'
-    $p.priceNote = [ordered]@{ ru = 'Цена уточняется — проверьте на месте или на сайте заведения.'; en = 'Price TBD — check on location or the venue website.' }
+    $p.priceNote = [ordered]@{ ru = 'Цена не указана в открытом источнике — проверьте на сайте заведения.'; en = 'Price is not listed in the public source — check the venue website.' }
     $wikiPlaces += $p
     $allPlaces += $p
     if ($c.Length -ge 3) { $knownCores += $c }
@@ -540,8 +591,44 @@ if ($null -ne $wikiMeta -and $null -ne $wikiMeta.places) {
     status = 'ok'
     items = $wikiPlaces.Count
     lastSync = [string]$wikiMeta.updatedAt
-    note = [ordered]@{ ru = 'Wikidata, CC0. Цены ориентировочные.'; en = 'Wikidata, CC0. Prices are approximate.' }
+    note = [ordered]@{ ru = 'Wikidata, CC0. Цены не выдумываются: если тарифа нет в источнике, указано «цена не указана».'; en = 'Wikidata, CC0. Prices are not invented: if the source has no tariff, the card says the price is not listed.' }
   }
+}
+
+# ---------- проверенные цены ----------
+$prices = Read-Json $PricesPath
+$script:PriceById = @{}
+$script:PriceByName = @{}
+if ($null -ne $prices -and $null -ne $prices.entries) {
+  foreach ($e in @($prices.entries)) {
+    if ($null -eq $e) { continue }
+    if ($e.id) { $script:PriceById[[string]$e.id] = $e }
+    foreach ($n in @($e.names)) {
+      $key = Normalize-MatchName ([string]$n)
+      if ($key) { $script:PriceByName[$key] = $e }
+    }
+  }
+}
+$pricedCount = 0
+foreach ($p in $allPlaces) {
+  $e = Get-PriceOverride $p
+  if ($null -ne $e) {
+    Set-PlaceField $p 'price' ([int]$e.price)
+    Set-PlaceField $p 'priceApprox' $false
+    Set-PlaceField $p 'priceFrom' ([bool]$e.isFrom)
+    if ($null -ne $e.priceUnit) { Set-PlaceField $p 'priceUnit' $e.priceUnit }
+    if ($null -ne $e.priceNote) { Set-PlaceField $p 'priceNote' $e.priceNote }
+    Set-PlaceField $p 'priceSource' ([string]$e.source)
+    if ([string]::IsNullOrWhiteSpace([string]$p.website) -and $e.source) { Set-PlaceField $p 'website' ([string]$e.source) }
+    if ($null -ne $e.sourceLabel) { Set-PlaceField $p 'priceSourceLabel' $e.sourceLabel }
+    Set-PlaceField $p 'priceCheckedAt' ([string]$e.checkedAt)
+    Set-PlaceField $p 'priceConfidence' ([string]$e.confidence)
+  } elseif ($null -ne $p.price -and ([string]$p.source.id -eq 'seed')) {
+    Set-PlaceField $p 'priceConfidence' 'editorial'
+    Set-PlaceField $p 'priceApprox' $true
+    Set-PlaceField $p 'priceFrom' $false
+  }
+  if ($null -ne $p.price) { $pricedCount += 1 }
 }
 
 $freshCount = @($finalSignals | Where-Object { ([DateTimeOffset]::Parse($_.publishedAt) -gt $Now.AddDays(-1)) }).Count
@@ -552,7 +639,7 @@ while ($nextLocal -lt $Now.DateTime) { $nextLocal = $nextLocal.AddDays(1) }
 $next = [DateTimeOffset]::Parse($nextLocal.ToString('yyyy-MM-ddTHH:mm:ss') + '+03:00')
 
 $feed = [ordered]@{
-  schema = 9
+  schema = 10
   app = 'STOIT'
   updatedAt = $Now.ToString('yyyy-MM-ddTHH:mm:sszzz')
   nextUpdate = ([DateTimeOffset]$next).ToString('yyyy-MM-ddTHH:mm:sszzz')
@@ -563,6 +650,7 @@ $feed = [ordered]@{
   }
   stats = [ordered]@{
     places = $allPlaces.Count
+    priced = $pricedCount
     signals = $finalSignals.Count
     fresh = $freshCount
     sourcesOk = $okCount

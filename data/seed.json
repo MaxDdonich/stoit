@@ -554,7 +554,7 @@
                        "indoor":  true,
                        "badge":  null,
                        "hook":  {
-                                    "ru":  "Обед из трёх блюд за 350 ₽ — без пафоса и официантов",
+                                    "ru":  "Обед из трёх блюд — от 300 ₽, без пафоса и официантов",
                                     "en":  "A three-course lunch for ₽350 — no pomp, no waiters"
                                 },
                        "about":  {
@@ -882,7 +882,7 @@
                        "indoor":  true,
                        "badge":  null,
                        "hook":  {
-                                    "ru":  "Пицца на компанию: 300–450 ₽ с человека",
+                                    "ru":  "Пицца «Пепперони» — 379 ₽; большую удобно делить на компанию",
                                     "en":  "Pizza for the group: ₽300–450 each"
                                 },
                        "about":  {
@@ -938,15 +938,15 @@
                    {
                        "id":  "oneprice",
                        "name":  {
-                                    "ru":  "One Price Coffee",
-                                    "en":  "One Price Coffee"
+                                    "ru":  "One Plus Coffee",
+                                    "en":  "One Plus Coffee"
                                 },
                        "category":  "coffee",
                        "emoji":  "☕️",
-                       "price":  200,
+                       "price":  270,
                        "priceNote":  {
-                                         "ru":  "≈150–250 ₽ за любой напиток, доплаты за молоко и сиропы нет",
-                                         "en":  "≈₽150–250 for any drink, no extra for milk or syrup"
+                                         "ru":  "Капучино 0,4 л — 270 ₽; напитки 0,2–0,6 л стоят от 150 до 420 ₽.",
+                                         "en":  "A 0.4 L cappuccino is ₽270; drinks from 0.2 to 0.6 L cost ₽150–420."
                                      },
                        "rating":  4.3,
                        "district":  {
@@ -972,52 +972,32 @@
                        "indoor":  true,
                        "badge":  null,
                        "hook":  {
-                                    "ru":  "Все напитки по одной цене — капучино не дороже американо",
-                                    "en":  "Every drink at one price — cappuccino costs the same as americano"
+                                    "ru":  "Капучино 0,4 л — 270 ₽; размеры от 0,2 до 0,6 л",
+                                    "en":  "A 0.4 L cappuccino is ₽270; sizes from 0.2 to 0.6 L"
                                 },
                        "about":  {
-                                     "ru":  "Сеть с простой идеей: один прайс на всё меню. Не нужно доплачивать за молоко, сироп или большой объём. Хороший вариант, если хочется кофе, а не очередной счёт на 400 ₽.",
-                                     "en":  "A chain with a simple idea: one price for the whole menu. No surcharge for milk, syrup or a bigger cup. A good choice when you want coffee, not another ₽400 bill."
+                                     "ru":  "Сеть переименовалась в One Plus Coffee. Единой цены на всё меню больше нет: напитки стоят от 150 до 420 ₽ в зависимости от объёма. Капучино 0,4 л — 270 ₽.",
+                                     "en":  "The chain is now One Plus Coffee. There is no single price for the whole menu anymore: drinks cost ₽150–420 depending on size. A 0.4 L cappuccino is ₽270."
                                  },
                        "whatYouGet":  {
                                           "ru":  [
-                                                     "Любой напиток по одной цене",
-                                                     "Молоко и сиропы без доплаты",
+                                                     "Кофе на выбор",
+                                                     "Объёмы 0,2–0,6 л",
                                                      "Можно взять с собой",
                                                      "Быстро: 3–5 минут"
                                                  ],
                                           "en":  [
-                                                     "Any drink at one price",
-                                                     "Milk and syrups included",
+                                                     "Coffee of your choice",
+                                                     "Sizes 0.2–0.6 L",
                                                      "Takeaway available",
                                                      "Fast: 3–5 minutes"
                                                  ]
                                       },
                        "tip":  {
-                                   "ru":  "Утром до 12:00 некоторые точки делают кофе дешевле.",
-                                   "en":  "Before 12:00 some locations sell coffee cheaper."
+                                   "ru":  "Цена зависит от объёма: сравнивайте 0,3 и 0,4 л, разница может быть заметной.",
+                                   "en":  "The price depends on size: compare 0.3 L and 0.4 L, the difference can be noticeable."
                                },
-                       "deal":  {
-                                    "title":  {
-                                                  "ru":  "Утренний кофе",
-                                                  "en":  "Morning coffee"
-                                              },
-                                    "detail":  {
-                                                   "ru":  "До 12:00 в будни часть точек отдаёт напитки дешевле.",
-                                                   "en":  "On weekdays before 12:00 some locations charge less."
-                                               },
-                                    "days":  [
-                                                 1,
-                                                 2,
-                                                 3,
-                                                 4,
-                                                 5
-                                             ],
-                                    "time":  {
-                                                 "ru":  "до 12:00",
-                                                 "en":  "before 12:00"
-                                             }
-                                },
+                       "deal":  null,
                        "tags":  {
                                     "ru":  [
                                                "кофе",
@@ -1030,7 +1010,7 @@
                                                "budget"
                                            ]
                                 },
-                       "mapQuery":  "One Price Coffee Москва",
+                       "mapQuery":  "One Plus Coffee Москва",
                        "source":  {
                                       "id":  "seed",
                                       "name":  {
@@ -1039,118 +1019,8 @@
                                                }
                                   },
                        "priceUnit":  {
-                                         "ru":  "за напиток",
-                                         "en":  "per drink"
-                                     }
-                   },
-                   {
-                       "id":  "volchek",
-                       "name":  {
-                                    "ru":  "«Булочная Ф. Вольчека»",
-                                    "en":  "F. Volchek Bakery"
-                                },
-                       "category":  "coffee",
-                       "emoji":  "🥐",
-                       "price":  250,
-                       "priceNote":  {
-                                         "ru":  "Кофе и свежая булка — около 250 ₽",
-                                         "en":  "Coffee and a fresh bun — about ₽250"
-                                     },
-                       "rating":  4.5,
-                       "district":  {
-                                        "ru":  "Сеть",
-                                        "en":  "Citywide"
-                                    },
-                       "metro":  {
-                                     "ru":  "Несколько точек",
-                                     "en":  "Several locations"
-                                 },
-                       "address":  {
-                                       "ru":  "Булочные в центре и у метро",
-                                       "en":  "Bakeries downtown and by metro"
-                                   },
-                       "hours":  {
-                                     "ru":  "Обычно 08:00–21:00",
-                                     "en":  "Usually 08:00–21:00"
-                                 },
-                       "company":  {
-                                       "ru":  "1–2 человека",
-                                       "en":  "1–2 people"
-                                   },
-                       "indoor":  true,
-                       "badge":  null,
-                       "hook":  {
-                                    "ru":  "Кофе и свежая булка за 250 ₽ — завтрак, который не жалко",
-                                    "en":  "Coffee and a fresh bun for ₽250 — a breakfast you can afford"
-                                },
-                       "about":  {
-                                     "ru":  "Петербургская булочная с нормальным хлебом, круассанами и кофе. Хорошо заходить утром по пути или прятаться от дождя на 20 минут. Чек маленький, а ощущение — как из отпуска.",
-                                     "en":  "A St Petersburg bakery with proper bread, croissants and coffee. Good for a morning stop or a 20-minute shelter from the rain. A small bill, a holiday feeling."
-                                 },
-                       "whatYouGet":  {
-                                          "ru":  [
-                                                     "Свежая выпечка",
-                                                     "Кофе или чай",
-                                                     "Столики у окна",
-                                                     "Можно взять с собой"
-                                                 ],
-                                          "en":  [
-                                                     "Fresh pastries",
-                                                     "Coffee or tea",
-                                                     "Window seats",
-                                                     "Takeaway available"
-                                                 ]
-                                      },
-                       "tip":  {
-                                   "ru":  "До 11:00 бывают завтраки-сеты дешевле, чем по отдельности.",
-                                   "en":  "Before 11:00 breakfast sets are often cheaper than separate items."
-                               },
-                       "deal":  {
-                                    "title":  {
-                                                  "ru":  "Завтрак до 11:00",
-                                                  "en":  "Breakfast before 11:00"
-                                              },
-                                    "detail":  {
-                                                   "ru":  "Утром в будни кофе с булкой часто идёт по сетовой цене.",
-                                                   "en":  "On weekday mornings coffee and a bun often come as a set."
-                                               },
-                                    "days":  [
-                                                 1,
-                                                 2,
-                                                 3,
-                                                 4,
-                                                 5
-                                             ],
-                                    "time":  {
-                                                 "ru":  "до 11:00",
-                                                 "en":  "before 11:00"
-                                             }
-                                },
-                       "tags":  {
-                                    "ru":  [
-                                               "кофе",
-                                               "завтрак",
-                                               "дождь",
-                                               "свидание"
-                                           ],
-                                    "en":  [
-                                               "coffee",
-                                               "breakfast",
-                                               "rainy day",
-                                               "date"
-                                           ]
-                                },
-                       "mapQuery":  "Булочная Ф. Вольчека Москва",
-                       "source":  {
-                                      "id":  "seed",
-                                      "name":  {
-                                                   "ru":  "Подборка СТОИТ",
-                                                   "en":  "STOIT picks"
-                                               }
-                                  },
-                       "priceUnit":  {
-                                         "ru":  "за кофе и булку",
-                                         "en":  "coffee + bun"
+                                         "ru":  "за капучино 0,4 л",
+                                         "en":  "0.4 L cappuccino"
                                      }
                    },
                    {
@@ -3301,100 +3171,6 @@
                                   }
                    },
                    {
-                       "id":  "kocherga",
-                       "name":  {
-                                    "ru":  "Антикафе «Кочерга»",
-                                    "en":  "Kocherga anti-cafe"
-                                },
-                       "category":  "antikafe",
-                       "emoji":  "🛋",
-                       "price":  300,
-                       "priceApprox":  true,
-                       "priceUnit":  {
-                                         "ru":  "за первый час",
-                                         "en":  "first hour"
-                                     },
-                       "priceNote":  {
-                                         "ru":  "Ориентировочно 3 ₽/мин, первый час около 300 ₽; напитки и печенье безлимит",
-                                         "en":  "Approx. ₽3/min, about ₽300 for the first hour; drinks and cookies unlimited"
-                                     },
-                       "rating":  4.5,
-                       "district":  {
-                                        "ru":  "ЦАО",
-                                        "en":  "Central"
-                                    },
-                       "metro":  {
-                                     "ru":  "Чистые пруды",
-                                     "en":  "Chistye Prudy"
-                                 },
-                       "address":  {
-                                       "ru":  "ул. Покровка, 26/1",
-                                       "en":  "Pokrovka St, 26/1"
-                                   },
-                       "hours":  {
-                                     "ru":  "Обычно 11:00–24:00",
-                                     "en":  "Usually 11:00–24:00"
-                                 },
-                       "company":  {
-                                       "ru":  "2–6 человек",
-                                       "en":  "2–6 people"
-                                   },
-                       "indoor":  true,
-                       "badge":  {
-                                     "ru":  "находка",
-                                     "en":  "find"
-                                 },
-                       "hook":  {
-                                    "ru":  "Платишь за время, а чай, кофе и печенье — без ограничений",
-                                    "en":  "Pay for time; tea, coffee and cookies are unlimited"
-                                },
-                       "about":  {
-                                     "ru":  "Антикафе в центре: диваны, настолки, книги и большая полка с печеньем. Хороший вариант на вечер в дождь или на встречу, где не хочется считать каждый кофе. Тариф и адрес лучше уточнить перед выходом.",
-                                     "en":  "A central anti-cafe with sofas, board games, books and a big cookie shelf. A good rainy-day evening or a meet-up where nobody wants to count every coffee. Check the rate and address before you go."
-                                 },
-                       "whatYouGet":  {
-                                          "ru":  [
-                                                     "Время в антикафе",
-                                                     "Безлимитные напитки и печенье",
-                                                     "Настольные игры",
-                                                     "Можно прийти компанией"
-                                                 ],
-                                          "en":  [
-                                                     "Time in the anti-cafe",
-                                                     "Unlimited drinks and cookies",
-                                                     "Board games",
-                                                     "Bring a group"
-                                                 ]
-                                      },
-                       "tip":  {
-                                   "ru":  "В будни днём обычно дешевле. Уточните адрес и тариф в соцсетях антикафе.",
-                                   "en":  "Weekday daytime is usually cheaper. Check the address and rate on social media."
-                               },
-                       "deal":  null,
-                       "tags":  {
-                                    "ru":  [
-                                               "настолки",
-                                               "с друзьями",
-                                               "дождь",
-                                               "безлимит"
-                                           ],
-                                    "en":  [
-                                               "board games",
-                                               "with friends",
-                                               "rainy day",
-                                               "unlimited"
-                                           ]
-                                },
-                       "mapQuery":  "Антикафе Кочерга Москва",
-                       "source":  {
-                                      "id":  "seed",
-                                      "name":  {
-                                                   "ru":  "Подборка СТОИТ",
-                                                   "en":  "STOIT picks"
-                                               }
-                                  }
-                   },
-                   {
                        "id":  "les-antikafe",
                        "name":  {
                                     "ru":  "Антикафе «Лес»",
@@ -3841,97 +3617,6 @@
                                            ]
                                 },
                        "mapQuery":  "True Gamers Москва",
-                       "source":  {
-                                      "id":  "seed",
-                                      "name":  {
-                                                   "ru":  "Подборка СТОИТ",
-                                                   "en":  "STOIT picks"
-                                               }
-                                  }
-                   },
-                   {
-                       "id":  "good-republic",
-                       "name":  {
-                                    "ru":  "Антикафе Good Republic",
-                                    "en":  "Good Republic anti-cafe"
-                                },
-                       "category":  "antikafe",
-                       "emoji":  "🛋",
-                       "price":  300,
-                       "priceApprox":  true,
-                       "priceUnit":  {
-                                         "ru":  "за первый час",
-                                         "en":  "first hour"
-                                     },
-                       "priceNote":  {
-                                         "ru":  "Ориентировочно 300 ₽ за первый час, дальше по минутам; напитки безлимит",
-                                         "en":  "Approx. ₽300 for the first hour, then per minute; drinks unlimited"
-                                     },
-                       "rating":  4.3,
-                       "district":  {
-                                        "ru":  "ЦАО",
-                                        "en":  "Central"
-                                    },
-                       "metro":  {
-                                     "ru":  "Чистые пруды",
-                                     "en":  "Chistye Prudy"
-                                 },
-                       "address":  {
-                                       "ru":  "ул. Покровка, 27",
-                                       "en":  "Pokrovka St, 27"
-                                   },
-                       "hours":  {
-                                     "ru":  "Уточните на месте",
-                                     "en":  "Check on site"
-                                 },
-                       "company":  {
-                                       "ru":  "2–6 человек",
-                                       "en":  "2–6 people"
-                                   },
-                       "indoor":  true,
-                       "badge":  null,
-                       "hook":  {
-                                    "ru":  "Антикафе на Покровке: время, напитки и настолки",
-                                    "en":  "An anti-cafe on Pokrovka: time, drinks and board games"
-                                },
-                       "about":  {
-                                     "ru":  "Антикафе в центре для спокойного вечера и встреч с друзьями. Платишь за время, чай и кофе без ограничений. Адрес и тариф лучше уточнить перед выходом.",
-                                     "en":  "A central anti-cafe for a calm evening and meeting friends. Pay for time; tea and coffee are unlimited. Check the address and rate before you go."
-                                 },
-                       "whatYouGet":  {
-                                          "ru":  [
-                                                     "Время в антикафе",
-                                                     "Напитки без ограничений",
-                                                     "Настольные игры",
-                                                     "Можно прийти компанией"
-                                                 ],
-                                          "en":  [
-                                                     "Time in the anti-cafe",
-                                                     "Unlimited drinks",
-                                                     "Board games",
-                                                     "Bring a group"
-                                                 ]
-                                      },
-                       "tip":  {
-                                   "ru":  "Уточните актуальный адрес и тариф в соцсетях.",
-                                   "en":  "Check the current address and rate on social media."
-                               },
-                       "deal":  null,
-                       "tags":  {
-                                    "ru":  [
-                                               "настолки",
-                                               "с друзьями",
-                                               "дождь",
-                                               "безлимит"
-                                           ],
-                                    "en":  [
-                                               "board games",
-                                               "with friends",
-                                               "rainy day",
-                                               "unlimited"
-                                           ]
-                                },
-                       "mapQuery":  "Антикафе Good Republic Москва",
                        "source":  {
                                       "id":  "seed",
                                       "name":  {

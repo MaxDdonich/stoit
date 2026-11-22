@@ -63,6 +63,8 @@ function Get-Overpass([string]$Name, [string]$Query) {
           return $text
         }
         Write-Host ("  {0,-9} попытка {1}: HTTP {2}" -f $Name, $try, $code) -ForegroundColor DarkYellow
+      } catch {
+        Write-Host ("  {0,-9} попытка {1}: соединение сброшено" -f $Name, $try) -ForegroundColor DarkYellow
       } finally {
         Remove-Item $tmp -Force -ErrorAction SilentlyContinue
       }
@@ -97,10 +99,6 @@ function Get-Category($Batch, $Tags, [string]$Name) {
   return $Batch.cat
 }
 
-$estimates = @{
-  coffee = 350; food = 500; antikafe = 300; culture = 500;
-  walk = 0; games = 600; active = 700; movie = 400
-}
 $units = @{
   coffee = @{ ru = 'средний чек'; en = 'average bill' };
   food = @{ ru = 'средний чек'; en = 'average bill' };
@@ -206,8 +204,24 @@ foreach ($batch in $queries) {
     if (-not $description) { $description = Tag $el.tags 'description' }
     $hours = Tag $el.tags 'opening_hours'
     if (-not $hours) { $hours = 'Уточните на месте' }
+    $website = Tag $el.tags 'website'
+    if (-not $website) { $website = Tag $el.tags 'contact:website' }
+    if (-not $website) { $website = Tag $el.tags 'url' }
+    $fee = Tag $el.tags 'fee'
+    $charge = Tag $el.tags 'charge'
     $price = $null
     $approx = $false
+    $priceNoteRu = 'Цена не указана в открытом источнике — проверьте на сайте заведения.'
+    $priceNoteEn = 'Price is not listed in the public source — check the venue website.'
+    if ($fee -eq 'no') {
+      $price = 0
+      $priceNoteRu = 'Вход свободный по данным OpenStreetMap; платные услуги уточняйте.'
+      $priceNoteEn = 'Free entry according to OpenStreetMap; check paid extras.'
+    } elseif ($charge -match '^\s*(\d{2,5})\s*(?:₽|руб|rub)?\s*$') {
+      $price = [int]$Matches[1]
+      $priceNoteRu = 'Цена указана в OpenStreetMap; проверьте перед выходом.'
+      $priceNoteEn = 'Price from OpenStreetMap; check before you go.'
+    }
     $hookRu = [string]::Format($hooksRu[$category], $district)
     $hookEn = [string]::Format($hooksEn[$category], $district)
     $aboutRu = if ($description) { "$description $name находится по адресу: $address. Цену нужно уточнить на месте или на сайте." } else { "$name — $($hooksRu[$category].ToLowerInvariant()). Адрес: $address. Это карточка из OpenStreetMap: цену и часы работы нужно уточнить перед выходом." }
@@ -224,11 +238,15 @@ foreach ($batch in $queries) {
       emoji = switch ($category) { 'coffee' {'☕️'} 'food' {'🍲'} 'antikafe' {'🛋'} 'culture' {'🖼'} 'walk' {'🌳'} 'games' {'🎮'} 'active' {'🎳'} 'movie' {'🎬'} default {'✨'} }
       price = $price
       priceApprox = $approx
+      priceFrom = $false
       priceUnit = $units[$category]
       priceNote = [ordered]@{
-        ru = 'Цена уточняется — проверьте на месте или на сайте заведения.'
-        en = 'Price TBD — check on location or the venue website.'
+        ru = $priceNoteRu
+        en = $priceNoteEn
       }
+      website = $website
+      fee = $fee
+      charge = $charge
       rating = $null
       district = [ordered]@{ ru = $district; en = $district }
       metro = [ordered]@{ ru = 'Уточните на карте'; en = 'Check the map' }
@@ -240,14 +258,15 @@ foreach ($batch in $queries) {
       hook = [ordered]@{ ru = $hookRu; en = $hookEn }
       about = [ordered]@{ ru = $aboutRu; en = $aboutEn }
       whatYouGet = [ordered]@{ ru = $getRu[$category]; en = $getEn[$category] }
-      tip = [ordered]@{ ru = 'Цена ориентировочная: перед выходом проверьте стоимость и часы работы.'; en = 'The price is approximate: check cost and opening hours before you go.' }
+      tip = [ordered]@{ ru = 'Перед выходом проверьте стоимость и часы работы на сайте заведения.'; en = 'Check the cost and opening hours on the venue website before you go.' }
       deal = $null
       tags = [ordered]@{ ru = $tagRu[$category]; en = $tagEn[$category] }
       mapQuery = "$name, Москва"
       lat = $lat
       lon = $lon
       source = [ordered]@{ id = 'osm'; name = [ordered]@{ ru = 'OpenStreetMap'; en = 'OpenStreetMap' } }
-      priceConfidence = 'unknown'
+      priceConfidence = if ($null -eq $price) { 'unknown' } else { 'osm' }
+      priceSource = if ($null -eq $price) { '' } else { 'https://www.openstreetmap.org/' }
     }
     if (-not $counts.ContainsKey($category)) { $counts[$category] = 0 }
     $counts[$category] += 1

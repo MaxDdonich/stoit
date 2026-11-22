@@ -43,6 +43,8 @@ function Get-Wikidata([string]$Name, [string]$Query) {
         return $text
       }
       Write-Host ("  {0,-14} HTTP {1}" -f $Name, $code) -ForegroundColor DarkYellow
+    } catch {
+      Write-Host ("  {0,-14} соединение сброшено" -f $Name) -ForegroundColor DarkYellow
     } finally {
       Remove-Item $tmp -Force -ErrorAction SilentlyContinue
     }
@@ -89,7 +91,6 @@ $units = @{
   active = @{ ru = 'за час'; en = 'per hour' };
   movie = @{ ru = 'за билет'; en = 'per ticket' }
 }
-$estimates = @{ coffee = 350; food = 500; antikafe = 300; culture = 500; walk = 0; games = 600; active = 700; movie = 400 }
 $companies = @{
   coffee = @{ ru = '1–3 человека'; en = '1–3 people' }; food = @{ ru = '2–4 человека'; en = '2–4 people' };
   culture = @{ ru = '1–4 человека'; en = '1–4 people' }; walk = @{ ru = 'Любая компания'; en = 'Any group' };
@@ -127,11 +128,14 @@ $all = @()
 $seen = @{}
 foreach ($class in $classes) {
   $query = @"
-SELECT ?item ?itemLabel ?coord ?image WHERE {
+SELECT ?item ?itemLabel ?coord ?image ?site WHERE {
   ?item wdt:P31/wdt:P279* wd:$($class.q) .
   ?item wdt:P131 wd:Q649 .
   ?item wdt:P625 ?coord .
   OPTIONAL { ?item wdt:P18 ?image . }
+  OPTIONAL { ?item wdt:P856 ?site . }
+  OPTIONAL { ?item wdt:P576 ?dissolved . }
+  FILTER(!BOUND(?dissolved))
   SERVICE wikibase:label { bd:serviceParam wikibase:language "ru,en". }
 } LIMIT $($class.limit)
 "@
@@ -154,6 +158,8 @@ SELECT ?item ?itemLabel ?coord ?image WHERE {
     if ($m.Success) { $lon = [double]$m.Groups[1].Value; $lat = [double]$m.Groups[2].Value }
     $image = ''
     if ($null -ne $row.image) { $image = ([string]$row.image.value) -replace '^http://', 'https://' }
+    $website = ''
+    if ($null -ne $row.site) { $website = ([string]$row.site.value) -replace '^http://', 'https://' }
     $price = $null
     $approx = $false
     $district = 'Москва'
@@ -164,10 +170,11 @@ SELECT ?item ?itemLabel ?coord ?image WHERE {
       emoji = switch ($category) { 'culture' {'🖼'} 'walk' {'🌳'} 'active' {'🎳'} 'games' {'🎮'} 'movie' {'🎬'} default {'✨'} }
       price = $price
       priceApprox = $approx
+      priceFrom = $false
       priceUnit = $units[$category]
       priceNote = [ordered]@{
-        ru = 'Цена уточняется — проверьте на месте или на сайте заведения.'
-        en = 'Price TBD — check on location or the venue website.'
+        ru = 'Цена не указана в открытом источнике — проверьте на сайте заведения.'
+        en = 'Price is not listed in the public source — check the venue website.'
       }
       rating = $null
       district = [ordered]@{ ru = $district; en = 'Moscow' }
@@ -190,6 +197,7 @@ SELECT ?item ?itemLabel ?coord ?image WHERE {
       lat = $lat
       lon = $lon
       image = $image
+      website = $website
       source = [ordered]@{ id = 'wikidata'; name = [ordered]@{ ru = 'Wikidata'; en = 'Wikidata' } }
       priceConfidence = 'unknown'
     }

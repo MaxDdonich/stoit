@@ -781,6 +781,7 @@ button { cursor: pointer; }
   font-weight: 640;
 }
 .page-head p { margin: 0; max-width: 620px; color: var(--muted); font-size: 14px; }
+.page-head .page-note { margin-top: 10px; max-width: 640px; color: var(--faint); font-size: 11.5px; }
 
 .catalog {
   width: 100%;
@@ -1266,6 +1267,12 @@ button { cursor: pointer; }
 .footer-bottom a { color: var(--faint); text-decoration: underline; text-underline-offset: 2px; }
 .footer-bottom a:hover { color: var(--text); }
 .approx-pill { font-size: 9px; padding: 4px 7px; vertical-align: middle; }
+.pill-verified { display: inline-flex; align-items: center; gap: 4px; font-size: 9px; padding: 4px 7px; vertical-align: middle; color: var(--text); border-color: color-mix(in srgb, var(--text) 18%, transparent); background: color-mix(in srgb, var(--text) 5%, transparent); }
+.pill-verified svg { width: 10px; height: 10px; }
+.price-source { display: flex; align-items: center; flex-wrap: wrap; gap: 5px; margin: 7px 0 0; font-size: 11px; color: var(--faint); }
+.price-source a { display: inline-flex; align-items: center; gap: 4px; color: var(--accent-2); text-decoration: none; border-bottom: 1px solid color-mix(in srgb, var(--accent) 35%, transparent); }
+.price-source a:hover { color: var(--text); }
+.price-source svg { width: 11px; height: 11px; }
 
 /* ---------- modal ---------- */
 

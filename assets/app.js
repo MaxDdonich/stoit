@@ -19,7 +19,7 @@
     lang: "ru",
     theme: "dark",
     saved: [],
-    filters: { cats: [], moods: [], minPrice: 0, maxPrice: null, q: "", sort: "price" },
+    filters: { cats: [], moods: [], minPrice: 0, maxPrice: null, q: "", sort: "price", knownOnly: true },
     visibleCount: 12,
     refreshing: false,
     server: false,
@@ -46,12 +46,13 @@
       "header.menu": "Меню",
       "hero.kicker": "гид по Москве · {n} источников",
       "hero.title": "Москва, в которую <em>стоит</em> сходить.",
-      "hero.lead": "Кафе, выставки, игры и прогулки — от бесплатных до особого случая. <b>Честные цены за конкретную услугу</b>, а не «средний чек на всё». Лента обновляется каждый день из {n} источников.",
+      "hero.lead": "Кафе, выставки, игры и прогулки — от бесплатных до особого случая. <b>Цены — за конкретную услугу</b>, а где тарифа нет, так и написано. Лента обновляется каждый день из {n} источников.",
       "hero.cta1": "Смотреть места",
       "hero.cta2": "План на сегодня",
       "hero.metric.places": "мест и идей",
       "hero.metric.sources": "источников",
       "hero.metric.free": "бесплатно",
+      "hero.metric.priced": "с ценой",
       "hero.feature": "выбор дня",
       "hero.open": "Посмотреть",
       "tier.all": "Любой бюджет",
@@ -94,8 +95,12 @@
       "places.kicker": "каталог",
       "places.title": "Места и идеи",
       "places.sub": "Фильтруйте по бюджету, категории и настроению. Цены — за конкретную услугу.",
+      "places.priceCoverage": "С подтверждённой ценой: {priced} из {total}. Чтобы увидеть все места, выключите «Только с ценой».",
+      "places.priceCoverageAll": "Показаны все {total} мест. С подтверждённой ценой: {priced}.",
       "filters.title": "Фильтры",
       "filters.budget": "Бюджет",
+      "filters.price": "Цена",
+      "filters.priced": "Только с ценой",
       "filters.category": "Категория",
       "filters.mood": "Настроение",
       "filters.multi": "можно несколько",
@@ -122,8 +127,9 @@
       "price.free": "Бесплатно",
       "price.unknown": "цена в источнике",
       "price.inSource": "цена в источнике",
-      "price.tbd": "цена уточняется",
+      "price.tbd": "цена не указана",
       "price.approx": "ориентировочно",
+      "price.from": "от",
       "price.unit.visit": "за визит",
       "price.unit.entry": "вход",
       "price.unit.hour": "за час",
@@ -136,7 +142,11 @@
       "detail.about": "Почему стоит",
       "detail.get": "Что получите",
       "detail.withWhom": "С кем идти",
-      "detail.approx": "Цена уточняется",
+      "detail.approx": "ориентировочно",
+      "detail.verified": "цена проверена",
+      "detail.priceSource": "Проверить цену",
+      "detail.priceChecked": "проверено",
+      "detail.website": "Сайт заведения",
       "detail.tip": "Совет",
       "detail.deal": "Выгодно",
       "detail.map": "На карте",
@@ -286,12 +296,13 @@
       "header.menu": "Menu",
       "hero.kicker": "Moscow guide · {n} sources",
       "hero.title": "Moscow <em>worth</em> going out for.",
-      "hero.lead": "Cafes, exhibitions, games and walks — from free to special occasion. <b>Honest prices for what you actually get</b>, not an average bill for everything. The feed updates daily from {n} sources.",
+      "hero.lead": "Cafes, exhibitions, games and walks — from free to special occasion. <b>Prices are for what you actually get</b> — and when no tariff is published, we say so. The feed updates daily from {n} sources.",
       "hero.cta1": "Browse places",
       "hero.cta2": "Plan today",
       "hero.metric.places": "places & ideas",
       "hero.metric.sources": "sources",
       "hero.metric.free": "free",
+      "hero.metric.priced": "with prices",
       "hero.feature": "pick of the day",
       "hero.open": "Take a look",
       "tier.all": "Any budget",
@@ -334,8 +345,12 @@
       "places.kicker": "catalogue",
       "places.title": "Places & ideas",
       "places.sub": "Filter by budget, category and mood. Prices are for a specific service.",
+      "places.priceCoverage": "{priced} places with a confirmed price are shown. To see all {total}, turn off “Priced only”.",
+      "places.priceCoverageAll": "All {total} places are shown. {priced} have a confirmed price.",
       "filters.title": "Filters",
       "filters.budget": "Budget",
+      "filters.price": "Price",
+      "filters.priced": "Priced only",
       "filters.category": "Category",
       "filters.mood": "Mood",
       "filters.multi": "pick several",
@@ -362,8 +377,9 @@
       "price.free": "Free",
       "price.unknown": "price in source",
       "price.inSource": "price in source",
-      "price.tbd": "price TBD",
+      "price.tbd": "price not listed",
       "price.approx": "approximate",
+      "price.from": "from",
       "price.unit.visit": "per visit",
       "price.unit.entry": "entry",
       "price.unit.hour": "per hour",
@@ -376,7 +392,11 @@
       "detail.about": "Why it's worth it",
       "detail.get": "What you get",
       "detail.withWhom": "Who to bring",
-      "detail.approx": "Price TBD",
+      "detail.approx": "approximate",
+      "detail.verified": "price checked",
+      "detail.priceSource": "Check the price",
+      "detail.priceChecked": "checked",
+      "detail.website": "Venue website",
       "detail.tip": "Tip",
       "detail.deal": "Good deal",
       "detail.map": "On the map",
@@ -634,6 +654,7 @@
     if (place.price == null) return t("price.tbd");
     if (place.price === 0) return t("price.free");
     const base = money(place.price);
+    if (place.priceFrom) return t("price.from") + " " + base;
     return place.priceApprox ? "≈ " + base : base;
   }
 
@@ -695,6 +716,13 @@
       hour: "2-digit",
       minute: "2-digit",
     }).format(d);
+  }
+
+  function fmtDate(iso) {
+    if (!iso) return "";
+    const d = new Date(iso);
+    if (Number.isNaN(d.getTime())) return "";
+    return new Intl.DateTimeFormat(state.lang === "ru" ? "ru-RU" : "en-GB", { day: "numeric", month: "short" }).format(d);
   }
 
   function fmtShort(iso) {
@@ -826,6 +854,7 @@
     const f = state.filters;
     const words = f.q.trim() ? normalizeText(f.q).split(" ").filter(Boolean) : [];
     return state.feed.places.filter((p) => {
+      if (f.knownOnly && p.price == null) return false;
       if (!priceFilteredPlace(p, f)) return false;
       if (!options.ignoreCats && f.cats.length && !f.cats.includes(p.category)) return false;
       if (!options.ignoreMoods && f.moods.length) {
@@ -1098,7 +1127,7 @@
     const signals = homeSignals(5);
     const counts = tierCounts();
     const stats = state.feed.stats || {};
-    const freeCount = counts.free;
+    const pricedCount = stats.priced || state.feed.places.filter((p) => p.price != null).length;
     const sourceCount = stats.sourcesTotal || (state.feed.sources || []).length;
     const tierQuery = { free: "max=0", low: "max=300", mid: "max=700", high: "max=1500", premium: "min=1501" };
     const tierStrip = TIERS.map((tier) => `
@@ -1120,7 +1149,7 @@
           <div class="hero-meta">
             <div class="metric"><strong>${stats.places || state.feed.places.length}</strong><span>${esc(t("hero.metric.places"))}</span></div>
             <div class="metric"><strong>${sourceCount}</strong><span>${esc(t("hero.metric.sources"))}</span></div>
-            <div class="metric"><strong>${freeCount}</strong><span>${esc(t("hero.metric.free"))}</span></div>
+            <div class="metric"><strong>${pricedCount}</strong><span>${esc(t("hero.metric.priced"))}</span></div>
           </div>
         </div>
         <div class="hero-stack">
@@ -1193,9 +1222,11 @@
     state.filters.q = params.get("q") || "";
     state.filters.maxPrice = params.has("max") ? (params.get("max") === "" ? null : Number(params.get("max"))) : null;
     state.filters.minPrice = params.has("min") ? (Number(params.get("min")) || 0) : 0;
+    state.filters.knownOnly = params.get("all") !== "1";
 
     const catCounts = facetCategoryCounts();
     const moodCounts = facetMoodCounts();
+    const knownCount = state.feed.places.filter((p) => p.price != null).length;
     const allTags = tagPairs();
     const activeCount = [state.filters.cats.length > 0, state.filters.moods.length > 0, state.filters.maxPrice != null || state.filters.minPrice > 0, !!state.filters.q].filter(Boolean).length;
     const budgetActive = state.filters.maxPrice == null && state.filters.minPrice === 0;
@@ -1228,6 +1259,7 @@
         <span class="kicker"><span class="dot"></span>${esc(t("places.kicker"))}</span>
         <h1>${esc(t("places.title"))}</h1>
         <p>${esc(t("places.sub"))}</p>
+        <p class="page-note">${esc(t(state.filters.knownOnly ? "places.priceCoverage" : "places.priceCoverageAll", { priced: knownCount, total: state.feed.places.length }))}</p>
       </div>
       <div class="catalog">
         <details class="filters" ${window.matchMedia("(max-width: 860px)").matches ? "" : "open"}>
@@ -1243,6 +1275,10 @@
                   <span>₽ ${esc(t("filters.perPerson"))}</span>
                 </div>
               </div>
+            </div>
+            <div class="filter-group">
+              <div class="filter-title">${esc(t("filters.price"))}</div>
+              <div class="filter-list">${filterButton("known", "1", t("filters.priced"), knownCount, state.filters.knownOnly)}</div>
             </div>
             <div class="filter-group">
               <div class="filter-title">${esc(t("filters.category"))} · ${esc(t("filters.multi"))}</div>
@@ -1412,10 +1448,13 @@
               <strong>${esc(priceText(place))}</strong>
               ${place.price != null ? `<span>${esc(placeUnit(place))}</span>` : ""}
               ${place.priceApprox ? `<span class="pill pill-accent approx-pill">${esc(t("detail.approx"))}</span>` : ""}
+              ${place.priceConfidence === "verified" ? `<span class="pill pill-verified">${icon("check")} ${esc(t("detail.verified"))}</span>` : ""}
             </div>
             <p class="price-note">${esc(loc(place.priceNote))}</p>
+            ${place.priceSource ? `<p class="price-source"><a href="${esc(place.priceSource)}" target="_blank" rel="noopener noreferrer">${icon("up")} ${esc(t("detail.priceSource"))}</a>${place.priceCheckedAt ? ` <span>· ${esc(t("detail.priceChecked"))} ${esc(fmtDate(place.priceCheckedAt))}</span>` : ""}</p>` : ""}
             <div class="place-actions">
               <a class="btn btn-primary" href="${esc(mapUrl)}" target="_blank" rel="noopener noreferrer">${icon("map")} ${esc(t("detail.map"))}</a>
+              ${place.website ? `<a class="btn" href="${esc(place.website)}" target="_blank" rel="noopener noreferrer">${icon("globe")} ${esc(t("detail.website"))}</a>` : ""}
               ${saveButton(place)}
               <button class="btn" type="button" data-share="${esc(place.id)}">${icon("share")} ${esc(t("detail.share"))}</button>
             </div>
@@ -1548,23 +1587,31 @@
 
   function renderRoute(scroll = true) {
     if (!state.feed) return;
-    const route = parseRoute();
-    const section = route.parts[0] || "home";
-    document.body.classList.remove("modal-open");
-    $$(".nav.open").forEach((nav) => nav.classList.remove("open"));
-    const menu = $('[data-action="menu"]');
-    if (menu) menu.setAttribute("aria-expanded", "false");
-    updateMeta();
-    renderHeader();
-    renderFooter();
-    if (section === "home") renderHome();
-    else if (section === "places") renderPlaces();
-    else if (section === "sources") renderSources();
-    else if (section === "saved") renderSaved();
-    else if (section === "place") renderPlace(route.parts[1]);
-    else if (section === "idea") renderIdea(route.parts[1]);
-    else renderNotFound();
-    if (scroll) window.scrollTo({ top: 0, behavior: "auto" });
+    try {
+      const route = parseRoute();
+      const section = route.parts[0] || "home";
+      document.body.classList.remove("modal-open");
+      $$(".nav.open").forEach((nav) => nav.classList.remove("open"));
+      const menu = $('[data-action="menu"]');
+      if (menu) menu.setAttribute("aria-expanded", "false");
+      updateMeta();
+      renderHeader();
+      renderFooter();
+      if (section === "home") renderHome();
+      else if (section === "places") renderPlaces();
+      else if (section === "sources") renderSources();
+      else if (section === "saved") renderSaved();
+      else if (section === "place") renderPlace(route.parts[1]);
+      else if (section === "idea") renderIdea(route.parts[1]);
+      else renderNotFound();
+      if (scroll) window.scrollTo({ top: 0, behavior: "auto" });
+    } catch (err) {
+      console.error("STOIT render error:", err);
+      state.loadingError = true;
+      renderError();
+    } finally {
+      hideSplash();
+    }
   }
 
   function hideSplash() {
@@ -1592,6 +1639,7 @@
     if (state.filters.moods.length) params.set("mood", state.filters.moods.join(","));
     if (state.filters.maxPrice != null) params.set("max", String(state.filters.maxPrice));
     if (state.filters.minPrice > 0) params.set("min", String(state.filters.minPrice));
+    if (!state.filters.knownOnly) params.set("all", "1");
     if (state.filters.q.trim()) params.set("q", state.filters.q.trim());
     const qs = params.toString();
     const next = "#/places" + (qs ? "?" + qs : "");
@@ -1984,6 +2032,8 @@
             const current = state.filters[key];
             state.filters[key] = current.includes(value) ? current.filter((x) => x !== value) : current.concat(value);
           }
+        } else if (group === "known") {
+          state.filters.knownOnly = !state.filters.knownOnly;
         }
         state.visibleCount = 12;
         syncFiltersToUrl();
@@ -2001,7 +2051,7 @@
         return;
       }
       if (target.closest("[data-filter-reset]")) {
-        state.filters = { cats: [], moods: [], minPrice: 0, maxPrice: null, q: "", sort: state.filters.sort };
+        state.filters = { cats: [], moods: [], minPrice: 0, maxPrice: null, q: "", sort: state.filters.sort, knownOnly: true };
         state.visibleCount = 12;
         syncFiltersToUrl();
         renderPlaces();
