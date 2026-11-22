@@ -32,7 +32,7 @@ function Test-SocialUrl([string]$Url) {
 function Test-PriceSourceUrl([string]$Url) {
   if (-not $Url) { return $false }
   if (Test-SocialUrl $Url) { return $false }
-  if ($Url -match '(?i)yandex\.ru/maps|google\.[a-z.]+/maps|2gis\.|news\.google\.com|google\.[a-z.]+/rss') { return $false }
+  if ($Url -match '(?i)yandex\.ru/maps|google\.[a-z.]+/maps|2gis\.|news\.google\.com|google\.[a-z.]+/rss|news\.|/news/|ria\.ru|tass\.|interfax|theblueprint|afisha\.ru|kudago\.com') { return $false }
   return $true
 }
 
@@ -272,6 +272,7 @@ function Get-TextUrls([string]$Text) {
   if (-not $Text) { return @() }
   foreach ($m in [regex]::Matches($Text, 'https?://[^\s<>"'']+')) {
     $url = ($m.Value -replace '[),.;]+$', '').Trim()
+    if ($url -match '(?i)\.(jpg|jpeg|png|gif|webp|svg|mp4|mov|pdf|zip)(\?|$)') { continue }
     if ($url -and $urls -notcontains $url) { $urls += $url }
   }
   return $urls
@@ -356,7 +357,7 @@ function Invoke-PriceDiscovery {
       $signal = $match.Signal
       $place = $match.Place
       $text = ("$($signal.title.ru) $($signal.summary.ru)").Trim()
-      $urls = @(Get-TextUrls $text)
+      $urls = @(Get-TextUrls $text) + @($signal.links)
       if ($signal.url -and -not (Test-SocialUrl ([string]$signal.url))) { $urls += [string]$signal.url }
       $officialHost = Get-UrlHost ([string]$place.website)
       foreach ($url in @($urls | Select-Object -Unique)) {
@@ -391,11 +392,12 @@ function Invoke-PriceDiscovery {
       if ($script:PriceCheckedSignals -ge $MaxSignalChecks) { break }
       if ($signal.placeId) { continue }
       $text = ("$($signal.title.ru) $($signal.summary.ru)").Trim()
-      $urls = @(Get-TextUrls $text)
+      $urls = @(Get-TextUrls $text) + @($signal.links)
       if ($signal.url -and -not (Test-SocialUrl ([string]$signal.url))) { $urls += [string]$signal.url }
       foreach ($url in @($urls | Select-Object -Unique)) {
         if (-not (Test-PriceSourceUrl $url)) { continue }
-        if ($url -notmatch '(?i)ticket|bilet|price|cena|tarif|menu|меню|билет|цена|тариф') { continue }
+        $pricePath = $url -match '(?i)ticket|bilet|price|cena|tarif|menu|меню|билет|цена|тариф'
+        if (-not $pricePath -and $null -eq $signal.price) { continue }
         $script:PriceCheckedSignals += 1
         $page = Get-PricePageData $url
         if ($null -eq $page) { continue }

@@ -319,6 +319,7 @@ foreach ($src in $config.sources) {
         $title    = [regex]::Replace($title, '^\[(?:Photo|GIF|Video|Animated Sticker)\]\s*', '', 'IgnoreCase')
         $title    = [regex]::Replace($title, '^Photo\]\s*', '', 'IgnoreCase')
         $summary  = Clean-Text $descRaw
+        $postLinks = @(Get-TextUrls ($descRaw + ' ' + $titleRaw) | Select-Object -First 8)
         $publisher = ''
         if ($src.stripSuffix) {
           $pm = [regex]::Match($title, '\s+-\s+([^-]{2,60})$')
@@ -394,6 +395,7 @@ foreach ($src in $config.sources) {
           sourceId = $src.id
           sourceName = $src.name
           sourceKind = $src.kind
+          links = $postLinks
           publisher = $publisher
           publishedAt = $pub.ToString('yyyy-MM-ddTHH:mm:sszzz')
           category = $category
@@ -503,6 +505,7 @@ foreach ($s in $selected) {
     sourceId = $s.sourceId
     sourceName = $s.sourceName
     sourceKind = $s.sourceKind
+    links = @($s.links)
     publisher = [string]$s.publisher
     publishedAt = $s.publishedAt
     category = $s.category
