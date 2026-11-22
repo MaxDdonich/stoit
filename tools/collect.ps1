@@ -5,7 +5,10 @@
 param(
   [switch]$NoTranslate,
   [int]$MaxSignals = 80,
-  [switch]$Force
+  [switch]$Force,
+  [switch]$NoPriceSearch,
+  [int]$MaxPriceChecks = 12,
+  [int]$MaxSignalPriceChecks = 15
 )
 
 $ErrorActionPreference = 'Stop'
@@ -17,6 +20,8 @@ $CacheDir    = Join-Path $DataDir 'cache'
 $ConfigPath  = Join-Path $Root 'config\sources.json'
 $SeedPath    = Join-Path $DataDir 'seed.json'
 $PricesPath  = Join-Path $DataDir 'prices.json'
+$PriceCachePath = Join-Path $DataDir 'price-cache.json'
+$PriceReviewPath = Join-Path $DataDir 'price-review.json'
 $FeedPath    = Join-Path $DataDir 'feed.json'
 $TrCachePath = Join-Path $DataDir 'translation-cache.json'
 $TrBudgetPath = Join-Path $DataDir 'translation-budget.json'
@@ -209,6 +214,8 @@ function Test-PlaceQuality($Place) {
   if ($cat -eq 'active' -and $name -match 'военн|арми|флот|авиац|ркка|пограничн|оборон|стадион|арена|мегаспорт|спортивный комплекс|лдс|лск') { return $false }
   return $true
 }
+
+. (Join-Path $PSScriptRoot 'price-finder.ps1')
 
 # ---------- перевод (MyMemory, без ключа, с кэшем и дневным лимитом) ----------
 $TrCache = @{}
@@ -498,6 +505,11 @@ foreach ($s in $selected) {
     publishedAt = $s.publishedAt
     category = $s.category
     machineTranslated = ($titleEn -ne $titleRu -or $summaryEn -ne $summaryRu)
+    priceOrigin = $null
+    priceConfidence = $null
+    priceSource = $null
+    priceQuote = $null
+    placeId = $null
   }
   $idx += 1
 }
@@ -529,12 +541,14 @@ if ($null -ne $osmMeta -and $null -ne $osmMeta.places) {
     if ([string]$p.fee -eq 'no') {
       $p.price = 0
       $p.priceConfidence = 'osm'
+      Set-PlaceField $p 'priceOrigin' 'osm'
       $p.priceNote = [ordered]@{ ru = 'Вход свободный по данным OpenStreetMap; платные услуги уточняйте.'; en = 'Free entry according to OpenStreetMap; check paid extras.' }
       Set-PlaceField $p 'priceSource' 'https://www.openstreetmap.org/'
       Set-PlaceField $p 'priceCheckedAt' ([string]$osmMeta.updatedAt)
     } elseif ([string]$p.charge -match '^\s*(\d{2,5})\s*(?:₽|руб|rub)?\s*$') {
       $p.price = [int]$Matches[1]
       $p.priceConfidence = 'osm'
+      Set-PlaceField $p 'priceOrigin' 'osm'
       $p.priceNote = [ordered]@{ ru = 'Цена указана в OpenStreetMap; проверьте перед выходом.'; en = 'Price from OpenStreetMap; check before you go.' }
       Set-PlaceField $p 'priceSource' 'https://www.openstreetmap.org/'
       Set-PlaceField $p 'priceCheckedAt' ([string]$osmMeta.updatedAt)
@@ -609,7 +623,6 @@ if ($null -ne $prices -and $null -ne $prices.entries) {
     }
   }
 }
-$pricedCount = 0
 foreach ($p in $allPlaces) {
   $e = Get-PriceOverride $p
   if ($null -ne $e) {
@@ -623,13 +636,28 @@ foreach ($p in $allPlaces) {
     if ($null -ne $e.sourceLabel) { Set-PlaceField $p 'priceSourceLabel' $e.sourceLabel }
     Set-PlaceField $p 'priceCheckedAt' ([string]$e.checkedAt)
     Set-PlaceField $p 'priceConfidence' ([string]$e.confidence)
+    Set-PlaceField $p 'priceOrigin' 'manual'
   } elseif ($null -ne $p.price -and ([string]$p.source.id -eq 'seed')) {
     Set-PlaceField $p 'priceConfidence' 'editorial'
+    Set-PlaceField $p 'priceOrigin' 'editorial'
     Set-PlaceField $p 'priceApprox' $true
     Set-PlaceField $p 'priceFrom' $false
   }
-  if ($null -ne $p.price) { $pricedCount += 1 }
 }
+
+# ---------- автоматический поиск цен ----------
+$discovery = [ordered]@{ checkedPlaces = 0; checkedSignals = 0; applied = 0; review = 0 }
+try {
+  $discovery = Invoke-PriceDiscovery -Places $allPlaces -Signals $finalSignals -Now $Now `
+    -MaxPlaceChecks $MaxPriceChecks -MaxSignalChecks $MaxSignalPriceChecks `
+    -CachePath $PriceCachePath -ReviewPath $PriceReviewPath -SkipNetwork:$NoPriceSearch
+  if ($discovery.applied -gt 0) {
+    Write-Host ("  цены: найдено {0}, на проверку {1}" -f $discovery.applied, $discovery.review) -ForegroundColor Green
+  }
+} catch {
+  Write-Host "  ! Поиск цен: $($_.Exception.Message)" -ForegroundColor DarkYellow
+}
+$pricedCount = @($allPlaces | Where-Object { $null -ne $_.price }).Count
 
 $freshCount = @($finalSignals | Where-Object { ([DateTimeOffset]::Parse($_.publishedAt) -gt $Now.AddDays(-1)) }).Count
 $okCount = @($sourceOut | Where-Object { $_.status -eq 'ok' -or $_.status -eq 'cached' }).Count
@@ -639,7 +667,7 @@ while ($nextLocal -lt $Now.DateTime) { $nextLocal = $nextLocal.AddDays(1) }
 $next = [DateTimeOffset]::Parse($nextLocal.ToString('yyyy-MM-ddTHH:mm:ss') + '+03:00')
 
 $feed = [ordered]@{
-  schema = 10
+  schema = 11
   app = 'STOIT'
   updatedAt = $Now.ToString('yyyy-MM-ddTHH:mm:sszzz')
   nextUpdate = ([DateTimeOffset]$next).ToString('yyyy-MM-ddTHH:mm:sszzz')
@@ -651,6 +679,9 @@ $feed = [ordered]@{
   stats = [ordered]@{
     places = $allPlaces.Count
     priced = $pricedCount
+    priceChecked = $discovery.checkedPlaces + $discovery.checkedSignals
+    priceApplied = $discovery.applied
+    priceReview = $discovery.review
     signals = $finalSignals.Count
     fresh = $freshCount
     sourcesOk = $okCount

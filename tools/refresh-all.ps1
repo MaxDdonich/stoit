@@ -33,7 +33,11 @@ if ($Force -or (Test-Stale $WikiPath 7)) {
 }
 
 try {
-  & (Join-Path $PSScriptRoot 'collect.ps1')
+  if ($Force) {
+    & (Join-Path $PSScriptRoot 'collect.ps1') -MaxPriceChecks 24 -MaxSignalPriceChecks 24
+  } else {
+    & (Join-Path $PSScriptRoot 'collect.ps1')
+  }
 } catch {
   Write-Host "  ! лента: $($_.Exception.Message)" -ForegroundColor Red
 }

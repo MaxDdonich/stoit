@@ -686,6 +686,7 @@ button { cursor: pointer; }
 .signal-foot { display: flex; align-items: center; gap: 8px; margin-top: auto; padding-top: 9px; }
 .signal-price { font-size: 11px; font-weight: 600; color: var(--text); }
 .signal-price span { font-weight: 400; color: var(--faint); font-size: 9.5px; }
+.signal-price em { display: inline-block; margin-left: 5px; font-style: normal; font-size: 9px; color: var(--accent-2); }
 .signal-more { margin-left: auto; color: var(--faint); }
 .signal-more svg { width: 14px; height: 14px; }
 .signal.wide { grid-column: span 2; grid-template-columns: 260px minmax(0, 1fr); min-height: 220px; }
@@ -1273,6 +1274,7 @@ button { cursor: pointer; }
 .price-source a { display: inline-flex; align-items: center; gap: 4px; color: var(--accent-2); text-decoration: none; border-bottom: 1px solid color-mix(in srgb, var(--accent) 35%, transparent); }
 .price-source a:hover { color: var(--text); }
 .price-source svg { width: 11px; height: 11px; }
+.price-quote { margin: 6px 0 0; max-width: 620px; font-size: 11.5px; line-height: 1.45; color: var(--faint); font-style: italic; }
 
 /* ---------- modal ---------- */
 

@@ -146,6 +146,8 @@
       "detail.verified": "цена проверена",
       "detail.priceSource": "Проверить цену",
       "detail.priceChecked": "проверено",
+      "detail.priceSite": "цена с сайта",
+      "detail.priceLinked": "цена из источника",
       "detail.website": "Сайт заведения",
       "detail.tip": "Совет",
       "detail.deal": "Выгодно",
@@ -172,6 +174,11 @@
       "idea.published": "Опубликовано",
       "idea.price": "Цена",
       "idea.noPrice": "Цена не указана — смотрите в источнике",
+      "idea.price.post": "цена из поста",
+      "idea.price.discussion": "цена из обсуждения",
+      "idea.price.postLink": "цена по ссылке",
+      "idea.price.sourceText": "цена из источника",
+      "idea.place": "Место в каталоге",
       "sources.kicker": "как обновляется",
       "sources.title": "Источники, один гид",
       "sources.sub": "Telegram-каналы, городские медиа, официальная афиша и обсуждения. Каждый день сайт собирает свежие идеи и проверяет цены.",
@@ -179,6 +186,9 @@
       "sources.next": "Следующее обновление",
       "sources.active": "Источников в норме",
       "sources.materials": "Материалов в ленте",
+      "sources.priceChecked": "Цен проверено",
+      "sources.priceApplied": "подтверждено",
+      "sources.priceReview": "на проверке",
       "sources.refresh": "Обновить сейчас",
       "sources.refreshing": "Обновляем…",
       "sources.items": "{n} материалов",
@@ -396,6 +406,8 @@
       "detail.verified": "price checked",
       "detail.priceSource": "Check the price",
       "detail.priceChecked": "checked",
+      "detail.priceSite": "price from the website",
+      "detail.priceLinked": "price from the source",
       "detail.website": "Venue website",
       "detail.tip": "Tip",
       "detail.deal": "Good deal",
@@ -422,6 +434,11 @@
       "idea.published": "Published",
       "idea.price": "Price",
       "idea.noPrice": "No price given — check the source",
+      "idea.price.post": "price from the post",
+      "idea.price.discussion": "price from the discussion",
+      "idea.price.postLink": "price from the link",
+      "idea.price.sourceText": "price from the source",
+      "idea.place": "Place in the catalogue",
       "sources.kicker": "how it updates",
       "sources.title": "Many sources, one guide",
       "sources.sub": "Telegram channels, city media, the official programme and community feeds. Every day the site collects fresh ideas and checks prices.",
@@ -429,6 +446,9 @@
       "sources.next": "Next update",
       "sources.active": "Sources online",
       "sources.materials": "Items in the feed",
+      "sources.priceChecked": "Prices checked",
+      "sources.priceApplied": "confirmed",
+      "sources.priceReview": "under review",
       "sources.refresh": "Refresh now",
       "sources.refreshing": "Refreshing…",
       "sources.items": "{n} items",
@@ -656,6 +676,15 @@
     const base = money(place.price);
     if (place.priceFrom) return t("price.from") + " " + base;
     return place.priceApprox ? "≈ " + base : base;
+  }
+
+  function signalPriceLabel(signal) {
+    if (!signal || !signal.priceOrigin) return "";
+    if (signal.priceOrigin === "post") return t("idea.price.post");
+    if (signal.priceOrigin === "discussion") return t("idea.price.discussion");
+    if (signal.priceOrigin === "post-link") return t("idea.price.postLink");
+    if (signal.priceOrigin === "source-text") return t("idea.price.sourceText");
+    return "";
   }
 
   function companyShort(place) {
@@ -1037,6 +1066,7 @@
     const source = signal.publisher || loc(signal.sourceName);
     const price = signal.price === 0 ? t("price.free") : signal.price ? money(signal.price) : t("price.inSource");
     const unit = signal.price ? `<span>${esc(loc(signal.priceUnit) || "")}</span>` : "";
+    const priceLabel = signalPriceLabel(signal);
     const media = signal.image
       ? `<img src="${esc(signal.image)}" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.style.display='none'">`
       : "";
@@ -1052,7 +1082,7 @@
           <h3>${esc(loc(signal.title))}</h3>
           <p class="signal-summary">${esc(loc(signal.summary))}</p>
           <div class="signal-foot">
-            <span class="signal-price">${esc(price)} ${unit}</span>
+            <span class="signal-price">${esc(price)} ${unit}${priceLabel ? `<em>${esc(priceLabel)}</em>` : ""}</span>
             <span class="signal-more">${icon("up")}</span>
           </div>
         </div>
@@ -1380,6 +1410,7 @@
           <span>${esc(t("sources.active"))}: <b>${active}/${sources.length}</b></span>
           <span class="sep"></span>
           <span>${esc(t("sources.materials"))}: <b>${stats.signals || state.feed.signals.length}</b></span>
+          ${stats.priceChecked ? `<span class="sep"></span><span>${esc(t("sources.priceChecked"))}: <b>${stats.priceChecked}</b> · ${esc(t("sources.priceApplied"))}: <b>${stats.priceApplied || 0}</b>${stats.priceReview ? ` · ${esc(t("sources.priceReview"))}: <b>${stats.priceReview}</b>` : ""}</span>` : ""}
           <button class="btn btn-sm" type="button" data-action="refresh" ${state.refreshing ? "disabled" : ""}>${state.refreshing ? icon("refresh") + " " + esc(t("sources.refreshing")) : icon("refresh") + " " + esc(t("sources.refresh"))}</button>
         </div>
         <div class="source-groups">${groupsHtml}</div>
@@ -1449,8 +1480,11 @@
               ${place.price != null ? `<span>${esc(placeUnit(place))}</span>` : ""}
               ${place.priceApprox ? `<span class="pill pill-accent approx-pill">${esc(t("detail.approx"))}</span>` : ""}
               ${place.priceConfidence === "verified" ? `<span class="pill pill-verified">${icon("check")} ${esc(t("detail.verified"))}</span>` : ""}
+              ${place.priceConfidence !== "verified" && place.priceOrigin === "venue-site" ? `<span class="pill pill-verified">${icon("check")} ${esc(t("detail.priceSite"))}</span>` : ""}
+              ${place.priceOrigin === "post-link" ? `<span class="pill">${esc(t("detail.priceLinked"))}</span>` : ""}
             </div>
             <p class="price-note">${esc(loc(place.priceNote))}</p>
+            ${place.priceQuote ? `<p class="price-quote">«${esc(place.priceQuote)}»</p>` : ""}
             ${place.priceSource ? `<p class="price-source"><a href="${esc(place.priceSource)}" target="_blank" rel="noopener noreferrer">${icon("up")} ${esc(t("detail.priceSource"))}</a>${place.priceCheckedAt ? ` <span>· ${esc(t("detail.priceChecked"))} ${esc(fmtDate(place.priceCheckedAt))}</span>` : ""}</p>` : ""}
             <div class="place-actions">
               <a class="btn btn-primary" href="${esc(mapUrl)}" target="_blank" rel="noopener noreferrer">${icon("map")} ${esc(t("detail.map"))}</a>
@@ -1521,6 +1555,7 @@
     const source = state.feed.sources.find((s) => s.id === signal.sourceId);
     const related = state.feed.places.filter((p) => p.category === signal.category).slice(0, 3);
     const price = signal.price === 0 ? t("price.free") : signal.price ? money(signal.price) : t("idea.noPrice");
+    const priceLabel = signalPriceLabel(signal);
     view.innerHTML = `
       <article class="place-page" style="max-width:960px">
         <div class="breadcrumbs"><a href="#/sources">${esc(t("nav.sources"))}</a> ${icon("arrow")} ${esc(t("idea.kicker"))}</div>
@@ -1533,10 +1568,12 @@
             <span class="kicker"><span class="dot"></span>${esc(signal.publisher || loc(signal.sourceName))}</span>
             <h1 style="font-size:clamp(32px,4vw,48px)">${esc(loc(signal.title))}</h1>
             <p class="place-hook">${esc(loc(signal.summary))}</p>
-            <div class="place-price"><strong>${esc(price)}</strong>${signal.price ? `<span>${esc(loc(signal.priceUnit) || "")}</span>` : ""}</div>
+            <div class="place-price"><strong>${esc(price)}</strong>${signal.price ? `<span>${esc(loc(signal.priceUnit) || "")}</span>` : ""}${priceLabel ? `<span class="pill pill-accent">${esc(priceLabel)}</span>` : ""}</div>
             <p class="price-note">${esc(t("idea.published"))}: ${esc(fmtDateTime(signal.publishedAt))}</p>
+            ${signal.priceQuote ? `<p class="price-quote">«${esc(signal.priceQuote)}»</p>` : ""}
             <div class="place-actions">
               <a class="btn btn-primary" href="${esc(signal.url)}" target="_blank" rel="noopener noreferrer">${icon("up")} ${esc(t("idea.original"))}</a>
+              ${signal.placeId ? `<a class="btn" href="#/place/${encodeURIComponent(signal.placeId)}">${icon("arrow")} ${esc(t("idea.place"))}</a>` : ""}
               ${source ? `<a class="btn" href="${esc(source.homepage)}" target="_blank" rel="noopener noreferrer">${icon("rss")} ${esc(loc(source.name))}</a>` : ""}
             </div>
           </div>
