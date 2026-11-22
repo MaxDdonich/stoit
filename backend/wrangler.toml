@@ -1,4 +1,4 @@
-name = "stoit-refresh"
+name = "autumn-unit-730b"
 main = "worker.js"
 compatibility_date = "2026-11-22"
 workers_dev = true
