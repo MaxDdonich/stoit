@@ -1088,7 +1088,7 @@
       </div>
       <div class="footer-bottom">
         <span>© ${new Date().getFullYear()} СТОИТ · ${esc(t("footer.rights"))} · <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer">${esc(t("footer.osm"))}</a></span>
-        <span class="mono">${esc(t("footer.updated"))}: ${esc(state.feed ? fmtDateTime(state.feed.updatedAt) : "—")} · made by deprice</span>
+        <span class="mono">${esc(t("footer.updated"))}: ${esc(state.feed ? fmtDateTime(state.feed.updatedAt) : "—")} · Made by Deprice</span>
       </div>`;
   }
 
