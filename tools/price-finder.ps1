@@ -64,7 +64,9 @@ function Get-PricePageLinks([string]$Html, [string]$BaseUrl) {
     if ($href -match '(?i)\.(jpg|jpeg|png|gif|svg|webp|zip|rar|docx?)$') { continue }
     $absolute = $href
     try { $absolute = ([Uri]::new([Uri]$BaseUrl, $href)).AbsoluteUri } catch { continue }
-    if ((Get-UrlHost $absolute) -ne $baseHost) { continue }
+    $linkHost = Get-UrlHost $absolute
+    if (-not $linkHost) { continue }
+    if ($linkHost -ne $baseHost -and -not $linkHost.EndsWith('.' + $baseHost) -and -not $baseHost.EndsWith('.' + $linkHost)) { continue }
     $haystack = ("$absolute $anchor").ToLowerInvariant()
     if ($haystack -notmatch 'билет|цена|цены|тариф|стоимост|прайс|price|ticket|tarif|cost|menu|меню|посещ|купить') { continue }
     if ($links -notcontains $absolute) { $links += $absolute }
