@@ -1,0 +1,70 @@
+name: Update and deploy STOIT
+
+on:
+  schedule:
+    # каждый день в 06:00 UTC = 09:00 МСК
+    - cron: "0 6 * * *"
+    # каждое воскресенье в 03:00 UTC — полное обновление OSM/Wikidata
+    - cron: "0 3 * * 0"
+  workflow_dispatch:
+    inputs:
+      force_catalogs:
+        description: "Обновить OSM и Wikidata принудительно"
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  update:
+    runs-on: windows-latest
+    timeout-minutes: 35
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Collect fresh data
+        shell: pwsh
+        run: |
+          $force = "${{ github.event.schedule }}" -eq "0 3 * * 0" -or "${{ inputs.force_catalogs }}" -eq "true"
+          if ($force) {
+            ./tools/refresh-all.ps1 -Force
+          } else {
+            ./tools/refresh-all.ps1
+          }
+
+      - name: Prepare static site
+        shell: pwsh
+        run: |
+          New-Item -ItemType Directory -Force _site | Out-Null
+          New-Item -ItemType Directory -Force _site/data | Out-Null
+          Copy-Item index.html, manifest.webmanifest, sw.js -Destination _site
+          Copy-Item assets -Destination _site -Recurse
+          Copy-Item data/feed.json -Destination _site/data/feed.json
+          if (-not (Test-Path _site/data/feed.json)) { throw "feed.json is missing" }
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    needs: update
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

@@ -1,0 +1,9 @@
+data/cache/
+data/last-refresh.log
+_site/
+.DS_Store
+Thumbs.db
+
+backend/.wrangler/
+backend/.dev.vars
+backend/node_modules/

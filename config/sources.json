@@ -1,0 +1,492 @@
+{
+    "sources":  [
+                    {
+                        "id":  "tg-kudago",
+                        "kind":  "telegram",
+                        "name":  {
+                                     "ru":  "Telegram · KudaGo",
+                                     "en":  "Telegram · KudaGo"
+                                 },
+                        "description":  {
+                                            "ru":  "Афиша, события и идеи для города",
+                                            "en":  "City events and going-out ideas"
+                                        },
+                        "homepage":  "https://t.me/kudago",
+                        "feeds":  [
+                                      "https://rsshub.rssforever.com/telegram/channel/kudago",
+                                      "https://tg.i-c-a.su/rss/kudago"
+                                  ]
+                    },
+                    {
+                        "id":  "tg-afisha",
+                        "kind":  "telegram",
+                        "name":  {
+                                     "ru":  "Telegram · Афиша Daily",
+                                     "en":  "Telegram · Afisha Daily"
+                                 },
+                        "description":  {
+                                            "ru":  "Что происходит в Москве сегодня",
+                                            "en":  "What is happening in Moscow today"
+                                        },
+                        "homepage":  "https://t.me/afishadaily",
+                        "feeds":  [
+                                      "https://rsshub.rssforever.com/telegram/channel/afishadaily",
+                                      "https://tg.i-c-a.su/rss/afishadaily"
+                                  ]
+                    },
+                    {
+                        "id":  "tg-moskvich",
+                        "kind":  "telegram",
+                        "name":  {
+                                     "ru":  "Telegram · Москвич Mag",
+                                     "en":  "Telegram · Moskvich Mag"
+                                 },
+                        "description":  {
+                                            "ru":  "Городские истории и новые места",
+                                            "en":  "City stories and new places"
+                                        },
+                        "homepage":  "https://t.me/moskvichmag",
+                        "feeds":  [
+                                      "https://rsshub.rssforever.com/telegram/channel/moskvichmag",
+                                      "https://tg.i-c-a.su/rss/moskvichmag"
+                                  ]
+                    },
+                    {
+                        "id":  "tg-moscowlive",
+                        "kind":  "community",
+                        "name":  {
+                                     "ru":  "Telegram · Москва Live",
+                                     "en":  "Telegram · Moscow Live"
+                                 },
+                        "description":  {
+                                            "ru":  "Городские обсуждения и повестка",
+                                            "en":  "City chatter and agenda"
+                                        },
+                        "homepage":  "https://t.me/moscowlive",
+                        "feeds":  [
+                                      "https://rsshub.rssforever.com/telegram/channel/moscowlive",
+                                      "https://tg.i-c-a.su/rss/moscowlive"
+                                  ]
+                    },
+                    {
+                        "id":  "tg-walks",
+                        "kind":  "community",
+                        "name":  {
+                                     "ru":  "Telegram · Moscow Walks",
+                                     "en":  "Telegram · Moscow Walks"
+                                 },
+                        "description":  {
+                                            "ru":  "Маршруты, дворы и неожиданные места",
+                                            "en":  "Routes, courtyards and unexpected places"
+                                        },
+                        "homepage":  "https://t.me/moscowwalks",
+                        "feeds":  [
+                                      "https://rsshub.rssforever.com/telegram/channel/moscowwalks",
+                                      "https://tg.i-c-a.su/rss/moscowwalks"
+                                  ]
+                    },
+                    {
+                        "id":  "tg-progulki",
+                        "kind":  "community",
+                        "name":  {
+                                     "ru":  "Telegram · Прогулки по Москве",
+                                     "en":  "Telegram · Moscow Walks Club"
+                                 },
+                        "description":  {
+                                            "ru":  "Идеи для прогулок и досуга",
+                                            "en":  "Ideas for walks and leisure"
+                                        },
+                        "homepage":  "https://t.me/progulki_po_moskve",
+                        "moscowOnly":  true,
+                        "feeds":  [
+                                      "https://rsshub.rssforever.com/telegram/channel/progulki_po_moskve",
+                                      "https://tg.i-c-a.su/rss/progulki_po_moskve"
+                                  ]
+                    },
+                    {
+                        "id":  "afisha-daily",
+                        "kind":  "media",
+                        "name":  {
+                                     "ru":  "Афиша Daily",
+                                     "en":  "Afisha Daily"
+                                 },
+                        "description":  {
+                                            "ru":  "Культура, еда и городские подборки",
+                                            "en":  "Culture, food and city guides"
+                                        },
+                        "homepage":  "https://daily.afisha.ru/",
+                        "feeds":  [
+                                      "https://daily.afisha.ru/rss/"
+                                  ]
+                    },
+                    {
+                        "id":  "m24",
+                        "kind":  "media",
+                        "name":  {
+                                     "ru":  "Москва 24",
+                                     "en":  "Moscow 24"
+                                 },
+                        "description":  {
+                                            "ru":  "Городские новости и бесплатные события",
+                                            "en":  "City news and free events"
+                                        },
+                        "homepage":  "https://www.m24.ru/",
+                        "feeds":  [
+                                      "https://www.m24.ru/rss.xml"
+                                  ]
+                    },
+                    {
+                        "id":  "mos-ru",
+                        "kind":  "official",
+                        "name":  {
+                                     "ru":  "Mos.ru · город",
+                                     "en":  "Mos.ru · city"
+                                 },
+                        "description":  {
+                                            "ru":  "Официальная афиша и события города",
+                                            "en":  "Official city programme and events"
+                                        },
+                        "homepage":  "https://www.mos.ru/",
+                        "feeds":  [
+                                      "https://www.mos.ru/rss"
+                                  ]
+                    },
+                    {
+                        "id":  "moskvichmag",
+                        "kind":  "media",
+                        "name":  {
+                                     "ru":  "Москвич Mag",
+                                     "en":  "Moskvich Mag"
+                                 },
+                        "description":  {
+                                            "ru":  "Репортажи, герои и новые места",
+                                            "en":  "Reports, people and new places"
+                                        },
+                        "homepage":  "https://moskvichmag.ru/",
+                        "feeds":  [
+                                      "https://moskvichmag.ru/feed/"
+                                  ]
+                    },
+                    {
+                        "id":  "blueprint",
+                        "kind":  "media",
+                        "name":  {
+                                     "ru":  "The Blueprint",
+                                     "en":  "The Blueprint"
+                                 },
+                        "description":  {
+                                            "ru":  "Искусство, музыка и культура",
+                                            "en":  "Art, music and culture"
+                                        },
+                        "homepage":  "https://www.theblueprint.ru/",
+                        "feeds":  [
+                                      "https://www.theblueprint.ru/rss"
+                                  ]
+                    },
+                    {
+                        "id":  "vm",
+                        "kind":  "media",
+                        "name":  {
+                                     "ru":  "Вечерняя Москва",
+                                     "en":  "Evening Moscow"
+                                 },
+                        "description":  {
+                                            "ru":  "Городские события и места",
+                                            "en":  "City events and places"
+                                        },
+                        "homepage":  "https://vm.ru/",
+                        "feeds":  [
+                                      "https://vm.ru/rss"
+                                  ]
+                    },
+                    {
+                        "id":  "intermedia",
+                        "kind":  "media",
+                        "name":  {
+                                     "ru":  "InterMedia",
+                                     "en":  "InterMedia"
+                                 },
+                        "description":  {
+                                            "ru":  "Концерты, музыка и культурная афиша",
+                                            "en":  "Concerts, music and culture listings"
+                                        },
+                        "homepage":  "https://www.intermedia.ru/",
+                        "moscowOnly":  true,
+                        "feeds":  [
+                                      "https://www.intermedia.ru/rss"
+                                  ]
+                    },
+                    {
+                        "id":  "google-places",
+                        "kind":  "aggregator",
+                        "name":  {
+                                     "ru":  "Google News · места",
+                                     "en":  "Google News · places"
+                                 },
+                        "description":  {
+                                            "ru":  "Свежие подборки кафе, баров и мест",
+                                            "en":  "Fresh guides to cafes, bars and places"
+                                        },
+                        "homepage":  "https://news.google.com/",
+                        "stripSuffix":  true,
+                        "feeds":  [
+                                      "https://news.google.com/rss/search?q=%D0%9C%D0%BE%D1%81%D0%BA%D0%B2%D0%B0%20(%D0%BA%D0%B0%D1%84%D0%B5%20OR%20%D1%80%D0%B5%D1%81%D1%82%D0%BE%D1%80%D0%B0%D0%BD%20OR%20%D0%B2%D1%8B%D1%81%D1%82%D0%B0%D0%B2%D0%BA%D0%B0%20OR%20%D0%BF%D1%80%D0%BE%D0%B3%D1%83%D0%BB%D0%BA%D0%B0)%20when:7d\u0026hl=ru\u0026gl=RU\u0026ceid=RU:ru"
+                                  ]
+                    },
+                    {
+                        "id":  "google-events",
+                        "kind":  "aggregator",
+                        "name":  {
+                                     "ru":  "Google News · события",
+                                     "en":  "Google News · events"
+                                 },
+                        "description":  {
+                                            "ru":  "Бесплатные события, фестивали и экскурсии",
+                                            "en":  "Free events, festivals and tours"
+                                        },
+                        "homepage":  "https://news.google.com/",
+                        "stripSuffix":  true,
+                        "feeds":  [
+                                      "https://news.google.com/rss/search?q=%D0%9C%D0%BE%D1%81%D0%BA%D0%B2%D0%B0%20(%D0%B1%D0%B5%D1%81%D0%BF%D0%BB%D0%B0%D1%82%D0%BD%D0%BE%20OR%20%D1%84%D0%B5%D1%81%D1%82%D0%B8%D0%B2%D0%B0%D0%BB%D1%8C%20OR%20%D0%BA%D0%BE%D0%BD%D1%86%D0%B5%D1%80%D1%82%20OR%20%D1%8D%D0%BA%D1%81%D0%BA%D1%83%D1%80%D1%81%D0%B8%D1%8F)%20when:7d\u0026hl=ru\u0026gl=RU\u0026ceid=RU:ru"
+                                  ]
+                    },
+                    {
+                        "id":  "tg-moscowtop",
+                        "kind":  "community",
+                        "name":  {
+                                     "ru":  "Telegram · Москва в топе",
+                                     "en":  "Telegram · Moscow Top"
+                                 },
+                        "description":  {
+                                            "ru":  "Городские подборки, места и развлечения",
+                                            "en":  "City lists, places and things to do"
+                                        },
+                        "homepage":  "https://t.me/moscowtop",
+                        "feeds":  [
+                                      "https://rsshub.rssforever.com/telegram/channel/moscowtop",
+                                      "https://tg.i-c-a.su/rss/moscowtop"
+                                  ]
+                    },
+                    {
+                        "id":  "tg-gidpo",
+                        "kind":  "telegram",
+                        "name":  {
+                                     "ru":  "Telegram · Гид по Москве",
+                                     "en":  "Telegram · Moscow Guide"
+                                 },
+                        "description":  {
+                                            "ru":  "Маршруты и места рядом с городом",
+                                            "en":  "Routes and places around the city"
+                                        },
+                        "homepage":  "https://t.me/gid_po_moskve",
+                        "feeds":  [
+                                      "https://rsshub.rssforever.com/telegram/channel/gid_po_moskve",
+                                      "https://tg.i-c-a.su/rss/gid_po_moskve"
+                                  ]
+                    },
+                    {
+                        "id":  "google-cheap",
+                        "kind":  "aggregator",
+                        "name":  {
+                                     "ru":  "Google News · недорого",
+                                     "en":  "Google News · budget"
+                                 },
+                        "description":  {
+                                            "ru":  "Недорогие кафе, обеды и развлечения",
+                                            "en":  "Affordable cafes, lunches and fun"
+                                        },
+                        "homepage":  "https://news.google.com/",
+                        "stripSuffix":  true,
+                        "feeds":  [
+                                      "https://news.google.com/rss/search?q=%D0%9C%D0%BE%D1%81%D0%BA%D0%B2%D0%B0%20(%D0%BD%D0%B5%D0%B4%D0%BE%D1%80%D0%BE%D0%B3%D0%BE%20OR%20%D0%B4%D0%B5%D1%88%D0%B5%D0%B2%D0%BE)%20(%D0%BA%D0%B0%D1%84%D0%B5%20OR%20%D0%BE%D0%B1%D0%B5%D0%B4%20OR%20%D1%80%D0%B0%D0%B7%D0%B2%D0%BB%D0%B5%D1%87%D0%B5%D0%BD%D0%B8%D1%8F)%20when:14d\u0026hl=ru\u0026gl=RU\u0026ceid=RU:ru"
+                                  ]
+                    },
+                    {
+                        "id":  "google-tips",
+                        "kind":  "aggregator",
+                        "name":  {
+                                     "ru":  "Google News · советы",
+                                     "en":  "Google News · tips"
+                                 },
+                        "description":  {
+                                            "ru":  "Отзывы, советы и подборки мест",
+                                            "en":  "Reviews, tips and place guides"
+                                        },
+                        "homepage":  "https://news.google.com/",
+                        "stripSuffix":  true,
+                        "feeds":  [
+                                      "https://news.google.com/rss/search?q=%D0%9C%D0%BE%D1%81%D0%BA%D0%B2%D0%B0%20(%D1%81%D0%BE%D0%B2%D0%B5%D1%82%D1%8B%20OR%20%D0%BE%D1%82%D0%B7%D1%8B%D0%B2%D1%8B)%20(%D0%BA%D0%B0%D1%84%D0%B5%20OR%20%D0%BC%D0%B5%D1%81%D1%82%D0%B0%20OR%20%D0%BE%D1%82%D0%B4%D1%8B%D1%85)%20when:14d\u0026hl=ru\u0026gl=RU\u0026ceid=RU:ru"
+                                  ]
+                    },
+                    {
+                        "id":  "google-games",
+                        "kind":  "aggregator",
+                        "name":  {
+                                     "ru":  "Google News · игры",
+                                     "en":  "Google News · games"
+                                 },
+                        "description":  {
+                                            "ru":  "Антикафе, игровые клубы и безлимит",
+                                            "en":  "Anti-cafes, gaming clubs and unlimited drinks"
+                                        },
+                        "homepage":  "https://news.google.com/",
+                        "stripSuffix":  true,
+                        "feeds":  [
+                                      "https://news.google.com/rss/search?q=%D0%9C%D0%BE%D1%81%D0%BA%D0%B2%D0%B0%20(%D0%B0%D0%BD%D1%82%D0%B8%D0%BA%D0%B0%D1%84%D0%B5%20OR%20%22%D1%87%D0%B0%D1%81%20%D0%B8%D0%B3%D1%80%D1%8B%22%20OR%20PlayStation%20OR%20%D0%B1%D0%B5%D0%B7%D0%BB%D0%B8%D0%BC%D0%B8%D1%82)%20when:30d\u0026hl=ru\u0026gl=RU\u0026ceid=RU:ru"
+                                  ]
+                    },
+                    {
+                        "id":  "google-free",
+                        "kind":  "aggregator",
+                        "name":  {
+                                     "ru":  "Google News · бесплатно",
+                                     "en":  "Google News · free"
+                                 },
+                        "description":  {
+                                            "ru":  "Бесплатные выставки, концерты и экскурсии",
+                                            "en":  "Free exhibitions, concerts and tours"
+                                        },
+                        "homepage":  "https://news.google.com/",
+                        "stripSuffix":  true,
+                        "feeds":  [
+                                      "https://news.google.com/rss/search?q=%D0%9C%D0%BE%D1%81%D0%BA%D0%B2%D0%B0%20%D0%B1%D0%B5%D1%81%D0%BF%D0%BB%D0%B0%D1%82%D0%BD%D0%BE%20(%D0%B2%D1%8B%D1%81%D1%82%D0%B0%D0%B2%D0%BA%D0%B0%20OR%20%D0%BA%D0%BE%D0%BD%D1%86%D0%B5%D1%80%D1%82%20OR%20%D1%8D%D0%BA%D1%81%D0%BA%D1%83%D1%80%D1%81%D0%B8%D1%8F)%20when:7d\u0026hl=ru\u0026gl=RU\u0026ceid=RU:ru"
+                                  ]
+                    },
+                    {
+                        "id":  "google-friends",
+                        "kind":  "aggregator",
+                        "name":  {
+                                     "ru":  "Google News · с друзьями",
+                                     "en":  "Google News · with friends"
+                                 },
+                        "description":  {
+                                            "ru":  "Куда сходить компанией или на свидание",
+                                            "en":  "Where to go with friends or on a date"
+                                        },
+                        "homepage":  "https://news.google.com/",
+                        "stripSuffix":  true,
+                        "feeds":  [
+                                      "https://news.google.com/rss/search?q=%D0%9C%D0%BE%D1%81%D0%BA%D0%B2%D0%B0%20(%D0%BA%D0%B0%D1%84%D0%B5%20OR%20%D1%80%D0%B5%D1%81%D1%82%D0%BE%D1%80%D0%B0%D0%BD%20OR%20%D0%B1%D0%B0%D1%80)%20(%D1%81%D0%B2%D0%B8%D0%B4%D0%B0%D0%BD%D0%B8%D0%B5%20OR%20%D0%B4%D1%80%D1%83%D0%B7%D1%8C%D1%8F)%20when:14d\u0026hl=ru\u0026gl=RU\u0026ceid=RU:ru"
+                                  ]
+                    },
+                    {
+                        "id":  "instagram-food",
+                        "kind":  "social",
+                        "name":  {
+                                     "ru":  "Instagram · еда",
+                                     "en":  "Instagram · food"
+                                 },
+                        "description":  {
+                                            "ru":  "Посты о кафе, столовых и недорогой еде",
+                                            "en":  "Posts about cafes, canteens and affordable food"
+                                        },
+                        "homepage":  "https://www.instagram.com/",
+                        "stripSuffix":  true,
+                        "feeds":  [
+                                      "https://news.google.com/rss/search?q=site%3Ainstagram.com%20%D0%9C%D0%BE%D1%81%D0%BA%D0%B2%D0%B0%20(%D0%BA%D0%B0%D1%84%D0%B5%20OR%20%D1%80%D0%B5%D1%81%D1%82%D0%BE%D1%80%D0%B0%D0%BD%20OR%20%D1%81%D1%82%D0%BE%D0%BB%D0%BE%D0%B2%D0%B0%D1%8F%20OR%20%D0%BD%D0%B5%D0%B4%D0%BE%D1%80%D0%BE%D0%B3%D0%BE)%20when%3A14d\u0026hl=ru\u0026gl=RU\u0026ceid=RU:ru"
+                                  ]
+                    },
+                    {
+                        "id":  "instagram-places",
+                        "kind":  "social",
+                        "name":  {
+                                     "ru":  "Instagram · места",
+                                     "en":  "Instagram · places"
+                                 },
+                        "description":  {
+                                            "ru":  "Прогулки, выставки, антикафе и квесты",
+                                            "en":  "Walks, exhibitions, anti-cafes and quests"
+                                        },
+                        "homepage":  "https://www.instagram.com/",
+                        "stripSuffix":  true,
+                        "feeds":  [
+                                      "https://news.google.com/rss/search?q=site%3Ainstagram.com%20%D0%9C%D0%BE%D1%81%D0%BA%D0%B2%D0%B0%20(%D0%BF%D1%80%D0%BE%D0%B3%D1%83%D0%BB%D0%BA%D0%B0%20OR%20%D0%B2%D1%8B%D1%81%D1%82%D0%B0%D0%B2%D0%BA%D0%B0%20OR%20%D0%B0%D0%BD%D1%82%D0%B8%D0%BA%D0%B0%D1%84%D0%B5%20OR%20%D0%BA%D0%B2%D0%B5%D1%81%D1%82)%20when%3A30d\u0026hl=ru\u0026gl=RU\u0026ceid=RU:ru"
+                                  ]
+                    },
+                    {
+                        "id":  "google-kids",
+                        "kind":  "aggregator",
+                        "name":  {
+                                     "ru":  "Google News · с детьми",
+                                     "en":  "Google News · with kids"
+                                 },
+                        "description":  {
+                                            "ru":  "Куда сходить с детьми",
+                                            "en":  "Where to go with kids"
+                                        },
+                        "homepage":  "https://news.google.com/",
+                        "stripSuffix":  true,
+                        "feeds":  [
+                                      "https://news.google.com/rss/search?q=%D0%9C%D0%BE%D1%81%D0%BA%D0%B2%D0%B0%20%D1%81%20%D0%B4%D0%B5%D1%82%D1%8C%D0%BC%D0%B8%20(%D0%BA%D1%83%D0%B4%D0%B0%20%D1%81%D1%85%D0%BE%D0%B4%D0%B8%D1%82%D1%8C%20OR%20%D0%BA%D0%B0%D1%84%D0%B5%20OR%20%D0%BC%D1%83%D0%B7%D0%B5%D0%B9)%20when%3A14d\u0026hl=ru\u0026gl=RU\u0026ceid=RU:ru"
+                                  ]
+                    },
+                    {
+                        "id":  "google-rain",
+                        "kind":  "aggregator",
+                        "name":  {
+                                     "ru":  "Google News · дождь",
+                                     "en":  "Google News · rainy day"
+                                 },
+                        "description":  {
+                                            "ru":  "Куда сходить в дождь",
+                                            "en":  "Where to go when it rains"
+                                        },
+                        "homepage":  "https://news.google.com/",
+                        "stripSuffix":  true,
+                        "feeds":  [
+                                      "https://news.google.com/rss/search?q=%D0%9C%D0%BE%D1%81%D0%BA%D0%B2%D0%B0%20%D0%B4%D0%BE%D0%B6%D0%B4%D1%8C%20(%D0%BA%D1%83%D0%B4%D0%B0%20%D1%81%D1%85%D0%BE%D0%B4%D0%B8%D1%82%D1%8C%20OR%20%D0%BC%D1%83%D0%B7%D0%B5%D0%B9%20OR%20%D0%BA%D0%B0%D1%84%D0%B5)%20when%3A14d\u0026hl=ru\u0026gl=RU\u0026ceid=RU:ru"
+                                  ]
+                    },
+                    {
+                        "id":  "google-date",
+                        "kind":  "aggregator",
+                        "name":  {
+                                     "ru":  "Google News · свидание",
+                                     "en":  "Google News · date"
+                                 },
+                        "description":  {
+                                            "ru":  "Идеи для свидания",
+                                            "en":  "Date ideas"
+                                        },
+                        "homepage":  "https://news.google.com/",
+                        "stripSuffix":  true,
+                        "feeds":  [
+                                      "https://news.google.com/rss/search?q=%D0%9C%D0%BE%D1%81%D0%BA%D0%B2%D0%B0%20%D1%81%D0%B2%D0%B8%D0%B4%D0%B0%D0%BD%D0%B8%D0%B5%20(%D0%BA%D0%B0%D1%84%D0%B5%20OR%20%D0%BC%D0%B5%D1%81%D1%82%D0%BE%20OR%20%D0%BF%D1%80%D0%BE%D0%B3%D1%83%D0%BB%D0%BA%D0%B0)%20when%3A14d\u0026hl=ru\u0026gl=RU\u0026ceid=RU:ru"
+                                  ]
+                    },
+                    {
+                        "id":  "google-cheapfood",
+                        "kind":  "aggregator",
+                        "name":  {
+                                     "ru":  "Google News · недорогая еда",
+                                     "en":  "Google News · cheap eats"
+                                 },
+                        "description":  {
+                                            "ru":  "Столовые, обеды и недорогие кафе",
+                                            "en":  "Canteens, lunches and cheap cafes"
+                                        },
+                        "homepage":  "https://news.google.com/",
+                        "stripSuffix":  true,
+                        "feeds":  [
+                                      "https://news.google.com/rss/search?q=%D0%9C%D0%BE%D1%81%D0%BA%D0%B2%D0%B0%20%D0%B3%D0%B4%D0%B5%20%D0%BD%D0%B5%D0%B4%D0%BE%D1%80%D0%BE%D0%B3%D0%BE%20%D0%BF%D0%BE%D0%B5%D1%81%D1%82%D1%8C%20(%D1%81%D1%82%D0%BE%D0%BB%D0%BE%D0%B2%D0%B0%D1%8F%20OR%20%D0%BA%D0%B0%D1%84%D0%B5%20OR%20%D0%BE%D0%B1%D0%B5%D0%B4)%20when%3A30d\u0026hl=ru\u0026gl=RU\u0026ceid=RU:ru"
+                                  ]
+                    },
+                    {
+                        "id":  "google-quests",
+                        "kind":  "aggregator",
+                        "name":  {
+                                     "ru":  "Google News · квесты и игры",
+                                     "en":  "Google News · quests \u0026 games"
+                                 },
+                        "description":  {
+                                            "ru":  "Квесты, боулинг, картинг и караоке",
+                                            "en":  "Quests, bowling, karting and karaoke"
+                                        },
+                        "homepage":  "https://news.google.com/",
+                        "stripSuffix":  true,
+                        "feeds":  [
+                                      "https://news.google.com/rss/search?q=%D0%9C%D0%BE%D1%81%D0%BA%D0%B2%D0%B0%20(%D0%BA%D0%B2%D0%B5%D1%81%D1%82%20OR%20%D0%B1%D0%BE%D1%83%D0%BB%D0%B8%D0%BD%D0%B3%20OR%20%D0%BA%D0%B0%D1%80%D1%82%D0%B8%D0%BD%D0%B3%20OR%20%D0%BA%D0%B0%D1%80%D0%B0%D0%BE%D0%BA%D0%B5)%20when%3A30d\u0026hl=ru\u0026gl=RU\u0026ceid=RU:ru"
+                                  ]
+                    }
+                ]
+}
