@@ -765,7 +765,7 @@
   function dailyPicks(count = 4) {
     if (!state.feed || !state.feed.places.length) return [];
     const rng = mulberry32(hashString(dateKey()));
-    const pools = { free: [], low: [], mid: [], high: [], premium: [] };
+    const pools = { free: [], low: [], mid: [], high: [], premium: [], unknown: [] };
     state.feed.places.forEach((place) => pools[tierOf(place.price)].push(place));
     const order = shuffle(["mid", "low", "high", "free", "premium"], rng);
     const picks = [];
@@ -1766,6 +1766,8 @@
       renderRoute(false);
       hideSplash();
     } catch (err) {
+      console.error("STOIT load error:", err);
+      hideSplash();
       if (!state.feed) {
         try {
           const cached = localStorage.getItem(CACHE_KEY);
