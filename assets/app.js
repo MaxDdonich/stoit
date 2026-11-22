@@ -990,7 +990,7 @@
         <div class="feature-art">
           <span class="feature-emoji" aria-hidden="true">${placeEmoji(place)}</span>
           ${place.price > 0 ? `<span class="feature-tier pill">${esc(tierLabel(tierOf(place.price)))}</span>` : ""}
-          <span class="feature-price"><b>${esc(priceText(place))}</b><span>${esc(placeUnit(place))}</span></span>
+          <span class="feature-price"><b>${esc(priceText(place))}</b>${place.price != null ? `<span>${esc(placeUnit(place))}</span>` : ""}</span>
         </div>
         <div class="feature-body">
           <div class="feature-cat">${esc(categoryLabel(place.category))}</div>
@@ -1410,7 +1410,7 @@
             <p class="place-hook">${esc(loc(place.hook))}</p>
             <div class="place-price">
               <strong>${esc(priceText(place))}</strong>
-              <span>${esc(placeUnit(place))}</span>
+              ${place.price != null ? `<span>${esc(placeUnit(place))}</span>` : ""}
               ${place.priceApprox ? `<span class="pill pill-accent approx-pill">${esc(t("detail.approx"))}</span>` : ""}
             </div>
             <p class="price-note">${esc(loc(place.priceNote))}</p>
@@ -1457,7 +1457,7 @@
             </div>` : ""}
             <div class="side-card">
               <span class="pill">${esc(t("detail.priceFor"))}</span>
-              <h3>${esc(priceText(place))} · ${esc(placeUnit(place))}</h3>
+              <h3>${esc(priceText(place))}${place.price != null ? " · " + esc(placeUnit(place)) : ""}</h3>
               <p>${esc(loc(place.priceNote))}</p>
             </div>
             <div class="side-card">
