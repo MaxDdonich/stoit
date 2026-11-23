@@ -10,7 +10,7 @@ param(
   [int]$MaxPriceChecks = 36,
   [int]$MaxSignalPriceChecks = 36,
   [switch]$NoMediaSearch,
-  [int]$MaxMediaChecks = 24
+  [int]$MaxMediaChecks = 36
 )
 
 $ErrorActionPreference = 'Stop'
