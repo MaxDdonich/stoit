@@ -12,12 +12,14 @@
   const CACHE_KEY = "stoit.feed.v2";
   const LANG_KEY = "stoit.lang";
   const THEME_KEY = "stoit.theme";
+  const STYLE_KEY = "stoit.style";
   const SAVED_KEY = "stoit.saved";
 
   const state = {
     feed: null,
     lang: "ru",
     theme: "dark",
+    style: "raid",
     saved: [],
     filters: { cats: [], moods: [], districts: [], minPrice: 0, maxPrice: null, q: "", sort: "price", knownOnly: true, verifiedOnly: false, hiddenOnly: false },
     visibleCount: 12,
@@ -44,6 +46,11 @@
       "header.refresh": "Обновить данные",
       "header.lang": "Сменить язык",
       "header.theme": "Сменить тему",
+      "header.style": "Сменить оформление",
+      "header.styleRaid": "Рейд",
+      "header.styleClassic": "Классика",
+      "header.styleToRaid": "Включить рейд-оформление",
+      "header.styleToClassic": "Включить классическое оформление",
       "header.menu": "Меню",
       "hero.kicker": "гид по Москве · {n} источников",
       "hero.title": "Москва, в которую <em>стоит</em> сходить.",
@@ -318,6 +325,11 @@
       "header.refresh": "Refresh data",
       "header.lang": "Switch language",
       "header.theme": "Switch theme",
+      "header.style": "Switch skin",
+      "header.styleRaid": "Raid",
+      "header.styleClassic": "Classic",
+      "header.styleToRaid": "Switch to raid skin",
+      "header.styleToClassic": "Switch to classic skin",
       "header.menu": "Menu",
       "hero.kicker": "Moscow guide · {n} sources",
       "hero.title": "Moscow <em>worth</em> going out for.",
@@ -621,6 +633,7 @@
     menu: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>',
     rss: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 11a9 9 0 0 1 9 9M4 4a16 16 0 0 1 16 16"/><circle cx="5" cy="19" r="1.4" fill="currentColor"/></svg>',
     spark: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3 1.7 5.3L19 10l-5.3 1.7L12 17l-1.7-5.3L5 10l5.3-1.7z"/><path d="M19 16l.7 2.3L22 19l-2.3.7L19 22l-.7-2.3L16 19l2.3-.7z"/></svg>',
+    blocks: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" aria-hidden="true"><path d="M4 8.5 12 4l8 4.5v7L12 20l-8-4.5z"/><path d="M4 8.5 12 13l8-4.5M12 13v7"/></svg>',
     offline: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M2 2l20 20"/><path d="M8.5 16.5a5 5 0 0 1 7 0"/><path d="M5 13a10 10 0 0 1 4-2.4"/><path d="M15 10.6A10 10 0 0 1 19 13"/><path d="M2 8.8A15 15 0 0 1 8 5.7"/><path d="M16 5.7a15 15 0 0 1 6 3.1"/></svg>',
     check: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg>',
     chevron: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>',
@@ -1185,6 +1198,7 @@
         <div class="header-actions">
           <span class="header-updated">${esc(updatedText())}</span>
           <button class="icon-btn lang-btn" type="button" data-action="lang" aria-label="${esc(t("header.lang"))}: ${langLabel}" title="${esc(t("header.lang"))}">${langLabel}</button>
+          <button class="icon-btn style-btn" type="button" data-action="style" aria-label="${esc(state.style === "raid" ? t("header.styleToClassic") : t("header.styleToRaid"))}" title="${esc(t("header.style") + ": " + (state.style === "raid" ? t("header.styleRaid") : t("header.styleClassic")))}">${icon("blocks")}</button>
           <button class="icon-btn" type="button" data-action="theme" aria-label="${esc(t("header.theme"))}" title="${esc(t("header.theme"))}">${state.theme === "dark" ? icon("sun") : icon("moon")}</button>
           <button class="icon-btn ${state.refreshing ? "spinning" : ""}" type="button" data-action="refresh" aria-label="${esc(t("header.refresh"))}" title="${esc(t("header.refresh"))}">${icon("refresh")}</button>
           <button class="icon-btn menu-btn" type="button" data-action="menu" aria-label="${esc(t("header.menu"))}" aria-expanded="false" aria-controls="main-nav">${icon("menu")}</button>
@@ -1743,6 +1757,12 @@
     document.title = title;
   }
 
+  function decorateCards() {
+    $$(".grid-3 > .card, .feature").slice(0, 12).forEach((el, index) => {
+      el.style.setProperty("--enter-delay", (index * 28) + "ms");
+    });
+  }
+
   function renderRoute(scroll = true) {
     if (!state.feed) return;
     try {
@@ -1762,6 +1782,7 @@
       else if (section === "place") renderPlace(route.parts[1]);
       else if (section === "idea") renderIdea(route.parts[1]);
       else renderNotFound();
+      decorateCards();
       if (scroll) window.scrollTo({ top: 0, behavior: "auto" });
     } catch (err) {
       console.error("STOIT render error:", err);
@@ -1853,12 +1874,31 @@
     else copyText(url);
   }
 
+  function themeColorValue() {
+    if (state.style === "raid") return state.theme === "dark" ? "#0c0a07" : "#ece3d1";
+    return state.theme === "dark" ? "#09090c" : "#f5f4f8";
+  }
+
+  function syncThemeColor() {
+    const meta = document.querySelector('meta[name="theme-color"]');
+    if (meta) meta.setAttribute("content", themeColorValue());
+  }
+
+  function setStyle(style) {
+    state.style = style === "classic" ? "classic" : "raid";
+    document.documentElement.dataset.style = state.style;
+    const link = document.getElementById("raid-theme");
+    if (link) link.disabled = state.style !== "raid";
+    try { localStorage.setItem(STYLE_KEY, state.style); } catch (_) {}
+    syncThemeColor();
+    renderHeader();
+  }
+
   function setTheme(theme) {
     state.theme = theme;
     document.documentElement.dataset.theme = theme;
     try { localStorage.setItem(THEME_KEY, theme); } catch (_) {}
-    const meta = document.querySelector('meta[name="theme-color"]');
-    if (meta) meta.setAttribute("content", theme === "dark" ? "#09090c" : "#f5f4f8");
+    syncThemeColor();
     renderHeader();
   }
 
@@ -2156,6 +2196,7 @@
       if (action) {
         const name = action.getAttribute("data-action");
         if (name === "lang") setLang(state.lang === "ru" ? "en" : "ru");
+        else if (name === "style") setStyle(state.style === "raid" ? "classic" : "raid");
         else if (name === "theme") setTheme(state.theme === "dark" ? "light" : "dark");
         else if (name === "refresh" || name === "retry") refreshData();
         else if (name === "menu") {
@@ -2389,13 +2430,18 @@
       if (savedLang === "ru" || savedLang === "en") state.lang = savedLang;
       const savedTheme = localStorage.getItem(THEME_KEY);
       if (savedTheme === "light" || savedTheme === "dark") state.theme = savedTheme;
+      const savedStyle = localStorage.getItem(STYLE_KEY);
+      if (savedStyle === "raid" || savedStyle === "classic") state.style = savedStyle;
+      else if (document.documentElement.dataset.style === "classic") state.style = "classic";
       const saved = JSON.parse(localStorage.getItem(SAVED_KEY) || "[]");
       if (Array.isArray(saved)) state.saved = saved.filter((x) => typeof x === "string");
     } catch (_) {}
     document.documentElement.dataset.theme = state.theme;
+    document.documentElement.dataset.style = state.style;
     document.documentElement.lang = state.lang;
-    const meta = document.querySelector('meta[name="theme-color"]');
-    if (meta) meta.setAttribute("content", state.theme === "dark" ? "#09090c" : "#f5f4f8");
+    const styleLink = document.getElementById("raid-theme");
+    if (styleLink) styleLink.disabled = state.style !== "raid";
+    syncThemeColor();
 
     state.bootAt = Date.now();
     applyStaticI18n();
