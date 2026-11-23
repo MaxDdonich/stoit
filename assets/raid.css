@@ -786,6 +786,7 @@ h1, h2, h3, .section-title, .hero h1, .place-info h1, .place-price strong, .moda
 @media (max-width: 640px) {
   body::before { opacity: 0.14; }
   .hero::before, .hero::after { display: none; }
+  .btn-primary { letter-spacing: 0.02em; }
   .card-price { font-size: 10px; padding: 4px 6px; box-shadow: 1px 1px 0 rgba(0, 0, 0, 0.5); }
   .card-price small { display: none; }
   .card, .feature, .signal { box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.5); }

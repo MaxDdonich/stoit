@@ -1847,6 +1847,17 @@ button { cursor: pointer; }
   .plan-banner { margin-top: 0; }
 }
 
+@media (max-width: 480px) {
+  .hero-actions { flex-direction: column; align-items: stretch; }
+  .hero-actions .btn {
+    width: 100%;
+    min-width: 0;
+    justify-content: center;
+    text-align: center;
+    white-space: normal;
+  }
+}
+
 /* keep two columns down to small phones; only very narrow screens fall back */
 @media (max-width: 330px) {
   .grid-3, .source-grid { grid-template-columns: 1fr; }
