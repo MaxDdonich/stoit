@@ -317,7 +317,8 @@
                        "priceUnit":  {
                                          "ru":  "бесплатно",
                                          "en":  "free"
-                                     }
+                                     },
+                       "website":  "https://mosigra.ru/"
                    },
                    {
                        "id":  "colizeum",

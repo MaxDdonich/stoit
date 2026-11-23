@@ -130,11 +130,12 @@ $all = @()
 $seen = @{}
 foreach ($class in $classes) {
   $query = @"
-SELECT ?item ?itemLabel ?coord ?image ?site WHERE {
+SELECT ?item ?itemLabel ?coord ?image ?logo ?site WHERE {
   ?item wdt:P31/wdt:P279* wd:$($class.q) .
   ?item wdt:P131 wd:Q649 .
   ?item wdt:P625 ?coord .
   OPTIONAL { ?item wdt:P18 ?image . }
+  OPTIONAL { ?item wdt:P154 ?logo . }
   OPTIONAL { ?item wdt:P856 ?site . }
   OPTIONAL { ?item wdt:P576 ?dissolved . }
   FILTER(!BOUND(?dissolved))
@@ -160,6 +161,8 @@ SELECT ?item ?itemLabel ?coord ?image ?site WHERE {
     if ($m.Success) { $lon = [double]$m.Groups[1].Value; $lat = [double]$m.Groups[2].Value }
     $image = ''
     if ($null -ne $row.image) { $image = ([string]$row.image.value) -replace '^http://', 'https://' }
+    $logo = ''
+    if ($null -ne $row.logo) { $logo = ([string]$row.logo.value) -replace '^http://', 'https://' }
     $website = ''
     if ($null -ne $row.site) { $website = ([string]$row.site.value) -replace '^http://', 'https://' }
     $price = $null
@@ -201,6 +204,7 @@ SELECT ?item ?itemLabel ?coord ?image ?site WHERE {
       lat = $lat
       lon = $lon
       image = $image
+      logo = $logo
       website = $website
       source = [ordered]@{ id = 'wikidata'; name = [ordered]@{ ru = 'Wikidata'; en = 'Wikidata' } }
       priceConfidence = 'unknown'

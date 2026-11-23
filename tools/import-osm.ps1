@@ -230,6 +230,12 @@ foreach ($batch in $queries) {
     $website = Tag $el.tags 'website'
     if (-not $website) { $website = Tag $el.tags 'contact:website' }
     if (-not $website) { $website = Tag $el.tags 'url' }
+    $image = Tag $el.tags 'image'
+    $commons = Tag $el.tags 'wikimedia_commons'
+    if (-not $image -and $commons -match '^File:(.+)$') {
+      $image = 'https://commons.wikimedia.org/wiki/Special:FilePath/' + [Uri]::EscapeDataString($Matches[1]) + '?width=960'
+    }
+    $logo = Tag $el.tags 'logo'
     $fee = Tag $el.tags 'fee'
     $charge = Tag $el.tags 'charge'
     $price = $null
@@ -310,6 +316,8 @@ foreach ($batch in $queries) {
         en = $priceNoteEn
       }
       website = $website
+      image = $image
+      logo = $logo
       fee = $fee
       charge = $charge
       rating = $null

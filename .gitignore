@@ -2,6 +2,7 @@ data/cache/
 data/last-refresh.log
 data/price-cache.json
 data/price-review.json
+data/media-cache.json
 _site/
 .DS_Store
 Thumbs.db

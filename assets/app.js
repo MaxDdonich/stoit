@@ -24,6 +24,7 @@
     refreshing: false,
     server: false,
     plan: null,
+    gallery: null,
     toastTimer: null,
   };
 
@@ -159,6 +160,7 @@
       "detail.priceSite": "цена с сайта",
       "detail.priceLinked": "цена из источника",
       "detail.website": "Сайт заведения",
+      "detail.photoSource": "Источник фото",
       "detail.tip": "Совет",
       "detail.deal": "Выгодно",
       "detail.map": "На карте",
@@ -429,6 +431,7 @@
       "detail.priceSite": "price from the website",
       "detail.priceLinked": "price from the source",
       "detail.website": "Venue website",
+      "detail.photoSource": "Photo source",
       "detail.tip": "Tip",
       "detail.deal": "Good deal",
       "detail.map": "On the map",
@@ -685,6 +688,12 @@
 
   function tierLabel(tier) {
     return t("tier." + tier);
+  }
+
+  function placeGallery(place) {
+    if (Array.isArray(place.gallery) && place.gallery.length) return place.gallery.filter(Boolean);
+    if (place.image) return [place.image];
+    return [];
   }
 
   function placeUnit(place) {
@@ -1061,6 +1070,7 @@
       <article class="card ${extraClass}" data-href="#/place/${encodeURIComponent(place.id)}" tabindex="0" role="link">
         <div class="card-art">
           <span class="card-emoji" aria-hidden="true">${placeEmoji(place)}</span>
+          ${place.icon ? `<img class="card-icon" src="${esc(place.icon)}" data-fallback="${esc(place.iconFallback || "")}" data-fallback2="${esc(place.iconFallback2 || "")}" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="if(this.dataset.fallback){this.src=this.dataset.fallback;this.dataset.fallback=this.dataset.fallback2||'';this.dataset.fallback2='';}else{this.remove()}">` : ""}
           ${showBadge(place) ? `<span class="card-badge pill pill-accent">${esc(loc(place.badge))}</span>` : ""}
           ${place.price > 0 ? `<span class="card-tier pill">${esc(tierLabel(tier))}</span>` : ""}
           <span class="card-price">${esc(priceText(place))}${place.price ? `<small>${esc(placeUnit(place))}</small>` : ""}</span>
@@ -1085,6 +1095,7 @@
       <a class="feature" href="#/place/${encodeURIComponent(place.id)}">
         <div class="feature-art">
           <span class="feature-emoji" aria-hidden="true">${placeEmoji(place)}</span>
+          ${place.icon ? `<img class="feature-icon" src="${esc(place.icon)}" data-fallback="${esc(place.iconFallback || "")}" data-fallback2="${esc(place.iconFallback2 || "")}" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="if(this.dataset.fallback){this.src=this.dataset.fallback;this.dataset.fallback=this.dataset.fallback2||'';this.dataset.fallback2='';}else{this.remove()}">` : ""}
           ${place.price > 0 ? `<span class="feature-tier pill">${esc(tierLabel(tierOf(place.price)))}</span>` : ""}
           <span class="feature-price"><b>${esc(priceText(place))}</b>${place.price != null ? `<span>${esc(placeUnit(place))}</span>` : ""}</span>
         </div>
@@ -1522,6 +1533,7 @@
     const activities = (place.activities && (place.activities[state.lang] || place.activities.ru))
       || (place.whatYouGet && (place.whatYouGet[state.lang] || place.whatYouGet.ru))
       || [];
+    const gallery = placeGallery(place);
 
     view.innerHTML = `
       <article class="place-page">
@@ -1530,14 +1542,19 @@
           <span>${esc(categoryLabel(place.category))}</span>
         </div>
         <div class="place-hero">
-          <div class="place-art">
-            <span class="place-emoji" aria-hidden="true">${placeEmoji(place)}</span>
-            <div class="art-top">
-              <span class="pill">${esc(tierLabel(tier))}</span>
-              ${place.hiddenGem ? `<span class="pill pill-accent">${esc(t("badge.hidden"))}</span>` : ""}
-              ${showBadge(place) ? `<span class="pill pill-accent">${esc(loc(place.badge))}</span>` : ""}
+          <div class="place-visual">
+            <div class="place-art">
+              <span class="place-emoji" aria-hidden="true">${placeEmoji(place)}</span>
+              ${gallery.length ? `<img class="place-cover" src="${esc(gallery[0])}" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.remove()">` : (place.icon ? `<img class="place-cover place-cover-logo" src="${esc(place.icon)}" data-fallback="${esc(place.iconFallback || "")}" data-fallback2="${esc(place.iconFallback2 || "")}" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="if(this.dataset.fallback){this.src=this.dataset.fallback;this.dataset.fallback=this.dataset.fallback2||'';this.dataset.fallback2='';}else{this.remove()}">` : "")}
+              <div class="art-top">
+                <span class="pill">${esc(tierLabel(tier))}</span>
+                ${place.hiddenGem ? `<span class="pill pill-accent">${esc(t("badge.hidden"))}</span>` : ""}
+                ${showBadge(place) ? `<span class="pill pill-accent">${esc(loc(place.badge))}</span>` : ""}
+              </div>
+              <div class="art-bottom">${esc(loc(place.source && place.source.name) || "СТОИТ")} · ${esc(categoryLabel(place.category))}</div>
             </div>
-            <div class="art-bottom">${esc(loc(place.source && place.source.name) || "СТОИТ")} · ${esc(categoryLabel(place.category))}</div>
+            ${gallery.length > 1 ? `<div class="gallery-strip">${gallery.map((url, index) => `<button class="gallery-thumb ${index === 0 ? "active" : ""}" type="button" data-gallery-place="${esc(place.id)}" data-gallery-index="${index}"><img src="${esc(url)}" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.parentElement.remove()"></button>`).join("")}</div>` : ""}
+            ${gallery.length && place.gallerySource ? `<a class="gallery-source" href="${esc(place.gallerySource)}" target="_blank" rel="noopener noreferrer">${icon("up")} ${esc(t("detail.photoSource"))}</a>` : ""}
           </div>
           <div class="place-info">
             <span class="kicker"><span class="dot"></span>${esc(categoryLabel(place.category))} · ${esc(tierLabel(tier))}</span>
@@ -1839,7 +1856,60 @@
 
   function closeModal() {
     modalRoot.innerHTML = "";
+    state.gallery = null;
     document.body.classList.remove("modal-open");
+  }
+
+  function openGallery(placeId, index = 0) {
+    const place = state.feed && state.feed.places.find((p) => p.id === placeId);
+    if (!place) return;
+    const images = placeGallery(place);
+    if (!images.length) return;
+    state.gallery = { placeId, index: Math.max(0, Math.min(index, images.length - 1)) };
+    renderGalleryModal();
+  }
+
+  function renderGalleryModal() {
+    if (!state.gallery || !state.feed) return;
+    const place = state.feed.places.find((p) => p.id === state.gallery.placeId);
+    if (!place) return;
+    const images = placeGallery(place);
+    if (!images.length) return;
+    const index = state.gallery.index;
+    const source = place.gallerySource || place.iconSource || "";
+    modalRoot.innerHTML = `
+      <div class="modal-backdrop gallery-backdrop" data-close-modal>
+        <div class="gallery-modal" role="dialog" aria-modal="true" aria-label="${esc(loc(place.name))}">
+          <button class="icon-btn modal-close" type="button" data-close-modal aria-label="${esc(t("detail.back"))}">${icon("close")}</button>
+          ${images.length > 1 ? `<button class="gallery-nav prev" type="button" data-gallery-nav="-1" aria-label="Previous">${icon("chevron")}</button>` : ""}
+          <img class="gallery-main" src="${esc(images[index])}" alt="${esc(loc(place.name))}" referrerpolicy="no-referrer">
+          ${images.length > 1 ? `<button class="gallery-nav next" type="button" data-gallery-nav="1" aria-label="Next">${icon("chevron")}</button>` : ""}
+          <div class="gallery-caption">
+            <span>${index + 1} / ${images.length}</span>
+            ${source ? `<a href="${esc(source)}" target="_blank" rel="noopener noreferrer">${esc(t("detail.photoSource"))}</a>` : ""}
+          </div>
+        </div>
+      </div>`;
+    document.body.classList.add("modal-open");
+    const main = $(".gallery-main");
+    if (main) {
+      let startX = 0;
+      main.addEventListener("touchstart", (event) => { startX = event.touches[0].clientX; }, { passive: true });
+      main.addEventListener("touchend", (event) => {
+        const dx = event.changedTouches[0].clientX - startX;
+        if (Math.abs(dx) > 45) moveGallery(dx > 0 ? -1 : 1);
+      }, { passive: true });
+    }
+  }
+
+  function moveGallery(delta) {
+    if (!state.gallery) return;
+    const place = state.feed.places.find((p) => p.id === state.gallery.placeId);
+    if (!place) return;
+    const images = placeGallery(place);
+    if (images.length < 2) return;
+    state.gallery.index = (state.gallery.index + delta + images.length) % images.length;
+    renderGalleryModal();
   }
 
   function planStepCard(step, index) {
@@ -2076,6 +2146,18 @@
         openPlan(1000);
         return;
       }
+      const galleryThumb = target.closest("[data-gallery-index]");
+      if (galleryThumb) {
+        event.preventDefault();
+        openGallery(galleryThumb.getAttribute("data-gallery-place"), Number(galleryThumb.getAttribute("data-gallery-index")) || 0);
+        return;
+      }
+      const galleryNav = target.closest("[data-gallery-nav]");
+      if (galleryNav) {
+        event.preventDefault();
+        moveGallery(Number(galleryNav.getAttribute("data-gallery-nav")) || 1);
+        return;
+      }
       const closer = target.closest("[data-close-modal]");
       if (closer) {
         if (closer.classList.contains("modal-backdrop")) {
@@ -2197,6 +2279,11 @@
     });
 
     document.addEventListener("keydown", (event) => {
+      if (state.gallery && (event.key === "ArrowLeft" || event.key === "ArrowRight")) {
+        event.preventDefault();
+        moveGallery(event.key === "ArrowLeft" ? -1 : 1);
+        return;
+      }
       if (event.key === "Escape") {
         closeModal();
         const nav = $("#main-nav");

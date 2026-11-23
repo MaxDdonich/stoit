@@ -1,0 +1,982 @@
+{
+    "updatedAt":  "2026-11-23T18:34:36+03:00",
+    "places":  {
+                   "osm-node-1062492903":  {
+                                               "icon":  "http://balashiha.prada3d.ru/favicon/apple-touch-icon.png",
+                                               "iconKind":  "logo",
+                                               "iconSource":  "http://balashiha.prada3d.ru/",
+                                               "gallery":  [
+
+                                                           ],
+                                               "gallerySource":  "",
+                                               "updatedAt":  "2026-11-23T18:25:33+03:00"
+                                           },
+                   "osm-node-3501052203":  {
+                                               "icon":  "https://www.safmuseum.org/favicon.ico",
+                                               "iconKind":  "logo",
+                                               "iconSource":  "http://safmuseum.org/index.php",
+                                               "gallery":  [
+                                                               "https://www.safmuseum.org/picts/exhibitions/tn744x495-%D1%8D%D1%82%D1%83_%D1%81%D0%B4%D0%B5%D0%BB%D0%B0%D0%B9_%D0%BF%D0%B5%D1%80%D0%B2%D0%BE%D0%B9.JPG",
+                                                               "https://www.safmuseum.org/picts/exhibitions/tn744x495-DOM_BLIZNETSA_2025_142x193_oil_on_canvas_SMALL.jpg",
+                                                               "https://www.safmuseum.org/picts/exhibitions/tn744x495-photo_2025-12-18_21-05-27.jpg",
+                                                               "https://www.safmuseum.org/picts/exhibitions/tn744x495-IMG_7789.webp",
+                                                               "https://www.safmuseum.org/picts/exhibitions/tn744x495-%D0%A2%D0%B0%D0%BD%D0%B5%D1%861_page-0001.jpg",
+                                                               "https://www.safmuseum.org/picts/exhibitions/tn744x495-PA260877_gray1.jpg"
+                                                           ],
+                                               "gallerySource":  "http://safmuseum.org/index.php",
+                                               "updatedAt":  "2026-11-23T18:25:33+03:00"
+                                           },
+                   "osm-node-2056514868":  {
+                                               "icon":  "http://katokkaleidoskop.ru/assets/images/favicon/favicon-180x180.png",
+                                               "iconKind":  "logo",
+                                               "iconSource":  "http://katokkaleidoskop.ru/",
+                                               "gallery":  [
+                                                               "http://katokkaleidoskop.ru/assets/images/calendar.webp",
+                                                               "http://katokkaleidoskop.ru/assets/images/new_domain.png"
+                                                           ],
+                                               "gallerySource":  "http://katokkaleidoskop.ru/",
+                                               "updatedAt":  "2026-11-23T18:25:33+03:00"
+                                           },
+                   "osm-node-1685948136":  {
+                                               "icon":  "https://af-koni.ru/wp-content/uploads/2014/08/koni-Logo.png",
+                                               "iconKind":  "logo",
+                                               "iconSource":  "https://af-koni.ru/",
+                                               "gallery":  [
+
+                                                           ],
+                                               "gallerySource":  "",
+                                               "updatedAt":  "2026-11-23T18:34:36+03:00"
+                                           },
+                   "colizeum":  {
+                                    "icon":  "https://colizeumarena.com/wp-content/uploads/2026/09/favicon.svg",
+                                    "iconKind":  "logo",
+                                    "iconSource":  "https://colizeumarena.com/price/",
+                                    "gallery":  [
+
+                                                ],
+                                    "gallerySource":  "",
+                                    "updatedAt":  "2026-11-23T18:34:36+03:00"
+                                },
+                   "osm-node-813972077":  {
+                                              "icon":  "https://static.tildacdn.com/tild6533-3064-4137-b139-333761376231/1_black_on_white_.png",
+                                              "iconKind":  "logo",
+                                              "iconSource":  "https://www.double-b.ru",
+                                              "gallery":  [
+
+                                                          ],
+                                              "gallerySource":  "",
+                                              "updatedAt":  "2026-11-23T18:34:36+03:00"
+                                          },
+                   "osm-way-131440393":  {
+                                             "icon":  "https://karibiya.ru/image/pwa/web-app-manifest_1024.png",
+                                             "iconKind":  "logo",
+                                             "iconSource":  "https://karibiya.ru/",
+                                             "gallery":  [
+                                                             "https://karibiya.ru/image/aquapark_photo.jpg",
+                                                             "https://karibiya.ru/upload/resize_cache/iblock/45e9120857216e02732e223150d05ab1-f-544-362.png",
+                                                             "https://karibiya.ru/upload/resize_cache/iblock/6d827b6a8e2d360fb20333d114311789-f-544-362.png",
+                                                             "https://karibiya.ru/upload/resize_cache/iblock/7e47d23f546b0809724586d36876d053-f-544-362.png",
+                                                             "https://karibiya.ru/upload/resize_cache/iblock/60f7e486580c4c7387e4c2bc924fa32a-f-544-362.png",
+                                                             "https://karibiya.ru/upload/resize_cache/iblock/69329591e2e2bf5ed04fe445fd51b540-f-544-362.png"
+                                                         ],
+                                             "gallerySource":  "https://karibiya.ru/",
+                                             "updatedAt":  "2026-11-23T18:25:33+03:00"
+                                         },
+                   "osm-node-3069066677":  {
+                                               "icon":  "https://ahdi.ru/wp-content/themes/ahdi/assets/images/logo_text_ahdi_footer.png",
+                                               "iconKind":  "logo",
+                                               "iconSource":  "http://www.ahdi.ru",
+                                               "gallery":  [
+                                                               "https://ahdi.ru/wp-content/themes/ahdi/assets/images/slides/slide-1.jpg",
+                                                               "https://ahdi.ru/wp-content/themes/ahdi/assets/images/slides/slide-3.jpg",
+                                                               "https://ahdi.ru/wp-content/uploads/2023/01/1-nachalo-scaled.jpg",
+                                                               "https://ahdi.ru/wp-content/uploads/2023/02/chasha.2020.dsk..jpg",
+                                                               "https://ahdi.ru/wp-content/uploads/2022/12/925_-_686__600__390__20200123_1920351931.jpg",
+                                                               "https://ahdi.ru/wp-content/uploads/2023/01/kaktusy.jpg"
+                                                           ],
+                                               "gallerySource":  "http://www.ahdi.ru",
+                                               "updatedAt":  "2026-11-23T18:25:33+03:00"
+                                           },
+                   "ostankino":  {
+                                     "icon":  "https://tvtower.ru/include/favicon/favicon.png",
+                                     "iconKind":  "logo",
+                                     "iconSource":  "https://tvtower.ru/services/buro/",
+                                     "gallery":  [
+                                                     "http://tvtower.ru/upload/buro-slide-1.jpg",
+                                                     "https://tvtower.ru/upload/phoneimg.png",
+                                                     "https://tvtower.ru/upload/imgs/pobeda80.png",
+                                                     "https://tvtower.ru/upload/app.png",
+                                                     "https://tvtower.ru/upload/buyticket.png",
+                                                     "https://tvtower.ru/upload/eye.png"
+                                                 ],
+                                     "gallerySource":  "https://tvtower.ru/services/buro/",
+                                     "updatedAt":  "2026-11-23T18:25:33+03:00"
+                                 },
+                   "osm-way-43073890":  {
+                                            "icon":  "https://cdn.more-on.ru/wp-content/uploads/2026/05/cropped-favicon-180x180.png",
+                                            "iconKind":  "logo",
+                                            "iconSource":  "https://more-on.ru/",
+                                            "gallery":  [
+                                                            "https://cdn.more-on.ru/wp-content/uploads/2021/04/1-75-min.jpg",
+                                                            "https://cdn.more-on.ru/wp-content/uploads/2021/04/1-51-min.jpg",
+                                                            "https://cdn.more-on.ru/wp-content/uploads/2021/04/1-61-min.jpg",
+                                                            "https://cdn.more-on.ru/wp-content/uploads/2021/04/1-63-min.jpg",
+                                                            "https://cdn.more-on.ru/wp-content/uploads/2021/04/1-min.jpg",
+                                                            "https://cdn.more-on.ru/wp-content/uploads/2021/04/1-233-min.jpg"
+                                                        ],
+                                            "gallerySource":  "https://more-on.ru/",
+                                            "updatedAt":  "2026-11-23T18:25:33+03:00"
+                                        },
+                   "osm-relation-16144906":  {
+                                                 "icon":  "https://static.tildacdn.com/tild3161-6433-4432-b863-323333323763/Group_13.png",
+                                                 "iconKind":  "logo",
+                                                 "iconSource":  "https://www.arenaplay.ru/sever",
+                                                 "gallery":  [
+                                                                 "https://static.tildacdn.com/tild6439-6666-4237-b366-376465313035/noroot.png"
+                                                             ],
+                                                 "gallerySource":  "https://www.arenaplay.ru/sever",
+                                                 "updatedAt":  "2026-11-23T18:25:33+03:00"
+                                             },
+                   "osm-node-2582950702":  {
+                                               "icon":  "http://cheglakovfoundation.org/sites/all/themes/avc/images/logo.svg",
+                                               "iconKind":  "logo",
+                                               "iconSource":  "http://cheglakovfoundation.org/",
+                                               "gallery":  [
+                                                               "http://cheglakovfoundation.org/sites/default/files/styles/main-slide/public/field/image/dpp_005_4.jpg?itok=EG0ZoBPH",
+                                                               "http://cheglakovfoundation.org/sites/default/files/styles/main-slide/public/field/image/dpp_010_1.jpg?itok=7Si2uMlm",
+                                                               "http://cheglakovfoundation.org/sites/default/files/styles/main-slide/public/field/image/dpp_037.jpg?itok=aJI3nSln",
+                                                               "http://cheglakovfoundation.org/sites/default/files/styles/main-slide/public/field/image/dpp_040.jpg?itok=64Z3Sq-T",
+                                                               "http://cheglakovfoundation.org/sites/default/files/styles/main-slide/public/field/image/dpp_043.jpg?itok=vyMGZUkd"
+                                                           ],
+                                               "gallerySource":  "http://cheglakovfoundation.org/",
+                                               "updatedAt":  "2026-11-23T18:25:33+03:00"
+                                           },
+                   "osm-node-525360863":  {
+                                              "icon":  "http://pizzamento.ru/bitrix/templates/pizza_ark/img/logo-cofenya.png",
+                                              "iconKind":  "logo",
+                                              "iconSource":  "http://pizzamento.ru",
+                                              "gallery":  [
+                                                              "http://pizzamento.ru/upload/iblock/630/53335838739_39113f17f9_k.jpg",
+                                                              "http://pizzamento.ru/upload/iblock/a6f/53335838809_3d4ce58e3e_k.jpg",
+                                                              "http://pizzamento.ru/upload/iblock/fbd/53334620207_d66c8c5b2e_k.jpg",
+                                                              "http://pizzamento.ru/upload/iblock/93e/53190522587_ef04f77efa_k.jpg",
+                                                              "http://pizzamento.ru/bitrix/templates/pizza_ark/img/pizzeria-decor.png",
+                                                              "http://pizzamento.ru/bitrix/templates/pizza_ark/img/event-decor.png"
+                                                          ],
+                                              "gallerySource":  "http://pizzamento.ru",
+                                              "updatedAt":  "2026-11-23T18:25:33+03:00"
+                                          },
+                   "osm-node-626862155":  {
+                                              "icon":  "https://www.papajohns.ru/Favicon2022/apple-touch-icon.png",
+                                              "iconKind":  "logo",
+                                              "iconSource":  "https://www.papajohns.ru",
+                                              "gallery":  [
+                                                              "https://images.papajohns.ru/pjproduction/images/banners/c82e0f93f15e00116d2335dec71b369c.jpg",
+                                                              "https://www.papajohns.ru/u002F/u002Fimages.papajohns.ru/u002Fpjproduction/u002Fimages/u002Fcategory/u002Fb20c691a2757b053fb2f025f07a315f1.png",
+                                                              "https://www.papajohns.ru/u002F/u002Fimages.papajohns.ru/u002Fpjproduction/u002Fimages/u002Fcategory/u002F3d51154e3bc4f505c9dbf1fece509005.png",
+                                                              "https://www.papajohns.ru/u002F/u002Fimages.papajohns.ru/u002Fpjproduction/u002Fimages/u002Fcategory/u002Fcea38fd38a496b92bbe28c47d3422992.png",
+                                                              "https://www.papajohns.ru/u002F/u002Fimages.papajohns.ru/u002Fpjproduction/u002Fimages/u002Fcategory/u002Fc13ef5f01cbbdb0c051ea3eda638fa32.png",
+                                                              "https://www.papajohns.ru/u002F/u002Fimages.papajohns.ru/u002Fpjproduction/u002Fimages/u002Fcategory/u002Fe35d6da7d377409e128b254167edc051.png"
+                                                          ],
+                                              "gallerySource":  "https://www.papajohns.ru",
+                                              "updatedAt":  "2026-11-23T18:34:36+03:00"
+                                          },
+                   "vyhod-quest":  {
+                                       "icon":  "https://msk.sv-exit.ru/bitrix/templates/exit/images/logo.png",
+                                       "iconKind":  "logo",
+                                       "iconSource":  "https://msk.sv-exit.ru/",
+                                       "gallery":  [
+                                                       "https://msk.sv-exit.ru/bitrix/templates/exit/images/ico_v.png",
+                                                       "https://msk.sv-exit.ru/bitrix/templates/exit/images/ico_v_h.png",
+                                                       "https://msk.sv-exit.ru/bitrix/templates/exit/images/ico_f.png",
+                                                       "https://msk.sv-exit.ru/bitrix/templates/exit/images/ico_f_h.png",
+                                                       "https://msk.sv-exit.ru/bitrix/templates/exit/images/ico_i.png",
+                                                       "https://msk.sv-exit.ru/bitrix/templates/exit/images/ico_i_h.png"
+                                                   ],
+                                       "gallerySource":  "https://msk.sv-exit.ru/",
+                                       "updatedAt":  "2026-11-23T18:25:33+03:00"
+                                   },
+                   "osm-node-7942476511":  {
+                                               "icon":  "https://thb.tildacdn.com/tild6231-3138-4265-b135-643831316230/-/empty/FlipFly_120_50.png",
+                                               "iconKind":  "logo",
+                                               "iconSource":  "https://flipfly.ru/",
+                                               "gallery":  [
+                                                               "https://static.tildacdn.com/tild3035-3130-4162-a331-366231643233/Untitled_design_10.png"
+                                                           ],
+                                               "gallerySource":  "https://flipfly.ru/",
+                                               "updatedAt":  "2026-11-23T18:25:33+03:00"
+                                           },
+                   "osm-node-564862319":  {
+                                              "icon":  "https://static.tildacdn.com/tild3366-3534-4461-b836-616462343464/esselogo_temp.jpg",
+                                              "iconKind":  "logo",
+                                              "iconSource":  "https://cafeesse.com/",
+                                              "gallery":  [
+
+                                                          ],
+                                              "gallerySource":  "",
+                                              "updatedAt":  "2026-11-23T18:25:33+03:00"
+                                          },
+                   "tretyakov":  {
+                                     "icon":  "https://www.tretyakovgallery.ru/favicon/apple-icon-144x144.png",
+                                     "iconKind":  "logo",
+                                     "iconSource":  "https://www.tretyakovgallery.ru/exhibitions/o/shedevry-russkogo-iskusstva-xi-nachala-xx-veka/",
+                                     "gallery":  [
+                                                     "http://www.tretyakovgallery.ru/upload/iblock/77a/w40wuvbe14hwnbs12uj6ts30tne9lqst.jpg"
+                                                 ],
+                                     "gallerySource":  "https://www.tretyakovgallery.ru/exhibitions/o/shedevry-russkogo-iskusstva-xi-nachala-xx-veka/",
+                                     "updatedAt":  "2026-11-23T18:25:33+03:00"
+                                 },
+                   "osm-node-820839905":  {
+                                              "icon":  "https://altargana-moscow.ru/wp-content/uploads/2021/06/cropped-Altargana-logo-scaled-1-180x180.jpg",
+                                              "iconKind":  "logo",
+                                              "iconSource":  "https://altargana-moscow.ru/",
+                                              "gallery":  [
+                                                              "https://altargana-moscow.ru/wp-content/uploads/2019/03/%D0%BB%D0%BE%D0%B3%D0%BE1.png",
+                                                              "https://altargana-moscow.ru/wp-content/plugins/revslider/public/assets/assets/dummy.png",
+                                                              "https://altargana-moscow.ru/wp-content/themes/woodmart/images/lazy.png"
+                                                          ],
+                                              "gallerySource":  "https://altargana-moscow.ru/",
+                                              "updatedAt":  "2026-11-23T18:25:33+03:00"
+                                          },
+                   "klaus":  {
+                                 "icon":  "https://claustrophobia.com/favicon/apple-touch-icon.png",
+                                 "iconKind":  "logo",
+                                 "iconSource":  "https://claustrophobia.com/moscow/kvest/belaya-komnata",
+                                 "gallery":  [
+                                                 "https://claustrophobia.com/uploads/quest_photos/file/156/large/large_kvest-belaya-komnata-v-moskve.jpg",
+                                                 "https://claustrophobia.com/uploads/quests/cover_image/59/xlarge/31_back_unblur_ef59d63b1c.jpg",
+                                                 "https://claustrophobia.com/uploads/quest_photos/file/776/small/small_ekran_new_1_internet.jpg",
+                                                 "https://claustrophobia.com/images/nav-article-card@1x.png",
+                                                 "https://claustrophobia.com/uploads/quest_photos/file/157/large/large_kvest-na-baumanke-belaya-komnata.jpg",
+                                                 "https://claustrophobia.com/uploads/quest_photos/file/158/large/large_03_White_Room-2_internet.jpg"
+                                             ],
+                                 "gallerySource":  "https://claustrophobia.com/moscow/kvest/belaya-komnata",
+                                 "updatedAt":  "2026-11-23T18:25:33+03:00"
+                             },
+                   "osm-node-1633914855":  {
+                                               "icon":  "https://www.prime-star.ru/local/templates/prime/favicon/apple-touch-icon.png",
+                                               "iconKind":  "logo",
+                                               "iconSource":  "https://www.prime-star.ru",
+                                               "gallery":  [
+                                                               "https://www.prime-star.ru/local/templates/prime/img/place2__pic4.png",
+                                                               "https://www.prime-star.ru/upload/webp/resize_cache/iblock/8ce/229_229_1/wd5cryzoztxaxhojwguka6g7i1j8izh7.webp",
+                                                               "https://www.prime-star.ru/upload/webp/resize_cache/iblock/7cd/229_229_1/gll8v0xriq7c2cp5ndbzzsydzhfk6lvi.webp",
+                                                               "https://www.prime-star.ru/upload/webp/resize_cache/iblock/6cf/229_229_1/lqvi7iqbo2o5nkuopl1jduqgfa3zawe8.webp",
+                                                               "https://www.prime-star.ru/upload/webp/resize_cache/iblock/6ce/229_229_1/oyiufrbbc2b29ewt2yim5ydd4zx9fk38.webp",
+                                                               "https://www.prime-star.ru/upload/webp/resize_cache/iblock/481/229_229_1/vgee17sfq7l5veciopu986ikydcqwzm5.webp"
+                                                           ],
+                                               "gallerySource":  "https://www.prime-star.ru",
+                                               "updatedAt":  "2026-11-23T18:25:33+03:00"
+                                           },
+                   "garage":  {
+                                  "icon":  "https://garagemca.org/apple-touch-icon.png",
+                                  "iconKind":  "logo",
+                                  "iconSource":  "https://garagemca.org/visit",
+                                  "gallery":  [
+                                                  "https://cdn-ec-static.garagemca.org/storage/document/3/381/file-4a615ad0-a252-445c-8a4d-b62cf0568ceb.png",
+                                                  "https://cdn-ec-static.garagemca.org/storage/document/1/112/file-e5f5f53f-6f51-4cb8-ba00-658d202d44d2.jpeg",
+                                                  "https://cdn-ec-static.garagemca.org/storage/document/3/6/3619/file-270486cc-f871-411a-84e3-5ad3f5afa16e.png",
+                                                  "https://cdn-ec-static.garagemca.org/storage/document/1/1/1152/file-825660f1-4064-4fda-b4b5-117d57f64cd4.jpg",
+                                                  "https://cdn-ec-static.garagemca.org/storage/image/2/7/8/27800/large_file-03b70a31-015e-458d-9819-a22ae1dee22c.jpg",
+                                                  "https://cdn-ec-static.garagemca.org/storage/document/3/3/3385/file-cc961b3a-e897-45cf-b1e0-ce01f1462227.jpg"
+                                              ],
+                                  "gallerySource":  "https://garagemca.org/visit",
+                                  "updatedAt":  "2026-11-23T18:25:33+03:00"
+                              },
+                   "sun-moscow":  {
+                                      "icon":  "https://moscow-sun.ru/local/templates/koleso/images/apple-touch-icon.png",
+                                      "iconKind":  "logo",
+                                      "iconSource":  "https://moscow-sun.ru/services/tariffs/",
+                                      "gallery":  [
+                                                      "https://moscow-sun.ru/local/templates/koleso/images/dzen.png",
+                                                      "https://moscow-sun.ru/uniteller.png"
+                                                  ],
+                                      "gallerySource":  "https://moscow-sun.ru/services/tariffs/",
+                                      "updatedAt":  "2026-11-23T18:25:33+03:00"
+                                  },
+                   "osm-node-14222222789":  {
+                                                "icon":  "https://msk.brooklynbowl.ru/apple-touch-icon.png",
+                                                "iconKind":  "logo",
+                                                "iconSource":  "https://msk.brooklynbowl.ru",
+                                                "gallery":  [
+                                                                "https://brooklynbowl.ru/uploads/2O3A9121.jpg",
+                                                                "https://msk.brooklynbowl.ru/uploads/2O3A9121.jpg",
+                                                                "https://msk.brooklynbowl.ru/uploads/bb-bowling-lane.jpg",
+                                                                "https://msk.brooklynbowl.ru/uploads/7bZmH1sygk8.jpg",
+                                                                "https://msk.brooklynbowl.ru/uploads/mrkypACsj8M.jpg",
+                                                                "https://msk.brooklynbowl.ru/uploads/index-photo-2.jpg"
+                                                            ],
+                                                "gallerySource":  "https://msk.brooklynbowl.ru",
+                                                "updatedAt":  "2026-11-23T18:25:33+03:00"
+                                            },
+                   "osm-node-768883006":  {
+                                              "icon":  "https://kva-kva.ru/local/templates/main/img/apple-touch-icon.png",
+                                              "iconKind":  "logo",
+                                              "iconSource":  "https://kva-kva.ru/",
+                                              "gallery":  [
+                                                              "https://kva-kva.ru/upload/dev2fun_opengraph/012/012f84d17473e82118e84a47b7a57b4b.png",
+                                                              "https://kva-kva.ru/path/to/image.jpg",
+                                                              "https://kva-kva.ru/local/templates/main/img/apple-touch-icon.png",
+                                                              "https://kva-kva.ru/upload/webp/3c/3ca281dcb3247d888fe4f887035328aa.webp",
+                                                              "https://kva-kva.ru/upload/webp/a4/a41caa73e052e075ee6b81ed45406b11.webp",
+                                                              "https://kva-kva.ru/upload/webp/5f/5f39f3a272c6df00a413304b8d163b60.webp"
+                                                          ],
+                                              "gallerySource":  "https://kva-kva.ru/",
+                                              "updatedAt":  "2026-11-23T18:25:33+03:00"
+                                          },
+                   "aptekarsky":  {
+                                      "icon":  "https://hortus.msu.ru/apple-touch-icon.png",
+                                      "iconKind":  "logo",
+                                      "iconSource":  "https://hortus.msu.ru/ticketprice.html",
+                                      "gallery":  [
+
+                                                  ],
+                                      "gallerySource":  "",
+                                      "updatedAt":  "2026-11-23T18:34:36+03:00"
+                                  },
+                   "osm-node-2540997892":  {
+                                               "icon":  "http://www.aparte.ru/apple-touch-icon.png",
+                                               "iconKind":  "logo",
+                                               "iconSource":  "http://www.aparte.ru",
+                                               "gallery":  [
+                                                               "https://www.aparte.ru/images/og/og-twitter.jpg",
+                                                               "https://www.aparte.ru/images/og/og-facebook.jpg",
+                                                               "http://www.aparte.ru/images/news/2022/2022-10-22.jpg",
+                                                               "http://www.aparte.ru/images/news/2022/2022-03-03tm.jpg",
+                                                               "http://www.aparte.ru/images/news/2022/2022-05-11.jpg",
+                                                               "http://www.aparte.ru/images/news/2022/2022-05-10.jpg"
+                                                           ],
+                                               "gallerySource":  "http://www.aparte.ru",
+                                               "updatedAt":  "2026-11-23T18:25:33+03:00"
+                                           },
+                   "ziferblat":  {
+                                     "icon":  "https://ziferblat.net/favicon.svg",
+                                     "iconKind":  "logo",
+                                     "iconSource":  "https://ziferblat.net/moscow/most",
+                                     "gallery":  [
+
+                                                 ],
+                                     "gallerySource":  "",
+                                     "updatedAt":  "2026-11-23T18:34:36+03:00"
+                                 },
+                   "osm-node-5181418465":  {
+                                               "icon":  "https://mega-ice.ru/apple-touch-icon.png",
+                                               "iconKind":  "logo",
+                                               "iconSource":  "https://mega-ice.ru/",
+                                               "gallery":  [
+                                                               "https://mega-ice.ru/images/pic-about.jpg",
+                                                               "https://mega-ice.ru/images/services/fon/massovoe-katanie.jpg",
+                                                               "https://mega-ice.ru/images/services/fon/figurnoe-katanie.jpg",
+                                                               "https://mega-ice.ru/images/services/fon/hokkei.jpg",
+                                                               "https://mega-ice.ru/images/services/fon/arenda-lda.jpg",
+                                                               "https://mega-ice.ru/images/services/fon/individualnie-zanyatiya.jpg"
+                                                           ],
+                                               "gallerySource":  "https://mega-ice.ru/",
+                                               "updatedAt":  "2026-11-23T18:25:33+03:00"
+                                           },
+                   "osm-node-1237182053":  {
+                                               "icon":  "https://chemicafe.ru/wp-content/uploads/2024/12/favicon-cheni-300x300.png",
+                                               "iconKind":  "logo",
+                                               "iconSource":  "https://chemicafe.ru/zhivopisnaya/",
+                                               "gallery":  [
+                                                               "https://chemicafe.ru/wp-content/uploads/2025/06/adzhapsandal.jpg",
+                                                               "https://chemicafe.ru/wp-content/uploads/2025/06/saczivi-iz-kuriczy.jpg",
+                                                               "https://chemicafe.ru/wp-content/uploads/2025/06/buket-iz-svezhih-ovoshhej.jpg",
+                                                               "https://chemicafe.ru/wp-content/uploads/2025/06/phali-assorti.jpg",
+                                                               "https://chemicafe.ru/wp-content/uploads/2025/06/baklazhany-s-greczkimi-orehami.jpg",
+                                                               "https://chemicafe.ru/wp-content/uploads/2025/06/xl-1.webp"
+                                                           ],
+                                               "gallerySource":  "https://chemicafe.ru/zhivopisnaya/",
+                                               "updatedAt":  "2026-11-23T18:25:33+03:00"
+                                           },
+                   "mosigra":  {
+                                   "icon":  "https://www.mosigra.ru/assets/img/favicons/mosigra/apple-touch-icon-180x180.png",
+                                   "iconKind":  "logo",
+                                   "iconSource":  "https://mosigra.ru/",
+                                   "gallery":  [
+                                                   "https://www.mosigra.ru/image/data/-new/01/news/2026/11/onlajn-rasprodazha/632x340.webp",
+                                                   "https://www.mosigra.ru/image/data/others/teg-zolotoy-medvezhonok.png",
+                                                   "https://www.mosigra.ru/image/data/hobbygames/video/vk/16694224_456239381_250.jpg",
+                                                   "https://www.mosigra.ru/image/data/hobbygames/video/vk/5823385_456240813_250.jpg",
+                                                   "https://www.mosigra.ru/image/data/hobbygames/video/vk/227465687_456239388_250.jpg",
+                                                   "https://www.mosigra.ru/image/data/hobbygames/video/vk/5823385_456240806_250.jpg"
+                                               ],
+                                   "gallerySource":  "https://mosigra.ru/",
+                                   "updatedAt":  "2026-11-23T18:34:36+03:00"
+                               },
+                   "museum-moscow":  {
+                                         "icon":  "https://mosmuseum.ru/apple-touch-icon.png",
+                                         "iconKind":  "logo",
+                                         "iconSource":  "https://mosmuseum.ru/visitors/tikets/types/",
+                                         "gallery":  [
+                                                         "https://mosmuseum.ru/fb.jpg",
+                                                         "https://mosmuseum.ru/tw.jpg",
+                                                         "https://static.tildacdn.com/tild3662-3232-4238-b661-376661363534/noroot.png"
+                                                     ],
+                                         "gallerySource":  "https://mosmuseum.ru/visitors/tikets/types/",
+                                         "updatedAt":  "2026-11-23T18:25:33+03:00"
+                                     },
+                   "osm-node-813653387":  {
+                                              "icon":  "https://hb.ru-msk.vkcloud-storage.ru/thapl-stolle-public/st/img/SiteSetting/f1ac76c549cac441f67afe2d15ceaa84_origin_.svg",
+                                              "iconKind":  "logo",
+                                              "iconSource":  "https://msk.stolle.ru",
+                                              "gallery":  [
+                                                              "https://hb.ru-msk.vkcloud-storage.ru/thapl-stolle-public/st/img/promo/181e5bae9710765660e3eda7fd230c1e_thumb_90_2336_712.jpg",
+                                                              "https://hb.ru-msk.vkcloud-storage.ru/thapl-stolle-public/st/img/promo/16ab36d0f86bc2a515a2f80e42ad79a8_thumb_90_2336_712.jpg",
+                                                              "https://hb.ru-msk.vkcloud-storage.ru/thapl-stolle-public/st/img/promo/7ca9ace9cb27aaaa0c963bc5d569e73d_thumb_90_2336_712.jpg",
+                                                              "https://hb.ru-msk.vkcloud-storage.ru/thapl-stolle-public/st/img/promo/1108e7e914ae9cdc23f7932488784ee1_thumb_90_2336_712.jpg",
+                                                              "https://hb.ru-msk.vkcloud-storage.ru/thapl-stolle-public/st/img/promo/c327430474be2f01627b9bec8f4115fb_thumb_90_2336_712.jpg",
+                                                              "https://hb.ru-msk.vkcloud-storage.ru/thapl-stolle-public/st/img/promo/9007a81f1ee4055efe0fa34b3f341b92_thumb_90_2336_712.jpg"
+                                                          ],
+                                              "gallerySource":  "https://msk.stolle.ru",
+                                              "updatedAt":  "2026-11-23T18:25:33+03:00"
+                                          },
+                   "osm-node-462275278":  {
+                                              "icon":  "https://info.pushka.club/favicon.ico",
+                                              "iconKind":  "logo",
+                                              "iconSource":  "https://info.pushka.club/moscow/ladya",
+                                              "gallery":  [
+
+                                                          ],
+                                              "gallerySource":  "",
+                                              "updatedAt":  "2026-11-23T18:25:33+03:00"
+                                          },
+                   "osm-node-942430587":  {
+                                              "icon":  "https://image.starterapp.co/w:180/aHR0cHM6Ly9jZG4uc2FuaXR5LmlvL2ltYWdlcy92MWxubzc0Mi9wcm9kdWN0aW9uLzM1YmFkNmI1OWZiZWEzYTgzYWUyNmY1NDA4ZWUwN2E5NmRiZDhjYzQtNTEyeDUxMi5wbmc=",
+                                              "iconKind":  "logo",
+                                              "iconSource":  "https://floo.coffee/",
+                                              "gallery":  [
+
+                                                          ],
+                                              "gallerySource":  "",
+                                              "updatedAt":  "2026-11-23T18:34:36+03:00"
+                                          },
+                   "zaryadye":  {
+                                    "icon":  "https://zaryadyepark.ru/local/templates/zaryadye_new/images/dep_logo_ru.png",
+                                    "iconKind":  "logo",
+                                    "iconSource":  "https://zaryadyepark.ru/",
+                                    "gallery":  [
+                                                    "http://www.zaryadyepark.ru/upload/og.png",
+                                                    "https://zaryadyepark.ru/upload/resize_cache/iblock/613/q1zd8ucht28ei6o0401mi95iezbxsijk/290_180_2/1680x946-_1_.jpg",
+                                                    "https://zaryadyepark.ru/upload/resize_cache/iblock/7a6/068mmncbg9o08v25kp8bornv6spls4ok/290_180_2/19200kh1080_NM-_1_.jpg",
+                                                    "https://zaryadyepark.ru/upload/resize_cache/iblock/9a8/g2qtvijrl37fx0qe8r1tm2gp9xzisd9m/290_180_2/IMG_9791.jpg"
+                                                ],
+                                    "gallerySource":  "https://zaryadyepark.ru/",
+                                    "updatedAt":  "2026-11-23T18:25:33+03:00"
+                                },
+                   "osm-node-1305562170":  {
+                                               "icon":  "https://client-site.s3.yandex.net/r22223568/_next/static/media/apple-touch-icon-180x180.0460f269.png",
+                                               "iconKind":  "logo",
+                                               "iconSource":  "https://hanoj-fud-marksistskaja-ulitsa.clients.site/",
+                                               "gallery":  [
+
+                                                           ],
+                                               "gallerySource":  "",
+                                               "updatedAt":  "2026-11-23T18:25:33+03:00"
+                                           },
+                   "osm-node-1203692206":  {
+                                               "icon":  "https://static.tildacdn.com/tild6231-3832-4264-b835-643330333337/Frame_369.png",
+                                               "iconKind":  "logo",
+                                               "iconSource":  "https://www.surfcoffee.ru/",
+                                               "gallery":  [
+                                                               "https://static.tildacdn.com/tild3030-3138-4561-b735-323461616266/Surf_Coffee_Worldwid.jpg"
+                                                           ],
+                                               "gallerySource":  "https://www.surfcoffee.ru/",
+                                               "updatedAt":  "2026-11-23T18:25:33+03:00"
+                                           },
+                   "patriarch":  {
+                                     "icon":  "https://static.tildacdn.com/tild3139-3465-4938-b438-333661303033/152.png",
+                                     "iconKind":  "logo",
+                                     "iconSource":  "https://mosparks.ru/",
+                                     "gallery":  [
+                                                     "https://static.tildacdn.com/tild3534-6339-4363-a636-396537376338/photo.jpg"
+                                                 ],
+                                     "gallerySource":  "https://mosparks.ru/",
+                                     "updatedAt":  "2026-11-23T18:25:33+03:00"
+                                 },
+                   "planetarium":  {
+                                       "icon":  "https://planetarium-moscow.ru/html/img/icons/apple-touch-icon.png",
+                                       "iconKind":  "logo",
+                                       "iconSource":  "https://planetarium-moscow.ru/visitors/prices",
+                                       "gallery":  [
+                                                       "https://planetarium-moscow.ru/html/img/header-events.webp",
+                                                       "https://planetarium-moscow.ru/html/img/header-c-events.webp",
+                                                       "https://planetarium-moscow.ru/html/img/header-cafe.webp"
+                                                   ],
+                                       "gallerySource":  "https://planetarium-moscow.ru/visitors/prices",
+                                       "updatedAt":  "2026-11-23T18:25:33+03:00"
+                                   },
+                   "osm-node-1541223637":  {
+                                               "icon":  "https://static.tildacdn.com/img/tildafavicon.ico",
+                                               "iconKind":  "logo",
+                                               "iconSource":  "http://www.incrosta.ru/",
+                                               "gallery":  [
+                                                               "https://thb.tildacdn.com/tild3230-3634-4461-a466-646135373039/-/resize/504x/IMG_5303.JPG",
+                                                               "https://thb.tildacdn.com/tild3537-3131-4964-b434-303534633966/-/empty/photo.JPG",
+                                                               "https://thb.tildacdn.com/tild6238-3137-4365-b563-366661656531/-/empty/1.JPG",
+                                                               "https://thb.tildacdn.com/tild3839-3963-4233-b663-323365613064/-/empty/_.JPG",
+                                                               "https://thb.tildacdn.com/tild3663-6465-4538-b362-303533316465/-/empty/-_.JPG"
+                                                           ],
+                                               "gallerySource":  "http://www.incrosta.ru/",
+                                               "updatedAt":  "2026-11-23T18:25:33+03:00"
+                                           },
+                   "osm-node-1738640258":  {
+                                               "icon":  "https://kalabasa.ru/wp-content/uploads/2025/09/favicon-440x440.png",
+                                               "iconKind":  "logo",
+                                               "iconSource":  "https://kalabasa.ru",
+                                               "gallery":  [
+                                                               "https://kalabasa.ru/wp-content/themes/wootheme-for-kalabasa-by-misha/assets/kalabasa-image-wide.jpg",
+                                                               "https://kalabasa.ru/wp-content/uploads/2026/09/DSC_7621-660x660.webp",
+                                                               "https://kalabasa.ru/wp-content/uploads/2026/06/IMG_0998-660x660.png",
+                                                               "https://kalabasa.ru/wp-content/uploads/2026/06/hf_20260405_100010_b1d5e56f-130a-47de-8442-f82079b0abf2-660x660.jpg",
+                                                               "https://kalabasa.ru/wp-content/uploads/2026/07/DSCF7934-1--660x660.jpg",
+                                                               "https://kalabasa.ru/wp-content/uploads/2026/07/DSCF7929-660x660.jpg"
+                                                           ],
+                                               "gallerySource":  "https://kalabasa.ru",
+                                               "updatedAt":  "2026-11-23T18:25:33+03:00"
+                                           },
+                   "osm-node-474957327":  {
+                                              "icon":  "https://static.tildacdn.com/tild6238-3364-4863-a363-306161326637/logo.png",
+                                              "iconKind":  "logo",
+                                              "iconSource":  "https://www.egrisicafe.com/",
+                                              "gallery":  [
+                                                              "https://static.tildacdn.com/img/tildacopy.png"
+                                                          ],
+                                              "gallerySource":  "https://www.egrisicafe.com/",
+                                              "updatedAt":  "2026-11-23T18:25:33+03:00"
+                                          },
+                   "osm-node-941304673":  {
+                                              "icon":  "https://www.karavaevi.ru/local/templates/main/images/favicon/favicon.ico",
+                                              "iconKind":  "logo",
+                                              "iconSource":  "https://www.karavaevi.ru",
+                                              "gallery":  [
+                                                              "https://www.karavaevi.ru/upload/iblock/cf9/3k5tld2vncefb1irlsgv9xfduslz9km1.jpg",
+                                                              "https://www.karavaevi.ru/upload/iblock/e24/gwt4tnr5tth6temyknyhy3v047fmwgem.jpg",
+                                                              "https://www.karavaevi.ru/upload/iblock/c6d/flbzfxc8gm1o0rpmw6773tzo8jve4mg5.jpg",
+                                                              "https://www.karavaevi.ru/upload/iblock/79a/ofrp1pv2z1z9qzo8qwcp5ehv748nzw4l.jpg",
+                                                              "https://www.karavaevi.ru/upload/iblock/5b6/e0kk0tflx5scvky77bgc55g1ltib6c2y.jpg",
+                                                              "https://www.karavaevi.ru/upload/iblock/a4c/49h8139mnmi2gsj8a19ijbtvqagamulj.png"
+                                                          ],
+                                              "gallerySource":  "https://www.karavaevi.ru",
+                                              "updatedAt":  "2026-11-23T18:25:33+03:00"
+                                          },
+                   "vdnh":  {
+                                "icon":  "https://vdnh.ru/og-vdnh.png",
+                                "iconKind":  "logo",
+                                "iconSource":  "https://vdnh.ru/",
+                                "gallery":  [
+                                                "https://vdnh.ru/og-vdnh.png",
+                                                "https://s3.vdnh.ru/vdnhru/cache/2026/10/23/086479991cfbe6adf3a86d73db106610cf76e125.png/1bc7568b2643ba8e72562b4fad31af2e.webp",
+                                                "https://s3.vdnh.ru/vdnhru/cache/2026/10/05/37109ae9bb45f595770a9dc59560c75892e1f34b.png/f61d50558f3dfbdb492d231492d36487.webp",
+                                                "https://s3.vdnh.ru/vdnhru/cache/2026/08/31/1d0a578dea6be32e2e397b814baa315462d9d7e5.png/16e744b5ec3232a136678206486720c3.webp",
+                                                "https://s3.vdnh.ru/vdnhru/cache/2026/09/03/3cbc932ba0751cee6e02b0d0534936854fb8f1f1.png/e7d780ed9c587dcc4c4d8bb0773ce859.webp",
+                                                "https://s3.vdnh.ru/vdnhru/cache/2026/08/25/1d4b6e5311f184b7cf76bb961afc806a4856f76c.png/124c28f9328cffb2c699d4b1bcb7edeb.webp"
+                                            ],
+                                "gallerySource":  "https://vdnh.ru/",
+                                "updatedAt":  "2026-11-23T18:25:33+03:00"
+                            },
+                   "osm-node-1413216552":  {
+                                               "icon":  "http://wolkonsky.com/img/favicon/apple-touch-icon.png",
+                                               "iconKind":  "logo",
+                                               "iconSource":  "http://wolkonsky.com/",
+                                               "gallery":  [
+                                                               "http://wolkonsky.com/img/share.png",
+                                                               "http://wolkonsky.com/upload/iblock/4e9/i3pf29vl2yd0ipecqxxjig9a0qxnea0t/Volconsky_autumn-season_1426x576-px_1.jpg",
+                                                               "http://wolkonsky.com/upload/iblock/40f/94ape401jthswlx4ea0lc48pnpsualtr/i-_36_.webp",
+                                                               "http://wolkonsky.com/upload/iblock/b47/lyofrizbzaczcvsplf6iagyln2yd9swf/Volconsky_autumn-season_1426x576-px_2.jpg",
+                                                               "http://wolkonsky.com/upload/iblock/121/6u31w2tz5rds3tzalpahw4om1uvj2f8k/Volconsky_autumn-season_1426x576-px_3.jpg",
+                                                               "http://wolkonsky.com/upload/iblock/697/b3w2uu92rq5qrqbs77p9ndj7x8174kw3/Volconsky_seasonal_20drinks_1426x576_20px_1.jpg"
+                                                           ],
+                                               "gallerySource":  "http://wolkonsky.com/",
+                                               "updatedAt":  "2026-11-23T18:25:33+03:00"
+                                           },
+                   "osm-node-4029963738":  {
+                                               "icon":  "https://bibabo.ru/wp-content/uploads/2024/01/cropped-download-180x180.png",
+                                               "iconKind":  "logo",
+                                               "iconSource":  "https://bibabo.ru/",
+                                               "gallery":  [
+                                                               "https://bibabo.ru/wp-content/uploads/2024/01/DSH_0717.jpg",
+                                                               "https://bibabo.ru/wp-content/uploads/2024/02/dr.jpeg",
+                                                               "https://bibabo.ru/wp-content/uploads/2024/02/prazdnik.jpeg",
+                                                               "https://bibabo.ru/wp-content/uploads/2024/02/korp4.jpg"
+                                                           ],
+                                               "gallerySource":  "https://bibabo.ru/",
+                                               "updatedAt":  "2026-11-23T18:25:33+03:00"
+                                           },
+                   "osm-node-623350694":  {
+                                              "icon":  "https://cafe-pushkin.ru/wp-content/themes/dellos/img/logo.png",
+                                              "iconKind":  "logo",
+                                              "iconSource":  "http://www.cafe-pushkin.ru",
+                                              "gallery":  [
+                                                              "https://maison-dellos.com/img/ultima-guide-short.png",
+                                                              "https://cafe-pushkin.ru/wp-content/webp-express/webp-images/uploads/2023/08/vrpk1218.jpg.webp",
+                                                              "https://cafe-pushkin.ru/wp-content/webp-express/webp-images/uploads/2026/10/600h900-1.jpg.webp"
+                                                          ],
+                                              "gallerySource":  "http://www.cafe-pushkin.ru",
+                                              "updatedAt":  "2026-11-23T18:25:33+03:00"
+                                          },
+                   "osm-node-8177523743":  {
+                                               "icon":  "https://strashnotemno.ru/images/icons/v2/apple-icon-180x180.png",
+                                               "iconKind":  "logo",
+                                               "iconSource":  "https://strashnotemno.ru/",
+                                               "gallery":  [
+                                                               "https://strashnotemno.ru/images/sharing/cover.jpg",
+                                                               "https://strashnotemno.ru/images/game/hall.png",
+                                                               "https://strashnotemno.ru/images/game/rules.png",
+                                                               "https://strashnotemno.ru/images/game/twilight.png",
+                                                               "https://strashnotemno.ru/images/game/dark.png",
+                                                               "https://strashnotemno.ru/images/game/haze.png"
+                                                           ],
+                                               "gallerySource":  "https://strashnotemno.ru/",
+                                               "updatedAt":  "2026-11-23T18:25:33+03:00"
+                                           },
+                   "nebo":  {
+                                "icon":  "https://nebojump.ru/favicon_nebo.svg",
+                                "iconKind":  "logo",
+                                "iconSource":  "https://nebojump.ru/bileti/",
+                                "gallery":  [
+                                                "https://nebojump.ru/img/bileti/1.webp",
+                                                "https://nebojump.ru/img/footer/qr.png",
+                                                "https://nebojump.ru/img/footer/google.png",
+                                                "https://nebojump.ru/img/footer/appstore.png"
+                                            ],
+                                "gallerySource":  "https://nebojump.ru/bileti/",
+                                "updatedAt":  "2026-11-23T18:25:33+03:00"
+                            },
+                   "osm-node-10788143266":  {
+                                                "icon":  "https://cookn.run/apple-touch-icon.png",
+                                                "iconKind":  "logo",
+                                                "iconSource":  "https://cookn.run/",
+                                                "gallery":  [
+                                                                "https://cookn.run/assets/template/img/1.webp",
+                                                                "https://i8.photo.2gis.com/images/profile/844424974585518_250c.jpg",
+                                                                "https://cookn.run/assets/template/show/img/background/Grumzi_full.png",
+                                                                "https://cookn.run/assets/template/show/img/background/8block_birthday/26.webp",
+                                                                "https://cookn.run/assets/template/show/img/background/show_second-block/01.png",
+                                                                "https://cookn.run/assets/template/show/img/background/show_second-block/02.png"
+                                                            ],
+                                                "gallerySource":  "https://cookn.run/",
+                                                "updatedAt":  "2026-11-23T18:25:33+03:00"
+                                            },
+                   "osm-node-9360897597":  {
+                                               "icon":  "https://aqua.luzhniki.ru/static/core/icons/apple-touch-icon-180x180.png?v=2",
+                                               "iconKind":  "logo",
+                                               "iconSource":  "https://aqua.luzhniki.ru/",
+                                               "gallery":  [
+                                                               "http://aqua.luzhniki.ru/media/images/slaiderr.2e16d0ba.fill-1200x630.png",
+                                                               "https://aqua.luzhniki.ru/media/images/pop-ap.2e16d0ba.fill-470x428.format-jpeg.jpg",
+                                                               "https://aqua.luzhniki.ru/static/core/markup-media/layer-0-disabled.png",
+                                                               "https://aqua.luzhniki.ru/static/core/markup-media/layer-0-enabled.png",
+                                                               "https://aqua.luzhniki.ru/static/core/markup-media/layer-0-default.png",
+                                                               "https://aqua.luzhniki.ru/static/core/markup-media/layer-0-kids.png"
+                                                           ],
+                                               "gallerySource":  "https://aqua.luzhniki.ru/",
+                                               "updatedAt":  "2026-11-23T18:25:33+03:00"
+                                           },
+                   "darwin":  {
+                                  "icon":  "https://www.darwinmuseum.ru/img/logos/osd.gif",
+                                  "iconKind":  "logo",
+                                  "iconSource":  "https://www.darwinmuseum.ru/price",
+                                  "gallery":  [
+                                                  "https://www.darwinmuseum.ru/pictures_tech/min_98be3f1b9e.jpg",
+                                                  "https://www.darwinmuseum.ru/pictures_tech/big_60b6215a32.jpg",
+                                                  "https://www.darwinmuseum.ru/pictures_tech/min_948656ac1f.jpg",
+                                                  "https://www.darwinmuseum.ru/pictures_tech/min_10a3185393.jpg",
+                                                  "https://www.darwinmuseum.ru/pictures_tech/min_dfeeeffa5a.jpg",
+                                                  "https://www.darwinmuseum.ru/pictures_tech/min_3beb366322.jpg"
+                                              ],
+                                  "gallerySource":  "https://www.darwinmuseum.ru/price",
+                                  "updatedAt":  "2026-11-23T18:25:33+03:00"
+                              },
+                   "osm-node-942426295":  {
+                                              "icon":  "https://static.tildacdn.com/tild3462-6335-4132-b865-393163326534/gzhel_gray_152px.png",
+                                              "iconKind":  "logo",
+                                              "iconSource":  "http://theatregzhel.ru/",
+                                              "gallery":  [
+                                                              "https://static.tildacdn.com/tild6662-3339-4234-b263-616561306335/gzhel_social.png",
+                                                              "https://thb.tildacdn.com/tild6235-3166-4437-b062-616636393137/-/empty/russian_post.png",
+                                                              "https://thb.tildacdn.com/tild6430-3337-4064-b761-333036386464/-/empty/bookshelf.png",
+                                                              "https://thb.tildacdn.com/tild6238-3538-4332-b637-373837626637/-/empty/mos_culure.png",
+                                                              "https://thb.tildacdn.com/tild3762-3665-4964-b162-306432363437/-/empty/i_love_moscow.png",
+                                                              "https://thb.tildacdn.com/tild6434-3731-4265-b936-323030326565/-/empty/culture_forum.png"
+                                                          ],
+                                              "gallerySource":  "http://theatregzhel.ru/",
+                                              "updatedAt":  "2026-11-23T18:25:33+03:00"
+                                          },
+                   "osm-node-2675521498":  {
+                                               "icon":  "http://afgan-zal.ru/wp-content/uploads/2016/10/logo-new.png",
+                                               "iconKind":  "logo",
+                                               "iconSource":  "http://afgan-zal.ru",
+                                               "gallery":  [
+                                                               "http://afgan-zal.ru/wp-content/uploads/2017/10/image-31-05-15-08-31.png",
+                                                               "http://afgan-zal.ru/wp-content/uploads/2016/11/dolg.jpg",
+                                                               "http://afgan-zal.ru/wp-content/uploads/2016/11/zastava.jpg",
+                                                               "http://afgan-zal.ru/wp-content/uploads/2016/10/bb.png",
+                                                               "http://afgan-zal.ru/wp-content/uploads/2016/11/rusich.jpg",
+                                                               "http://afgan-zal.ru/wp-content/uploads/2016/11/rsva.jpg"
+                                                           ],
+                                               "gallerySource":  "http://afgan-zal.ru",
+                                               "updatedAt":  "2026-11-23T18:25:33+03:00"
+                                           },
+                   "osm-node-12778483583":  {
+                                                "icon":  "https://putilkovo.termoland.ru/local/templates/landwind/shared/assets/img/main-page/header/logo-location-header.svg",
+                                                "iconKind":  "logo",
+                                                "iconSource":  "https://putilkovo.termoland.ru/",
+                                                "gallery":  [
+                                                                "https://putilkovo.termoland.ru/upload/uf/590/2m2dofi0t6wigmfvl501cmj15u1pv5o2/2370_1580%20%282%29.jpg",
+                                                                "https://putilkovo.termoland.ru/upload/resize_cache/responsive/1b/1bf82ad20b30516846690f3baaaf03049dbb8849.jpg",
+                                                                "https://putilkovo.termoland.ru/upload/resize_cache/responsive/97/9713ce9a02452e36d421e6196129ad9f484df0f1.jpg",
+                                                                "https://putilkovo.termoland.ru/upload/resize_cache/responsive/0e/0ef54a7aaf19977bbd72c0bf7bb7214e484d6854.jpg",
+                                                                "https://putilkovo.termoland.ru/upload/resize_cache/responsive/01/01c0436cca07e61658fee2ff8ad4d56084cafd17.jpg",
+                                                                "https://putilkovo.termoland.ru/upload/resize_cache/responsive/a1/a1c4a46a4d3d820c69dccd2d8eea65bea7b341c9.jpg"
+                                                            ],
+                                                "gallerySource":  "https://putilkovo.termoland.ru/",
+                                                "updatedAt":  "2026-11-23T18:25:33+03:00"
+                                            },
+                   "oneprice":  {
+                                    "icon":  "https://onepluscoffee.com/favicon/apple-icon-180x180.png",
+                                    "iconKind":  "logo",
+                                    "iconSource":  "https://onepluscoffee.com/",
+                                    "gallery":  [
+                                                    "https://onepluscoffee.com/meta.jpg",
+                                                    "https://api.onepluscoffee.com/upload/iblock/026/122saok8zp2roj43yckskd28i0kgexm5.jpeg",
+                                                    "https://api.onepluscoffee.com/upload/iblock/fc7/01e2xn77lth3a78df07riu3d5u3x9d8t.png",
+                                                    "https://api.onepluscoffee.com/upload/iblock/92e/ovzc8p4y8gqnl72sf99ljklpw42ukxeh.png",
+                                                    "https://api.onepluscoffee.com/upload/iblock/db0/6jr6ui3tvs0w07drx6hjmmnulemqp1s4.png",
+                                                    "https://api.onepluscoffee.com/upload/iblock/641/ntlilwnh3pf2nn1bzde7lnx98u8kj4si.png"
+                                                ],
+                                    "gallerySource":  "https://onepluscoffee.com/",
+                                    "updatedAt":  "2026-11-23T18:25:33+03:00"
+                                },
+                   "pioner":  {
+                                  "icon":  "https://pioner-cinema.ru/application/data/img/logo/logo-white.svg",
+                                  "iconKind":  "logo",
+                                  "iconSource":  "https://pioner-cinema.ru/film/rokki-eto-ya-originalnaya-versiya-s-subtitrami/",
+                                  "gallery":  [
+                                                  "https://s1.pioner-cinema.ru/upload/m1/00/21/37/15/129627.jpg"
+                                              ],
+                                  "gallerySource":  "https://pioner-cinema.ru/film/rokki-eto-ya-originalnaya-versiya-s-subtitrami/",
+                                  "updatedAt":  "2026-11-23T18:25:33+03:00"
+                              },
+                   "osm-node-572196515":  {
+                                              "icon":  "https://www.cafemumu.ru/favicons/apple-touch-icon.png",
+                                              "iconKind":  "logo",
+                                              "iconSource":  "https://www.cafemumu.ru/",
+                                              "gallery":  [
+                                                              "https://www.cafemumu.ru/upload/resize_cache/medialibrary/f3f/vvn0hfthxwl5eld3ztwy4nsok6lw9z71/140_105_1/1.png",
+                                                              "https://www.cafemumu.ru/local/templates/mumu_new_v2022/frontend/images/google-play.png",
+                                                              "https://www.cafemumu.ru/local/templates/mumu_new_v2022/frontend/images/app-store.png",
+                                                              "https://www.cafemumu.ru/upload/iblock/666/uv4ymr2z92k2b77u54admjnvsw5h86d1/729%D1%85900.jpg",
+                                                              "https://www.cafemumu.ru/upload/iblock/e9b/zztt44pjif1nagnjca12mhg0w1pzv234/Skidka_Mu_web_729x900.jpg",
+                                                              "https://www.cafemumu.ru/upload/iblock/cc0/db0q0d9jg7f52nrbyx8jebxbh9g8bkc6/NastoyashyVkus2_Mu_web_729x900.jpg"
+                                                          ],
+                                              "gallerySource":  "https://www.cafemumu.ru/",
+                                              "updatedAt":  "2026-11-23T18:25:33+03:00"
+                                          },
+                   "osm-node-1688852489":  {
+                                               "icon":  "https://static.tildacdn.com/tild3563-6461-4261-b234-393761663035/fav.png",
+                                               "iconKind":  "logo",
+                                               "iconSource":  "https://lilianscafe.ru/",
+                                               "gallery":  [
+                                                               "https://static.tildacdn.com/tild3761-3337-4761-a632-316437613039/__2025-12-09__120023.png"
+                                                           ],
+                                               "gallerySource":  "https://lilianscafe.ru/",
+                                               "updatedAt":  "2026-11-23T18:25:33+03:00"
+                                           },
+                   "gorky":  {
+                                 "icon":  "https://parkgorkogo.ru/wp-content/uploads/2025/03/logo_all_rgbshk-300x311.png",
+                                 "iconKind":  "logo",
+                                 "iconSource":  "https://parkgorkogo.ru/",
+                                 "gallery":  [
+                                                 "https://parkgorkogo.ru/wp-content/uploads/2024/07/pg_1237x648px.png",
+                                                 "https://parkgorkogo.ru/wp-content/uploads/2026/11/dscf3541-1920x1280.jpg",
+                                                 "https://parkgorkogo.ru/wp-content/uploads/2026/11/dscf3698-1920x1280.jpg",
+                                                 "https://parkgorkogo.ru/wp-content/uploads/2026/11/dsc05291-1920x1280.jpg",
+                                                 "https://parkgorkogo.ru/wp-content/uploads/2026/11/0v8a5283-1000x667.jpg",
+                                                 "https://parkgorkogo.ru/wp-content/uploads/2026/11/1770321114532-scaled-e1793606019164-1000x1366.jpg"
+                                             ],
+                                 "gallerySource":  "https://parkgorkogo.ru/",
+                                 "updatedAt":  "2026-11-23T18:25:33+03:00"
+                             },
+                   "osm-node-2051171881":  {
+                                               "icon":  "https://kinosfera-baltika.ru/favicon.ico",
+                                               "iconKind":  "logo",
+                                               "iconSource":  "https://kinosfera-baltika.ru",
+                                               "gallery":  [
+                                                               "http://localhost/og.jpg"
+                                                           ],
+                                               "gallerySource":  "https://kinosfera-baltika.ru",
+                                               "updatedAt":  "2026-11-23T18:25:33+03:00"
+                                           },
+                   "osm-node-273354762":  {
+                                              "icon":  "https://pushkinmuseum.art/apple-touch-icon.png",
+                                              "iconKind":  "logo",
+                                              "iconSource":  "https://pushkinmuseum.art/museum/buildings/gallery",
+                                              "gallery":  [
+                                                              "https://pushkinmuseum.art/museum/buildings/gallery/117_img_pc1.jpg",
+                                                              "https://pushkinmuseum.art/museum/buildings/gallery/117_img_pc2.jpg",
+                                                              "https://pushkinmuseum.art/museum/buildings/gallery/117_img_pc3.jpg",
+                                                              "https://pushkinmuseum.art/images/des/pink_black_long.png",
+                                                              "https://pushkinmuseum.art/museum/buildings/gallery/blocks/1018_img_pc.jpg"
+                                                          ],
+                                              "gallerySource":  "https://pushkinmuseum.art/museum/buildings/gallery",
+                                              "updatedAt":  "2026-11-23T18:25:33+03:00"
+                                          },
+                   "osm-node-6044124507":  {
+                                               "icon":  "https://exitgames.ru/apple-touch-icon.png",
+                                               "iconKind":  "logo",
+                                               "iconSource":  "https://exitgames.ru",
+                                               "gallery":  [
+                                                               "https://exitgames.ru/wp-content/uploads/2026/05/2022-09-s5.webp",
+                                                               "https://exitgames.ru/wp-content/uploads/2025/08/znachki-na-sai--t-04.png",
+                                                               "https://exitgames.ru/wp-content/uploads/2025/08/znachki-na-sai--t-03.png",
+                                                               "https://exitgames.ru/wp-content/uploads/2026/02/kopiya-3-100.jpg",
+                                                               "https://exitgames.ru/wp-content/uploads/2024/08/1000x784_8.jpg",
+                                                               "https://exitgames.ru/wp-content/uploads/2026/08/zal-sai--t-1.jpg"
+                                                           ],
+                                               "gallerySource":  "https://exitgames.ru",
+                                               "updatedAt":  "2026-11-23T18:25:33+03:00"
+                                           },
+                   "osm-node-12059265127":  {
+                                                "icon":  "https://msk.terrm.ru/apple-touch-icon.png",
+                                                "iconKind":  "logo",
+                                                "iconSource":  "https://msk.terrm.ru",
+                                                "gallery":  [
+                                                                "https://msk.terrm.ru/opengraph.jpg",
+                                                                "https://msk.terrm.ru/upload/uf/f51/24y22osdobovam4nef092lutgu20d1tn.png",
+                                                                "https://msk.terrm.ru/upload/iblock/b0c/ns71ou7twxuh2xnciodavm7c0ayq12o7.png",
+                                                                "https://msk.terrm.ru/upload/resize_cache/iblock/dd9/1200_900_1/v3l0gquj6rhvgrvrllb19e1idhbxctl5.png",
+                                                                "https://msk.terrm.ru/upload/resize_cache/iblock/f9e/1200_900_1/bu7fwx3dl87hzalwsslm98u0b7lso5c2.webp",
+                                                                "https://msk.terrm.ru/upload/iblock/826/r5djnnpjma1h8exy13ywvfp8rlb35mkw.jpg"
+                                                            ],
+                                                "gallerySource":  "https://msk.terrm.ru",
+                                                "updatedAt":  "2026-11-23T18:25:33+03:00"
+                                            },
+                   "osm-node-8002402841":  {
+                                               "icon":  "https://quest24.ru/wp-content/uploads/2023/01/cropped-quest_512x512-180x180.png",
+                                               "iconKind":  "logo",
+                                               "iconSource":  "http://quest24.ru",
+                                               "gallery":  [
+                                                               "https://quest24.ru/wp-content/uploads/2025/12/banda_dikogo_zapada_00.jpg",
+                                                               "https://quest24.ru/wp-content/plugins/revslider/public/assets/assets/dummy.png",
+                                                               "https://quest24.ru/wp-content/uploads/2016/03/zm_top.jpg",
+                                                               "https://quest24.ru/wp-content/uploads/2016/03/izba_top.jpg",
+                                                               "https://quest24.ru/wp-content/uploads/2016/03/tp_12-2022.jpg",
+                                                               "https://quest24.ru/wp-content/uploads/2024/05/lavka1126_00.jpg"
+                                                           ],
+                                               "gallerySource":  "http://quest24.ru",
+                                               "updatedAt":  "2026-11-23T18:25:33+03:00"
+                                           },
+                   "osm-node-2324884003":  {
+                                               "icon":  "https://benefistheatre.com/assets/img/logo.webp",
+                                               "iconKind":  "logo",
+                                               "iconSource":  "https://benefistheatre.com/",
+                                               "gallery":  [
+                                                               "https://benefistheatre.com/assets/img/dummy.png",
+                                                               "https://benefistheatre.com/assets/img/gift.png"
+                                                           ],
+                                               "gallerySource":  "https://benefistheatre.com/",
+                                               "updatedAt":  "2026-11-23T18:25:33+03:00"
+                                           },
+                   "osm-node-984569773":  {
+                                              "icon":  "http://www.bulkabakery.ru/apple-touch-icon.png",
+                                              "iconKind":  "logo",
+                                              "iconSource":  "http://www.bulkabakery.ru",
+                                              "gallery":  [
+                                                              "http://www.bulkabakery.ru/files/modules/1_1635422064.jpeg",
+                                                              "http://www.bulkabakery.ru/files/modules/1_img2_1632828459.jpg",
+                                                              "http://www.bulkabakery.ru/files/products/407_1632838599.jpeg",
+                                                              "http://www.bulkabakery.ru/files/products/81.jpg",
+                                                              "http://www.bulkabakery.ru/files/products/90.jpg",
+                                                              "http://www.bulkabakery.ru/files/products/253_1637924168.jpg"
+                                                          ],
+                                              "gallerySource":  "http://www.bulkabakery.ru",
+                                              "updatedAt":  "2026-11-23T18:25:33+03:00"
+                                          },
+                   "osm-node-10095518935":  {
+                                                "icon":  "http://icemasters.ru/wp-content/uploads/2019/12/cropped-%D0%9B%D0%BE%D0%B3%D0%BE-%D0%9A%D1%80%D1%83%D0%B3%D0%BB%D1%8B%D0%B9-2-180x180.png",
+                                                "iconKind":  "logo",
+                                                "iconSource":  "http://icemasters.ru/",
+                                                "gallery":  [
+                                                                "http://www.icemasters.ru//wp-content/uploads/2019/10/i-contract.png",
+                                                                "http://www.icemasters.ru//wp-content/uploads/2019/10/i-sport-bag.png",
+                                                                "http://www.icemasters.ru//wp-content/uploads/2019/10/i-doctorsnote.png",
+                                                                "http://www.icemasters.ru//wp-content/uploads/2019/10/i-individ.png",
+                                                                "http://www.icemasters.ru//wp-content/uploads/2019/10/i-trainer.png",
+                                                                "http://www.icemasters.ru//wp-content/uploads/2019/10/i-profi-coach.png"
+                                                            ],
+                                                "gallerySource":  "http://icemasters.ru/",
+                                                "updatedAt":  "2026-11-23T18:25:33+03:00"
+                                            },
+                   "osm-node-11405617550":  {
+                                                "icon":  "https://static.tildacdn.com/tild3732-3031-4533-b330-653332303130/logo_header.png",
+                                                "iconKind":  "logo",
+                                                "iconSource":  "https://showtoday.ru/moscow",
+                                                "gallery":  [
+                                                                "https://static.tildacdn.com/tild3038-3830-4337-b335-373438366630/1_1.png",
+                                                                "https://static.tildacdn.com/tild3566-6632-4464-b061-373738356235/Slice_1-30.jpg",
+                                                                "https://static.tildacdn.com/tild6134-3732-4762-b235-323632623563/Slice_27-5.jpg",
+                                                                "https://static.tildacdn.com/tild6531-6139-4566-a330-663164366530/image_238.png",
+                                                                "https://static.tildacdn.com/tild3865-3338-4465-b530-353866366237/image_237.png",
+                                                                "https://static.tildacdn.com/tild3635-6539-4866-b863-383966373330/image_236.png"
+                                                            ],
+                                                "gallerySource":  "https://showtoday.ru/moscow",
+                                                "updatedAt":  "2026-11-23T18:25:33+03:00"
+                                            },
+                   "true-gamers":  {
+                                       "icon":  "https://truegamers.ru/wp-content/themes/true/img/favicon/apple-touch-icon.png",
+                                       "iconKind":  "logo",
+                                       "iconSource":  "https://truegamers.ru/arena/moskva/moskva-severnyj/",
+                                       "gallery":  [
+                                                       "https://truegamers.ru/wp-content/themes/true/img/bg-blocks/contacts-bg.png",
+                                                       "https://truegamers.ru/wp-content/themes/true/img/truemob.png",
+                                                       "https://truegamers.ru/wp-content/themes/true/img/page-bg.jpg",
+                                                       "https://truegamers.ru/wp-content/themes/true/img/language/ru.png",
+                                                       "https://truegamers.ru/wp-content/themes/true/img/eng.png",
+                                                       "https://truegamers.ru/wp-content/themes/true/img/single/single-block.png"
+                                                   ],
+                                       "gallerySource":  "https://truegamers.ru/arena/moskva/moskva-severnyj/",
+                                       "updatedAt":  "2026-11-23T18:25:33+03:00"
+                                   },
+                   "jewish":  {
+                                  "icon":  "https://www.jewish-museum.ru/apple-touch-icon.png",
+                                  "iconKind":  "logo",
+                                  "iconSource":  "https://www.jewish-museum.ru/visitors/prices/",
+                                  "gallery":  [
+                                                  "https://www.jewish-museum.ru/opengraph.png"
+                                              ],
+                                  "gallerySource":  "https://www.jewish-museum.ru/visitors/prices/",
+                                  "updatedAt":  "2026-11-23T18:25:33+03:00"
+                              },
+                   "osm-node-1596071933":  {
+                                               "icon":  "https://coffeebean.ru/wp-content/uploads/2020/01/coffee-cup-favicon.svg",
+                                               "iconKind":  "logo",
+                                               "iconSource":  "https://www.coffeebean.ru/",
+                                               "gallery":  [
+                                                               "https://coffeebean.ru/wp-content/uploads/2020/12/Coffee_Bean_Home.jpg",
+                                                               "https://coffeebean.ru/wp-content/uploads/2020/11/magazin-tovar.jpg",
+                                                               "https://coffeebean.ru/wp-content/uploads/2026/05/ChatGPT-Image-29-%D0%BC%D0%B0%D1%8F-2026-%D0%B3.-11_37_13-1.png",
+                                                               "https://coffeebean.ru/wp-content/uploads/2026/05/ChatGPT-Image-28-%D0%BC%D0%B0%D1%8F-2026-%D0%B3.-20_10_00-1-2.png",
+                                                               "https://coffeebean.ru/wp-content/uploads/2021/09/Surreal-Coffee-coffee-bean.jpg",
+                                                               "https://coffeebean.ru/wp-content/uploads/2020/08/Surreal-Coffee-coffee-bean.jpg"
+                                                           ],
+                                               "gallerySource":  "https://www.coffeebean.ru/",
+                                               "updatedAt":  "2026-11-23T18:25:33+03:00"
+                                           },
+                   "vinzavod":  {
+                                    "icon":  "https://winzavod.ru/apple-touch-icon.png",
+                                    "iconKind":  "logo",
+                                    "iconSource":  "https://winzavod.ru/",
+                                    "gallery":  [
+                                                    "https://winzavod.ru/bitrix/templates/winzavod/image/mobile-arrow-down.png",
+                                                    "https://winzavod.ru/bitrix/templates/winzavod/image/location-point.png",
+                                                    "https://winzavod.ru/bitrix/templates/winzavod/image/ticket.png",
+                                                    "https://winzavod.ru/bitrix/templates/winzavod/image/day.png",
+                                                    "https://winzavod.ru/bitrix/templates/winzavod/image/open_select.png",
+                                                    "https://winzavod.ru/bitrix/templates/winzavod/image/close_select.png"
+                                                ],
+                                    "gallerySource":  "https://winzavod.ru/",
+                                    "updatedAt":  "2026-11-23T18:25:33+03:00"
+                                }
+               }
+}

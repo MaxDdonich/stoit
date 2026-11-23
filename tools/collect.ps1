@@ -8,7 +8,9 @@ param(
   [switch]$Force,
   [switch]$NoPriceSearch,
   [int]$MaxPriceChecks = 24,
-  [int]$MaxSignalPriceChecks = 24
+  [int]$MaxSignalPriceChecks = 24,
+  [switch]$NoMediaSearch,
+  [int]$MaxMediaChecks = 24
 )
 
 $ErrorActionPreference = 'Stop'
@@ -22,6 +24,8 @@ $SeedPath    = Join-Path $DataDir 'seed.json'
 $PricesPath  = Join-Path $DataDir 'prices.json'
 $PriceCachePath = Join-Path $DataDir 'price-cache.json'
 $PriceReviewPath = Join-Path $DataDir 'price-review.json'
+$MediaPath = Join-Path $DataDir 'media.json'
+$MediaCachePath = Join-Path $DataDir 'media-cache.json'
 $FeedPath    = Join-Path $DataDir 'feed.json'
 $TrCachePath = Join-Path $DataDir 'translation-cache.json'
 $TrBudgetPath = Join-Path $DataDir 'translation-budget.json'
@@ -216,6 +220,7 @@ function Test-PlaceQuality($Place) {
 }
 
 . (Join-Path $PSScriptRoot 'price-finder.ps1')
+. (Join-Path $PSScriptRoot 'media-finder.ps1')
 
 # ---------- перевод (MyMemory, без ключа, с кэшем и дневным лимитом) ----------
 $TrCache = @{}
@@ -901,6 +906,17 @@ try {
 }
 $pricedCount = @($allPlaces | Where-Object { $null -ne $_.price }).Count
 
+# ---------- логотипы и фотографии ----------
+$media = [ordered]@{ checked = 0; icons = 0; galleries = 0; saved = 0 }
+try {
+  $media = Invoke-MediaDiscovery -Places $allPlaces -MaxChecks $MaxMediaChecks -MediaPath $MediaPath -CachePath $MediaCachePath -SkipNetwork:$NoMediaSearch
+  if ($media.checked -gt 0) {
+    Write-Host ("  медиа: проверено {0}, иконок {1}, галерей {2}" -f $media.checked, $media.icons, $media.galleries) -ForegroundColor Green
+  }
+} catch {
+  Write-Host "  ! Медиа: $($_.Exception.Message)" -ForegroundColor DarkYellow
+}
+
 $freshCount = @($finalSignals | Where-Object { ([DateTimeOffset]::Parse($_.publishedAt) -gt $Now.AddDays(-1)) }).Count
 $okCount = @($sourceOut | Where-Object { $_.status -eq 'ok' -or $_.status -eq 'cached' }).Count
 
@@ -924,6 +940,9 @@ $feed = [ordered]@{
     priceChecked = $discovery.checkedPlaces + $discovery.checkedSignals
     priceApplied = $discovery.applied
     priceReview = $discovery.review
+    mediaChecked = $media.checked
+    mediaIcons = $media.icons
+    mediaGalleries = $media.galleries
     signals = $finalSignals.Count
     fresh = $freshCount
     sourcesOk = $okCount
