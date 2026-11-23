@@ -41,3 +41,11 @@ try {
 } catch {
   Write-Host "  ! лента: $($_.Exception.Message)" -ForegroundColor Red
 }
+
+# curl/медиа могут оставить LASTEXITCODE=1, хотя данные собраны.
+$feedPath = Join-Path $Root 'data\feed.json'
+if ((Test-Path $feedPath) -and ((Get-Date) - (Get-Item $feedPath).LastWriteTime).TotalMinutes -lt 15) {
+  exit 0
+} else {
+  exit 1
+}
