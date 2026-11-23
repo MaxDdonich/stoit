@@ -10,7 +10,10 @@ param(
   [int]$MaxPriceChecks = 24,
   [int]$MaxSignalPriceChecks = 24,
   [switch]$NoMediaSearch,
-  [int]$MaxMediaChecks = 24
+  [int]$MaxMediaChecks = 24,
+  [int]$MaxGalleryTopUps = 24,
+  [switch]$NoMapsCheck,
+  [int]$MaxMapsChecks = 40
 )
 
 $ErrorActionPreference = 'Stop'
@@ -26,6 +29,7 @@ $PriceCachePath = Join-Path $DataDir 'price-cache.json'
 $PriceReviewPath = Join-Path $DataDir 'price-review.json'
 $MediaPath = Join-Path $DataDir 'media.json'
 $MediaCachePath = Join-Path $DataDir 'media-cache.json'
+$MapsStatusPath = Join-Path $DataDir 'maps-status.json'
 $FeedPath    = Join-Path $DataDir 'feed.json'
 $TrCachePath = Join-Path $DataDir 'translation-cache.json'
 $TrBudgetPath = Join-Path $DataDir 'translation-budget.json'
@@ -221,6 +225,7 @@ function Test-PlaceQuality($Place) {
 
 . (Join-Path $PSScriptRoot 'price-finder.ps1')
 . (Join-Path $PSScriptRoot 'media-finder.ps1')
+. (Join-Path $PSScriptRoot 'maps-check.ps1')
 
 # ---------- перевод (MyMemory, без ключа, с кэшем и дневным лимитом) ----------
 $TrCache = @{}
@@ -909,12 +914,22 @@ $pricedCount = @($allPlaces | Where-Object { $null -ne $_.price }).Count
 # ---------- логотипы и фотографии ----------
 $media = [ordered]@{ checked = 0; icons = 0; galleries = 0; saved = 0 }
 try {
-  $media = Invoke-MediaDiscovery -Places $allPlaces -MaxChecks $MaxMediaChecks -MediaPath $MediaPath -CachePath $MediaCachePath -SkipNetwork:$NoMediaSearch
+  $media = Invoke-MediaDiscovery -Places $allPlaces -MaxChecks $MaxMediaChecks -MaxGalleryTopUps $MaxGalleryTopUps -MediaPath $MediaPath -CachePath $MediaCachePath -SkipNetwork:$NoMediaSearch
   if ($media.checked -gt 0) {
     Write-Host ("  медиа: проверено {0}, иконок {1}, галерей {2}" -f $media.checked, $media.icons, $media.galleries) -ForegroundColor Green
   }
 } catch {
   Write-Host "  ! Медиа: $($_.Exception.Message)" -ForegroundColor DarkYellow
+}
+
+$maps = [ordered]@{ checked = 0; closed = 0; verified = 0; known = 0 }
+try {
+  $maps = Invoke-PlaceVerification -Places $allPlaces -MaxChecks $MaxMapsChecks -StatusPath $MapsStatusPath -SkipNetwork:$NoMapsCheck
+  if ($maps.checked -gt 0) {
+    Write-Host ("  карты: проверено {0}, закрыто {1}, подтверждено {2}" -f $maps.checked, $maps.closed, $maps.verified) -ForegroundColor Green
+  }
+} catch {
+  Write-Host "  ! Яндекс Карты: $($_.Exception.Message)" -ForegroundColor DarkYellow
 }
 
 $closedRemoved = @($allPlaces | Where-Object { $_.closed }).Count
@@ -947,6 +962,9 @@ $feed = [ordered]@{
     mediaChecked = $media.checked
     mediaIcons = $media.icons
     mediaGalleries = $media.galleries
+    mapsChecked = $maps.checked
+    mapsClosed = $maps.closed
+    mapsVerified = $maps.verified
     closedRemoved = $closedRemoved
     signals = $finalSignals.Count
     fresh = $freshCount

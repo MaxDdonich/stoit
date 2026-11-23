@@ -1,0 +1,1139 @@
+{
+    "updatedAt":  "2026-11-23T21:57:29+03:00",
+    "places":  {
+                   "osm-node-1026783891":  {
+                                               "status":  "notfound",
+                                               "title":  "",
+                                               "address":  "",
+                                               "metro":  "",
+                                               "mapsUrl":  "",
+                                               "distance":  0,
+                                               "checkedAt":  "2026-11-23T21:57:29+03:00"
+                                           },
+                   "osm-node-11009800680":  {
+                                                "status":  "notfound",
+                                                "title":  "",
+                                                "address":  "",
+                                                "metro":  "",
+                                                "mapsUrl":  "",
+                                                "distance":  0,
+                                                "checkedAt":  "2026-11-23T21:57:29+03:00"
+                                            },
+                   "osm-node-1108372723":  {
+                                               "status":  "open",
+                                               "title":  "Москино Вымпел",
+                                               "address":  "Москва, улица Коминтерна, 8",
+                                               "metro":  "Бабушкинская",
+                                               "mapsUrl":  "https://yandex.ru/maps/org/1014857769/",
+                                               "distance":  8,
+                                               "checkedAt":  "2026-11-23T21:57:29+03:00"
+                                           },
+                   "osm-node-11252764023":  {
+                                                "status":  "notfound",
+                                                "title":  "",
+                                                "address":  "",
+                                                "metro":  "",
+                                                "mapsUrl":  "",
+                                                "distance":  0,
+                                                "checkedAt":  "2026-11-23T21:57:29+03:00"
+                                            },
+                   "osm-node-1140767494":  {
+                                               "status":  "notfound",
+                                               "title":  "",
+                                               "address":  "",
+                                               "metro":  "",
+                                               "mapsUrl":  "",
+                                               "distance":  0,
+                                               "checkedAt":  "2026-11-23T21:57:29+03:00"
+                                           },
+                   "osm-node-11449150163":  {
+                                                "status":  "notfound",
+                                                "title":  "",
+                                                "address":  "",
+                                                "metro":  "",
+                                                "mapsUrl":  "",
+                                                "distance":  0,
+                                                "checkedAt":  "2026-11-23T21:57:29+03:00"
+                                            },
+                   "osm-node-11822270646":  {
+                                                "status":  "notfound",
+                                                "title":  "",
+                                                "address":  "",
+                                                "metro":  "",
+                                                "mapsUrl":  "",
+                                                "distance":  0,
+                                                "checkedAt":  "2026-11-23T21:57:29+03:00"
+                                            },
+                   "osm-node-1182727881":  {
+                                               "status":  "closed",
+                                               "title":  "Букбастер",
+                                               "address":  "Москва, Зелёный проспект, 79А",
+                                               "metro":  "Новогиреево",
+                                               "mapsUrl":  "https://yandex.ru/maps/org/134679689036/",
+                                               "distance":  6,
+                                               "checkedAt":  "2026-11-23T21:57:29+03:00"
+                                           },
+                   "osm-node-1206954752":  {
+                                               "status":  "notfound",
+                                               "title":  "",
+                                               "address":  "",
+                                               "metro":  "",
+                                               "mapsUrl":  "",
+                                               "distance":  0,
+                                               "checkedAt":  "2026-11-23T21:57:29+03:00"
+                                           },
+                   "osm-node-1253948765":  {
+                                               "status":  "closed",
+                                               "title":  "ТД Плехановский Пассаж",
+                                               "address":  "Москва, улица Плеханова, 17",
+                                               "metro":  "Перово",
+                                               "mapsUrl":  "https://yandex.ru/maps/org/1034628378/",
+                                               "distance":  21,
+                                               "checkedAt":  "2026-11-23T21:57:29+03:00"
+                                           },
+                   "osm-node-1292942969":  {
+                                               "status":  "closed",
+                                               "title":  "Фиеста синема",
+                                               "address":  "Москва, Люблинская улица, 169, корп. 2",
+                                               "metro":  "Марьино",
+                                               "mapsUrl":  "https://yandex.ru/maps/org/1085240781/",
+                                               "distance":  40,
+                                               "checkedAt":  "2026-11-23T21:57:29+03:00"
+                                           },
+                   "osm-node-1333641696":  {
+                                               "status":  "notfound",
+                                               "title":  "",
+                                               "address":  "",
+                                               "metro":  "",
+                                               "mapsUrl":  "",
+                                               "distance":  0,
+                                               "checkedAt":  "2026-11-23T21:57:29+03:00"
+                                           },
+                   "osm-node-1334477270":  {
+                                               "status":  "notfound",
+                                               "title":  "",
+                                               "address":  "",
+                                               "metro":  "",
+                                               "mapsUrl":  "",
+                                               "distance":  0,
+                                               "checkedAt":  "2026-11-23T21:57:29+03:00"
+                                           },
+                   "osm-node-13394239862":  {
+                                                "status":  "notfound",
+                                                "title":  "",
+                                                "address":  "",
+                                                "metro":  "",
+                                                "mapsUrl":  "",
+                                                "distance":  0,
+                                                "checkedAt":  "2026-11-23T21:57:29+03:00"
+                                            },
+                   "osm-node-1343178299":  {
+                                               "status":  "notfound",
+                                               "title":  "",
+                                               "address":  "",
+                                               "metro":  "",
+                                               "mapsUrl":  "",
+                                               "distance":  0,
+                                               "checkedAt":  "2026-11-23T21:57:29+03:00"
+                                           },
+                   "osm-node-1406961084":  {
+                                               "status":  "notfound",
+                                               "title":  "",
+                                               "address":  "",
+                                               "metro":  "",
+                                               "mapsUrl":  "",
+                                               "distance":  0,
+                                               "checkedAt":  "2026-11-23T21:57:29+03:00"
+                                           },
+                   "osm-node-1429094469":  {
+                                               "status":  "notfound",
+                                               "title":  "",
+                                               "address":  "",
+                                               "metro":  "",
+                                               "mapsUrl":  "",
+                                               "distance":  0,
+                                               "checkedAt":  "2026-11-23T21:57:29+03:00"
+                                           },
+                   "osm-node-1430908417":  {
+                                               "status":  "open",
+                                               "title":  "Синема парк",
+                                               "address":  "Москва, Багратионовский проезд, 5",
+                                               "metro":  "Фили",
+                                               "mapsUrl":  "https://yandex.ru/maps/org/1122267115/",
+                                               "distance":  8,
+                                               "checkedAt":  "2026-11-23T21:57:29+03:00"
+                                           },
+                   "osm-node-1437398677":  {
+                                               "status":  "notfound",
+                                               "title":  "",
+                                               "address":  "",
+                                               "metro":  "",
+                                               "mapsUrl":  "",
+                                               "distance":  0,
+                                               "checkedAt":  "2026-11-23T21:57:29+03:00"
+                                           },
+                   "osm-node-1456829604":  {
+                                               "status":  "notfound",
+                                               "title":  "",
+                                               "address":  "",
+                                               "metro":  "",
+                                               "mapsUrl":  "",
+                                               "distance":  0,
+                                               "checkedAt":  "2026-11-23T21:57:29+03:00"
+                                           },
+                   "osm-node-1467987273":  {
+                                               "status":  "notfound",
+                                               "title":  "",
+                                               "address":  "",
+                                               "metro":  "",
+                                               "mapsUrl":  "",
+                                               "distance":  0,
+                                               "checkedAt":  "2026-11-23T21:57:29+03:00"
+                                           },
+                   "osm-node-1562110461":  {
+                                               "status":  "notfound",
+                                               "title":  "",
+                                               "address":  "",
+                                               "metro":  "",
+                                               "mapsUrl":  "",
+                                               "distance":  0,
+                                               "checkedAt":  "2026-11-23T21:57:29+03:00"
+                                           },
+                   "osm-node-1826640863":  {
+                                               "status":  "closed",
+                                               "title":  "Мемориальный музей-квартира священника Павла Флоренского",
+                                               "address":  "Москва, улица Бурденко, 16/12",
+                                               "metro":  "Парк культуры",
+                                               "mapsUrl":  "https://yandex.ru/maps/org/1039778961/",
+                                               "distance":  6,
+                                               "checkedAt":  "2026-11-23T21:56:06+03:00"
+                                           },
+                   "osm-node-1839934283":  {
+                                               "status":  "notfound",
+                                               "title":  "",
+                                               "address":  "",
+                                               "metro":  "",
+                                               "mapsUrl":  "",
+                                               "distance":  0,
+                                               "checkedAt":  "2026-11-23T21:57:29+03:00"
+                                           },
+                   "osm-node-1864400466":  {
+                                               "status":  "notfound",
+                                               "title":  "",
+                                               "address":  "",
+                                               "metro":  "",
+                                               "mapsUrl":  "",
+                                               "distance":  0,
+                                               "checkedAt":  "2026-11-23T21:57:29+03:00"
+                                           },
+                   "osm-node-1870436689":  {
+                                               "status":  "closed",
+                                               "title":  "Хитзона",
+                                               "address":  "Московская область, Люберцы, улица Побратимов, 7",
+                                               "metro":  "Лухмановская",
+                                               "mapsUrl":  "https://yandex.ru/maps/org/1191895117/",
+                                               "distance":  27,
+                                               "checkedAt":  "2026-11-23T21:57:29+03:00"
+                                           },
+                   "osm-node-1870442967":  {
+                                               "status":  "notfound",
+                                               "title":  "",
+                                               "address":  "",
+                                               "metro":  "",
+                                               "mapsUrl":  "",
+                                               "distance":  0,
+                                               "checkedAt":  "2026-11-23T21:57:29+03:00"
+                                           },
+                   "osm-node-1931891153":  {
+                                               "status":  "open",
+                                               "title":  "Экобазар",
+                                               "address":  "Московская область, Мытищи, бульвар Ветеранов, с2",
+                                               "metro":  "",
+                                               "mapsUrl":  "https://yandex.ru/maps/org/1170098736/",
+                                               "distance":  36,
+                                               "checkedAt":  "2026-11-23T21:57:29+03:00"
+                                           },
+                   "osm-node-2055889233":  {
+                                               "status":  "open",
+                                               "title":  "Перовский",
+                                               "address":  "Москва, Полимерная улица, 8",
+                                               "metro":  "Перово",
+                                               "mapsUrl":  "https://yandex.ru/maps/org/1514431637/",
+                                               "distance":  1470,
+                                               "checkedAt":  "2026-11-23T21:57:29+03:00"
+                                           },
+                   "osm-node-2083276451":  {
+                                               "status":  "notfound",
+                                               "title":  "",
+                                               "address":  "",
+                                               "metro":  "",
+                                               "mapsUrl":  "",
+                                               "distance":  0,
+                                               "checkedAt":  "2026-11-23T21:57:29+03:00"
+                                           },
+                   "osm-node-2128000286":  {
+                                               "status":  "notfound",
+                                               "title":  "",
+                                               "address":  "",
+                                               "metro":  "",
+                                               "mapsUrl":  "",
+                                               "distance":  0,
+                                               "checkedAt":  "2026-11-23T21:57:29+03:00"
+                                           },
+                   "osm-node-2301571148":  {
+                                               "status":  "notfound",
+                                               "title":  "",
+                                               "address":  "",
+                                               "metro":  "",
+                                               "mapsUrl":  "",
+                                               "distance":  0,
+                                               "checkedAt":  "2026-11-23T21:57:29+03:00"
+                                           },
+                   "osm-node-2306430720":  {
+                                               "status":  "open",
+                                               "title":  "Инфра-М",
+                                               "address":  "Москва, Полярная улица, 31В",
+                                               "metro":  "Медведково",
+                                               "mapsUrl":  "https://yandex.ru/maps/org/1137189584/",
+                                               "distance":  29,
+                                               "checkedAt":  "2026-11-23T21:57:29+03:00"
+                                           },
+                   "osm-node-2388184651":  {
+                                               "status":  "notfound",
+                                               "title":  "",
+                                               "address":  "",
+                                               "metro":  "",
+                                               "mapsUrl":  "",
+                                               "distance":  0,
+                                               "checkedAt":  "2026-11-23T21:56:06+03:00"
+                                           },
+                   "osm-node-2429119910":  {
+                                               "status":  "open",
+                                               "title":  "Звуковой барьер",
+                                               "address":  "Москва, Ленинский проспект, 70/11",
+                                               "metro":  "Вавиловская",
+                                               "mapsUrl":  "https://yandex.ru/maps/org/1069919736/",
+                                               "distance":  6,
+                                               "checkedAt":  "2026-11-23T21:57:29+03:00"
+                                           },
+                   "osm-node-2496085397":  {
+                                               "status":  "notfound",
+                                               "title":  "",
+                                               "address":  "",
+                                               "metro":  "",
+                                               "mapsUrl":  "",
+                                               "distance":  0,
+                                               "checkedAt":  "2026-11-23T21:57:29+03:00"
+                                           },
+                   "osm-node-2511951122":  {
+                                               "status":  "notfound",
+                                               "title":  "",
+                                               "address":  "",
+                                               "metro":  "",
+                                               "mapsUrl":  "",
+                                               "distance":  0,
+                                               "checkedAt":  "2026-11-23T21:57:29+03:00"
+                                           },
+                   "osm-node-2513308822":  {
+                                               "status":  "notfound",
+                                               "title":  "",
+                                               "address":  "",
+                                               "metro":  "",
+                                               "mapsUrl":  "",
+                                               "distance":  0,
+                                               "checkedAt":  "2026-11-23T21:57:29+03:00"
+                                           },
+                   "osm-node-2565654722":  {
+                                               "status":  "notfound",
+                                               "title":  "",
+                                               "address":  "",
+                                               "metro":  "",
+                                               "mapsUrl":  "",
+                                               "distance":  0,
+                                               "checkedAt":  "2026-11-23T21:57:29+03:00"
+                                           },
+                   "osm-node-2587146329":  {
+                                               "status":  "notfound",
+                                               "title":  "",
+                                               "address":  "",
+                                               "metro":  "",
+                                               "mapsUrl":  "",
+                                               "distance":  0,
+                                               "checkedAt":  "2026-11-23T21:57:29+03:00"
+                                           },
+                   "osm-node-2609308089":  {
+                                               "status":  "notfound",
+                                               "title":  "",
+                                               "address":  "",
+                                               "metro":  "",
+                                               "mapsUrl":  "",
+                                               "distance":  0,
+                                               "checkedAt":  "2026-11-23T21:57:29+03:00"
+                                           },
+                   "osm-node-2616127218":  {
+                                               "status":  "open",
+                                               "title":  "Муртуз",
+                                               "address":  "Москва, Большая Никитская улица, 22/2, подъезд 2",
+                                               "metro":  "Арбатская",
+                                               "mapsUrl":  "https://yandex.ru/maps/org/1083883408/",
+                                               "distance":  4,
+                                               "checkedAt":  "2026-11-23T21:57:29+03:00"
+                                           },
+                   "osm-node-2626500984":  {
+                                               "status":  "closed",
+                                               "title":  "Мини рынок",
+                                               "address":  "Москва, Зелёный проспект, 18/38",
+                                               "metro":  "Перово",
+                                               "mapsUrl":  "https://yandex.ru/maps/org/86420892281/",
+                                               "distance":  1,
+                                               "checkedAt":  "2026-11-23T21:57:29+03:00"
+                                           },
+                   "osm-node-2640796034":  {
+                                               "status":  "notfound",
+                                               "title":  "",
+                                               "address":  "",
+                                               "metro":  "",
+                                               "mapsUrl":  "",
+                                               "distance":  0,
+                                               "checkedAt":  "2026-11-23T21:57:29+03:00"
+                                           },
+                   "osm-node-2659136332":  {
+                                               "status":  "notfound",
+                                               "title":  "",
+                                               "address":  "",
+                                               "metro":  "",
+                                               "mapsUrl":  "",
+                                               "distance":  0,
+                                               "checkedAt":  "2026-11-23T21:57:29+03:00"
+                                           },
+                   "osm-node-2819997677":  {
+                                               "status":  "open",
+                                               "title":  "Мастерская скульптора Александра Рукавишникова",
+                                               "address":  "Москва, улица Земляной Вал, 59, стр. 2",
+                                               "metro":  "Таганская",
+                                               "mapsUrl":  "https://yandex.ru/maps/org/245113498785/",
+                                               "distance":  27,
+                                               "checkedAt":  "2026-11-23T21:57:29+03:00"
+                                           },
+                   "osm-node-2820078760":  {
+                                               "status":  "open",
+                                               "title":  "Научно-мемориальный музей Н. Е. Жуковского",
+                                               "address":  "Москва, улица Радио, 17к5",
+                                               "metro":  "Бауманская",
+                                               "mapsUrl":  "https://yandex.ru/maps/org/1318788625/",
+                                               "distance":  4,
+                                               "checkedAt":  "2026-11-23T21:56:06+03:00"
+                                           },
+                   "osm-node-2857746595":  {
+                                               "status":  "notfound",
+                                               "title":  "",
+                                               "address":  "",
+                                               "metro":  "",
+                                               "mapsUrl":  "",
+                                               "distance":  0,
+                                               "checkedAt":  "2026-11-23T21:57:29+03:00"
+                                           },
+                   "osm-node-300065203":  {
+                                              "status":  "notfound",
+                                              "title":  "",
+                                              "address":  "",
+                                              "metro":  "",
+                                              "mapsUrl":  "",
+                                              "distance":  0,
+                                              "checkedAt":  "2026-11-23T21:57:29+03:00"
+                                          },
+                   "osm-node-3043296458":  {
+                                               "status":  "notfound",
+                                               "title":  "",
+                                               "address":  "",
+                                               "metro":  "",
+                                               "mapsUrl":  "",
+                                               "distance":  0,
+                                               "checkedAt":  "2026-11-23T21:57:29+03:00"
+                                           },
+                   "osm-node-3103417214":  {
+                                               "status":  "notfound",
+                                               "title":  "",
+                                               "address":  "",
+                                               "metro":  "",
+                                               "mapsUrl":  "",
+                                               "distance":  0,
+                                               "checkedAt":  "2026-11-23T21:57:29+03:00"
+                                           },
+                   "osm-node-3116114788":  {
+                                               "status":  "closed",
+                                               "title":  "Под сводами",
+                                               "address":  "Москва, Восточный административный округ, район Измайлово, городок имени Баумана, 2, стр. 6",
+                                               "metro":  "Партизанская",
+                                               "mapsUrl":  "https://yandex.ru/maps/org/180646006213/",
+                                               "distance":  6,
+                                               "checkedAt":  "2026-11-23T21:57:29+03:00"
+                                           },
+                   "osm-node-3441521464":  {
+                                               "status":  "notfound",
+                                               "title":  "",
+                                               "address":  "",
+                                               "metro":  "",
+                                               "mapsUrl":  "",
+                                               "distance":  0,
+                                               "checkedAt":  "2026-11-23T21:57:29+03:00"
+                                           },
+                   "osm-node-3441521467":  {
+                                               "status":  "open",
+                                               "title":  "Музей детства",
+                                               "address":  "Москва, Театральный проезд, 5с1",
+                                               "metro":  "Лубянка",
+                                               "mapsUrl":  "https://yandex.ru/maps/org/45151598378/",
+                                               "distance":  74,
+                                               "checkedAt":  "2026-11-23T21:57:29+03:00"
+                                           },
+                   "osm-node-3484120452":  {
+                                               "status":  "notfound",
+                                               "title":  "",
+                                               "address":  "",
+                                               "metro":  "",
+                                               "mapsUrl":  "",
+                                               "distance":  0,
+                                               "checkedAt":  "2026-11-23T21:57:29+03:00"
+                                           },
+                   "osm-node-3502560194":  {
+                                               "status":  "closed",
+                                               "title":  "Музей экономики и быта",
+                                               "address":  "Москва, улица Фабрициуса, 21",
+                                               "metro":  "Сходненская",
+                                               "mapsUrl":  "https://yandex.ru/maps/org/1199143763/",
+                                               "distance":  2,
+                                               "checkedAt":  "2026-11-23T21:57:29+03:00"
+                                           },
+                   "osm-node-3502875292":  {
+                                               "status":  "notfound",
+                                               "title":  "",
+                                               "address":  "",
+                                               "metro":  "",
+                                               "mapsUrl":  "",
+                                               "distance":  0,
+                                               "checkedAt":  "2026-11-23T21:57:29+03:00"
+                                           },
+                   "osm-node-3502875693":  {
+                                               "status":  "notfound",
+                                               "title":  "",
+                                               "address":  "",
+                                               "metro":  "",
+                                               "mapsUrl":  "",
+                                               "distance":  0,
+                                               "checkedAt":  "2026-11-23T21:57:29+03:00"
+                                           },
+                   "osm-node-3502875694":  {
+                                               "status":  "notfound",
+                                               "title":  "",
+                                               "address":  "",
+                                               "metro":  "",
+                                               "mapsUrl":  "",
+                                               "distance":  0,
+                                               "checkedAt":  "2026-11-23T21:57:29+03:00"
+                                           },
+                   "osm-node-3502875695":  {
+                                               "status":  "notfound",
+                                               "title":  "",
+                                               "address":  "",
+                                               "metro":  "",
+                                               "mapsUrl":  "",
+                                               "distance":  0,
+                                               "checkedAt":  "2026-11-23T21:57:29+03:00"
+                                           },
+                   "osm-node-3502875696":  {
+                                               "status":  "notfound",
+                                               "title":  "",
+                                               "address":  "",
+                                               "metro":  "",
+                                               "mapsUrl":  "",
+                                               "distance":  0,
+                                               "checkedAt":  "2026-11-23T21:57:29+03:00"
+                                           },
+                   "osm-node-3503058809":  {
+                                               "status":  "notfound",
+                                               "title":  "",
+                                               "address":  "",
+                                               "metro":  "",
+                                               "mapsUrl":  "",
+                                               "distance":  0,
+                                               "checkedAt":  "2026-11-23T21:57:29+03:00"
+                                           },
+                   "osm-node-3638722828":  {
+                                               "status":  "closed",
+                                               "title":  "Мода Из Комода",
+                                               "address":  "Москва, Васильевская улица, 3",
+                                               "metro":  "Белорусская",
+                                               "mapsUrl":  "https://yandex.ru/maps/org/1174936126/",
+                                               "distance":  6,
+                                               "checkedAt":  "2026-11-23T21:57:29+03:00"
+                                           },
+                   "osm-node-3641107880":  {
+                                               "status":  "notfound",
+                                               "title":  "",
+                                               "address":  "",
+                                               "metro":  "",
+                                               "mapsUrl":  "",
+                                               "distance":  0,
+                                               "checkedAt":  "2026-11-23T21:57:29+03:00"
+                                           },
+                   "osm-node-3662604629":  {
+                                               "status":  "notfound",
+                                               "title":  "",
+                                               "address":  "",
+                                               "metro":  "",
+                                               "mapsUrl":  "",
+                                               "distance":  0,
+                                               "checkedAt":  "2026-11-23T21:57:29+03:00"
+                                           },
+                   "osm-node-3698859615":  {
+                                               "status":  "notfound",
+                                               "title":  "",
+                                               "address":  "",
+                                               "metro":  "",
+                                               "mapsUrl":  "",
+                                               "distance":  0,
+                                               "checkedAt":  "2026-11-23T21:57:29+03:00"
+                                           },
+                   "osm-node-3719238529":  {
+                                               "status":  "notfound",
+                                               "title":  "",
+                                               "address":  "",
+                                               "metro":  "",
+                                               "mapsUrl":  "",
+                                               "distance":  0,
+                                               "checkedAt":  "2026-11-23T21:56:06+03:00"
+                                           },
+                   "osm-node-3721177204":  {
+                                               "status":  "open",
+                                               "title":  "Экомаркет",
+                                               "address":  "Москва, Профсоюзная улица, 126, корп. 3",
+                                               "metro":  "Коньково",
+                                               "mapsUrl":  "https://yandex.ru/maps/org/1347748209/",
+                                               "distance":  16,
+                                               "checkedAt":  "2026-11-23T21:57:29+03:00"
+                                           },
+                   "osm-node-3826833887":  {
+                                               "status":  "notfound",
+                                               "title":  "",
+                                               "address":  "",
+                                               "metro":  "",
+                                               "mapsUrl":  "",
+                                               "distance":  0,
+                                               "checkedAt":  "2026-11-23T21:57:29+03:00"
+                                           },
+                   "osm-node-3906064909":  {
+                                               "status":  "notfound",
+                                               "title":  "",
+                                               "address":  "",
+                                               "metro":  "",
+                                               "mapsUrl":  "",
+                                               "distance":  0,
+                                               "checkedAt":  "2026-11-23T21:57:29+03:00"
+                                           },
+                   "osm-node-4009518854":  {
+                                               "status":  "notfound",
+                                               "title":  "",
+                                               "address":  "",
+                                               "metro":  "",
+                                               "mapsUrl":  "",
+                                               "distance":  0,
+                                               "checkedAt":  "2026-11-23T21:57:29+03:00"
+                                           },
+                   "osm-node-4030011273":  {
+                                               "status":  "notfound",
+                                               "title":  "",
+                                               "address":  "",
+                                               "metro":  "",
+                                               "mapsUrl":  "",
+                                               "distance":  0,
+                                               "checkedAt":  "2026-11-23T21:57:29+03:00"
+                                           },
+                   "osm-node-4217647931":  {
+                                               "status":  "open",
+                                               "title":  "Лавка старины",
+                                               "address":  "Москва, 3-й Донской проезд, 1",
+                                               "metro":  "Ленинский проспект",
+                                               "mapsUrl":  "https://yandex.ru/maps/org/1123950419/",
+                                               "distance":  60,
+                                               "checkedAt":  "2026-11-23T21:57:29+03:00"
+                                           },
+                   "osm-node-4298694398":  {
+                                               "status":  "notfound",
+                                               "title":  "",
+                                               "address":  "",
+                                               "metro":  "",
+                                               "mapsUrl":  "",
+                                               "distance":  0,
+                                               "checkedAt":  "2026-11-23T21:57:29+03:00"
+                                           },
+                   "osm-node-4336693691":  {
+                                               "status":  "notfound",
+                                               "title":  "",
+                                               "address":  "",
+                                               "metro":  "",
+                                               "mapsUrl":  "",
+                                               "distance":  0,
+                                               "checkedAt":  "2026-11-23T21:56:06+03:00"
+                                           },
+                   "osm-node-4364555977":  {
+                                               "status":  "notfound",
+                                               "title":  "",
+                                               "address":  "",
+                                               "metro":  "",
+                                               "mapsUrl":  "",
+                                               "distance":  0,
+                                               "checkedAt":  "2026-11-23T21:57:29+03:00"
+                                           },
+                   "osm-node-4371923837":  {
+                                               "status":  "closed",
+                                               "title":  "Верхняя полка",
+                                               "address":  "Москва, Восточная улица, 4, корп. 1",
+                                               "metro":  "Автозаводская",
+                                               "mapsUrl":  "https://yandex.ru/maps/org/35002369345/",
+                                               "distance":  3,
+                                               "checkedAt":  "2026-11-23T21:57:29+03:00"
+                                           },
+                   "osm-node-4386692391":  {
+                                               "status":  "notfound",
+                                               "title":  "",
+                                               "address":  "",
+                                               "metro":  "",
+                                               "mapsUrl":  "",
+                                               "distance":  0,
+                                               "checkedAt":  "2026-11-23T21:57:29+03:00"
+                                           },
+                   "osm-node-4508757890":  {
+                                               "status":  "notfound",
+                                               "title":  "",
+                                               "address":  "",
+                                               "metro":  "",
+                                               "mapsUrl":  "",
+                                               "distance":  0,
+                                               "checkedAt":  "2026-11-23T21:57:29+03:00"
+                                           },
+                   "osm-node-4646736293":  {
+                                               "status":  "closed",
+                                               "title":  "БукВик",
+                                               "address":  "Московская область, Дзержинский, Лесная улица, 19А",
+                                               "metro":  "",
+                                               "mapsUrl":  "https://yandex.ru/maps/org/1382717969/",
+                                               "distance":  14,
+                                               "checkedAt":  "2026-11-23T21:57:29+03:00"
+                                           },
+                   "osm-node-4721914167":  {
+                                               "status":  "notfound",
+                                               "title":  "",
+                                               "address":  "",
+                                               "metro":  "",
+                                               "mapsUrl":  "",
+                                               "distance":  0,
+                                               "checkedAt":  "2026-11-23T21:57:29+03:00"
+                                           },
+                   "osm-node-4948139135":  {
+                                               "status":  "notfound",
+                                               "title":  "",
+                                               "address":  "",
+                                               "metro":  "",
+                                               "mapsUrl":  "",
+                                               "distance":  0,
+                                               "checkedAt":  "2026-11-23T21:57:29+03:00"
+                                           },
+                   "osm-node-4948141389":  {
+                                               "status":  "notfound",
+                                               "title":  "",
+                                               "address":  "",
+                                               "metro":  "",
+                                               "mapsUrl":  "",
+                                               "distance":  0,
+                                               "checkedAt":  "2026-11-23T21:57:29+03:00"
+                                           },
+                   "osm-node-4948144641":  {
+                                               "status":  "notfound",
+                                               "title":  "",
+                                               "address":  "",
+                                               "metro":  "",
+                                               "mapsUrl":  "",
+                                               "distance":  0,
+                                               "checkedAt":  "2026-11-23T21:57:29+03:00"
+                                           },
+                   "osm-node-4948150388":  {
+                                               "status":  "notfound",
+                                               "title":  "",
+                                               "address":  "",
+                                               "metro":  "",
+                                               "mapsUrl":  "",
+                                               "distance":  0,
+                                               "checkedAt":  "2026-11-23T21:57:29+03:00"
+                                           },
+                   "osm-node-5065981766":  {
+                                               "status":  "notfound",
+                                               "title":  "",
+                                               "address":  "",
+                                               "metro":  "",
+                                               "mapsUrl":  "",
+                                               "distance":  0,
+                                               "checkedAt":  "2026-11-23T21:57:29+03:00"
+                                           },
+                   "osm-node-512008317":  {
+                                              "status":  "open",
+                                              "title":  "Москино Салют",
+                                              "address":  "Москва, улица Кедрова, 14, корп. 3",
+                                              "metro":  "Академическая",
+                                              "mapsUrl":  "https://yandex.ru/maps/org/1027212842/",
+                                              "distance":  7,
+                                              "checkedAt":  "2026-11-23T21:57:29+03:00"
+                                          },
+                   "osm-node-513880065":  {
+                                              "status":  "open",
+                                              "title":  "Мир школьника",
+                                              "address":  "Москва, Митинская улица, 39",
+                                              "metro":  "Митино",
+                                              "mapsUrl":  "https://yandex.ru/maps/org/1110909139/",
+                                              "distance":  12,
+                                              "checkedAt":  "2026-11-23T21:57:29+03:00"
+                                          },
+                   "osm-node-517227781":  {
+                                              "status":  "notfound",
+                                              "title":  "",
+                                              "address":  "",
+                                              "metro":  "",
+                                              "mapsUrl":  "",
+                                              "distance":  0,
+                                              "checkedAt":  "2026-11-23T21:57:29+03:00"
+                                          },
+                   "osm-node-5282298042":  {
+                                               "status":  "notfound",
+                                               "title":  "",
+                                               "address":  "",
+                                               "metro":  "",
+                                               "mapsUrl":  "",
+                                               "distance":  0,
+                                               "checkedAt":  "2026-11-23T21:57:29+03:00"
+                                           },
+                   "osm-node-5322278723":  {
+                                               "status":  "notfound",
+                                               "title":  "",
+                                               "address":  "",
+                                               "metro":  "",
+                                               "mapsUrl":  "",
+                                               "distance":  0,
+                                               "checkedAt":  "2026-11-23T21:57:29+03:00"
+                                           },
+                   "osm-node-5445159819":  {
+                                               "status":  "notfound",
+                                               "title":  "",
+                                               "address":  "",
+                                               "metro":  "",
+                                               "mapsUrl":  "",
+                                               "distance":  0,
+                                               "checkedAt":  "2026-11-23T21:57:29+03:00"
+                                           },
+                   "osm-node-5862916845":  {
+                                               "status":  "notfound",
+                                               "title":  "",
+                                               "address":  "",
+                                               "metro":  "",
+                                               "mapsUrl":  "",
+                                               "distance":  0,
+                                               "checkedAt":  "2026-11-23T21:57:29+03:00"
+                                           },
+                   "osm-node-5864314211":  {
+                                               "status":  "notfound",
+                                               "title":  "",
+                                               "address":  "",
+                                               "metro":  "",
+                                               "mapsUrl":  "",
+                                               "distance":  0,
+                                               "checkedAt":  "2026-11-23T21:57:29+03:00"
+                                           },
+                   "osm-node-5948484515":  {
+                                               "status":  "notfound",
+                                               "title":  "",
+                                               "address":  "",
+                                               "metro":  "",
+                                               "mapsUrl":  "",
+                                               "distance":  0,
+                                               "checkedAt":  "2026-11-23T21:57:29+03:00"
+                                           },
+                   "osm-node-601766365":  {
+                                              "status":  "notfound",
+                                              "title":  "",
+                                              "address":  "",
+                                              "metro":  "",
+                                              "mapsUrl":  "",
+                                              "distance":  0,
+                                              "checkedAt":  "2026-11-23T21:57:29+03:00"
+                                          },
+                   "osm-node-611786772":  {
+                                              "status":  "notfound",
+                                              "title":  "",
+                                              "address":  "",
+                                              "metro":  "",
+                                              "mapsUrl":  "",
+                                              "distance":  0,
+                                              "checkedAt":  "2026-11-23T21:57:29+03:00"
+                                          },
+                   "osm-node-6425133783":  {
+                                               "status":  "notfound",
+                                               "title":  "",
+                                               "address":  "",
+                                               "metro":  "",
+                                               "mapsUrl":  "",
+                                               "distance":  0,
+                                               "checkedAt":  "2026-11-23T21:57:29+03:00"
+                                           },
+                   "osm-node-665167114":  {
+                                              "status":  "notfound",
+                                              "title":  "",
+                                              "address":  "",
+                                              "metro":  "",
+                                              "mapsUrl":  "",
+                                              "distance":  0,
+                                              "checkedAt":  "2026-11-23T21:57:29+03:00"
+                                          },
+                   "osm-node-668734091":  {
+                                              "status":  "notfound",
+                                              "title":  "",
+                                              "address":  "",
+                                              "metro":  "",
+                                              "mapsUrl":  "",
+                                              "distance":  0,
+                                              "checkedAt":  "2026-11-23T21:57:29+03:00"
+                                          },
+                   "osm-node-677515447":  {
+                                              "status":  "notfound",
+                                              "title":  "",
+                                              "address":  "",
+                                              "metro":  "",
+                                              "mapsUrl":  "",
+                                              "distance":  0,
+                                              "checkedAt":  "2026-11-23T21:57:29+03:00"
+                                          },
+                   "osm-node-705349174":  {
+                                              "status":  "open",
+                                              "title":  "Оркестрион",
+                                              "address":  "Москва, улица Гарибальди, 19",
+                                              "metro":  "Новые Черёмушки",
+                                              "mapsUrl":  "https://yandex.ru/maps/org/1022385598/",
+                                              "distance":  13,
+                                              "checkedAt":  "2026-11-23T21:56:06+03:00"
+                                          },
+                   "osm-node-706875329":  {
+                                              "status":  "notfound",
+                                              "title":  "",
+                                              "address":  "",
+                                              "metro":  "",
+                                              "mapsUrl":  "",
+                                              "distance":  0,
+                                              "checkedAt":  "2026-11-23T21:57:29+03:00"
+                                          },
+                   "osm-node-7129381798":  {
+                                               "status":  "notfound",
+                                               "title":  "",
+                                               "address":  "",
+                                               "metro":  "",
+                                               "mapsUrl":  "",
+                                               "distance":  0,
+                                               "checkedAt":  "2026-11-23T21:57:29+03:00"
+                                           },
+                   "osm-node-7229743407":  {
+                                               "status":  "notfound",
+                                               "title":  "",
+                                               "address":  "",
+                                               "metro":  "",
+                                               "mapsUrl":  "",
+                                               "distance":  0,
+                                               "checkedAt":  "2026-11-23T21:57:29+03:00"
+                                           },
+                   "osm-node-7730569206":  {
+                                               "status":  "notfound",
+                                               "title":  "",
+                                               "address":  "",
+                                               "metro":  "",
+                                               "mapsUrl":  "",
+                                               "distance":  0,
+                                               "checkedAt":  "2026-11-23T21:57:29+03:00"
+                                           },
+                   "osm-node-775859986":  {
+                                              "status":  "notfound",
+                                              "title":  "",
+                                              "address":  "",
+                                              "metro":  "",
+                                              "mapsUrl":  "",
+                                              "distance":  0,
+                                              "checkedAt":  "2026-11-23T21:57:29+03:00"
+                                          },
+                   "osm-node-7991589394":  {
+                                               "status":  "notfound",
+                                               "title":  "",
+                                               "address":  "",
+                                               "metro":  "",
+                                               "mapsUrl":  "",
+                                               "distance":  0,
+                                               "checkedAt":  "2026-11-23T21:57:29+03:00"
+                                           },
+                   "osm-node-8096959954":  {
+                                               "status":  "notfound",
+                                               "title":  "",
+                                               "address":  "",
+                                               "metro":  "",
+                                               "mapsUrl":  "",
+                                               "distance":  0,
+                                               "checkedAt":  "2026-11-23T21:57:29+03:00"
+                                           },
+                   "osm-node-8450721463":  {
+                                               "status":  "notfound",
+                                               "title":  "",
+                                               "address":  "",
+                                               "metro":  "",
+                                               "mapsUrl":  "",
+                                               "distance":  0,
+                                               "checkedAt":  "2026-11-23T21:57:29+03:00"
+                                           },
+                   "osm-node-867755862":  {
+                                              "status":  "notfound",
+                                              "title":  "",
+                                              "address":  "",
+                                              "metro":  "",
+                                              "mapsUrl":  "",
+                                              "distance":  0,
+                                              "checkedAt":  "2026-11-23T21:57:29+03:00"
+                                          },
+                   "osm-node-884420426":  {
+                                              "status":  "notfound",
+                                              "title":  "",
+                                              "address":  "",
+                                              "metro":  "",
+                                              "mapsUrl":  "",
+                                              "distance":  0,
+                                              "checkedAt":  "2026-11-23T21:57:29+03:00"
+                                          },
+                   "osm-node-8950592420":  {
+                                               "status":  "notfound",
+                                               "title":  "",
+                                               "address":  "",
+                                               "metro":  "",
+                                               "mapsUrl":  "",
+                                               "distance":  0,
+                                               "checkedAt":  "2026-11-23T21:57:29+03:00"
+                                           },
+                   "osm-node-920465255":  {
+                                              "status":  "open",
+                                              "title":  "Кронверк синема",
+                                              "address":  "Московская область, городской округ Красногорск, деревня Путилково, МКАД, 71-й километр, 16А",
+                                              "metro":  "Митино",
+                                              "mapsUrl":  "https://yandex.ru/maps/org/1198944890/",
+                                              "distance":  64,
+                                              "checkedAt":  "2026-11-23T21:57:29+03:00"
+                                          },
+                   "osm-node-922497297":  {
+                                              "status":  "notfound",
+                                              "title":  "",
+                                              "address":  "",
+                                              "metro":  "",
+                                              "mapsUrl":  "",
+                                              "distance":  0,
+                                              "checkedAt":  "2026-11-23T21:57:29+03:00"
+                                          },
+                   "osm-node-9272767921":  {
+                                               "status":  "notfound",
+                                               "title":  "",
+                                               "address":  "",
+                                               "metro":  "",
+                                               "mapsUrl":  "",
+                                               "distance":  0,
+                                               "checkedAt":  "2026-11-23T21:57:29+03:00"
+                                           },
+                   "osm-node-954911650":  {
+                                              "status":  "open",
+                                              "title":  "Империя самоцветов",
+                                              "address":  "Москва, улица Строителей, 4к6",
+                                              "metro":  "Вавиловская",
+                                              "mapsUrl":  "https://yandex.ru/maps/org/1098290052/",
+                                              "distance":  1,
+                                              "checkedAt":  "2026-11-23T21:57:29+03:00"
+                                          },
+                   "osm-node-954912021":  {
+                                              "status":  "notfound",
+                                              "title":  "",
+                                              "address":  "",
+                                              "metro":  "",
+                                              "mapsUrl":  "",
+                                              "distance":  0,
+                                              "checkedAt":  "2026-11-23T21:57:29+03:00"
+                                          },
+                   "osm-node-9796570817":  {
+                                               "status":  "notfound",
+                                               "title":  "",
+                                               "address":  "",
+                                               "metro":  "",
+                                               "mapsUrl":  "",
+                                               "distance":  0,
+                                               "checkedAt":  "2026-11-23T21:57:29+03:00"
+                                           },
+                   "osm-node-9853204061":  {
+                                               "status":  "notfound",
+                                               "title":  "",
+                                               "address":  "",
+                                               "metro":  "",
+                                               "mapsUrl":  "",
+                                               "distance":  0,
+                                               "checkedAt":  "2026-11-23T21:57:29+03:00"
+                                           },
+                   "osm-way-23323489":  {
+                                            "status":  "notfound",
+                                            "title":  "",
+                                            "address":  "",
+                                            "metro":  "",
+                                            "mapsUrl":  "",
+                                            "distance":  0,
+                                            "checkedAt":  "2026-11-23T21:57:29+03:00"
+                                        },
+                   "osm-way-23378656":  {
+                                            "status":  "open",
+                                            "title":  "Нарышкинский сквер",
+                                            "address":  "Москва, Нарышкинский сквер",
+                                            "metro":  "Чеховская",
+                                            "mapsUrl":  "https://yandex.ru/maps/org/164502375101/",
+                                            "distance":  13,
+                                            "checkedAt":  "2026-11-23T21:57:29+03:00"
+                                        },
+                   "osm-way-24746621":  {
+                                            "status":  "notfound",
+                                            "title":  "",
+                                            "address":  "",
+                                            "metro":  "",
+                                            "mapsUrl":  "",
+                                            "distance":  0,
+                                            "checkedAt":  "2026-11-23T21:57:29+03:00"
+                                        },
+                   "osm-way-27468753":  {
+                                            "status":  "notfound",
+                                            "title":  "",
+                                            "address":  "",
+                                            "metro":  "",
+                                            "mapsUrl":  "",
+                                            "distance":  0,
+                                            "checkedAt":  "2026-11-23T21:57:29+03:00"
+                                        },
+                   "osm-way-28666361":  {
+                                            "status":  "open",
+                                            "title":  "Парк 30-летия Победы",
+                                            "address":  "Москва, Кировоградская улица",
+                                            "metro":  "Пражская",
+                                            "mapsUrl":  "https://yandex.ru/maps/org/182089701568/",
+                                            "distance":  31,
+                                            "checkedAt":  "2026-11-23T21:57:29+03:00"
+                                        },
+                   "osm-way-28878356":  {
+                                            "status":  "open",
+                                            "title":  "Бутовский парк",
+                                            "address":  "Москва, Бутовский парк",
+                                            "metro":  "Улица Старокачаловская",
+                                            "mapsUrl":  "https://yandex.ru/maps/org/102534411955/",
+                                            "distance":  39,
+                                            "checkedAt":  "2026-11-23T21:57:29+03:00"
+                                        }
+               }
+}

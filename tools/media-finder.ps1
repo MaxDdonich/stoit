@@ -169,7 +169,7 @@ function Get-MediaGallery([string]$Html, [string]$BaseUrl) {
   $clean = @()
   foreach ($url in $urls) {
     if ($url -and $clean -notcontains $url) { $clean += $url }
-    if ($clean.Count -ge 6) { break }
+    if ($clean.Count -ge 12) { break }
   }
   return $clean
 }
@@ -189,39 +189,57 @@ function Get-MediaGalleryLinks([string]$Html, [string]$BaseUrl) {
     if ($haystack -notmatch 'галере|фотогалере|фото|интерьер|gallery|photo') { continue }
     if ($haystack -match 'logo|icon|avatar|qr') { continue }
     if ($links -notcontains $absolute) { $links += $absolute }
-    if ($links.Count -ge 3) { break }
+    if ($links.Count -ge 4) { break }
   }
   return $links
 }
 
-function Get-CommonsGallery([string]$Category, [string]$Name) {
-  $params = ''
+function Get-CommonsGallery([string]$Category, [string]$Name, [int]$Limit = 12) {
+  $sources = @()
   if ($Category) {
-    $params = 'generator=categorymembers&gcmtitle=' + [Uri]::EscapeDataString("Category:$Category") + '&gcmtype=file&gcmlimit=10'
-  } elseif ($Name) {
-    $params = 'generator=search&gsrsearch=' + [Uri]::EscapeDataString("$Name Москва") + '&gsrnamespace=6&gsrlimit=8'
-  } else {
-    return @()
+    $sources += [pscustomobject]@{
+      Params = 'generator=categorymembers&gcmtitle=' + [Uri]::EscapeDataString("Category:$Category") + '&gcmtype=file&gcmlimit=24'
+      IsSearch = $false
+    }
   }
-  $url = "https://commons.wikimedia.org/w/api.php?action=query&format=json&prop=imageinfo&iiprop=url%7Cmime&iiurlwidth=1400&$params"
-  $raw = Get-RemoteText $url
-  if (-not $raw) { return @() }
-  try { $doc = $raw | ConvertFrom-Json } catch { return @() }
-  if ($null -eq $doc.query -or $null -eq $doc.query.pages) { return @() }
+  if ($Name) {
+    $sources += [pscustomobject]@{
+      Params = 'generator=search&gsrsearch=' + [Uri]::EscapeDataString("$Name Москва") + '&gsrnamespace=6&gsrlimit=12'
+      IsSearch = $true
+    }
+  }
+  if ($sources.Count -eq 0) { return @() }
+
   $photos = @()
-  foreach ($prop in $doc.query.pages.PSObject.Properties) {
-    $page = $prop.Value
-    if (-not $page.imageinfo -or -not $page.imageinfo[0]) { continue }
-    $info = $page.imageinfo[0]
-    $mime = [string]$info.mime
-    if ($mime -notmatch '^image/(jpeg|png|webp)$') { continue }
-    $url = [string]$info.thumburl
-    if (-not $url) { $url = [string]$info.url }
-    if (-not $url) { continue }
-    $title = [string]$page.title
-    if ($title -match '(?i)logo|icon|map|plan|scheme|coat|flag|qr|diagram|poster|banner|stamp|symbol') { continue }
-    if (-not $photos.Contains($url)) { $photos += $url }
-    if ($photos.Count -ge 8) { break }
+  $seen = @{}
+  foreach ($source in $sources) {
+    if ($photos.Count -ge $Limit) { break }
+    # Если категория уже дала достаточно обзорных снимков, поиск по названию не нужен.
+    if ($source.IsSearch -and $photos.Count -ge 6) { break }
+    $url = "https://commons.wikimedia.org/w/api.php?action=query&format=json&prop=imageinfo&iiprop=url%7Cmime&iiurlwidth=1600&$($source.Params)"
+    $raw = Get-RemoteText $url
+    if (-not $raw) { continue }
+    try { $doc = $raw | ConvertFrom-Json } catch { continue }
+    if ($null -eq $doc.query -or $null -eq $doc.query.pages) { continue }
+    foreach ($prop in $doc.query.pages.PSObject.Properties) {
+      $page = $prop.Value
+      if (-not $page.imageinfo -or -not $page.imageinfo[0]) { continue }
+      $info = $page.imageinfo[0]
+      $mime = [string]$info.mime
+      if ($mime -notmatch '^image/(jpeg|png|webp)$') { continue }
+      $photoUrl = [string]$info.thumburl
+      if (-not $photoUrl) { $photoUrl = [string]$info.url }
+      if (-not $photoUrl) { continue }
+      $title = [string]$page.title
+      if ($title -match '(?i)logo|icon|map|plan|scheme|coat|flag|qr|diagram|poster|banner|stamp|symbol|signature|grave|могил|портрет|portrait') { continue }
+      $key = ([Uri]$photoUrl).Segments[-1]
+      $key = [Uri]::UnescapeDataString($key) -replace '^\d+px-', ''
+      if ($seen.ContainsKey($key)) { continue }
+      $seen[$key] = $true
+      $photos += $photoUrl
+      if ($photos.Count -ge $Limit) { break }
+    }
+    Start-Sleep -Milliseconds 350
   }
   return $photos
 }
@@ -351,6 +369,7 @@ function Invoke-MediaDiscovery {
   param(
     $Places,
     [int]$MaxChecks = 24,
+    [int]$MaxGalleryTopUps = 24,
     [string]$MediaPath,
     [string]$CachePath,
     [switch]$SkipNetwork
@@ -466,16 +485,16 @@ function Invoke-MediaDiscovery {
         continue
       }
       $photos = @($page.gallery)
-      foreach ($galleryLink in @($page.galleryLinks | Select-Object -First 2)) {
+      foreach ($galleryLink in @($page.galleryLinks | Select-Object -First 3)) {
         $subPage = Get-MediaPageData ([string]$galleryLink)
         if ($null -ne $subPage -and $subPage.ok -and -not $subPage.adult -and -not $subPage.spamReason) { $photos += @($subPage.gallery) }
       }
       $galleryLocation = [string]$place.website
-      if ($photos.Count -lt 4) {
+      if ($photos.Count -lt 6) {
         $commons = @(Get-CommonsGallery ([string]$place.commonsCategory) ([string]$place.name.ru))
         if ($commons.Count -gt 0) {
           $photos += $commons
-          $galleryLocation = 'https://commons.wikimedia.org/'
+          if (@($page.gallery).Count -eq 0) { $galleryLocation = 'https://commons.wikimedia.org/' }
         }
       }
       $photos = @($photos | Where-Object { Test-PhotoUrl ([string]$_) } | Select-Object -Unique | Select-Object -First 12)
@@ -496,15 +515,17 @@ function Invoke-MediaDiscovery {
   }
 
   if (-not $SkipNetwork) {
-    $commonsChecked = 0
-    $commonsPlaces = @($Places | Where-Object {
-      $_.commonsCategory -and (-not $_.gallery -or @($_.gallery).Count -lt 3)
+    $target = 6
+    $topUpPlaces = @($Places | Where-Object {
+      (-not $_.gallery -or @($_.gallery).Count -lt $target) -and
+      ($_.commonsCategory -or ($_.image -and $_.category -in @('walk', 'culture', 'active', 'movie')))
     } | Sort-Object { if ($_.gallery) { @($_.gallery).Count } else { 0 } })
-    foreach ($place in $commonsPlaces) {
-      if ($commonsChecked -ge 8) { break }
-      $commonsChecked += 1
+    $topUpChecked = 0
+    foreach ($place in $topUpPlaces) {
+      if ($topUpChecked -ge $MaxGalleryTopUps) { break }
+      $topUpChecked += 1
       $commons = @(Get-CommonsGallery ([string]$place.commonsCategory) ([string]$place.name.ru))
-      Start-Sleep -Milliseconds 650
+      Start-Sleep -Milliseconds 400
       if ($commons.Count -eq 0) { continue }
       $existing = if ($store.ContainsKey([string]$place.id)) { $store[[string]$place.id] } else { [ordered]@{} }
       $photos = @($existing.gallery) + @($place.gallery) + $commons
@@ -514,13 +535,13 @@ function Invoke-MediaDiscovery {
         iconKind = [string]$existing.iconKind
         iconSource = [string]$existing.iconSource
         gallery = $photos
-        gallerySource = 'https://commons.wikimedia.org/'
+        gallerySource = if ($existing.gallerySource) { [string]$existing.gallerySource } else { 'https://commons.wikimedia.org/' }
         updatedAt = $Now.ToString('yyyy-MM-ddTHH:mm:sszzz')
       }
       $store[[string]$place.id] = $entry
       Apply-MediaEntry $place $entry
     }
-    $script:MediaChecked += $commonsChecked
+    $script:MediaChecked += $topUpChecked
   }
 
   $mediaOut = [ordered]@{ updatedAt = $Now.ToString('yyyy-MM-ddTHH:mm:sszzz'); places = $store }

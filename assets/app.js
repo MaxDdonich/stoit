@@ -1550,7 +1550,7 @@
     const similar = state.feed.places
       .filter((p) => p.id !== place.id && p.category === place.category)
       .slice(0, 3);
-    const mapUrl = "https://yandex.ru/maps/?text=" + encodeURIComponent(place.mapQuery || (loc(place.name) + " Москва"));
+    const mapUrl = place.mapsUrl || ("https://yandex.ru/maps/?text=" + encodeURIComponent(place.mapQuery || (loc(place.name) + " Москва")));
     const deal = place.deal;
     const days = ["0", "1", "2", "3", "4", "5", "6"];
     const activities = (place.activities && (place.activities[state.lang] || place.activities.ru))

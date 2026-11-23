@@ -34,7 +34,7 @@ if ($Force -or (Test-Stale $WikiPath 7)) {
 
 try {
   if ($Force) {
-    & (Join-Path $PSScriptRoot 'collect.ps1') -MaxPriceChecks 72 -MaxSignalPriceChecks 72 -MaxMediaChecks 72
+    & (Join-Path $PSScriptRoot 'collect.ps1') -MaxPriceChecks 72 -MaxSignalPriceChecks 72 -MaxMediaChecks 72 -MaxGalleryTopUps 150 -MaxMapsChecks 200
   } else {
     & (Join-Path $PSScriptRoot 'collect.ps1')
   }
