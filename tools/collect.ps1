@@ -615,23 +615,226 @@ if ($null -ne $wikiMeta -and $null -ne $wikiMeta.places) {
 }
 
 # ---------- описание, качество и «небанальность» ----------
-$whatRu = @{
-  coffee = 'Кофейня'; food = 'Кафе или ресторан'; antikafe = 'Антикафе';
-  culture = 'Музей, галерея или театр'; walk = 'Парк или прогулочное место';
-  games = 'Игровое место'; active = 'Активность'; movie = 'Кинотеатр';
-  shop = 'Книжный, виниловый или винтажный магазин'; event = 'Городское событие'
+function New-TypeInfo([string]$Key, [string]$Ru, [string]$En) {
+  return [pscustomobject]@{ Key = $Key; Ru = $Ru; En = $En }
 }
-$whatEn = @{
-  coffee = 'A coffee shop'; food = 'A cafe or restaurant'; antikafe = 'An anti-cafe';
-  culture = 'A museum, gallery or theatre'; walk = 'A park or walking spot';
-  games = 'A games venue'; active = 'An activity'; movie = 'A cinema';
-  shop = 'A book, vinyl or vintage shop'; event = 'A city event'
+
+function Get-PlaceTypeInfo($Place) {
+  $name = ([string]$Place.name.ru).ToLowerInvariant()
+  $amenity = ''; $tourism = ''; $leisure = ''; $sport = ''; $shop = ''; $historic = ''
+  if ($Place.PSObject.Properties['osmTags'] -and $null -ne $Place.osmTags) {
+    $amenity = [string]$Place.osmTags.amenity
+    $tourism = [string]$Place.osmTags.tourism
+    $leisure = [string]$Place.osmTags.leisure
+    $sport = [string]$Place.osmTags.sport
+    $shop = [string]$Place.osmTags.shop
+    $historic = [string]$Place.osmTags.historic
+  }
+  if ($name -match 'flipfly|флипфлай') { return New-TypeInfo 'trampoline' 'Батутный центр' 'A trampoline park' }
+  if ($name -match 'cook&run|cook and run|кулинар') { return New-TypeInfo 'cooking' 'Кулинарная студия' 'A cooking studio' }
+  if ($name -match 'вейк|wake') { return New-TypeInfo 'wakeboard' 'Вейк-парк' 'A wake park' }
+  if ($name -match 'ice skating|skating rink') { return New-TypeInfo 'rink' 'Каток' 'An ice rink' }
+  if ($name -match 'бассейн|плаван') { return New-TypeInfo 'pool' 'Бассейн' 'A swimming pool' }
+  if ($name -match 'теннис') { return New-TypeInfo 'tennis' 'Теннисный центр' 'A tennis centre' }
+  if ($name -match 'баскет|волейбол|футбол|хоккей|стадион|арена|спорткомплекс|спортивный комплекс|манеж|лужники|динамо|dynamo|цска|cska|спартаковец|буревестник|крылатское') { return New-TypeInfo 'sport' 'Спортивный комплекс' 'A sports complex' }
+  if ($amenity -eq 'marketplace') { return New-TypeInfo 'market' 'Рынок' 'A market' }
+  if ($amenity -eq 'cinema') { return New-TypeInfo 'cinema' 'Кинотеатр' 'A cinema' }
+  if ($amenity -eq 'theatre') { return New-TypeInfo 'theatre' 'Театр' 'A theatre' }
+  if ($amenity -eq 'arts_centre') { return New-TypeInfo 'arts' 'Культурный центр' 'An arts centre' }
+  if ($amenity -eq 'karaoke_box') { return New-TypeInfo 'karaoke' 'Караоке' 'Karaoke' }
+  if ($amenity -eq 'cafe') { if ($name -match 'кофей|coffee') { return New-TypeInfo 'coffee' 'Кофейня' 'A coffee shop' }; return New-TypeInfo 'cafe' 'Кафе' 'A cafe' }
+  if ($amenity -in @('restaurant','food_court')) { return New-TypeInfo 'restaurant' 'Ресторан' 'A restaurant' }
+  if ($amenity -in @('bar','pub')) { return New-TypeInfo 'bar' 'Бар' 'A bar' }
+  if ($amenity -in @('fast_food','ice_cream')) { return New-TypeInfo 'fastfood' 'Фастфуд' 'Fast food' }
+  if ($tourism -eq 'museum') { return New-TypeInfo 'museum' 'Музей' 'A museum' }
+  if ($tourism -eq 'gallery') { return New-TypeInfo 'gallery' 'Галерея' 'A gallery' }
+  if ($tourism -eq 'viewpoint') { return New-TypeInfo 'viewpoint' 'Смотровая площадка' 'A viewpoint' }
+  if ($tourism -eq 'planetarium') { return New-TypeInfo 'planetarium' 'Планетарий' 'A planetarium' }
+  if ($tourism -eq 'aquarium') { return New-TypeInfo 'aquarium' 'Океанариум' 'An aquarium' }
+  if ($tourism -eq 'zoo') { return New-TypeInfo 'zoo' 'Зоопарк' 'A zoo' }
+  if ($tourism -eq 'attraction') { return New-TypeInfo 'attraction' 'Достопримечательность' 'An attraction' }
+  if ($leisure -eq 'bowling_alley') { return New-TypeInfo 'bowling' 'Боулинг' 'Bowling' }
+  if ($leisure -eq 'trampoline_park') { return New-TypeInfo 'trampoline' 'Батутный центр' 'A trampoline park' }
+  if ($leisure -eq 'escape_game') { return New-TypeInfo 'quest' 'Квест-рум' 'An escape room' }
+  if ($leisure -eq 'ice_rink') { return New-TypeInfo 'rink' 'Каток' 'An ice rink' }
+  if ($leisure -eq 'water_park') { return New-TypeInfo 'waterpark' 'Аквапарк' 'A water park' }
+  if ($leisure -eq 'park') { return New-TypeInfo 'park' 'Парк' 'A park' }
+  if ($leisure -eq 'garden') { return New-TypeInfo 'garden' 'Сад' 'A garden' }
+  if ($leisure -eq 'climbing') { return New-TypeInfo 'climbing' 'Скалодром' 'A climbing wall' }
+  if ($leisure -eq 'sports_centre') { return New-TypeInfo 'sport' 'Спортивный центр' 'A sports centre' }
+  if ($sport -eq 'karting') { return New-TypeInfo 'karting' 'Картинг' 'Karting' }
+  if ($sport -eq 'laser_tag') { return New-TypeInfo 'lasertag' 'Лазертаг' 'Laser tag' }
+  if ($sport -eq 'swimming') { return New-TypeInfo 'pool' 'Бассейн' 'A swimming pool' }
+  if ($shop -eq 'books') { return New-TypeInfo 'books' 'Книжный магазин' 'A bookshop' }
+  if ($shop -eq 'music') { return New-TypeInfo 'music' 'Магазин винила и музыки' 'A vinyl and music shop' }
+  if ($shop -eq 'antiques') { return New-TypeInfo 'antiques' 'Антикварный магазин' 'An antique shop' }
+  if ($shop -in @('second_hand','vintage')) { return New-TypeInfo 'vintage' 'Винтажный магазин' 'A vintage shop' }
+  if ($shop -eq 'art') { return New-TypeInfo 'art' 'Арт-галерея' 'An art gallery' }
+  if ($shop -eq 'board_games') { return New-TypeInfo 'boardgames' 'Клуб настольных игр' 'A board game club' }
+  if ($historic -eq 'manor') { return New-TypeInfo 'manor' 'Усадьба' 'A manor' }
+  if ($name -match 'колесо обозр') { return New-TypeInfo 'wheel' 'Колесо обозрения' 'A Ferris wheel' }
+  if ($name -match 'батут') { return New-TypeInfo 'trampoline' 'Батутный центр' 'A trampoline park' }
+  if ($name -match 'боулинг') { return New-TypeInfo 'bowling' 'Боулинг' 'Bowling' }
+  if ($name -match 'квест') { return New-TypeInfo 'quest' 'Квест-рум' 'An escape room' }
+  if ($name -match 'караоке') { return New-TypeInfo 'karaoke' 'Караоке' 'Karaoke' }
+  if ($name -match 'аквапарк|аквакомплекс') { return New-TypeInfo 'waterpark' 'Аквапарк' 'A water park' }
+  if ($name -match 'каток|\bлёд\b|\bлед\b') { return New-TypeInfo 'rink' 'Каток' 'An ice rink' }
+  if ($name -match 'планетарий') { return New-TypeInfo 'planetarium' 'Планетарий' 'A planetarium' }
+  if ($name -match 'океанариум|москвариум') { return New-TypeInfo 'aquarium' 'Океанариум' 'An aquarium' }
+  if ($name -match 'зоопарк') { return New-TypeInfo 'zoo' 'Зоопарк' 'A zoo' }
+  if ($name -match 'музей') { return New-TypeInfo 'museum' 'Музей' 'A museum' }
+  if ($name -match 'галере') { return New-TypeInfo 'gallery' 'Галерея' 'A gallery' }
+  if ($name -match 'театр') { return New-TypeInfo 'theatre' 'Театр' 'A theatre' }
+  if ($name -match 'кино') { return New-TypeInfo 'cinema' 'Кинотеатр' 'A cinema' }
+  if ($name -match 'усадьб|усадеб') { return New-TypeInfo 'manor' 'Усадьба' 'A manor' }
+  if ($name -match 'парк') { return New-TypeInfo 'park' 'Парк' 'A park' }
+  if ($name -match 'сад') { return New-TypeInfo 'garden' 'Сад' 'A garden' }
+  if ($name -match 'набереж|бульвар') { return New-TypeInfo 'walk' 'Прогулка' 'A walk' }
+  if ($name -match 'книж') { return New-TypeInfo 'books' 'Книжный магазин' 'A bookshop' }
+  if ($name -match 'винил|пластин') { return New-TypeInfo 'music' 'Магазин винила' 'A vinyl shop' }
+  if ($name -match 'антиквар') { return New-TypeInfo 'antiques' 'Антикварный магазин' 'An antique shop' }
+  if ($name -match 'винтаж') { return New-TypeInfo 'vintage' 'Винтажный магазин' 'A vintage shop' }
+  if ($name -match 'рынок') { return New-TypeInfo 'market' 'Рынок' 'A market' }
+  if ($name -match 'кофей') { return New-TypeInfo 'coffee' 'Кофейня' 'A coffee shop' }
+  if ($name -match 'ресторан') { return New-TypeInfo 'restaurant' 'Ресторан' 'A restaurant' }
+  if ($name -match 'антикафе') { return New-TypeInfo 'antikafe' 'Антикафе' 'An anti-cafe' }
+  if ($name -match 'скалодром') { return New-TypeInfo 'climbing' 'Скалодром' 'A climbing wall' }
+  if ($name -match 'картинг') { return New-TypeInfo 'karting' 'Картинг' 'Karting' }
+  if ($name -match 'лазертаг') { return New-TypeInfo 'lasertag' 'Лазертаг' 'Laser tag' }
+  if ($name -match '\bvr\b|виар') { return New-TypeInfo 'vr' 'VR-клуб' 'A VR club' }
+  $category = [string]$Place.category
+  switch ($category) {
+    'coffee' { return New-TypeInfo 'coffee' 'Кофейня' 'A coffee shop' }
+    'food' { return New-TypeInfo 'cafe' 'Кафе' 'A cafe' }
+    'antikafe' { return New-TypeInfo 'antikafe' 'Антикафе' 'An anti-cafe' }
+    'movie' { return New-TypeInfo 'cinema' 'Кинотеатр' 'A cinema' }
+    'games' { return New-TypeInfo 'activity' 'Игровое место' 'A games venue' }
+    'active' { return New-TypeInfo 'activity' 'Активность' 'An activity' }
+    'culture' { return New-TypeInfo 'culture' 'Культурное место' 'A cultural place' }
+    'walk' { return New-TypeInfo 'walk' 'Прогулка' 'A walk' }
+    'shop' { return New-TypeInfo 'shop' 'Магазин' 'A shop' }
+    default { return New-TypeInfo 'place' 'Городское место' 'A city place' }
+  }
 }
-$nicheName = 'музей|галере|мастерск|винил|книжн|антиквар|барахолк|винтаж|рекорд|букинист|лектор|квартирник|скалодром|картинг|лазертаг|настол|антикафе|квест'
+
+$activityRu = @{
+  coffee = @('Выпить кофе', 'Взять завтрак или десерт', 'Поработать с ноутбуком', 'Взять напиток с собой')
+  cafe = @('Поесть', 'Выпить кофе', 'Взять десерт', 'Посидеть с ноутбуком')
+  restaurant = @('Пообедать или поужинать', 'Попробовать кухню', 'Забронировать столик', 'Прийти компанией')
+  bar = @('Выпить коктейль', 'Взять закуски', 'Послушать музыку', 'Прийти вечером')
+  fastfood = @('Быстро поесть', 'Взять с собой', 'Взять напиток', 'Перекусить')
+  market = @('Купить продукты', 'Попробовать фермерскую еду', 'Взять готовую еду', 'Найти подарки')
+  museum = @('Посмотреть экспозицию', 'Сходить на выставку', 'Взять экскурсию или аудиогид', 'Провести 1–2 часа')
+  gallery = @('Посмотреть выставку', 'Открыть новое имя', 'Сходить на вернисаж', 'Купить искусство')
+  theatre = @('Посмотреть спектакль', 'Взять билеты', 'Обсудить постановку', 'Прийти компанией')
+  cinema = @('Посмотреть фильм', 'Взять попкорн', 'Выбрать сеанс', 'Прийти на вечерний показ')
+  arts = @('Посмотреть выставки', 'Сходить на лекцию или концерт', 'Поработать в пространстве', 'Найти события')
+  planetarium = @('Посмотреть сеанс', 'Послушать лекцию', 'Посмотреть в телескоп', 'Взять билет')
+  aquarium = @('Посмотреть рыб и морских животных', 'Сходить с детьми', 'Взять экскурсию', 'Провести 1–2 часа')
+  zoo = @('Посмотреть животных', 'Сходить с детьми', 'Погулять', 'Взять экскурсию')
+  manor = @('Погулять по усадьбе', 'Посмотреть интерьеры', 'Сходить на выставку', 'Сделать фото')
+  park = @('Погулять', 'Устроить пикник', 'Покататься на велосипеде', 'Сходить с детьми или собакой')
+  garden = @('Погулять', 'Посмотреть растения', 'Сделать фото', 'Отдохнуть')
+  viewpoint = @('Посмотреть панораму', 'Сделать фото', 'Встретить закат', 'Выпить кофе рядом')
+  square = @('Погулять', 'Посмотреть архитектуру', 'Сделать фото', 'Зайти в кафе рядом')
+  antikafe = @('Платить за время', 'Пить кофе и чай', 'Играть в настолки', 'Работать или встречаться')
+  bowling = @('Играть на дорожке', 'Взять обувь', 'Заказать напитки и снеки', 'Прийти компанией')
+  trampoline = @('Прыгать на батутах', 'Проходить полосу препятствий', 'Тренироваться с инструктором', 'Взять носки')
+  quest = @('Проходить квест командой', 'Разгадывать загадки', 'Выбрать сюжет', 'Сделать фото')
+  karaoke = @('Петь в отдельной комнате', 'Выбрать песни', 'Заказать напитки', 'Прийти компанией')
+  rink = @('Кататься на коньках', 'Взять коньки в прокат', 'Прийти с детьми', 'Согреться в кафе')
+  waterpark = @('Кататься с горок', 'Плавать в бассейне', 'Сходить в сауну или термы', 'Отдохнуть с детьми')
+  climbing = @('Лазить по трассам', 'Взять инструктаж', 'Арендовать снаряжение', 'Тренироваться')
+  karting = @('Проехать заезды', 'Взять шлем', 'Соревноваться с друзьями', 'Посмотреть трассу')
+  lasertag = @('Играть командами', 'Выбрать сценарий', 'Взять снаряжение', 'Провести час активно')
+  vr = @('Играть в VR', 'Выбрать игру', 'Прийти компанией', 'Попробовать новое')
+  cooking = @('Готовить на мастер-классе', 'Попробовать блюда', 'Прийти компанией', 'Записаться заранее')
+  wakeboard = @('Кататься на вейкборде', 'Взять снаряжение', 'Пройти инструктаж', 'Отдохнуть у воды')
+  tennis = @('Играть в теннис', 'Арендовать корт', 'Взять тренера', 'Прийти компанией')
+  sport = @('Тренироваться', 'Взять оборудование', 'Записаться на занятие', 'Прийти компанией')
+  pool = @('Плавать', 'Взять дорожку', 'Сходить в сауну', 'Записаться на занятие')
+  boardgames = @('Играть в настолки', 'Взять игру напрокат', 'Прийти компанией', 'Спросить правила')
+  books = @('Выбрать книги', 'Посмотреть новинки', 'Купить подарок', 'Сходить на встречу')
+  music = @('Посмотреть винил', 'Купить пластинку', 'Найти редкое издание', 'Спросить консультацию')
+  antiques = @('Посмотреть антиквариат', 'Найти предмет интерьера', 'Купить коллекционное', 'Спросить оценку')
+  vintage = @('Выбрать винтаж', 'Найти одежду или аксессуар', 'Купить подарок', 'Поторговаться')
+  art = @('Посмотреть искусство', 'Купить работу', 'Сходить на выставку', 'Спросить консультацию')
+  shop = @('Посмотреть товары', 'Купить подарок', 'Найти редкое', 'Спросить консультацию')
+  attraction = @('Посмотреть главное', 'Сделать фото', 'Взять экскурсию', 'Проверить билеты')
+  wheel = @('Пройти круг', 'Посмотреть панораму', 'Сделать фото', 'Взять билет')
+  activity = @('Попробовать активность', 'Взять инструктаж', 'Прийти компанией', 'Проверить цену и запись')
+  culture = @('Посмотреть экспозицию', 'Сходить на событие', 'Взять билет', 'Проверить часы')
+  walk = @('Погулять', 'Сделать фото', 'Отдохнуть', 'Проверить маршрут')
+}
+$activityEn = @{
+  coffee = @('Drink coffee', 'Get breakfast or dessert', 'Work with a laptop', 'Take a drink to go')
+  cafe = @('Eat', 'Drink coffee', 'Get dessert', 'Sit with a laptop')
+  restaurant = @('Have lunch or dinner', 'Try the cuisine', 'Book a table', 'Come with a group')
+  bar = @('Have a cocktail', 'Order snacks', 'Listen to music', 'Come in the evening')
+  fastfood = @('Eat quickly', 'Take away', 'Get a drink', 'Grab a snack')
+  market = @('Buy groceries', 'Try farm food', 'Get ready food', 'Find gifts')
+  museum = @('See the exhibition', 'Visit a temporary show', 'Take a tour or audio guide', 'Spend 1–2 hours')
+  gallery = @('See an exhibition', 'Discover a new name', 'Visit an opening', 'Buy art')
+  theatre = @('See a play', 'Get tickets', 'Discuss the production', 'Come with a group')
+  cinema = @('See a film', 'Get popcorn', 'Choose a screening', 'Come for an evening show')
+  arts = @('See exhibitions', 'Attend a talk or concert', 'Work in the space', 'Find events')
+  planetarium = @('See a show', 'Attend a talk', 'Look through a telescope', 'Get a ticket')
+  aquarium = @('See fish and sea animals', 'Come with kids', 'Take a tour', 'Spend 1–2 hours')
+  zoo = @('See animals', 'Come with kids', 'Take a walk', 'Take a tour')
+  manor = @('Walk around the estate', 'See the interiors', 'Visit an exhibition', 'Take photos')
+  park = @('Take a walk', 'Have a picnic', 'Ride a bike', 'Come with kids or a dog')
+  garden = @('Take a walk', 'See the plants', 'Take photos', 'Relax')
+  viewpoint = @('See the panorama', 'Take photos', 'Watch the sunset', 'Get coffee nearby')
+  square = @('Take a walk', 'See the architecture', 'Take photos', 'Visit a cafe nearby')
+  antikafe = @('Pay for time', 'Drink coffee and tea', 'Play board games', 'Work or meet friends')
+  bowling = @('Play on a lane', 'Get shoes', 'Order drinks and snacks', 'Come with a group')
+  trampoline = @('Jump on trampolines', 'Try the obstacle course', 'Train with an instructor', 'Bring socks')
+  quest = @('Play an escape room', 'Solve puzzles', 'Choose a story', 'Take photos')
+  karaoke = @('Sing in a private room', 'Choose songs', 'Order drinks', 'Come with a group')
+  rink = @('Go ice skating', 'Rent skates', 'Come with kids', 'Warm up at a cafe')
+  waterpark = @('Ride the slides', 'Swim in the pool', 'Visit the sauna or thermal area', 'Relax with kids')
+  climbing = @('Climb the routes', 'Take a briefing', 'Rent equipment', 'Train')
+  karting = @('Drive the karts', 'Get a helmet', 'Compete with friends', 'See the track')
+  lasertag = @('Play in teams', 'Choose a scenario', 'Get equipment', 'Spend an active hour')
+  vr = @('Play VR', 'Choose a game', 'Come with a group', 'Try something new')
+  cooking = @('Cook at a workshop', 'Taste the dishes', 'Come with a group', 'Book in advance')
+  wakeboard = @('Ride a wakeboard', 'Get equipment', 'Take a briefing', 'Relax by the water')
+  tennis = @('Play tennis', 'Book a court', 'Take a coach', 'Come with a group')
+  sport = @('Train', 'Get equipment', 'Book a class', 'Come with a group')
+  pool = @('Swim', 'Book a lane', 'Visit the sauna', 'Book a class')
+  boardgames = @('Play board games', 'Rent a game', 'Come with a group', 'Ask for rules')
+  books = @('Choose books', 'See new releases', 'Buy a gift', 'Attend an event')
+  music = @('Browse vinyl', 'Buy a record', 'Find a rare edition', 'Ask for advice')
+  antiques = @('Browse antiques', 'Find a piece for the interior', 'Buy a collectible', 'Ask for an appraisal')
+  vintage = @('Browse vintage', 'Find clothes or accessories', 'Buy a gift', 'Haggle')
+  art = @('See art', 'Buy a piece', 'Visit an exhibition', 'Ask for advice')
+  shop = @('Browse the goods', 'Buy a gift', 'Find something rare', 'Ask for advice')
+  attraction = @('See the highlight', 'Take photos', 'Take a tour', 'Check tickets')
+  wheel = @('Ride a full circle', 'See the panorama', 'Take photos', 'Get a ticket')
+  activity = @('Try the activity', 'Take a briefing', 'Come with a group', 'Check the price and booking')
+  culture = @('See the exhibition', 'Attend an event', 'Get a ticket', 'Check the hours')
+  walk = @('Take a walk', 'Take photos', 'Relax', 'Check the route')
+}
+function Get-ActivityList([string]$Key) {
+  $ru = if ($activityRu.ContainsKey($Key)) { $activityRu[$Key] } else { $activityRu['activity'] }
+  $en = if ($activityEn.ContainsKey($Key)) { $activityEn[$Key] } else { $activityEn['activity'] }
+  return [pscustomobject]@{ ru = $ru; en = $en }
+}
+
+$nicheName = 'музей|галере|мастерск|винил|книжн|антиквар|барахолк|винтаж|рекорд|букинист|лектор|квартирник|скалодром|картинг|лазертаг|настол|антикафе|квест|батут|боулинг|аквапарк|каток|кулинар|вейк'
 foreach ($p in $allPlaces) {
   $category = [string]$p.category
-  if (-not $p.what -or -not $p.what.ru) {
-    Set-PlaceField $p 'what' ([ordered]@{ ru = $whatRu[$category]; en = $whatEn[$category] })
+  $type = Get-PlaceTypeInfo $p
+  Set-PlaceField $p 'what' ([ordered]@{ ru = $type.Ru; en = $type.En })
+  Set-PlaceField $p 'placeType' $type.Key
+  $activities = Get-ActivityList $type.Key
+  if ([string]$p.source.id -ne 'seed') {
+    Set-PlaceField $p 'activities' $activities
+    Set-PlaceField $p 'whatYouGet' $activities
+    Set-PlaceField $p 'hook' ([ordered]@{ ru = "$($type.Ru) в Москве"; en = "$($type.En) in Moscow" })
+    $aboutRu = "$($p.name.ru) — $($type.Ru.ToLowerInvariant()) в Москве. Что можно делать: $($activities.ru[0].ToLowerInvariant()), $($activities.ru[1].ToLowerInvariant()), $($activities.ru[2].ToLowerInvariant()). Адрес, цену и часы уточняйте на карте или сайте заведения."
+    $aboutEn = "$($p.name.ru) is $($type.En.ToLowerInvariant()) in Moscow. You can $($activities.en[0].ToLowerInvariant()), $($activities.en[1].ToLowerInvariant()), $($activities.en[2].ToLowerInvariant()). Check the address, price and opening hours on the map or venue website."
+    Set-PlaceField $p 'about' ([ordered]@{ ru = $aboutRu; en = $aboutEn })
   }
   $tagsRu = @()
   if ($p.tags -and $p.tags.ru) { $tagsRu = @($p.tags.ru) }

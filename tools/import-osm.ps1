@@ -293,6 +293,14 @@ foreach ($batch in $queries) {
       name = [ordered]@{ ru = $name; en = $name }
       category = $category
       emoji = switch ($category) { 'coffee' {'☕️'} 'food' {'🍲'} 'antikafe' {'🛋'} 'culture' {'🖼'} 'walk' {'🌳'} 'games' {'🎮'} 'active' {'🎳'} 'movie' {'🎬'} 'shop' {'🛍'} default {'✨'} }
+      osmTags = [ordered]@{
+        amenity = (Tag $el.tags 'amenity')
+        tourism = (Tag $el.tags 'tourism')
+        leisure = (Tag $el.tags 'leisure')
+        sport = (Tag $el.tags 'sport')
+        shop = (Tag $el.tags 'shop')
+        historic = (Tag $el.tags 'historic')
+      }
       price = $price
       priceApprox = $approx
       priceFrom = $false

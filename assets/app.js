@@ -150,6 +150,7 @@
       "badge.hidden": "небанально",
       "detail.about": "Почему стоит",
       "detail.get": "Что получите",
+      "detail.activities": "Что можно делать",
       "detail.withWhom": "С кем идти",
       "detail.approx": "ориентировочно",
       "detail.verified": "цена проверена",
@@ -419,6 +420,7 @@
       "badge.hidden": "hidden gem",
       "detail.about": "Why it's worth it",
       "detail.get": "What you get",
+      "detail.activities": "What you can do",
       "detail.withWhom": "Who to bring",
       "detail.approx": "approximate",
       "detail.verified": "price checked",
@@ -1517,6 +1519,9 @@
     const mapUrl = "https://yandex.ru/maps/?text=" + encodeURIComponent(place.mapQuery || (loc(place.name) + " Москва"));
     const deal = place.deal;
     const days = ["0", "1", "2", "3", "4", "5", "6"];
+    const activities = (place.activities && (place.activities[state.lang] || place.activities.ru))
+      || (place.whatYouGet && (place.whatYouGet[state.lang] || place.whatYouGet.ru))
+      || [];
 
     view.innerHTML = `
       <article class="place-page">
@@ -1573,8 +1578,8 @@
             <p class="lead">${esc(loc(place.what) || loc(place.about))}</p>
             <h2 style="margin-top:34px">${esc(t("detail.about"))}</h2>
             <p>${esc(loc(place.about))}</p>
-            <h2 style="margin-top:34px">${esc(t("detail.get"))}</h2>
-            <ul class="bullets">${((place.whatYouGet && (place.whatYouGet[state.lang] || place.whatYouGet.ru)) || []).map((item) => `<li>${esc(item)}</li>`).join("")}</ul>
+            <h2 style="margin-top:34px">${esc(place.activities ? t("detail.activities") : t("detail.get"))}</h2>
+            <ul class="bullets">${activities.map((item) => `<li>${esc(item)}</li>`).join("")}</ul>
             <p class="faint" style="margin-top:30px;font-size:11px">${esc(t("detail.note"))}</p>
           </div>
           <aside>
