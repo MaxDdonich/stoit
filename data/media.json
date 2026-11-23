@@ -1,5 +1,5 @@
 {
-    "updatedAt":  "2026-11-23T18:36:13+03:00",
+    "updatedAt":  "2026-11-23T18:57:10+03:00",
     "places":  {
                    "osm-node-1062492903":  {
                                                "icon":  "http://balashiha.prada3d.ru/favicon/apple-touch-icon.png",
@@ -45,7 +45,7 @@
 
                                                            ],
                                                "gallerySource":  "",
-                                               "updatedAt":  "2026-11-23T18:34:36+03:00"
+                                               "updatedAt":  "2026-11-23T18:57:10+03:00"
                                            },
                    "colizeum":  {
                                     "icon":  "https://colizeumarena.com/wp-content/uploads/2026/09/favicon.svg",
@@ -55,7 +55,7 @@
 
                                                 ],
                                     "gallerySource":  "",
-                                    "updatedAt":  "2026-11-23T18:34:36+03:00"
+                                    "updatedAt":  "2026-11-23T18:57:10+03:00"
                                 },
                    "osm-node-813972077":  {
                                               "icon":  "https://static.tildacdn.com/tild6533-3064-4137-b139-333761376231/1_black_on_white_.png",
@@ -65,7 +65,7 @@
 
                                                           ],
                                               "gallerySource":  "",
-                                              "updatedAt":  "2026-11-23T18:34:36+03:00"
+                                              "updatedAt":  "2026-11-23T18:57:10+03:00"
                                           },
                    "osm-way-131440393":  {
                                              "icon":  "https://karibiya.ru/image/pwa/web-app-manifest_1024.png",
@@ -179,7 +179,7 @@
                                                               "https://www.papajohns.ru/u002F/u002Fimages.papajohns.ru/u002Fpjproduction/u002Fimages/u002Fcategory/u002Fe35d6da7d377409e128b254167edc051.png"
                                                           ],
                                               "gallerySource":  "https://www.papajohns.ru",
-                                              "updatedAt":  "2026-11-23T18:34:36+03:00"
+                                              "updatedAt":  "2026-11-23T18:57:10+03:00"
                                           },
                    "vyhod-quest":  {
                                        "icon":  "https://msk.sv-exit.ru/bitrix/templates/exit/images/logo.png",
@@ -309,6 +309,21 @@
                                                 "gallerySource":  "https://msk.brooklynbowl.ru",
                                                 "updatedAt":  "2026-11-23T18:25:33+03:00"
                                             },
+                   "osm-node-768883006":  {
+                                              "icon":  "https://kva-kva.ru/local/templates/main/img/apple-touch-icon.png",
+                                              "iconKind":  "logo",
+                                              "iconSource":  "https://kva-kva.ru/",
+                                              "gallery":  [
+                                                              "https://kva-kva.ru/upload/dev2fun_opengraph/012/012f84d17473e82118e84a47b7a57b4b.png",
+                                                              "https://kva-kva.ru/path/to/image.jpg",
+                                                              "https://kva-kva.ru/local/templates/main/img/apple-touch-icon.png",
+                                                              "https://kva-kva.ru/upload/webp/3c/3ca281dcb3247d888fe4f887035328aa.webp",
+                                                              "https://kva-kva.ru/upload/webp/a4/a41caa73e052e075ee6b81ed45406b11.webp",
+                                                              "https://kva-kva.ru/upload/webp/5f/5f39f3a272c6df00a413304b8d163b60.webp"
+                                                          ],
+                                              "gallerySource":  "https://kva-kva.ru/",
+                                              "updatedAt":  "2026-11-23T18:25:33+03:00"
+                                          },
                    "aptekarsky":  {
                                       "icon":  "https://hortus.msu.ru/apple-touch-icon.png",
                                       "iconKind":  "logo",
@@ -317,7 +332,7 @@
 
                                                   ],
                                       "gallerySource":  "",
-                                      "updatedAt":  "2026-11-23T18:34:36+03:00"
+                                      "updatedAt":  "2026-11-23T18:57:10+03:00"
                                   },
                    "osm-node-2540997892":  {
                                                "icon":  "http://www.aparte.ru/apple-touch-icon.png",
@@ -334,6 +349,16 @@
                                                "gallerySource":  "http://www.aparte.ru",
                                                "updatedAt":  "2026-11-23T18:25:33+03:00"
                                            },
+                   "ziferblat":  {
+                                     "icon":  "https://ziferblat.net/favicon.svg",
+                                     "iconKind":  "logo",
+                                     "iconSource":  "https://ziferblat.net/moscow/most",
+                                     "gallery":  [
+
+                                                 ],
+                                     "gallerySource":  "",
+                                     "updatedAt":  "2026-11-23T18:57:10+03:00"
+                                 },
                    "osm-node-5181418465":  {
                                                "icon":  "https://mega-ice.ru/apple-touch-icon.png",
                                                "iconKind":  "logo",
@@ -377,7 +402,7 @@
                                                    "https://www.mosigra.ru/image/data/hobbygames/video/vk/5823385_456240806_250.jpg"
                                                ],
                                    "gallerySource":  "https://mosigra.ru/",
-                                   "updatedAt":  "2026-11-23T18:34:36+03:00"
+                                   "updatedAt":  "2026-11-23T18:57:10+03:00"
                                },
                    "museum-moscow":  {
                                          "icon":  "https://mosmuseum.ru/apple-touch-icon.png",
@@ -391,21 +416,6 @@
                                          "gallerySource":  "https://mosmuseum.ru/visitors/tikets/types/",
                                          "updatedAt":  "2026-11-23T18:25:33+03:00"
                                      },
-                   "osm-node-1596071933":  {
-                                               "icon":  "https://coffeebean.ru/wp-content/uploads/2020/01/coffee-cup-favicon.svg",
-                                               "iconKind":  "logo",
-                                               "iconSource":  "https://www.coffeebean.ru/",
-                                               "gallery":  [
-                                                               "https://coffeebean.ru/wp-content/uploads/2020/12/Coffee_Bean_Home.jpg",
-                                                               "https://coffeebean.ru/wp-content/uploads/2020/11/magazin-tovar.jpg",
-                                                               "https://coffeebean.ru/wp-content/uploads/2026/05/ChatGPT-Image-29-%D0%BC%D0%B0%D1%8F-2026-%D0%B3.-11_37_13-1.png",
-                                                               "https://coffeebean.ru/wp-content/uploads/2026/05/ChatGPT-Image-28-%D0%BC%D0%B0%D1%8F-2026-%D0%B3.-20_10_00-1-2.png",
-                                                               "https://coffeebean.ru/wp-content/uploads/2021/09/Surreal-Coffee-coffee-bean.jpg",
-                                                               "https://coffeebean.ru/wp-content/uploads/2020/08/Surreal-Coffee-coffee-bean.jpg"
-                                                           ],
-                                               "gallerySource":  "https://www.coffeebean.ru/",
-                                               "updatedAt":  "2026-11-23T18:25:33+03:00"
-                                           },
                    "osm-node-813653387":  {
                                               "icon":  "https://hb.ru-msk.vkcloud-storage.ru/thapl-stolle-public/st/img/SiteSetting/f1ac76c549cac441f67afe2d15ceaa84_origin_.svg",
                                               "iconKind":  "logo",
@@ -439,7 +449,7 @@
 
                                                           ],
                                               "gallerySource":  "",
-                                              "updatedAt":  "2026-11-23T18:34:36+03:00"
+                                              "updatedAt":  "2026-11-23T18:57:10+03:00"
                                           },
                    "zaryadye":  {
                                     "icon":  "https://zaryadyepark.ru/local/templates/zaryadye_new/images/dep_logo_ru.png",
@@ -510,21 +520,6 @@
                                                "gallerySource":  "http://www.incrosta.ru/",
                                                "updatedAt":  "2026-11-23T18:25:33+03:00"
                                            },
-                   "osm-node-11405617550":  {
-                                                "icon":  "https://static.tildacdn.com/tild3732-3031-4533-b330-653332303130/logo_header.png",
-                                                "iconKind":  "logo",
-                                                "iconSource":  "https://showtoday.ru/moscow",
-                                                "gallery":  [
-                                                                "https://static.tildacdn.com/tild3038-3830-4337-b335-373438366630/1_1.png",
-                                                                "https://static.tildacdn.com/tild3566-6632-4464-b061-373738356235/Slice_1-30.jpg",
-                                                                "https://static.tildacdn.com/tild6134-3732-4762-b235-323632623563/Slice_27-5.jpg",
-                                                                "https://static.tildacdn.com/tild6531-6139-4566-a330-663164366530/image_238.png",
-                                                                "https://static.tildacdn.com/tild3865-3338-4465-b530-353866366237/image_237.png",
-                                                                "https://static.tildacdn.com/tild3635-6539-4866-b863-383966373330/image_236.png"
-                                                            ],
-                                                "gallerySource":  "https://showtoday.ru/moscow",
-                                                "updatedAt":  "2026-11-23T18:25:33+03:00"
-                                            },
                    "osm-node-1738640258":  {
                                                "icon":  "https://kalabasa.ru/wp-content/uploads/2025/09/favicon-440x440.png",
                                                "iconKind":  "logo",
@@ -565,21 +560,6 @@
                                               "gallerySource":  "https://www.karavaevi.ru",
                                               "updatedAt":  "2026-11-23T18:25:33+03:00"
                                           },
-                   "true-gamers":  {
-                                       "icon":  "https://truegamers.ru/wp-content/themes/true/img/favicon/apple-touch-icon.png",
-                                       "iconKind":  "logo",
-                                       "iconSource":  "https://truegamers.ru/arena/moskva/moskva-severnyj/",
-                                       "gallery":  [
-                                                       "https://truegamers.ru/wp-content/themes/true/img/bg-blocks/contacts-bg.png",
-                                                       "https://truegamers.ru/wp-content/themes/true/img/truemob.png",
-                                                       "https://truegamers.ru/wp-content/themes/true/img/page-bg.jpg",
-                                                       "https://truegamers.ru/wp-content/themes/true/img/language/ru.png",
-                                                       "https://truegamers.ru/wp-content/themes/true/img/eng.png",
-                                                       "https://truegamers.ru/wp-content/themes/true/img/single/single-block.png"
-                                                   ],
-                                       "gallerySource":  "https://truegamers.ru/arena/moskva/moskva-severnyj/",
-                                       "updatedAt":  "2026-11-23T18:25:33+03:00"
-                                   },
                    "vdnh":  {
                                 "icon":  "https://vdnh.ru/og-vdnh.png",
                                 "iconKind":  "logo",
@@ -778,6 +758,21 @@
                                   "gallerySource":  "https://pioner-cinema.ru/film/rokki-eto-ya-originalnaya-versiya-s-subtitrami/",
                                   "updatedAt":  "2026-11-23T18:25:33+03:00"
                               },
+                   "osm-node-572196515":  {
+                                              "icon":  "https://www.cafemumu.ru/favicons/apple-touch-icon.png",
+                                              "iconKind":  "logo",
+                                              "iconSource":  "https://www.cafemumu.ru/",
+                                              "gallery":  [
+                                                              "https://www.cafemumu.ru/upload/resize_cache/medialibrary/f3f/vvn0hfthxwl5eld3ztwy4nsok6lw9z71/140_105_1/1.png",
+                                                              "https://www.cafemumu.ru/local/templates/mumu_new_v2022/frontend/images/google-play.png",
+                                                              "https://www.cafemumu.ru/local/templates/mumu_new_v2022/frontend/images/app-store.png",
+                                                              "https://www.cafemumu.ru/upload/iblock/666/uv4ymr2z92k2b77u54admjnvsw5h86d1/729%D1%85900.jpg",
+                                                              "https://www.cafemumu.ru/upload/iblock/e9b/zztt44pjif1nagnjca12mhg0w1pzv234/Skidka_Mu_web_729x900.jpg",
+                                                              "https://www.cafemumu.ru/upload/iblock/cc0/db0q0d9jg7f52nrbyx8jebxbh9g8bkc6/NastoyashyVkus2_Mu_web_729x900.jpg"
+                                                          ],
+                                              "gallerySource":  "https://www.cafemumu.ru/",
+                                              "updatedAt":  "2026-11-23T18:25:33+03:00"
+                                          },
                    "osm-node-1688852489":  {
                                                "icon":  "https://static.tildacdn.com/tild3563-6461-4261-b234-393761663035/fav.png",
                                                "iconKind":  "logo",
@@ -913,36 +908,36 @@
                                                 "gallerySource":  "http://icemasters.ru/",
                                                 "updatedAt":  "2026-11-23T18:25:33+03:00"
                                             },
-                   "osm-node-768883006":  {
-                                              "icon":  "https://kva-kva.ru/local/templates/main/img/apple-touch-icon.png",
-                                              "iconKind":  "logo",
-                                              "iconSource":  "https://kva-kva.ru/",
-                                              "gallery":  [
-                                                              "https://kva-kva.ru/upload/dev2fun_opengraph/012/012f84d17473e82118e84a47b7a57b4b.png",
-                                                              "https://kva-kva.ru/path/to/image.jpg",
-                                                              "https://kva-kva.ru/local/templates/main/img/apple-touch-icon.png",
-                                                              "https://kva-kva.ru/upload/webp/3c/3ca281dcb3247d888fe4f887035328aa.webp",
-                                                              "https://kva-kva.ru/upload/webp/a4/a41caa73e052e075ee6b81ed45406b11.webp",
-                                                              "https://kva-kva.ru/upload/webp/5f/5f39f3a272c6df00a413304b8d163b60.webp"
-                                                          ],
-                                              "gallerySource":  "https://kva-kva.ru/",
-                                              "updatedAt":  "2026-11-23T18:25:33+03:00"
-                                          },
-                   "osm-node-572196515":  {
-                                              "icon":  "https://www.cafemumu.ru/favicons/apple-touch-icon.png",
-                                              "iconKind":  "logo",
-                                              "iconSource":  "https://www.cafemumu.ru/",
-                                              "gallery":  [
-                                                              "https://www.cafemumu.ru/upload/resize_cache/medialibrary/f3f/vvn0hfthxwl5eld3ztwy4nsok6lw9z71/140_105_1/1.png",
-                                                              "https://www.cafemumu.ru/local/templates/mumu_new_v2022/frontend/images/google-play.png",
-                                                              "https://www.cafemumu.ru/local/templates/mumu_new_v2022/frontend/images/app-store.png",
-                                                              "https://www.cafemumu.ru/upload/iblock/666/uv4ymr2z92k2b77u54admjnvsw5h86d1/729%D1%85900.jpg",
-                                                              "https://www.cafemumu.ru/upload/iblock/e9b/zztt44pjif1nagnjca12mhg0w1pzv234/Skidka_Mu_web_729x900.jpg",
-                                                              "https://www.cafemumu.ru/upload/iblock/cc0/db0q0d9jg7f52nrbyx8jebxbh9g8bkc6/NastoyashyVkus2_Mu_web_729x900.jpg"
-                                                          ],
-                                              "gallerySource":  "https://www.cafemumu.ru/",
-                                              "updatedAt":  "2026-11-23T18:25:33+03:00"
-                                          },
+                   "osm-node-11405617550":  {
+                                                "icon":  "https://static.tildacdn.com/tild3732-3031-4533-b330-653332303130/logo_header.png",
+                                                "iconKind":  "logo",
+                                                "iconSource":  "https://showtoday.ru/moscow",
+                                                "gallery":  [
+                                                                "https://static.tildacdn.com/tild3038-3830-4337-b335-373438366630/1_1.png",
+                                                                "https://static.tildacdn.com/tild3566-6632-4464-b061-373738356235/Slice_1-30.jpg",
+                                                                "https://static.tildacdn.com/tild6134-3732-4762-b235-323632623563/Slice_27-5.jpg",
+                                                                "https://static.tildacdn.com/tild6531-6139-4566-a330-663164366530/image_238.png",
+                                                                "https://static.tildacdn.com/tild3865-3338-4465-b530-353866366237/image_237.png",
+                                                                "https://static.tildacdn.com/tild3635-6539-4866-b863-383966373330/image_236.png"
+                                                            ],
+                                                "gallerySource":  "https://showtoday.ru/moscow",
+                                                "updatedAt":  "2026-11-23T18:25:33+03:00"
+                                            },
+                   "true-gamers":  {
+                                       "icon":  "https://truegamers.ru/wp-content/themes/true/img/favicon/apple-touch-icon.png",
+                                       "iconKind":  "logo",
+                                       "iconSource":  "https://truegamers.ru/arena/moskva/moskva-severnyj/",
+                                       "gallery":  [
+                                                       "https://truegamers.ru/wp-content/themes/true/img/bg-blocks/contacts-bg.png",
+                                                       "https://truegamers.ru/wp-content/themes/true/img/truemob.png",
+                                                       "https://truegamers.ru/wp-content/themes/true/img/page-bg.jpg",
+                                                       "https://truegamers.ru/wp-content/themes/true/img/language/ru.png",
+                                                       "https://truegamers.ru/wp-content/themes/true/img/eng.png",
+                                                       "https://truegamers.ru/wp-content/themes/true/img/single/single-block.png"
+                                                   ],
+                                       "gallerySource":  "https://truegamers.ru/arena/moskva/moskva-severnyj/",
+                                       "updatedAt":  "2026-11-23T18:25:33+03:00"
+                                   },
                    "jewish":  {
                                   "icon":  "https://www.jewish-museum.ru/apple-touch-icon.png",
                                   "iconKind":  "logo",
@@ -953,16 +948,21 @@
                                   "gallerySource":  "https://www.jewish-museum.ru/visitors/prices/",
                                   "updatedAt":  "2026-11-23T18:25:33+03:00"
                               },
-                   "ziferblat":  {
-                                     "icon":  "https://ziferblat.net/favicon.svg",
-                                     "iconKind":  "logo",
-                                     "iconSource":  "https://ziferblat.net/moscow/most",
-                                     "gallery":  [
-
-                                                 ],
-                                     "gallerySource":  "",
-                                     "updatedAt":  "2026-11-23T18:34:36+03:00"
-                                 },
+                   "osm-node-1596071933":  {
+                                               "icon":  "https://coffeebean.ru/wp-content/uploads/2020/01/coffee-cup-favicon.svg",
+                                               "iconKind":  "logo",
+                                               "iconSource":  "https://www.coffeebean.ru/",
+                                               "gallery":  [
+                                                               "https://coffeebean.ru/wp-content/uploads/2020/12/Coffee_Bean_Home.jpg",
+                                                               "https://coffeebean.ru/wp-content/uploads/2020/11/magazin-tovar.jpg",
+                                                               "https://coffeebean.ru/wp-content/uploads/2026/05/ChatGPT-Image-29-%D0%BC%D0%B0%D1%8F-2026-%D0%B3.-11_37_13-1.png",
+                                                               "https://coffeebean.ru/wp-content/uploads/2026/05/ChatGPT-Image-28-%D0%BC%D0%B0%D1%8F-2026-%D0%B3.-20_10_00-1-2.png",
+                                                               "https://coffeebean.ru/wp-content/uploads/2021/09/Surreal-Coffee-coffee-bean.jpg",
+                                                               "https://coffeebean.ru/wp-content/uploads/2020/08/Surreal-Coffee-coffee-bean.jpg"
+                                                           ],
+                                               "gallerySource":  "https://www.coffeebean.ru/",
+                                               "updatedAt":  "2026-11-23T18:25:33+03:00"
+                                           },
                    "vinzavod":  {
                                     "icon":  "https://winzavod.ru/apple-touch-icon.png",
                                     "iconKind":  "logo",

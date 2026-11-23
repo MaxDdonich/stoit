@@ -189,7 +189,7 @@ stoit/
 ### GitHub Pages + Cloudflare Worker
 
 Репозиторий: **публичный** (код и данные открыты, секретов внутри нет).
-Сайт: `https://maxddonich.github.io/stoit/`.
+Сайт: **[stoit](https://maxddonich.github.io/stoit/)**. Технический адрес GitHub Pages содержит `maxddonich`; красивый адрес без него возможен только через свой домен.
 
 Workflow `.github/workflows/update.yml`:
 - ежедневно в 06:00 UTC (09:00 МСК) собирает ленту и деплоит Pages;
