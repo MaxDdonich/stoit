@@ -10,7 +10,10 @@ function Resolve-MediaUrl([string]$BaseUrl, [string]$Value) {
   $value = [Net.WebUtility]::HtmlDecode($Value.Trim())
   if ($value -match '^(data:|javascript:|mailto:|tel:)') { return '' }
   if ($value.StartsWith('//')) { return 'https:' + $value }
-  try { return ([Uri]::new([Uri]$BaseUrl, $value)).AbsoluteUri } catch { return '' }
+  try {
+    $absolute = ([Uri]::new([Uri]$BaseUrl, $value)).AbsoluteUri
+    return ($absolute -replace '^http://', 'https://')
+  } catch { return '' }
 }
 
 function Test-MediaSourceUrl([string]$Url) {
@@ -166,11 +169,11 @@ function Save-MediaCache([string]$Path) {
 function Apply-MediaEntry($Place, $Entry) {
   if ($null -eq $Entry) { return }
   if ($Entry.icon -and (Test-MediaSourceUrl ([string]$Entry.iconSource))) {
-    Set-PlaceField $Place 'icon' ([string]$Entry.icon)
+    Set-PlaceField $Place 'icon' (([string]$Entry.icon) -replace '^http://', 'https://')
     Set-PlaceField $Place 'iconKind' ([string]$Entry.iconKind)
     Set-PlaceField $Place 'iconSource' ([string]$Entry.iconSource)
   }
-  $gallery = @($Entry.gallery | Where-Object { Test-PhotoUrl ([string]$_) })
+  $gallery = @($Entry.gallery | Where-Object { Test-PhotoUrl ([string]$_) } | ForEach-Object { ([string]$_) -replace '^http://', 'https://' })
   if ($gallery.Count -gt 0 -and (Test-MediaSourceUrl ([string]$Entry.gallerySource))) {
     Set-PlaceField $Place 'gallery' $gallery
     Set-PlaceField $Place 'gallerySource' ([string]$Entry.gallerySource)
