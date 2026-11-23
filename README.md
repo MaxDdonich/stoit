@@ -119,6 +119,7 @@ stoit/
 │  └─ cache/               # последние ответы источников
 ├─ config/sources.json     # 39 лент и нишевых подборок
 ├─ config/price-sources.json # реестр источников цен и билетных операторов
+├─ config/site-filters.json # заблокированные сайты и закрытые места
 ├─ tools/
 │  ├─ collect.ps1          # сбор ленты, фильтрация, перевод, feed.json
 │  ├─ import-osm.ps1       # каталог заведений из OpenStreetMap

@@ -333,6 +333,7 @@ function Apply-MediaEntry($Place, $Entry) {
     Set-PlaceField $Place 'websiteChecked' $true
     return
   }
+  if ($Entry.fetchFailed) { return }
   if ($Entry.icon -and (Test-MediaSourceUrl ([string]$Entry.iconSource)) -and -not (Test-BlockedHost ([string]$Entry.icon))) {
     Set-PlaceField $Place 'icon' (([string]$Entry.icon) -replace '^http://', 'https://')
     Set-PlaceField $Place 'iconKind' ([string]$Entry.iconKind)
@@ -404,7 +405,15 @@ function Invoke-MediaDiscovery {
 
   if (-not $SkipNetwork) {
     $candidates = @($Places | Where-Object {
-      $_.website -and (Test-MediaSourceUrl ([string]$_.website)) -and
+      $sid = [string]$_.id
+      $recentFailure = $false
+      if ($store.ContainsKey($sid) -and $store[$sid].fetchFailed) {
+        try {
+          $age = ($Now - [DateTimeOffset]::Parse([string]$store[$sid].updatedAt)).TotalDays
+          if ($age -lt 7) { $recentFailure = $true }
+        } catch {}
+      }
+      (-not $recentFailure) -and $_.website -and (Test-MediaSourceUrl ([string]$_.website)) -and
       -not ($_.websiteChecked -and $_.gallery -and @($_.gallery).Count -ge 4)
     })
     $candidates = @($candidates | Sort-Object {
@@ -415,7 +424,13 @@ function Invoke-MediaDiscovery {
       if ($script:MediaChecked -ge $MaxChecks) { break }
       $script:MediaChecked += 1
       $page = Get-MediaPageData ([string]$place.website)
-      if ($null -eq $page -or -not $page.ok) { continue }
+      if ($null -eq $page -or -not $page.ok) {
+        $store[[string]$place.id] = [ordered]@{
+          fetchFailed = $true
+          updatedAt = $Now.ToString('yyyy-MM-ddTHH:mm:sszzz')
+        }
+        continue
+      }
       $spamReason = [string]$page.spamReason
       if (-not $spamReason -and $page.adult) { $spamReason = 'adult-website' }
       if (-not $spamReason -and $page.parked) { $spamReason = 'parked-domain' }

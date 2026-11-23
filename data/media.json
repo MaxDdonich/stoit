@@ -1,5 +1,5 @@
 {
-    "updatedAt":  "2026-11-23T21:31:46+03:00",
+    "updatedAt":  "2026-11-23T21:35:49+03:00",
     "places":  {
                    "osm-node-1062492903":  {
                                                "icon":  "http://balashiha.prada3d.ru/favicon/apple-touch-icon.png",
@@ -11,32 +11,41 @@
                                                "gallerySource":  "",
                                                "updatedAt":  "2026-11-23T18:25:33+03:00"
                                            },
-                   "osm-node-984569773":  {
-                                              "icon":  "http://www.bulkabakery.ru/apple-touch-icon.png",
-                                              "iconKind":  "logo",
-                                              "iconSource":  "http://www.bulkabakery.ru",
-                                              "gallery":  [
-                                                              "http://www.bulkabakery.ru/files/modules/1_1635422064.jpeg",
-                                                              "http://www.bulkabakery.ru/files/modules/1_img2_1632828459.jpg"
-                                                          ],
-                                              "gallerySource":  "http://www.bulkabakery.ru",
-                                              "updatedAt":  "2026-11-23T20:53:35+03:00"
-                                          },
-                   "vdnh":  {
-                                "icon":  "https://vdnh.ru/og-vdnh.png",
-                                "iconKind":  "logo",
-                                "iconSource":  "https://vdnh.ru/",
-                                "gallery":  [
-                                                "https://vdnh.ru/og-vdnh.png",
-                                                "https://s3.vdnh.ru/vdnhru/cache/2026/10/23/086479991cfbe6adf3a86d73db106610cf76e125.png/1bc7568b2643ba8e72562b4fad31af2e.webp",
-                                                "https://s3.vdnh.ru/vdnhru/cache/2026/10/05/37109ae9bb45f595770a9dc59560c75892e1f34b.png/f61d50558f3dfbdb492d231492d36487.webp",
-                                                "https://s3.vdnh.ru/vdnhru/cache/2026/08/31/1d0a578dea6be32e2e397b814baa315462d9d7e5.png/16e744b5ec3232a136678206486720c3.webp",
-                                                "https://s3.vdnh.ru/vdnhru/cache/2026/09/03/3cbc932ba0751cee6e02b0d0534936854fb8f1f1.png/e7d780ed9c587dcc4c4d8bb0773ce859.webp",
-                                                "https://s3.vdnh.ru/vdnhru/cache/2026/08/25/1d4b6e5311f184b7cf76bb961afc806a4856f76c.png/124c28f9328cffb2c699d4b1bcb7edeb.webp"
-                                            ],
-                                "gallerySource":  "https://vdnh.ru/",
-                                "updatedAt":  "2026-11-23T18:25:33+03:00"
-                            },
+                   "wd-Q4074584":  {
+                                       "icon":  "",
+                                       "iconKind":  "",
+                                       "iconSource":  "",
+                                       "gallery":  [
+                                                       "https://commons.wikimedia.org/wiki/Special:FilePath/Alleya.jpg",
+                                                       "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/93/Alleja_s_jugo-vostochnoj_storony_-_babushkinskij_park.jpg/1920px-Alleja_s_jugo-vostochnoj_storony_-_babushkinskij_park.jpg?utm_source=commons.wikimedia.org\u0026utm_campaign=imageinfo\u0026utm_content=thumbnail",
+                                                       "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2a/Alleja_s_severo-zapadnoj_storony_-_babushkinskij_park.jpg/1920px-Alleja_s_severo-zapadnoj_storony_-_babushkinskij_park.jpg?utm_source=commons.wikimedia.org\u0026utm_campaign=imageinfo\u0026utm_content=thumbnail",
+                                                       "https://upload.wikimedia.org/wikipedia/commons/a/af/Alleya.jpg?utm_source=commons.wikimedia.org\u0026utm_campaign=imageinfo\u0026utm_content=thumbnail_unscaled",
+                                                       "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/eb/Around_Moscow_%2821059402620%29.jpg/1920px-Around_Moscow_%2821059402620%29.jpg?utm_source=commons.wikimedia.org\u0026utm_campaign=imageinfo\u0026utm_content=thumbnail",
+                                                       "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0a/Around_Moscow_%2821237025792%29.jpg/1920px-Around_Moscow_%2821237025792%29.jpg?utm_source=commons.wikimedia.org\u0026utm_campaign=imageinfo\u0026utm_content=thumbnail",
+                                                       "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/61/Around_Moscow_%2821247522405%29.jpg/1920px-Around_Moscow_%2821247522405%29.jpg?utm_source=commons.wikimedia.org\u0026utm_campaign=imageinfo\u0026utm_content=thumbnail",
+                                                       "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4e/Around_Moscow_%2821247522425%29.jpg/1920px-Around_Moscow_%2821247522425%29.jpg?utm_source=commons.wikimedia.org\u0026utm_campaign=imageinfo\u0026utm_content=thumbnail",
+                                                       "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8f/Around_Moscow_%2821255518041%29.jpg/1920px-Around_Moscow_%2821255518041%29.jpg?utm_source=commons.wikimedia.org\u0026utm_campaign=imageinfo\u0026utm_content=thumbnail"
+                                                   ],
+                                       "gallerySource":  "https://commons.wikimedia.org/",
+                                       "updatedAt":  "2026-11-23T21:35:49+03:00"
+                                   },
+                   "cosmos":  {
+                                  "icon":  "",
+                                  "iconKind":  "",
+                                  "iconSource":  "",
+                                  "gallery":  [
+                                                  "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b8/Memorial_Museum_of_Space_Exploration_%28%D0%9C%D0%B5%D0%BC%D0%BE%D1%80%D0%B8%D0%B0%D0%BB%D1%8C%D0%BD%D1%8B%D0%B9_%D0%BC%D1%83%D0%B7%D0%B5%D0%B9_%D0%BA%D0%BE%D1%81%D0%BC%D0%BE%D0%BD%D0%B0%D0%B2%D1%82%D0%B8%D0%BA%D0%B8%29_%285585736057%29.jpg/1920px-Memorial_Museum_of_Space_Exploration_%28%D0%9C%D0%B5%D0%BC%D0%BE%D1%80%D0%B8%D0%B0%D0%BB%D1%8C%D0%BD%D1%8B%D0%B9_%D0%BC%D1%83%D0%B7%D0%B5%D0%B9_%D0%BA%D0%BE%D1%81%D0%BC%D0%BE%D0%BD%D0%B0%D0%B2%D1%82%D0%B8%D0%BA%D0%B8%29_%285585736057%29.jpg?utm_source=commons.wikimedia.org\u0026utm_campaign=imageinfo\u0026utm_content=thumbnail",
+                                                  "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d1/Memorial_Museum_of_Space_Exploration_%28%D0%9C%D0%B5%D0%BC%D0%BE%D1%80%D0%B8%D0%B0%D0%BB%D1%8C%D0%BD%D1%8B%D0%B9_%D0%BC%D1%83%D0%B7%D0%B5%D0%B9_%D0%BA%D0%BE%D1%81%D0%BC%D0%BE%D0%BD%D0%B0%D0%B2%D1%82%D0%B8%D0%BA%D0%B8%29_%285585740425%29.jpg/1920px-Memorial_Museum_of_Space_Exploration_%28%D0%9C%D0%B5%D0%BC%D0%BE%D1%80%D0%B8%D0%B0%D0%BB%D1%8C%D0%BD%D1%8B%D0%B9_%D0%BC%D1%83%D0%B7%D0%B5%D0%B9_%D0%BA%D0%BE%D1%81%D0%BC%D0%BE%D0%BD%D0%B0%D0%B2%D1%82%D0%B8%D0%BA%D0%B8%29_%285585740425%29.jpg?utm_source=commons.wikimedia.org\u0026utm_campaign=imageinfo\u0026utm_content=thumbnail",
+                                                  "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8f/Memorial_Museum_of_Space_Exploration_%28%D0%9C%D0%B5%D0%BC%D0%BE%D1%80%D0%B8%D0%B0%D0%BB%D1%8C%D0%BD%D1%8B%D0%B9_%D0%BC%D1%83%D0%B7%D0%B5%D0%B9_%D0%BA%D0%BE%D1%81%D0%BC%D0%BE%D0%BD%D0%B0%D0%B2%D1%82%D0%B8%D0%BA%D0%B8%29_%285585742071%29.jpg/1920px-Memorial_Museum_of_Space_Exploration_%28%D0%9C%D0%B5%D0%BC%D0%BE%D1%80%D0%B8%D0%B0%D0%BB%D1%8C%D0%BD%D1%8B%D0%B9_%D0%BC%D1%83%D0%B7%D0%B5%D0%B9_%D0%BA%D0%BE%D1%81%D0%BC%D0%BE%D0%BD%D0%B0%D0%B2%D1%82%D0%B8%D0%BA%D0%B8%29_%285585742071%29.jpg?utm_source=commons.wikimedia.org\u0026utm_campaign=imageinfo\u0026utm_content=thumbnail",
+                                                  "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a2/Memorial_Museum_of_Space_Exploration_%28%D0%9C%D0%B5%D0%BC%D0%BE%D1%80%D0%B8%D0%B0%D0%BB%D1%8C%D0%BD%D1%8B%D0%B9_%D0%BC%D1%83%D0%B7%D0%B5%D0%B9_%D0%BA%D0%BE%D1%81%D0%BC%D0%BE%D0%BD%D0%B0%D0%B2%D1%82%D0%B8%D0%BA%D0%B8%29_%285585788875%29.jpg/1920px-Memorial_Museum_of_Space_Exploration_%28%D0%9C%D0%B5%D0%BC%D0%BE%D1%80%D0%B8%D0%B0%D0%BB%D1%8C%D0%BD%D1%8B%D0%B9_%D0%BC%D1%83%D0%B7%D0%B5%D0%B9_%D0%BA%D0%BE%D1%81%D0%BC%D0%BE%D0%BD%D0%B0%D0%B2%D1%82%D0%B8%D0%BA%D0%B8%29_%285585788875%29.jpg?utm_source=commons.wikimedia.org\u0026utm_campaign=imageinfo\u0026utm_content=thumbnail",
+                                                  "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7f/Memorial_Museum_of_Space_Exploration_%28%D0%9C%D0%B5%D0%BC%D0%BE%D1%80%D0%B8%D0%B0%D0%BB%D1%8C%D0%BD%D1%8B%D0%B9_%D0%BC%D1%83%D0%B7%D0%B5%D0%B9_%D0%BA%D0%BE%D1%81%D0%BC%D0%BE%D0%BD%D0%B0%D0%B2%D1%82%D0%B8%D0%BA%D0%B8%29_%285586323982%29.jpg/1920px-Memorial_Museum_of_Space_Exploration_%28%D0%9C%D0%B5%D0%BC%D0%BE%D1%80%D0%B8%D0%B0%D0%BB%D1%8C%D0%BD%D1%8B%D0%B9_%D0%BC%D1%83%D0%B7%D0%B5%D0%B9_%D0%BA%D0%BE%D1%81%D0%BC%D0%BE%D0%BD%D0%B0%D0%B2%D1%82%D0%B8%D0%BA%D0%B8%29_%285586323982%29.jpg?utm_source=commons.wikimedia.org\u0026utm_campaign=imageinfo\u0026utm_content=thumbnail",
+                                                  "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a7/Memorial_Museum_of_Space_Exploration_%28%D0%9C%D0%B5%D0%BC%D0%BE%D1%80%D0%B8%D0%B0%D0%BB%D1%8C%D0%BD%D1%8B%D0%B9_%D0%BC%D1%83%D0%B7%D0%B5%D0%B9_%D0%BA%D0%BE%D1%81%D0%BC%D0%BE%D0%BD%D0%B0%D0%B2%D1%82%D0%B8%D0%BA%D0%B8%29_%285586351536%29.jpg/1920px-Memorial_Museum_of_Space_Exploration_%28%D0%9C%D0%B5%D0%BC%D0%BE%D1%80%D0%B8%D0%B0%D0%BB%D1%8C%D0%BD%D1%8B%D0%B9_%D0%BC%D1%83%D0%B7%D0%B5%D0%B9_%D0%BA%D0%BE%D1%81%D0%BC%D0%BE%D0%BD%D0%B0%D0%B2%D1%82%D0%B8%D0%BA%D0%B8%29_%285586351536%29.jpg?utm_source=commons.wikimedia.org\u0026utm_campaign=imageinfo\u0026utm_content=thumbnail",
+                                                  "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b7/Memorial_Museum_of_Space_Exploration_%28%D0%9C%D0%B5%D0%BC%D0%BE%D1%80%D0%B8%D0%B0%D0%BB%D1%8C%D0%BD%D1%8B%D0%B9_%D0%BC%D1%83%D0%B7%D0%B5%D0%B9_%D0%BA%D0%BE%D1%81%D0%BC%D0%BE%D0%BD%D0%B0%D0%B2%D1%82%D0%B8%D0%BA%D0%B8%29_%285586353252%29.jpg/1920px-Memorial_Museum_of_Space_Exploration_%28%D0%9C%D0%B5%D0%BC%D0%BE%D1%80%D0%B8%D0%B0%D0%BB%D1%8C%D0%BD%D1%8B%D0%B9_%D0%BC%D1%83%D0%B7%D0%B5%D0%B9_%D0%BA%D0%BE%D1%81%D0%BC%D0%BE%D0%BD%D0%B0%D0%B2%D1%82%D0%B8%D0%BA%D0%B8%29_%285586353252%29.jpg?utm_source=commons.wikimedia.org\u0026utm_campaign=imageinfo\u0026utm_content=thumbnail",
+                                                  "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/25/Memorial_Museum_of_Space_Exploration_%28%D0%9C%D0%B5%D0%BC%D0%BE%D1%80%D0%B8%D0%B0%D0%BB%D1%8C%D0%BD%D1%8B%D0%B9_%D0%BC%D1%83%D0%B7%D0%B5%D0%B9_%D0%BA%D0%BE%D1%81%D0%BC%D0%BE%D0%BD%D0%B0%D0%B2%D1%82%D0%B8%D0%BA%D0%B8%29_%285586376460%29.jpg/1920px-Memorial_Museum_of_Space_Exploration_%28%D0%9C%D0%B5%D0%BC%D0%BE%D1%80%D0%B8%D0%B0%D0%BB%D1%8C%D0%BD%D1%8B%D0%B9_%D0%BC%D1%83%D0%B7%D0%B5%D0%B9_%D0%BA%D0%BE%D1%81%D0%BC%D0%BE%D0%BD%D0%B0%D0%B2%D1%82%D0%B8%D0%BA%D0%B8%29_%285586376460%29.jpg?utm_source=commons.wikimedia.org\u0026utm_campaign=imageinfo\u0026utm_content=thumbnail"
+                                              ],
+                                  "gallerySource":  "https://commons.wikimedia.org/",
+                                  "updatedAt":  "2026-11-23T20:50:52+03:00"
+                              },
                    "wd-Q7656228":  {
                                        "icon":  "",
                                        "iconKind":  "",
@@ -92,39 +101,24 @@
                                       "gallerySource":  "https://commons.wikimedia.org/",
                                       "updatedAt":  "2026-11-23T20:51:57+03:00"
                                   },
-                   "osm-node-12778483583":  {
-                                                "icon":  "https://putilkovo.termoland.ru/local/templates/landwind/shared/assets/img/main-page/header/logo-location-header.svg",
-                                                "iconKind":  "logo",
-                                                "iconSource":  "https://putilkovo.termoland.ru/",
-                                                "gallery":  [
-                                                                "https://putilkovo.termoland.ru/upload/uf/590/2m2dofi0t6wigmfvl501cmj15u1pv5o2/2370_1580%20%282%29.jpg",
-                                                                "https://putilkovo.termoland.ru/upload/resize_cache/responsive/1b/1bf82ad20b30516846690f3baaaf03049dbb8849.jpg",
-                                                                "https://putilkovo.termoland.ru/upload/resize_cache/responsive/97/9713ce9a02452e36d421e6196129ad9f484df0f1.jpg",
-                                                                "https://putilkovo.termoland.ru/upload/resize_cache/responsive/0e/0ef54a7aaf19977bbd72c0bf7bb7214e484d6854.jpg",
-                                                                "https://putilkovo.termoland.ru/upload/resize_cache/responsive/01/01c0436cca07e61658fee2ff8ad4d56084cafd17.jpg",
-                                                                "https://putilkovo.termoland.ru/upload/resize_cache/responsive/a1/a1c4a46a4d3d820c69dccd2d8eea65bea7b341c9.jpg"
-                                                            ],
-                                                "gallerySource":  "https://putilkovo.termoland.ru/",
-                                                "updatedAt":  "2026-11-23T18:25:33+03:00"
-                                            },
-                   "wd-Q99296":  {
-                                     "icon":  "",
-                                     "iconKind":  "",
-                                     "iconSource":  "",
-                                     "gallery":  [
-                                                     "https://commons.wikimedia.org/wiki/Special:FilePath/Bitsa%20Park%2004.jpg",
-                                                     "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3c/2010-04-24_%D0%9C%D0%B8%D1%82%D0%B8%D0%BD%D0%B3_%D0%B2_%D0%B7%D0%B0%D1%89%D0%B8%D1%82%D1%83_%D0%91%D0%B8%D1%82%D1%86%D0%B5%D0%B2%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_%D0%BB%D0%B5%D1%81%D0%B0_P1030451.jpg/1920px-2010-04-24_%D0%9C%D0%B8%D1%82%D0%B8%D0%BD%D0%B3_%D0%B2_%D0%B7%D0%B0%D1%89%D0%B8%D1%82%D1%83_%D0%91%D0%B8%D1%82%D1%86%D0%B5%D0%B2%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_%D0%BB%D0%B5%D1%81%D0%B0_P1030451.jpg?utm_source=commons.wikimedia.org\u0026utm_campaign=imageinfo\u0026utm_content=thumbnail",
-                                                     "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fa/2010-04-24_%D0%9C%D0%B8%D1%82%D0%B8%D0%BD%D0%B3_%D0%B2_%D0%B7%D0%B0%D1%89%D0%B8%D1%82%D1%83_%D0%91%D0%B8%D1%82%D1%86%D0%B5%D0%B2%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_%D0%BB%D0%B5%D1%81%D0%B0_P1030452.jpg/1920px-2010-04-24_%D0%9C%D0%B8%D1%82%D0%B8%D0%BD%D0%B3_%D0%B2_%D0%B7%D0%B0%D1%89%D0%B8%D1%82%D1%83_%D0%91%D0%B8%D1%82%D1%86%D0%B5%D0%B2%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_%D0%BB%D0%B5%D1%81%D0%B0_P1030452.jpg?utm_source=commons.wikimedia.org\u0026utm_campaign=imageinfo\u0026utm_content=thumbnail",
-                                                     "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/76/2010-04-24_%D0%9C%D0%B8%D1%82%D0%B8%D0%BD%D0%B3_%D0%B2_%D0%B7%D0%B0%D1%89%D0%B8%D1%82%D1%83_%D0%91%D0%B8%D1%82%D1%86%D0%B5%D0%B2%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_%D0%BB%D0%B5%D1%81%D0%B0_P1030453.jpg/1920px-2010-04-24_%D0%9C%D0%B8%D1%82%D0%B8%D0%BD%D0%B3_%D0%B2_%D0%B7%D0%B0%D1%89%D0%B8%D1%82%D1%83_%D0%91%D0%B8%D1%82%D1%86%D0%B5%D0%B2%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_%D0%BB%D0%B5%D1%81%D0%B0_P1030453.jpg?utm_source=commons.wikimedia.org\u0026utm_campaign=imageinfo\u0026utm_content=thumbnail",
-                                                     "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/31/2010-04-24_%D0%9C%D0%B8%D1%82%D0%B8%D0%BD%D0%B3_%D0%B2_%D0%B7%D0%B0%D1%89%D0%B8%D1%82%D1%83_%D0%91%D0%B8%D1%82%D1%86%D0%B5%D0%B2%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_%D0%BB%D0%B5%D1%81%D0%B0_P1030456.jpg/1920px-2010-04-24_%D0%9C%D0%B8%D1%82%D0%B8%D0%BD%D0%B3_%D0%B2_%D0%B7%D0%B0%D1%89%D0%B8%D1%82%D1%83_%D0%91%D0%B8%D1%82%D1%86%D0%B5%D0%B2%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_%D0%BB%D0%B5%D1%81%D0%B0_P1030456.jpg?utm_source=commons.wikimedia.org\u0026utm_campaign=imageinfo\u0026utm_content=thumbnail",
-                                                     "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/19/500px_photo_%28143189073%29.jpeg/1920px-500px_photo_%28143189073%29.jpeg?utm_source=commons.wikimedia.org\u0026utm_campaign=imageinfo\u0026utm_content=thumbnail",
-                                                     "https://upload.wikimedia.org/wikipedia/commons/5/50/6th_Christmas_skiatlone.jpg?utm_source=commons.wikimedia.org\u0026utm_campaign=imageinfo\u0026utm_content=thumbnail_unscaled",
-                                                     "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a2/Apple_trees_in_Bitsa_Park%2C_Moscow_01.jpg/1920px-Apple_trees_in_Bitsa_Park%2C_Moscow_01.jpg?utm_source=commons.wikimedia.org\u0026utm_campaign=imageinfo\u0026utm_content=thumbnail",
-                                                     "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/96/Apple_trees_in_Bitsa_Park%2C_Moscow_02.jpg/1920px-Apple_trees_in_Bitsa_Park%2C_Moscow_02.jpg?utm_source=commons.wikimedia.org\u0026utm_campaign=imageinfo\u0026utm_content=thumbnail"
-                                                 ],
-                                     "gallerySource":  "https://commons.wikimedia.org/",
-                                     "updatedAt":  "2026-11-23T21:31:46+03:00"
-                                 },
+                   "wd-Q4095879":  {
+                                       "icon":  "",
+                                       "iconKind":  "",
+                                       "iconSource":  "",
+                                       "gallery":  [
+                                                       "https://commons.wikimedia.org/wiki/Special:FilePath/%D0%92%D0%B8%D0%B4%20%D0%BD%D0%B0%20%D0%91%D1%80%D0%B0%D1%82%D0%B5%D0%B5%D0%B2%D1%81%D0%BA%D0%B8%D0%B9%20%D0%BA%D0%B0%D1%81%D0%BA%D0%B0%D0%B4%D0%BD%D1%8B%D0%B9%20%D0%BF%D0%B0%D1%80%D0%BA%20%D0%B2%20%D1%81%D0%B0%D0%B1%D1%83%D1%80%D0%BE%D0%B2%D1%81%D0%BA%D0%BE%D0%B9%20%D1%87%D0%B0%D1%81%D1%82%D0%B8.jpg",
+                                                       "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7a/%D0%91%D1%80%D0%B0%D1%82%D0%B5%D0%B5%D0%B2%D1%81%D0%BA%D0%B8%D0%B9_%D0%BA%D0%B0%D1%81%D0%BA%D0%B0%D0%B4%D0%BD%D1%8B%D0%B9_%D0%BF%D0%B0%D1%80%D0%BA%2C_%D1%82%D0%B0%D0%B1%D0%BB%D0%B8%D1%87%D0%BA%D0%B0.jpg/1920px-%D0%91%D1%80%D0%B0%D1%82%D0%B5%D0%B5%D0%B2%D1%81%D0%BA%D0%B8%D0%B9_%D0%BA%D0%B0%D1%81%D0%BA%D0%B0%D0%B4%D0%BD%D1%8B%D0%B9_%D0%BF%D0%B0%D1%80%D0%BA%2C_%D1%82%D0%B0%D0%B1%D0%BB%D0%B8%D1%87%D0%BA%D0%B0.jpg?utm_source=commons.wikimedia.org\u0026utm_campaign=imageinfo\u0026utm_content=thumbnail",
+                                                       "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cf/2024-08-01_%D0%BA%D0%B0%D0%BC%D0%B5%D1%80%D0%B0_%D0%B2%D0%B8%D0%B4%D0%B5%D0%BE%D0%BD%D0%B0%D0%B1%D0%BB%D1%8E%D0%B4%D0%B5%D0%BD%D0%B8%D1%8F_%D0%B2_%D0%91%D1%80%D0%B0%D1%82%D0%B5%D0%B5%D0%B2%D1%81%D0%BA%D0%BE%D0%BC_%D0%BA%D0%B0%D1%81%D0%BA%D0%B0%D0%B4%D0%BD%D0%BE%D0%BC_%D0%BF%D0%B0%D1%80%D0%BA%D0%B5_%D0%B2_%D0%9C%D0%BE%D1%81%D0%BA%D0%B2%D0%B5_20240801_134114.jpg/1920px-2024-08-01_%D0%BA%D0%B0%D0%BC%D0%B5%D1%80%D0%B0_%D0%B2%D0%B8%D0%B4%D0%B5%D0%BE%D0%BD%D0%B0%D0%B1%D0%BB%D1%8E%D0%B4%D0%B5%D0%BD%D0%B8%D1%8F_%D0%B2_%D0%91%D1%80%D0%B0%D1%82%D0%B5%D0%B5%D0%B2%D1%81%D0%BA%D0%BE%D0%BC_%D0%BA%D0%B0%D1%81%D0%BA%D0%B0%D0%B4%D0%BD%D0%BE%D0%BC_%D0%BF%D0%B0%D1%80%D0%BA%D0%B5_%D0%B2_%D0%9C%D0%BE%D1%81%D0%BA%D0%B2%D0%B5_20240801_134114.jpg?utm_source=commons.wikimedia.org\u0026utm_campaign=imageinfo\u0026utm_content=thumbnail",
+                                                       "https://upload.wikimedia.org/wikipedia/commons/f/fc/Fyodor_Ushakov_at_Pier_on_the_Moskva_River_in_Brateyevo_Moscow_23_September_2008.jpg?utm_source=commons.wikimedia.org\u0026utm_campaign=imageinfo\u0026utm_content=thumbnail_unscaled",
+                                                       "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b7/Moscow%2C_Brateevsky_Cascade_Park%2C_Russia.jpg/1920px-Moscow%2C_Brateevsky_Cascade_Park%2C_Russia.jpg?utm_source=commons.wikimedia.org\u0026utm_campaign=imageinfo\u0026utm_content=thumbnail",
+                                                       "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6a/Moscow%2C_Brateyevo_Cascade_Park%2C_Lawns%2C_Russia.jpg/1920px-Moscow%2C_Brateyevo_Cascade_Park%2C_Lawns%2C_Russia.jpg?utm_source=commons.wikimedia.org\u0026utm_campaign=imageinfo\u0026utm_content=thumbnail",
+                                                       "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6e/Moscow%2C_Brateyevo_Cascade_Park%2C_Russia.jpg/1920px-Moscow%2C_Brateyevo_Cascade_Park%2C_Russia.jpg?utm_source=commons.wikimedia.org\u0026utm_campaign=imageinfo\u0026utm_content=thumbnail",
+                                                       "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3a/Moscow%2C_Brateyevo_Cascade_Park%2C_Trees%2C_Russia.jpg/1920px-Moscow%2C_Brateyevo_Cascade_Park%2C_Trees%2C_Russia.jpg?utm_source=commons.wikimedia.org\u0026utm_campaign=imageinfo\u0026utm_content=thumbnail",
+                                                       "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f8/Moscow-2193_-_58_%D0%91%D1%80%D0%B0%D1%82%D0%B5%D0%B5%D0%B2%D1%81%D0%BA%D0%B8%D0%B9_%D0%BF%D0%B0%D1%80%D0%BA%2C_%D0%9C%D0%BE%D1%81%D0%BA%D0%B2%D0%B0-%D1%80%D0%B5%D0%BA%D0%B0.jpg/1920px-Moscow-2193_-_58_%D0%91%D1%80%D0%B0%D1%82%D0%B5%D0%B5%D0%B2%D1%81%D0%BA%D0%B8%D0%B9_%D0%BF%D0%B0%D1%80%D0%BA%2C_%D0%9C%D0%BE%D1%81%D0%BA%D0%B2%D0%B0-%D1%80%D0%B5%D0%BA%D0%B0.jpg?utm_source=commons.wikimedia.org\u0026utm_campaign=imageinfo\u0026utm_content=thumbnail"
+                                                   ],
+                                       "gallerySource":  "https://commons.wikimedia.org/",
+                                       "updatedAt":  "2026-11-23T21:35:49+03:00"
+                                   },
                    "colizeum":  {
                                     "icon":  "https://colizeumarena.com/wp-content/uploads/2026/09/favicon.svg",
                                     "iconKind":  "logo",
@@ -155,21 +149,21 @@
                                               "gallerySource":  "https://commons.wikimedia.org/",
                                               "updatedAt":  "2026-11-23T20:53:35+03:00"
                                           },
-                   "osm-way-131440393":  {
-                                             "icon":  "https://karibiya.ru/image/pwa/web-app-manifest_1024.png",
-                                             "iconKind":  "logo",
-                                             "iconSource":  "https://karibiya.ru/",
-                                             "gallery":  [
-                                                             "https://karibiya.ru/image/aquapark_photo.jpg",
-                                                             "https://karibiya.ru/upload/resize_cache/iblock/45e9120857216e02732e223150d05ab1-f-544-362.png",
-                                                             "https://karibiya.ru/upload/resize_cache/iblock/6d827b6a8e2d360fb20333d114311789-f-544-362.png",
-                                                             "https://karibiya.ru/upload/resize_cache/iblock/7e47d23f546b0809724586d36876d053-f-544-362.png",
-                                                             "https://karibiya.ru/upload/resize_cache/iblock/60f7e486580c4c7387e4c2bc924fa32a-f-544-362.png",
-                                                             "https://karibiya.ru/upload/resize_cache/iblock/69329591e2e2bf5ed04fe445fd51b540-f-544-362.png"
-                                                         ],
-                                             "gallerySource":  "https://karibiya.ru/",
-                                             "updatedAt":  "2026-11-23T18:25:33+03:00"
-                                         },
+                   "osm-node-525360863":  {
+                                              "icon":  "http://pizzamento.ru/bitrix/templates/pizza_ark/img/logo-cofenya.png",
+                                              "iconKind":  "logo",
+                                              "iconSource":  "http://pizzamento.ru",
+                                              "gallery":  [
+                                                              "http://pizzamento.ru/upload/iblock/630/53335838739_39113f17f9_k.jpg",
+                                                              "http://pizzamento.ru/upload/iblock/a6f/53335838809_3d4ce58e3e_k.jpg",
+                                                              "http://pizzamento.ru/upload/iblock/fbd/53334620207_d66c8c5b2e_k.jpg",
+                                                              "http://pizzamento.ru/upload/iblock/93e/53190522587_ef04f77efa_k.jpg",
+                                                              "http://pizzamento.ru/bitrix/templates/pizza_ark/img/pizzeria-decor.png",
+                                                              "http://pizzamento.ru/bitrix/templates/pizza_ark/img/event-decor.png"
+                                                          ],
+                                              "gallerySource":  "http://pizzamento.ru",
+                                              "updatedAt":  "2026-11-23T18:25:33+03:00"
+                                          },
                    "osm-node-3069066677":  {
                                                "icon":  "https://ahdi.ru/wp-content/themes/ahdi/assets/images/logo_text_ahdi_footer.png",
                                                "iconKind":  "logo",
@@ -185,21 +179,17 @@
                                                "gallerySource":  "http://www.ahdi.ru",
                                                "updatedAt":  "2026-11-23T18:25:33+03:00"
                                            },
-                   "ostankino":  {
-                                     "icon":  "https://tvtower.ru/include/favicon/favicon.png",
-                                     "iconKind":  "logo",
-                                     "iconSource":  "https://tvtower.ru/services/buro/",
-                                     "gallery":  [
-                                                     "http://tvtower.ru/upload/buro-slide-1.jpg",
-                                                     "https://tvtower.ru/upload/phoneimg.png",
-                                                     "https://tvtower.ru/upload/imgs/pobeda80.png",
-                                                     "https://tvtower.ru/upload/app.png",
-                                                     "https://tvtower.ru/upload/buyticket.png",
-                                                     "https://tvtower.ru/upload/eye.png"
-                                                 ],
-                                     "gallerySource":  "https://tvtower.ru/services/buro/",
-                                     "updatedAt":  "2026-11-23T18:25:33+03:00"
-                                 },
+                   "osm-node-4281630789":  {
+                                               "icon":  "https://europe-antik.ru/apple-icon-152x152.png",
+                                               "iconKind":  "logo",
+                                               "iconSource":  "https://europe-antik.ru",
+                                               "gallery":  [
+
+                                                           ],
+                                               "gallerySource":  "",
+                                               "websiteChecked":  true,
+                                               "updatedAt":  "2026-11-23T21:31:46+03:00"
+                                           },
                    "osm-way-43073890":  {
                                             "icon":  "https://cdn.more-on.ru/wp-content/uploads/2026/05/cropped-favicon-180x180.png",
                                             "iconKind":  "logo",
@@ -239,21 +229,23 @@
                                                "gallerySource":  "http://cheglakovfoundation.org/",
                                                "updatedAt":  "2026-11-23T18:25:33+03:00"
                                            },
-                   "osm-node-525360863":  {
-                                              "icon":  "http://pizzamento.ru/bitrix/templates/pizza_ark/img/logo-cofenya.png",
-                                              "iconKind":  "logo",
-                                              "iconSource":  "http://pizzamento.ru",
-                                              "gallery":  [
-                                                              "http://pizzamento.ru/upload/iblock/630/53335838739_39113f17f9_k.jpg",
-                                                              "http://pizzamento.ru/upload/iblock/a6f/53335838809_3d4ce58e3e_k.jpg",
-                                                              "http://pizzamento.ru/upload/iblock/fbd/53334620207_d66c8c5b2e_k.jpg",
-                                                              "http://pizzamento.ru/upload/iblock/93e/53190522587_ef04f77efa_k.jpg",
-                                                              "http://pizzamento.ru/bitrix/templates/pizza_ark/img/pizzeria-decor.png",
-                                                              "http://pizzamento.ru/bitrix/templates/pizza_ark/img/event-decor.png"
-                                                          ],
-                                              "gallerySource":  "http://pizzamento.ru",
-                                              "updatedAt":  "2026-11-23T18:25:33+03:00"
-                                          },
+                   "wd-Q4273155":  {
+                                       "icon":  "",
+                                       "iconKind":  "",
+                                       "iconSource":  "",
+                                       "gallery":  [
+                                                       "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/18/10800841520_SF3A9400.jpg/1920px-10800841520_SF3A9400.jpg?utm_source=commons.wikimedia.org\u0026utm_campaign=imageinfo\u0026utm_content=thumbnail",
+                                                       "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9e/10801863424_SF3A9536.jpg/1920px-10801863424_SF3A9536.jpg?utm_source=commons.wikimedia.org\u0026utm_campaign=imageinfo\u0026utm_content=thumbnail",
+                                                       "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3e/Fullsizeoutput_79cb.jpg/1920px-Fullsizeoutput_79cb.jpg?utm_source=commons.wikimedia.org\u0026utm_campaign=imageinfo\u0026utm_content=thumbnail",
+                                                       "https://upload.wikimedia.org/wikipedia/commons/d/db/JNGEpgXN4ir15gVnfUinX-0bVYNavrkO_620_416.png?utm_source=commons.wikimedia.org\u0026utm_campaign=imageinfo\u0026utm_content=thumbnail_unscaled",
+                                                       "https://upload.wikimedia.org/wikipedia/commons/5/57/Psihozmars.jpg?utm_source=commons.wikimedia.org\u0026utm_campaign=imageinfo\u0026utm_content=thumbnail_unscaled",
+                                                       "https://upload.wikimedia.org/wikipedia/commons/6/6a/Yolomars.jpg?utm_source=commons.wikimedia.org\u0026utm_campaign=imageinfo\u0026utm_content=thumbnail_unscaled",
+                                                       "https://upload.wikimedia.org/wikipedia/commons/d/db/%D0%9B%D0%BE%D0%B3%D0%BE%D1%82%D0%B8%D0%BF_%D0%BC%D0%B0%D1%80%D1%81%D0%B0_.jpg?utm_source=commons.wikimedia.org\u0026utm_campaign=imageinfo\u0026utm_content=thumbnail_unscaled",
+                                                       "https://upload.wikimedia.org/wikipedia/commons/3/3e/%D0%A6%D0%B5%D0%BD%D1%82%D1%80_%D0%9C%D0%90%D0%A0%D0%A1_2.jpg?utm_source=commons.wikimedia.org\u0026utm_campaign=imageinfo\u0026utm_content=thumbnail_unscaled"
+                                                   ],
+                                       "gallerySource":  "https://commons.wikimedia.org/",
+                                       "updatedAt":  "2026-11-23T21:31:46+03:00"
+                                   },
                    "osm-node-626862155":  {
                                               "icon":  "https://www.papajohns.ru/Favicon2022/apple-touch-icon.png",
                                               "iconKind":  "logo",
@@ -289,16 +281,24 @@
                                                "gallerySource":  "https://flipfly.ru/",
                                                "updatedAt":  "2026-11-23T20:53:35+03:00"
                                            },
-                   "osm-node-564862319":  {
-                                              "icon":  "https://static.tildacdn.com/tild3366-3534-4461-b836-616462343464/esselogo_temp.jpg",
-                                              "iconKind":  "logo",
-                                              "iconSource":  "https://cafeesse.com/",
-                                              "gallery":  [
-
-                                                          ],
-                                              "gallerySource":  "",
-                                              "updatedAt":  "2026-11-23T18:25:33+03:00"
-                                          },
+                   "wd-Q99296":  {
+                                     "icon":  "",
+                                     "iconKind":  "",
+                                     "iconSource":  "",
+                                     "gallery":  [
+                                                     "https://commons.wikimedia.org/wiki/Special:FilePath/Bitsa%20Park%2004.jpg",
+                                                     "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3c/2010-04-24_%D0%9C%D0%B8%D1%82%D0%B8%D0%BD%D0%B3_%D0%B2_%D0%B7%D0%B0%D1%89%D0%B8%D1%82%D1%83_%D0%91%D0%B8%D1%82%D1%86%D0%B5%D0%B2%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_%D0%BB%D0%B5%D1%81%D0%B0_P1030451.jpg/1920px-2010-04-24_%D0%9C%D0%B8%D1%82%D0%B8%D0%BD%D0%B3_%D0%B2_%D0%B7%D0%B0%D1%89%D0%B8%D1%82%D1%83_%D0%91%D0%B8%D1%82%D1%86%D0%B5%D0%B2%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_%D0%BB%D0%B5%D1%81%D0%B0_P1030451.jpg?utm_source=commons.wikimedia.org\u0026utm_campaign=imageinfo\u0026utm_content=thumbnail",
+                                                     "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fa/2010-04-24_%D0%9C%D0%B8%D1%82%D0%B8%D0%BD%D0%B3_%D0%B2_%D0%B7%D0%B0%D1%89%D0%B8%D1%82%D1%83_%D0%91%D0%B8%D1%82%D1%86%D0%B5%D0%B2%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_%D0%BB%D0%B5%D1%81%D0%B0_P1030452.jpg/1920px-2010-04-24_%D0%9C%D0%B8%D1%82%D0%B8%D0%BD%D0%B3_%D0%B2_%D0%B7%D0%B0%D1%89%D0%B8%D1%82%D1%83_%D0%91%D0%B8%D1%82%D1%86%D0%B5%D0%B2%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_%D0%BB%D0%B5%D1%81%D0%B0_P1030452.jpg?utm_source=commons.wikimedia.org\u0026utm_campaign=imageinfo\u0026utm_content=thumbnail",
+                                                     "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/76/2010-04-24_%D0%9C%D0%B8%D1%82%D0%B8%D0%BD%D0%B3_%D0%B2_%D0%B7%D0%B0%D1%89%D0%B8%D1%82%D1%83_%D0%91%D0%B8%D1%82%D1%86%D0%B5%D0%B2%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_%D0%BB%D0%B5%D1%81%D0%B0_P1030453.jpg/1920px-2010-04-24_%D0%9C%D0%B8%D1%82%D0%B8%D0%BD%D0%B3_%D0%B2_%D0%B7%D0%B0%D1%89%D0%B8%D1%82%D1%83_%D0%91%D0%B8%D1%82%D1%86%D0%B5%D0%B2%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_%D0%BB%D0%B5%D1%81%D0%B0_P1030453.jpg?utm_source=commons.wikimedia.org\u0026utm_campaign=imageinfo\u0026utm_content=thumbnail",
+                                                     "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/31/2010-04-24_%D0%9C%D0%B8%D1%82%D0%B8%D0%BD%D0%B3_%D0%B2_%D0%B7%D0%B0%D1%89%D0%B8%D1%82%D1%83_%D0%91%D0%B8%D1%82%D1%86%D0%B5%D0%B2%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_%D0%BB%D0%B5%D1%81%D0%B0_P1030456.jpg/1920px-2010-04-24_%D0%9C%D0%B8%D1%82%D0%B8%D0%BD%D0%B3_%D0%B2_%D0%B7%D0%B0%D1%89%D0%B8%D1%82%D1%83_%D0%91%D0%B8%D1%82%D1%86%D0%B5%D0%B2%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_%D0%BB%D0%B5%D1%81%D0%B0_P1030456.jpg?utm_source=commons.wikimedia.org\u0026utm_campaign=imageinfo\u0026utm_content=thumbnail",
+                                                     "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/19/500px_photo_%28143189073%29.jpeg/1920px-500px_photo_%28143189073%29.jpeg?utm_source=commons.wikimedia.org\u0026utm_campaign=imageinfo\u0026utm_content=thumbnail",
+                                                     "https://upload.wikimedia.org/wikipedia/commons/5/50/6th_Christmas_skiatlone.jpg?utm_source=commons.wikimedia.org\u0026utm_campaign=imageinfo\u0026utm_content=thumbnail_unscaled",
+                                                     "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a2/Apple_trees_in_Bitsa_Park%2C_Moscow_01.jpg/1920px-Apple_trees_in_Bitsa_Park%2C_Moscow_01.jpg?utm_source=commons.wikimedia.org\u0026utm_campaign=imageinfo\u0026utm_content=thumbnail",
+                                                     "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/96/Apple_trees_in_Bitsa_Park%2C_Moscow_02.jpg/1920px-Apple_trees_in_Bitsa_Park%2C_Moscow_02.jpg?utm_source=commons.wikimedia.org\u0026utm_campaign=imageinfo\u0026utm_content=thumbnail"
+                                                 ],
+                                     "gallerySource":  "https://commons.wikimedia.org/",
+                                     "updatedAt":  "2026-11-23T21:35:49+03:00"
+                                 },
                    "tretyakov":  {
                                      "icon":  "https://www.tretyakovgallery.ru/favicon/apple-icon-144x144.png",
                                      "iconKind":  "logo",
@@ -346,23 +346,6 @@
                                               "gallerySource":  "https://altargana-moscow.ru/",
                                               "updatedAt":  "2026-11-23T20:53:35+03:00"
                                           },
-                   "wd-Q4273155":  {
-                                       "icon":  "",
-                                       "iconKind":  "",
-                                       "iconSource":  "",
-                                       "gallery":  [
-                                                       "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/18/10800841520_SF3A9400.jpg/1920px-10800841520_SF3A9400.jpg?utm_source=commons.wikimedia.org\u0026utm_campaign=imageinfo\u0026utm_content=thumbnail",
-                                                       "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9e/10801863424_SF3A9536.jpg/1920px-10801863424_SF3A9536.jpg?utm_source=commons.wikimedia.org\u0026utm_campaign=imageinfo\u0026utm_content=thumbnail",
-                                                       "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3e/Fullsizeoutput_79cb.jpg/1920px-Fullsizeoutput_79cb.jpg?utm_source=commons.wikimedia.org\u0026utm_campaign=imageinfo\u0026utm_content=thumbnail",
-                                                       "https://upload.wikimedia.org/wikipedia/commons/d/db/JNGEpgXN4ir15gVnfUinX-0bVYNavrkO_620_416.png?utm_source=commons.wikimedia.org\u0026utm_campaign=imageinfo\u0026utm_content=thumbnail_unscaled",
-                                                       "https://upload.wikimedia.org/wikipedia/commons/5/57/Psihozmars.jpg?utm_source=commons.wikimedia.org\u0026utm_campaign=imageinfo\u0026utm_content=thumbnail_unscaled",
-                                                       "https://upload.wikimedia.org/wikipedia/commons/6/6a/Yolomars.jpg?utm_source=commons.wikimedia.org\u0026utm_campaign=imageinfo\u0026utm_content=thumbnail_unscaled",
-                                                       "https://upload.wikimedia.org/wikipedia/commons/d/db/%D0%9B%D0%BE%D0%B3%D0%BE%D1%82%D0%B8%D0%BF_%D0%BC%D0%B0%D1%80%D1%81%D0%B0_.jpg?utm_source=commons.wikimedia.org\u0026utm_campaign=imageinfo\u0026utm_content=thumbnail_unscaled",
-                                                       "https://upload.wikimedia.org/wikipedia/commons/3/3e/%D0%A6%D0%B5%D0%BD%D1%82%D1%80_%D0%9C%D0%90%D0%A0%D0%A1_2.jpg?utm_source=commons.wikimedia.org\u0026utm_campaign=imageinfo\u0026utm_content=thumbnail_unscaled"
-                                                   ],
-                                       "gallerySource":  "https://commons.wikimedia.org/",
-                                       "updatedAt":  "2026-11-23T21:31:46+03:00"
-                                   },
                    "klaus":  {
                                  "icon":  "https://claustrophobia.com/favicon/apple-touch-icon.png",
                                  "iconKind":  "logo",
@@ -408,23 +391,6 @@
                                   "gallerySource":  "https://garagemca.org/visit",
                                   "updatedAt":  "2026-11-23T18:25:33+03:00"
                               },
-                   "cosmos":  {
-                                  "icon":  "",
-                                  "iconKind":  "",
-                                  "iconSource":  "",
-                                  "gallery":  [
-                                                  "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b8/Memorial_Museum_of_Space_Exploration_%28%D0%9C%D0%B5%D0%BC%D0%BE%D1%80%D0%B8%D0%B0%D0%BB%D1%8C%D0%BD%D1%8B%D0%B9_%D0%BC%D1%83%D0%B7%D0%B5%D0%B9_%D0%BA%D0%BE%D1%81%D0%BC%D0%BE%D0%BD%D0%B0%D0%B2%D1%82%D0%B8%D0%BA%D0%B8%29_%285585736057%29.jpg/1920px-Memorial_Museum_of_Space_Exploration_%28%D0%9C%D0%B5%D0%BC%D0%BE%D1%80%D0%B8%D0%B0%D0%BB%D1%8C%D0%BD%D1%8B%D0%B9_%D0%BC%D1%83%D0%B7%D0%B5%D0%B9_%D0%BA%D0%BE%D1%81%D0%BC%D0%BE%D0%BD%D0%B0%D0%B2%D1%82%D0%B8%D0%BA%D0%B8%29_%285585736057%29.jpg?utm_source=commons.wikimedia.org\u0026utm_campaign=imageinfo\u0026utm_content=thumbnail",
-                                                  "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d1/Memorial_Museum_of_Space_Exploration_%28%D0%9C%D0%B5%D0%BC%D0%BE%D1%80%D0%B8%D0%B0%D0%BB%D1%8C%D0%BD%D1%8B%D0%B9_%D0%BC%D1%83%D0%B7%D0%B5%D0%B9_%D0%BA%D0%BE%D1%81%D0%BC%D0%BE%D0%BD%D0%B0%D0%B2%D1%82%D0%B8%D0%BA%D0%B8%29_%285585740425%29.jpg/1920px-Memorial_Museum_of_Space_Exploration_%28%D0%9C%D0%B5%D0%BC%D0%BE%D1%80%D0%B8%D0%B0%D0%BB%D1%8C%D0%BD%D1%8B%D0%B9_%D0%BC%D1%83%D0%B7%D0%B5%D0%B9_%D0%BA%D0%BE%D1%81%D0%BC%D0%BE%D0%BD%D0%B0%D0%B2%D1%82%D0%B8%D0%BA%D0%B8%29_%285585740425%29.jpg?utm_source=commons.wikimedia.org\u0026utm_campaign=imageinfo\u0026utm_content=thumbnail",
-                                                  "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8f/Memorial_Museum_of_Space_Exploration_%28%D0%9C%D0%B5%D0%BC%D0%BE%D1%80%D0%B8%D0%B0%D0%BB%D1%8C%D0%BD%D1%8B%D0%B9_%D0%BC%D1%83%D0%B7%D0%B5%D0%B9_%D0%BA%D0%BE%D1%81%D0%BC%D0%BE%D0%BD%D0%B0%D0%B2%D1%82%D0%B8%D0%BA%D0%B8%29_%285585742071%29.jpg/1920px-Memorial_Museum_of_Space_Exploration_%28%D0%9C%D0%B5%D0%BC%D0%BE%D1%80%D0%B8%D0%B0%D0%BB%D1%8C%D0%BD%D1%8B%D0%B9_%D0%BC%D1%83%D0%B7%D0%B5%D0%B9_%D0%BA%D0%BE%D1%81%D0%BC%D0%BE%D0%BD%D0%B0%D0%B2%D1%82%D0%B8%D0%BA%D0%B8%29_%285585742071%29.jpg?utm_source=commons.wikimedia.org\u0026utm_campaign=imageinfo\u0026utm_content=thumbnail",
-                                                  "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a2/Memorial_Museum_of_Space_Exploration_%28%D0%9C%D0%B5%D0%BC%D0%BE%D1%80%D0%B8%D0%B0%D0%BB%D1%8C%D0%BD%D1%8B%D0%B9_%D0%BC%D1%83%D0%B7%D0%B5%D0%B9_%D0%BA%D0%BE%D1%81%D0%BC%D0%BE%D0%BD%D0%B0%D0%B2%D1%82%D0%B8%D0%BA%D0%B8%29_%285585788875%29.jpg/1920px-Memorial_Museum_of_Space_Exploration_%28%D0%9C%D0%B5%D0%BC%D0%BE%D1%80%D0%B8%D0%B0%D0%BB%D1%8C%D0%BD%D1%8B%D0%B9_%D0%BC%D1%83%D0%B7%D0%B5%D0%B9_%D0%BA%D0%BE%D1%81%D0%BC%D0%BE%D0%BD%D0%B0%D0%B2%D1%82%D0%B8%D0%BA%D0%B8%29_%285585788875%29.jpg?utm_source=commons.wikimedia.org\u0026utm_campaign=imageinfo\u0026utm_content=thumbnail",
-                                                  "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7f/Memorial_Museum_of_Space_Exploration_%28%D0%9C%D0%B5%D0%BC%D0%BE%D1%80%D0%B8%D0%B0%D0%BB%D1%8C%D0%BD%D1%8B%D0%B9_%D0%BC%D1%83%D0%B7%D0%B5%D0%B9_%D0%BA%D0%BE%D1%81%D0%BC%D0%BE%D0%BD%D0%B0%D0%B2%D1%82%D0%B8%D0%BA%D0%B8%29_%285586323982%29.jpg/1920px-Memorial_Museum_of_Space_Exploration_%28%D0%9C%D0%B5%D0%BC%D0%BE%D1%80%D0%B8%D0%B0%D0%BB%D1%8C%D0%BD%D1%8B%D0%B9_%D0%BC%D1%83%D0%B7%D0%B5%D0%B9_%D0%BA%D0%BE%D1%81%D0%BC%D0%BE%D0%BD%D0%B0%D0%B2%D1%82%D0%B8%D0%BA%D0%B8%29_%285586323982%29.jpg?utm_source=commons.wikimedia.org\u0026utm_campaign=imageinfo\u0026utm_content=thumbnail",
-                                                  "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a7/Memorial_Museum_of_Space_Exploration_%28%D0%9C%D0%B5%D0%BC%D0%BE%D1%80%D0%B8%D0%B0%D0%BB%D1%8C%D0%BD%D1%8B%D0%B9_%D0%BC%D1%83%D0%B7%D0%B5%D0%B9_%D0%BA%D0%BE%D1%81%D0%BC%D0%BE%D0%BD%D0%B0%D0%B2%D1%82%D0%B8%D0%BA%D0%B8%29_%285586351536%29.jpg/1920px-Memorial_Museum_of_Space_Exploration_%28%D0%9C%D0%B5%D0%BC%D0%BE%D1%80%D0%B8%D0%B0%D0%BB%D1%8C%D0%BD%D1%8B%D0%B9_%D0%BC%D1%83%D0%B7%D0%B5%D0%B9_%D0%BA%D0%BE%D1%81%D0%BC%D0%BE%D0%BD%D0%B0%D0%B2%D1%82%D0%B8%D0%BA%D0%B8%29_%285586351536%29.jpg?utm_source=commons.wikimedia.org\u0026utm_campaign=imageinfo\u0026utm_content=thumbnail",
-                                                  "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b7/Memorial_Museum_of_Space_Exploration_%28%D0%9C%D0%B5%D0%BC%D0%BE%D1%80%D0%B8%D0%B0%D0%BB%D1%8C%D0%BD%D1%8B%D0%B9_%D0%BC%D1%83%D0%B7%D0%B5%D0%B9_%D0%BA%D0%BE%D1%81%D0%BC%D0%BE%D0%BD%D0%B0%D0%B2%D1%82%D0%B8%D0%BA%D0%B8%29_%285586353252%29.jpg/1920px-Memorial_Museum_of_Space_Exploration_%28%D0%9C%D0%B5%D0%BC%D0%BE%D1%80%D0%B8%D0%B0%D0%BB%D1%8C%D0%BD%D1%8B%D0%B9_%D0%BC%D1%83%D0%B7%D0%B5%D0%B9_%D0%BA%D0%BE%D1%81%D0%BC%D0%BE%D0%BD%D0%B0%D0%B2%D1%82%D0%B8%D0%BA%D0%B8%29_%285586353252%29.jpg?utm_source=commons.wikimedia.org\u0026utm_campaign=imageinfo\u0026utm_content=thumbnail",
-                                                  "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/25/Memorial_Museum_of_Space_Exploration_%28%D0%9C%D0%B5%D0%BC%D0%BE%D1%80%D0%B8%D0%B0%D0%BB%D1%8C%D0%BD%D1%8B%D0%B9_%D0%BC%D1%83%D0%B7%D0%B5%D0%B9_%D0%BA%D0%BE%D1%81%D0%BC%D0%BE%D0%BD%D0%B0%D0%B2%D1%82%D0%B8%D0%BA%D0%B8%29_%285586376460%29.jpg/1920px-Memorial_Museum_of_Space_Exploration_%28%D0%9C%D0%B5%D0%BC%D0%BE%D1%80%D0%B8%D0%B0%D0%BB%D1%8C%D0%BD%D1%8B%D0%B9_%D0%BC%D1%83%D0%B7%D0%B5%D0%B9_%D0%BA%D0%BE%D1%81%D0%BC%D0%BE%D0%BD%D0%B0%D0%B2%D1%82%D0%B8%D0%BA%D0%B8%29_%285586376460%29.jpg?utm_source=commons.wikimedia.org\u0026utm_campaign=imageinfo\u0026utm_content=thumbnail"
-                                              ],
-                                  "gallerySource":  "https://commons.wikimedia.org/",
-                                  "updatedAt":  "2026-11-23T20:50:52+03:00"
-                              },
                    "osm-node-3109754735":  {
                                                "icon":  "https://antikarbat.com/wp-content/uploads/2025/03/logo_foot.png",
                                                "iconKind":  "logo",
@@ -459,6 +425,21 @@
                                         "gallerySource":  "https://commons.wikimedia.org/",
                                         "updatedAt":  "2026-11-23T20:51:57+03:00"
                                     },
+                   "gorky":  {
+                                 "icon":  "https://parkgorkogo.ru/wp-content/uploads/2025/03/logo_all_rgbshk-300x311.png",
+                                 "iconKind":  "logo",
+                                 "iconSource":  "https://parkgorkogo.ru/",
+                                 "gallery":  [
+                                                 "https://parkgorkogo.ru/wp-content/uploads/2024/07/pg_1237x648px.png",
+                                                 "https://parkgorkogo.ru/wp-content/uploads/2026/11/dscf3541-1920x1280.jpg",
+                                                 "https://parkgorkogo.ru/wp-content/uploads/2026/11/dscf3698-1920x1280.jpg",
+                                                 "https://parkgorkogo.ru/wp-content/uploads/2026/11/dsc05291-1920x1280.jpg",
+                                                 "https://parkgorkogo.ru/wp-content/uploads/2026/11/0v8a5283-1000x667.jpg",
+                                                 "https://parkgorkogo.ru/wp-content/uploads/2026/11/1770321114532-scaled-e1793606019164-1000x1366.jpg"
+                                             ],
+                                 "gallerySource":  "https://parkgorkogo.ru/",
+                                 "updatedAt":  "2026-11-23T18:25:33+03:00"
+                             },
                    "sun-moscow":  {
                                       "icon":  "https://moscow-sun.ru/local/templates/koleso/images/apple-touch-icon.png",
                                       "iconKind":  "logo",
@@ -486,38 +467,6 @@
                                                 "gallerySource":  "https://msk.brooklynbowl.ru",
                                                 "updatedAt":  "2026-11-23T18:25:33+03:00"
                                             },
-                   "osm-node-768883006":  {
-                                              "icon":  "https://kva-kva.ru/local/templates/main/img/apple-touch-icon.png",
-                                              "iconKind":  "logo",
-                                              "iconSource":  "https://kva-kva.ru/",
-                                              "gallery":  [
-                                                              "https://kva-kva.ru/upload/dev2fun_opengraph/012/012f84d17473e82118e84a47b7a57b4b.png",
-                                                              "https://kva-kva.ru/path/to/image.jpg",
-                                                              "https://kva-kva.ru/local/templates/main/img/apple-touch-icon.png",
-                                                              "https://kva-kva.ru/upload/webp/3c/3ca281dcb3247d888fe4f887035328aa.webp",
-                                                              "https://kva-kva.ru/upload/webp/a4/a41caa73e052e075ee6b81ed45406b11.webp",
-                                                              "https://kva-kva.ru/upload/webp/5f/5f39f3a272c6df00a413304b8d163b60.webp"
-                                                          ],
-                                              "gallerySource":  "https://kva-kva.ru/",
-                                              "updatedAt":  "2026-11-23T18:25:33+03:00"
-                                          },
-                   "aptekarsky":  {
-                                      "icon":  "https://hortus.msu.ru/apple-touch-icon.png",
-                                      "iconKind":  "logo",
-                                      "iconSource":  "https://hortus.msu.ru/ticketprice.html",
-                                      "gallery":  [
-                                                      "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/54/%D0%90%D0%BF%D1%82%D0%B5%D0%BA%D0%B0%D1%80%D1%81%D0%BA%D0%B8%D0%B9_%D0%BE%D0%B3%D0%BE%D1%80%D0%BE%D0%B4%2C_%D0%9C%D0%BE%D1%81%D0%BA%D0%B2%D0%B0_01.jpg/1920px-%D0%90%D0%BF%D1%82%D0%B5%D0%BA%D0%B0%D1%80%D1%81%D0%BA%D0%B8%D0%B9_%D0%BE%D0%B3%D0%BE%D1%80%D0%BE%D0%B4%2C_%D0%9C%D0%BE%D1%81%D0%BA%D0%B2%D0%B0_01.jpg?utm_source=commons.wikimedia.org\u0026utm_campaign=imageinfo\u0026utm_content=thumbnail",
-                                                      "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f9/%D0%90%D0%BF%D1%82%D0%B5%D0%BA%D0%B0%D1%80%D1%81%D0%BA%D0%B8%D0%B9_%D0%BE%D0%B3%D0%BE%D1%80%D0%BE%D0%B4%2C_%D0%9C%D0%BE%D1%81%D0%BA%D0%B2%D0%B0_02.jpg/1920px-%D0%90%D0%BF%D1%82%D0%B5%D0%BA%D0%B0%D1%80%D1%81%D0%BA%D0%B8%D0%B9_%D0%BE%D0%B3%D0%BE%D1%80%D0%BE%D0%B4%2C_%D0%9C%D0%BE%D1%81%D0%BA%D0%B2%D0%B0_02.jpg?utm_source=commons.wikimedia.org\u0026utm_campaign=imageinfo\u0026utm_content=thumbnail",
-                                                      "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6b/%D0%90%D0%BF%D1%82%D0%B5%D0%BA%D0%B0%D1%80%D1%81%D0%BA%D0%B8%D0%B9_%D0%BE%D0%B3%D0%BE%D1%80%D0%BE%D0%B4%2C_%D0%9C%D0%BE%D1%81%D0%BA%D0%B2%D0%B0_03.jpg/1920px-%D0%90%D0%BF%D1%82%D0%B5%D0%BA%D0%B0%D1%80%D1%81%D0%BA%D0%B8%D0%B9_%D0%BE%D0%B3%D0%BE%D1%80%D0%BE%D0%B4%2C_%D0%9C%D0%BE%D1%81%D0%BA%D0%B2%D0%B0_03.jpg?utm_source=commons.wikimedia.org\u0026utm_campaign=imageinfo\u0026utm_content=thumbnail",
-                                                      "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bd/%D0%90%D0%BF%D1%82%D0%B5%D0%BA%D0%B0%D1%80%D1%81%D0%BA%D0%B8%D0%B9_%D0%BE%D0%B3%D0%BE%D1%80%D0%BE%D0%B4%2C_%D0%9C%D0%BE%D1%81%D0%BA%D0%B2%D0%B0_04.jpg/1920px-%D0%90%D0%BF%D1%82%D0%B5%D0%BA%D0%B0%D1%80%D1%81%D0%BA%D0%B8%D0%B9_%D0%BE%D0%B3%D0%BE%D1%80%D0%BE%D0%B4%2C_%D0%9C%D0%BE%D1%81%D0%BA%D0%B2%D0%B0_04.jpg?utm_source=commons.wikimedia.org\u0026utm_campaign=imageinfo\u0026utm_content=thumbnail",
-                                                      "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/09/%D0%90%D0%BF%D1%82%D0%B5%D0%BA%D0%B0%D1%80%D1%81%D0%BA%D0%B8%D0%B9_%D0%BE%D0%B3%D0%BE%D1%80%D0%BE%D0%B4%2C_%D0%9C%D0%BE%D1%81%D0%BA%D0%B2%D0%B0_06.jpg/1920px-%D0%90%D0%BF%D1%82%D0%B5%D0%BA%D0%B0%D1%80%D1%81%D0%BA%D0%B8%D0%B9_%D0%BE%D0%B3%D0%BE%D1%80%D0%BE%D0%B4%2C_%D0%9C%D0%BE%D1%81%D0%BA%D0%B2%D0%B0_06.jpg?utm_source=commons.wikimedia.org\u0026utm_campaign=imageinfo\u0026utm_content=thumbnail",
-                                                      "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e8/%D0%90%D0%BF%D1%82%D0%B5%D0%BA%D0%B0%D1%80%D1%81%D0%BA%D0%B8%D0%B9_%D0%BE%D0%B3%D0%BE%D1%80%D0%BE%D0%B4%2C_%D0%9C%D0%BE%D1%81%D0%BA%D0%B2%D0%B0_12.jpg/1920px-%D0%90%D0%BF%D1%82%D0%B5%D0%BA%D0%B0%D1%80%D1%81%D0%BA%D0%B8%D0%B9_%D0%BE%D0%B3%D0%BE%D1%80%D0%BE%D0%B4%2C_%D0%9C%D0%BE%D1%81%D0%BA%D0%B2%D0%B0_12.jpg?utm_source=commons.wikimedia.org\u0026utm_campaign=imageinfo\u0026utm_content=thumbnail",
-                                                      "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/83/%D0%90%D0%BF%D1%82%D0%B5%D0%BA%D0%B0%D1%80%D1%81%D0%BA%D0%B8%D0%B9_%D0%BE%D0%B3%D0%BE%D1%80%D0%BE%D0%B4%2C_%D0%9C%D0%BE%D1%81%D0%BA%D0%B2%D0%B0_13.jpg/1920px-%D0%90%D0%BF%D1%82%D0%B5%D0%BA%D0%B0%D1%80%D1%81%D0%BA%D0%B8%D0%B9_%D0%BE%D0%B3%D0%BE%D1%80%D0%BE%D0%B4%2C_%D0%9C%D0%BE%D1%81%D0%BA%D0%B2%D0%B0_13.jpg?utm_source=commons.wikimedia.org\u0026utm_campaign=imageinfo\u0026utm_content=thumbnail",
-                                                      "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d7/%D0%90%D0%BF%D1%82%D0%B5%D0%BA%D0%B0%D1%80%D1%81%D0%BA%D0%B8%D0%B9_%D0%BE%D0%B3%D0%BE%D1%80%D0%BE%D0%B4%2C_%D0%9C%D0%BE%D1%81%D0%BA%D0%B2%D0%B0_18.jpg/1920px-%D0%90%D0%BF%D1%82%D0%B5%D0%BA%D0%B0%D1%80%D1%81%D0%BA%D0%B8%D0%B9_%D0%BE%D0%B3%D0%BE%D1%80%D0%BE%D0%B4%2C_%D0%9C%D0%BE%D1%81%D0%BA%D0%B2%D0%B0_18.jpg?utm_source=commons.wikimedia.org\u0026utm_campaign=imageinfo\u0026utm_content=thumbnail"
-                                                  ],
-                                      "gallerySource":  "https://commons.wikimedia.org/",
-                                      "updatedAt":  "2026-11-23T20:50:52+03:00"
-                                  },
                    "osm-node-2540997892":  {
                                                "icon":  "http://www.aparte.ru/apple-touch-icon.png",
                                                "iconKind":  "logo",
@@ -533,16 +482,6 @@
                                                "gallerySource":  "http://www.aparte.ru",
                                                "updatedAt":  "2026-11-23T18:25:33+03:00"
                                            },
-                   "ziferblat":  {
-                                     "icon":  "https://ziferblat.net/favicon.svg",
-                                     "iconKind":  "logo",
-                                     "iconSource":  "https://ziferblat.net/moscow/most",
-                                     "gallery":  [
-
-                                                 ],
-                                     "gallerySource":  "",
-                                     "updatedAt":  "2026-11-23T20:53:35+03:00"
-                                 },
                    "osm-node-5181418465":  {
                                                "icon":  "https://mega-ice.ru/apple-touch-icon.png",
                                                "iconKind":  "logo",
@@ -558,21 +497,21 @@
                                                "gallerySource":  "https://mega-ice.ru/",
                                                "updatedAt":  "2026-11-23T18:25:33+03:00"
                                            },
-                   "osm-node-3824316546":  {
-                                               "icon":  "https://dig-store.ru/img/logo.png",
+                   "osm-node-4361505318":  {
+                                               "icon":  "https://bookshop.garagemca.org/static/img/favicon/apple-touch-icon.png",
                                                "iconKind":  "logo",
-                                               "iconSource":  "https://dig-store.ru/",
+                                               "iconSource":  "http://bookshop.garagemca.org/",
                                                "gallery":  [
-                                                               "https://dig-store.ru/img/vk_ic.png",
-                                                               "https://dig-store.ru/img/telegram_ic.png",
-                                                               "https://dig-store.ru/img/about_pic1_ov.jpg",
-                                                               "https://dig-store.ru/img/about_pic2_ov.jpg",
-                                                               "https://dig-store.ru/img/afisha.png",
-                                                               "https://dig-store.ru/img/about_slider_angle3.png"
+                                                               "https://shop.garagemca.org/static/img/share.png",
+                                                               "https://shop.garagemca.org/thumbs/eb/all_files-2f05-2f33-2f53355_ce0c9d4051b4daed626b312d07865a7c8172a754_preview.png_originalSize__1.jpg",
+                                                               "https://shop.garagemca.org/thumbs/ef/all_files-2f05-2f30-2f53039_3c638aa4f587e68305e7553e95a244a30e59a88d_preview.png_originalSize__1.jpg",
+                                                               "https://shop.garagemca.org/thumbs/63/all_files-2f04-2f99-2f49954_e53f5f028fe1fc660966b7e090d82eb65e0a7a6b_preview.png_originalSize__1.jpg",
+                                                               "https://shop.garagemca.org/thumbs/4f/all_files-2f04-2f88-2f48878_5ccd8a3a41ac2f8db6a9e9900df48cbae1429bd0.jpg_originalSize__1.jpg",
+                                                               "https://shop.garagemca.org/thumbs/79/all_files-2f04-2f78-2f47869_839de5063f464c7b6c4c513acdf8ba7cc0f3c10f.png_originalSize__1.jpg"
                                                            ],
-                                               "gallerySource":  "https://dig-store.ru/",
+                                               "gallerySource":  "http://bookshop.garagemca.org/",
                                                "websiteChecked":  true,
-                                               "updatedAt":  "2026-11-23T21:31:46+03:00"
+                                               "updatedAt":  "2026-11-23T21:35:49+03:00"
                                            },
                    "osm-node-1237182053":  {
                                                "icon":  "https://chemicafe.ru/wp-content/uploads/2024/12/favicon-cheni-300x300.png",
@@ -589,16 +528,21 @@
                                                "gallerySource":  "https://chemicafe.ru/zhivopisnaya/",
                                                "updatedAt":  "2026-11-23T18:25:33+03:00"
                                            },
-                   "mosigra":  {
-                                   "icon":  "https://www.mosigra.ru/assets/img/favicons/mosigra/apple-touch-icon-180x180.png",
-                                   "iconKind":  "logo",
-                                   "iconSource":  "https://mosigra.ru/",
-                                   "gallery":  [
-
-                                               ],
-                                   "gallerySource":  "",
-                                   "updatedAt":  "2026-11-23T20:53:35+03:00"
-                               },
+                   "ostankino":  {
+                                     "icon":  "https://tvtower.ru/include/favicon/favicon.png",
+                                     "iconKind":  "logo",
+                                     "iconSource":  "https://tvtower.ru/services/buro/",
+                                     "gallery":  [
+                                                     "http://tvtower.ru/upload/buro-slide-1.jpg",
+                                                     "https://tvtower.ru/upload/phoneimg.png",
+                                                     "https://tvtower.ru/upload/imgs/pobeda80.png",
+                                                     "https://tvtower.ru/upload/app.png",
+                                                     "https://tvtower.ru/upload/buyticket.png",
+                                                     "https://tvtower.ru/upload/eye.png"
+                                                 ],
+                                     "gallerySource":  "https://tvtower.ru/services/buro/",
+                                     "updatedAt":  "2026-11-23T18:25:33+03:00"
+                                 },
                    "museum-moscow":  {
                                          "icon":  "https://mosmuseum.ru/apple-touch-icon.png",
                                          "iconKind":  "logo",
@@ -619,6 +563,36 @@
                                          "gallerySource":  "https://commons.wikimedia.org/",
                                          "updatedAt":  "2026-11-23T20:50:52+03:00"
                                      },
+                   "osm-way-131440393":  {
+                                             "icon":  "https://karibiya.ru/image/pwa/web-app-manifest_1024.png",
+                                             "iconKind":  "logo",
+                                             "iconSource":  "https://karibiya.ru/",
+                                             "gallery":  [
+                                                             "https://karibiya.ru/image/aquapark_photo.jpg",
+                                                             "https://karibiya.ru/upload/resize_cache/iblock/45e9120857216e02732e223150d05ab1-f-544-362.png",
+                                                             "https://karibiya.ru/upload/resize_cache/iblock/6d827b6a8e2d360fb20333d114311789-f-544-362.png",
+                                                             "https://karibiya.ru/upload/resize_cache/iblock/7e47d23f546b0809724586d36876d053-f-544-362.png",
+                                                             "https://karibiya.ru/upload/resize_cache/iblock/60f7e486580c4c7387e4c2bc924fa32a-f-544-362.png",
+                                                             "https://karibiya.ru/upload/resize_cache/iblock/69329591e2e2bf5ed04fe445fd51b540-f-544-362.png"
+                                                         ],
+                                             "gallerySource":  "https://karibiya.ru/",
+                                             "updatedAt":  "2026-11-23T18:25:33+03:00"
+                                         },
+                   "osm-node-1596071933":  {
+                                               "icon":  "https://coffeebean.ru/wp-content/uploads/2020/01/coffee-cup-favicon.svg",
+                                               "iconKind":  "logo",
+                                               "iconSource":  "https://www.coffeebean.ru/",
+                                               "gallery":  [
+                                                               "https://coffeebean.ru/wp-content/uploads/2020/12/Coffee_Bean_Home.jpg",
+                                                               "https://coffeebean.ru/wp-content/uploads/2020/11/magazin-tovar.jpg",
+                                                               "https://coffeebean.ru/wp-content/uploads/2026/05/ChatGPT-Image-29-%D0%BC%D0%B0%D1%8F-2026-%D0%B3.-11_37_13-1.png",
+                                                               "https://coffeebean.ru/wp-content/uploads/2026/05/ChatGPT-Image-28-%D0%BC%D0%B0%D1%8F-2026-%D0%B3.-20_10_00-1-2.png",
+                                                               "https://coffeebean.ru/wp-content/uploads/2021/09/Surreal-Coffee-coffee-bean.jpg",
+                                                               "https://coffeebean.ru/wp-content/uploads/2020/08/Surreal-Coffee-coffee-bean.jpg"
+                                                           ],
+                                               "gallerySource":  "https://www.coffeebean.ru/",
+                                               "updatedAt":  "2026-11-23T18:25:33+03:00"
+                                           },
                    "osm-node-813653387":  {
                                               "icon":  "https://hb.ru-msk.vkcloud-storage.ru/thapl-stolle-public/st/img/SiteSetting/f1ac76c549cac441f67afe2d15ceaa84_origin_.svg",
                                               "iconKind":  "logo",
@@ -667,20 +641,6 @@
                                     "gallerySource":  "https://zaryadyepark.ru/",
                                     "updatedAt":  "2026-11-23T18:25:33+03:00"
                                 },
-                   "wd-Q132148121":  {
-                                         "icon":  "",
-                                         "iconKind":  "",
-                                         "iconSource":  "",
-                                         "gallery":  [
-                                                         "https://upload.wikimedia.org/wikipedia/commons/6/6e/The_moscow_museum_of_animation_at_the_all-russia_exhibition_centre.jpg?utm_source=commons.wikimedia.org\u0026utm_campaign=imageinfo\u0026utm_content=thumbnail_unscaled",
-                                                         "https://upload.wikimedia.org/wikipedia/commons/f/f9/%D0%97%D0%B4%D0%B0%D0%BD%D0%B8%D0%B5_%D0%9C%D0%BE%D1%81%D0%BA%D0%BE%D0%B2%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_%D0%9C%D1%83%D0%B7%D0%B5%D1%8F_%D0%90%D0%BD%D0%B8%D0%BC%D0%B0%D1%86%D0%B8%D0%B8.jpg?utm_source=commons.wikimedia.org\u0026utm_campaign=imageinfo\u0026utm_content=thumbnail_unscaled",
-                                                         "https://upload.wikimedia.org/wikipedia/commons/7/7c/%D0%9C%D0%BE%D1%81%D0%BA%D0%BE%D0%B2%D1%81%D0%BA%D0%B8%D0%B9_%D0%9C%D1%83%D0%B7%D0%B5%D0%B9_%D0%90%D0%BD%D0%B8%D0%BC%D0%B0%D1%86%D0%B8%D0%B8_%D0%BD%D0%B0_%D1%82%D0%B5%D1%80%D1%80%D0%B8%D1%82%D0%BE%D1%80%D0%B8%D0%B8_%D0%92%D0%92%D0%A6.jpg?utm_source=commons.wikimedia.org\u0026utm_campaign=imageinfo\u0026utm_content=thumbnail_unscaled",
-                                                         "https://upload.wikimedia.org/wikipedia/commons/a/a3/%D0%9C%D1%83%D0%B7%D0%B5%D0%B9_%D0%B0%D0%BD%D0%B8%D0%BC%D0%B0%D1%86.jpg?utm_source=commons.wikimedia.org\u0026utm_campaign=imageinfo\u0026utm_content=thumbnail_unscaled",
-                                                         "https://upload.wikimedia.org/wikipedia/commons/1/1a/%D0%9C%D1%83%D0%B7%D0%B5%D0%B9_%D0%90%D0%BD%D0%B8%D0%BC%D0%B0%D1%86%D0%B8%D0%B8_%D0%BD%D0%B0_%D0%92%D0%92%D0%A6.jpg?utm_source=commons.wikimedia.org\u0026utm_campaign=imageinfo\u0026utm_content=thumbnail_unscaled"
-                                                     ],
-                                         "gallerySource":  "https://commons.wikimedia.org/",
-                                         "updatedAt":  "2026-11-23T21:31:46+03:00"
-                                     },
                    "osm-node-1305562170":  {
                                                "icon":  "https://client-site.s3.yandex.net/r22223568/_next/static/media/apple-touch-icon-180x180.0460f269.png",
                                                "iconKind":  "logo",
@@ -702,17 +662,6 @@
                                                "gallerySource":  "https://commons.wikimedia.org/",
                                                "updatedAt":  "2026-11-23T20:53:35+03:00"
                                            },
-                   "osm-node-4281630789":  {
-                                               "icon":  "https://europe-antik.ru/apple-icon-152x152.png",
-                                               "iconKind":  "logo",
-                                               "iconSource":  "https://europe-antik.ru",
-                                               "gallery":  [
-
-                                                           ],
-                                               "gallerySource":  "",
-                                               "websiteChecked":  true,
-                                               "updatedAt":  "2026-11-23T21:31:46+03:00"
-                                           },
                    "patriarch":  {
                                      "icon":  "https://static.tildacdn.com/tild3139-3465-4938-b438-333661303033/152.png",
                                      "iconKind":  "logo",
@@ -731,6 +680,24 @@
                                      "gallerySource":  "https://commons.wikimedia.org/",
                                      "updatedAt":  "2026-11-23T20:50:52+03:00"
                                  },
+                   "wd-Q4071036":  {
+                                       "icon":  "",
+                                       "iconKind":  "",
+                                       "iconSource":  "",
+                                       "gallery":  [
+                                                       "https://commons.wikimedia.org/wiki/Special:FilePath/%D0%90%D0%BB%D0%BB%D0%B5%D1%8F%20%D0%BF%D0%B0%D1%80%D0%BA%D0%B0.JPG",
+                                                       "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/40/%D0%92%D1%85%D0%BE%D0%B4_%D0%B2_%D0%90%D1%80%D1%88%D0%B8%D0%BD%D0%BE%D0%B2%D1%81%D0%BA%D0%B8%D0%B9_%D0%BF%D0%B0%D1%80%D0%BA_%D1%81_%D0%91%D0%B0%D0%BA%D0%B8%D0%BD%D1%81%D0%BA%D0%BE%D0%B9_%D1%83%D0%BB%D0%B8%D1%86%D1%8B.JPG/1920px-%D0%92%D1%85%D0%BE%D0%B4_%D0%B2_%D0%90%D1%80%D1%88%D0%B8%D0%BD%D0%BE%D0%B2%D1%81%D0%BA%D0%B8%D0%B9_%D0%BF%D0%B0%D1%80%D0%BA_%D1%81_%D0%91%D0%B0%D0%BA%D0%B8%D0%BD%D1%81%D0%BA%D0%BE%D0%B9_%D1%83%D0%BB%D0%B8%D1%86%D1%8B.JPG?utm_source=commons.wikimedia.org\u0026utm_campaign=imageinfo\u0026utm_content=thumbnail",
+                                                       "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/be/Arshinovskiy_park_2021-09_1631384758.JPG/1920px-Arshinovskiy_park_2021-09_1631384758.JPG?utm_source=commons.wikimedia.org\u0026utm_campaign=imageinfo\u0026utm_content=thumbnail",
+                                                       "https://upload.wikimedia.org/wikipedia/commons/d/d4/Arshinovskiy_park_mos.ru_01.jpg?utm_source=commons.wikimedia.org\u0026utm_campaign=imageinfo\u0026utm_content=thumbnail_unscaled",
+                                                       "https://upload.wikimedia.org/wikipedia/commons/9/9f/Arshinovskiy_park_mos.ru_02.jpg?utm_source=commons.wikimedia.org\u0026utm_campaign=imageinfo\u0026utm_content=thumbnail_unscaled",
+                                                       "https://upload.wikimedia.org/wikipedia/commons/a/ae/Arshinovskiy_park_mos.ru_03.jpg?utm_source=commons.wikimedia.org\u0026utm_campaign=imageinfo\u0026utm_content=thumbnail_unscaled",
+                                                       "https://upload.wikimedia.org/wikipedia/commons/0/09/Arshinovskiy_park_mos.ru_04.jpg?utm_source=commons.wikimedia.org\u0026utm_campaign=imageinfo\u0026utm_content=thumbnail_unscaled",
+                                                       "https://upload.wikimedia.org/wikipedia/commons/9/93/Arshinovskiy_park_mos.ru_05.jpg?utm_source=commons.wikimedia.org\u0026utm_campaign=imageinfo\u0026utm_content=thumbnail_unscaled",
+                                                       "https://upload.wikimedia.org/wikipedia/commons/2/26/Blag_arsh2015_002.jpg?utm_source=commons.wikimedia.org\u0026utm_campaign=imageinfo\u0026utm_content=thumbnail_unscaled"
+                                                   ],
+                                       "gallerySource":  "https://commons.wikimedia.org/",
+                                       "updatedAt":  "2026-11-23T21:35:49+03:00"
+                                   },
                    "planetarium":  {
                                        "icon":  "https://planetarium-moscow.ru/html/img/icons/apple-touch-icon.png",
                                        "iconKind":  "logo",
@@ -760,6 +727,21 @@
                                                "gallerySource":  "http://www.incrosta.ru/",
                                                "updatedAt":  "2026-11-23T18:25:33+03:00"
                                            },
+                   "osm-node-11405617550":  {
+                                                "icon":  "https://static.tildacdn.com/tild3732-3031-4533-b330-653332303130/logo_header.png",
+                                                "iconKind":  "logo",
+                                                "iconSource":  "https://showtoday.ru/moscow",
+                                                "gallery":  [
+                                                                "https://static.tildacdn.com/tild3038-3830-4337-b335-373438366630/1_1.png",
+                                                                "https://static.tildacdn.com/tild3566-6632-4464-b061-373738356235/Slice_1-30.jpg",
+                                                                "https://static.tildacdn.com/tild6134-3732-4762-b235-323632623563/Slice_27-5.jpg",
+                                                                "https://static.tildacdn.com/tild6531-6139-4566-a330-663164366530/image_238.png",
+                                                                "https://static.tildacdn.com/tild3865-3338-4465-b530-353866366237/image_237.png",
+                                                                "https://static.tildacdn.com/tild3635-6539-4866-b863-383966373330/image_236.png"
+                                                            ],
+                                                "gallerySource":  "https://showtoday.ru/moscow",
+                                                "updatedAt":  "2026-11-23T18:25:33+03:00"
+                                            },
                    "osm-node-1738640258":  {
                                                "icon":  "https://kalabasa.ru/wp-content/uploads/2025/09/favicon-440x440.png",
                                                "iconKind":  "logo",
@@ -800,6 +782,36 @@
                                               "gallerySource":  "https://www.karavaevi.ru",
                                               "updatedAt":  "2026-11-23T18:25:33+03:00"
                                           },
+                   "true-gamers":  {
+                                       "icon":  "https://truegamers.ru/wp-content/themes/true/img/favicon/apple-touch-icon.png",
+                                       "iconKind":  "logo",
+                                       "iconSource":  "https://truegamers.ru/arena/moskva/moskva-severnyj/",
+                                       "gallery":  [
+                                                       "https://truegamers.ru/wp-content/themes/true/img/bg-blocks/contacts-bg.png",
+                                                       "https://truegamers.ru/wp-content/themes/true/img/truemob.png",
+                                                       "https://truegamers.ru/wp-content/themes/true/img/page-bg.jpg",
+                                                       "https://truegamers.ru/wp-content/themes/true/img/language/ru.png",
+                                                       "https://truegamers.ru/wp-content/themes/true/img/eng.png",
+                                                       "https://truegamers.ru/wp-content/themes/true/img/single/single-block.png"
+                                                   ],
+                                       "gallerySource":  "https://truegamers.ru/arena/moskva/moskva-severnyj/",
+                                       "updatedAt":  "2026-11-23T18:25:33+03:00"
+                                   },
+                   "vdnh":  {
+                                "icon":  "https://vdnh.ru/og-vdnh.png",
+                                "iconKind":  "logo",
+                                "iconSource":  "https://vdnh.ru/",
+                                "gallery":  [
+                                                "https://vdnh.ru/og-vdnh.png",
+                                                "https://s3.vdnh.ru/vdnhru/cache/2026/10/23/086479991cfbe6adf3a86d73db106610cf76e125.png/1bc7568b2643ba8e72562b4fad31af2e.webp",
+                                                "https://s3.vdnh.ru/vdnhru/cache/2026/10/05/37109ae9bb45f595770a9dc59560c75892e1f34b.png/f61d50558f3dfbdb492d231492d36487.webp",
+                                                "https://s3.vdnh.ru/vdnhru/cache/2026/08/31/1d0a578dea6be32e2e397b814baa315462d9d7e5.png/16e744b5ec3232a136678206486720c3.webp",
+                                                "https://s3.vdnh.ru/vdnhru/cache/2026/09/03/3cbc932ba0751cee6e02b0d0534936854fb8f1f1.png/e7d780ed9c587dcc4c4d8bb0773ce859.webp",
+                                                "https://s3.vdnh.ru/vdnhru/cache/2026/08/25/1d4b6e5311f184b7cf76bb961afc806a4856f76c.png/124c28f9328cffb2c699d4b1bcb7edeb.webp"
+                                            ],
+                                "gallerySource":  "https://vdnh.ru/",
+                                "updatedAt":  "2026-11-23T18:25:33+03:00"
+                            },
                    "osm-node-1413216552":  {
                                                "icon":  "http://wolkonsky.com/img/favicon/apple-touch-icon.png",
                                                "iconKind":  "logo",
@@ -855,6 +867,22 @@
                                               "gallerySource":  "https://commons.wikimedia.org/",
                                               "updatedAt":  "2026-11-23T20:53:35+03:00"
                                           },
+                   "osm-node-4566906100":  {
+                                               "icon":  "https://www.carredartistes.com/fr-fr/ximg/pwa/touch-icon-iphone-retina.png",
+                                               "iconKind":  "logo",
+                                               "iconSource":  "http://www.carredartistes.com",
+                                               "gallery":  [
+                                                               "https://cdn.carredartistes.com/content_images/voir-tout-peinture.jpg",
+                                                               "https://www.carredartistes.com/fr-fr/content_images/Groupe%20de%20masques%202043.jpg",
+                                                               "https://www.carredartistes.com//content_files/Slider-HP-FR.jpg",
+                                                               "https://www.carredartistes.com/fr-fr/ximg/frames/listings/white.png",
+                                                               "https://www.carredartistes.com/fr-fr/ximg/frames/listings/wood.png",
+                                                               "https://www.carredartistes.com//content_files/Collection-noel-fr.jpg"
+                                                           ],
+                                               "gallerySource":  "http://www.carredartistes.com",
+                                               "websiteChecked":  true,
+                                               "updatedAt":  "2026-11-23T21:35:49+03:00"
+                                           },
                    "wd-Q109045031":  {
                                          "icon":  "",
                                          "iconKind":  "",
@@ -953,6 +981,17 @@
                                   "gallerySource":  "https://www.darwinmuseum.ru/price",
                                   "updatedAt":  "2026-11-23T18:25:33+03:00"
                               },
+                   "wd-Q4430719":  {
+                                       "icon":  "",
+                                       "iconKind":  "",
+                                       "iconSource":  "",
+                                       "gallery":  [
+                                                       "https://commons.wikimedia.org/wiki/Special:FilePath/%D0%A1%D1%82%D0%B0%D0%B4%D0%B8%D0%BE%D0%BD%20%C2%AB%D0%A1%D0%BF%D0%B0%D1%80%D1%82%D0%B0%D0%BA%D0%BE%D0%B2%D0%B5%D1%86%C2%BB%20%D0%B8%D0%BC%D0%B5%D0%BD%D0%B8%20%D0%9D.%20%D0%9F.%20%D0%A1%D1%82%D0%B0%D1%80%D0%BE%D1%81%D1%82%D0%B8%D0%BD%D0%B0.jpg",
+                                                       "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fb/%D0%A1%D1%82%D0%B0%D0%B4%D0%B8%D0%BE%D0%BD_%C2%AB%D0%A1%D0%BF%D0%B0%D1%80%D1%82%D0%B0%D0%BA%D0%BE%D0%B2%D0%B5%D1%86%C2%BB_%D0%B8%D0%BC%D0%B5%D0%BD%D0%B8_%D0%9D._%D0%9F._%D0%A1%D1%82%D0%B0%D1%80%D0%BE%D1%81%D1%82%D0%B8%D0%BD%D0%B0.jpg/1920px-%D0%A1%D1%82%D0%B0%D0%B4%D0%B8%D0%BE%D0%BD_%C2%AB%D0%A1%D0%BF%D0%B0%D1%80%D1%82%D0%B0%D0%BA%D0%BE%D0%B2%D0%B5%D1%86%C2%BB_%D0%B8%D0%BC%D0%B5%D0%BD%D0%B8_%D0%9D._%D0%9F._%D0%A1%D1%82%D0%B0%D1%80%D0%BE%D1%81%D1%82%D0%B8%D0%BD%D0%B0.jpg?utm_source=commons.wikimedia.org\u0026utm_campaign=imageinfo\u0026utm_content=thumbnail"
+                                                   ],
+                                       "gallerySource":  "https://commons.wikimedia.org/",
+                                       "updatedAt":  "2026-11-23T20:51:57+03:00"
+                                   },
                    "osm-node-942426295":  {
                                               "icon":  "https://static.tildacdn.com/tild3462-6335-4132-b865-393163326534/gzhel_gray_152px.png",
                                               "iconKind":  "logo",
@@ -983,6 +1022,31 @@
                                                "gallerySource":  "http://afgan-zal.ru",
                                                "updatedAt":  "2026-11-23T18:25:33+03:00"
                                            },
+                   "osm-node-12778483583":  {
+                                                "icon":  "https://putilkovo.termoland.ru/local/templates/landwind/shared/assets/img/main-page/header/logo-location-header.svg",
+                                                "iconKind":  "logo",
+                                                "iconSource":  "https://putilkovo.termoland.ru/",
+                                                "gallery":  [
+                                                                "https://putilkovo.termoland.ru/upload/uf/590/2m2dofi0t6wigmfvl501cmj15u1pv5o2/2370_1580%20%282%29.jpg",
+                                                                "https://putilkovo.termoland.ru/upload/resize_cache/responsive/1b/1bf82ad20b30516846690f3baaaf03049dbb8849.jpg",
+                                                                "https://putilkovo.termoland.ru/upload/resize_cache/responsive/97/9713ce9a02452e36d421e6196129ad9f484df0f1.jpg",
+                                                                "https://putilkovo.termoland.ru/upload/resize_cache/responsive/0e/0ef54a7aaf19977bbd72c0bf7bb7214e484d6854.jpg",
+                                                                "https://putilkovo.termoland.ru/upload/resize_cache/responsive/01/01c0436cca07e61658fee2ff8ad4d56084cafd17.jpg",
+                                                                "https://putilkovo.termoland.ru/upload/resize_cache/responsive/a1/a1c4a46a4d3d820c69dccd2d8eea65bea7b341c9.jpg"
+                                                            ],
+                                                "gallerySource":  "https://putilkovo.termoland.ru/",
+                                                "updatedAt":  "2026-11-23T18:25:33+03:00"
+                                            },
+                   "mosigra":  {
+                                   "icon":  "https://www.mosigra.ru/assets/img/favicons/mosigra/apple-touch-icon-180x180.png",
+                                   "iconKind":  "logo",
+                                   "iconSource":  "https://mosigra.ru/",
+                                   "gallery":  [
+
+                                               ],
+                                   "gallerySource":  "",
+                                   "updatedAt":  "2026-11-23T20:53:35+03:00"
+                               },
                    "oneprice":  {
                                     "icon":  "https://onepluscoffee.com/favicon/apple-icon-180x180.png",
                                     "iconKind":  "logo",
@@ -1021,21 +1085,35 @@
                                        "gallerySource":  "https://commons.wikimedia.org/",
                                        "updatedAt":  "2026-11-23T21:31:46+03:00"
                                    },
-                   "osm-node-572196515":  {
-                                              "icon":  "https://www.cafemumu.ru/favicons/apple-touch-icon.png",
-                                              "iconKind":  "logo",
-                                              "iconSource":  "https://www.cafemumu.ru/",
-                                              "gallery":  [
-                                                              "https://www.cafemumu.ru/upload/resize_cache/medialibrary/f3f/vvn0hfthxwl5eld3ztwy4nsok6lw9z71/140_105_1/1.png",
-                                                              "https://www.cafemumu.ru/local/templates/mumu_new_v2022/frontend/images/google-play.png",
-                                                              "https://www.cafemumu.ru/local/templates/mumu_new_v2022/frontend/images/app-store.png",
-                                                              "https://www.cafemumu.ru/upload/iblock/666/uv4ymr2z92k2b77u54admjnvsw5h86d1/729%D1%85900.jpg",
-                                                              "https://www.cafemumu.ru/upload/iblock/e9b/zztt44pjif1nagnjca12mhg0w1pzv234/Skidka_Mu_web_729x900.jpg",
-                                                              "https://www.cafemumu.ru/upload/iblock/cc0/db0q0d9jg7f52nrbyx8jebxbh9g8bkc6/NastoyashyVkus2_Mu_web_729x900.jpg"
-                                                          ],
-                                              "gallerySource":  "https://www.cafemumu.ru/",
-                                              "updatedAt":  "2026-11-23T18:25:33+03:00"
-                                          },
+                   "osm-node-3501052203":  {
+                                               "icon":  "https://www.safmuseum.org/favicon.ico",
+                                               "iconKind":  "logo",
+                                               "iconSource":  "http://safmuseum.org/index.php",
+                                               "gallery":  [
+                                                               "https://www.safmuseum.org/picts/exhibitions/tn744x495-%D1%8D%D1%82%D1%83_%D1%81%D0%B4%D0%B5%D0%BB%D0%B0%D0%B9_%D0%BF%D0%B5%D1%80%D0%B2%D0%BE%D0%B9.JPG",
+                                                               "https://www.safmuseum.org/picts/exhibitions/tn744x495-DOM_BLIZNETSA_2025_142x193_oil_on_canvas_SMALL.jpg",
+                                                               "https://www.safmuseum.org/picts/exhibitions/tn744x495-photo_2025-12-18_21-05-27.jpg",
+                                                               "https://www.safmuseum.org/picts/exhibitions/tn744x495-IMG_7789.webp",
+                                                               "https://www.safmuseum.org/picts/exhibitions/tn744x495-%D0%A2%D0%B0%D0%BD%D0%B5%D1%861_page-0001.jpg",
+                                                               "https://www.safmuseum.org/picts/exhibitions/tn744x495-PA260877_gray1.jpg"
+                                                           ],
+                                               "gallerySource":  "http://safmuseum.org/index.php",
+                                               "updatedAt":  "2026-11-23T18:25:33+03:00"
+                                           },
+                   "wd-Q132148121":  {
+                                         "icon":  "",
+                                         "iconKind":  "",
+                                         "iconSource":  "",
+                                         "gallery":  [
+                                                         "https://upload.wikimedia.org/wikipedia/commons/6/6e/The_moscow_museum_of_animation_at_the_all-russia_exhibition_centre.jpg?utm_source=commons.wikimedia.org\u0026utm_campaign=imageinfo\u0026utm_content=thumbnail_unscaled",
+                                                         "https://upload.wikimedia.org/wikipedia/commons/f/f9/%D0%97%D0%B4%D0%B0%D0%BD%D0%B8%D0%B5_%D0%9C%D0%BE%D1%81%D0%BA%D0%BE%D0%B2%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_%D0%9C%D1%83%D0%B7%D0%B5%D1%8F_%D0%90%D0%BD%D0%B8%D0%BC%D0%B0%D1%86%D0%B8%D0%B8.jpg?utm_source=commons.wikimedia.org\u0026utm_campaign=imageinfo\u0026utm_content=thumbnail_unscaled",
+                                                         "https://upload.wikimedia.org/wikipedia/commons/7/7c/%D0%9C%D0%BE%D1%81%D0%BA%D0%BE%D0%B2%D1%81%D0%BA%D0%B8%D0%B9_%D0%9C%D1%83%D0%B7%D0%B5%D0%B9_%D0%90%D0%BD%D0%B8%D0%BC%D0%B0%D1%86%D0%B8%D0%B8_%D0%BD%D0%B0_%D1%82%D0%B5%D1%80%D1%80%D0%B8%D1%82%D0%BE%D1%80%D0%B8%D0%B8_%D0%92%D0%92%D0%A6.jpg?utm_source=commons.wikimedia.org\u0026utm_campaign=imageinfo\u0026utm_content=thumbnail_unscaled",
+                                                         "https://upload.wikimedia.org/wikipedia/commons/a/a3/%D0%9C%D1%83%D0%B7%D0%B5%D0%B9_%D0%B0%D0%BD%D0%B8%D0%BC%D0%B0%D1%86.jpg?utm_source=commons.wikimedia.org\u0026utm_campaign=imageinfo\u0026utm_content=thumbnail_unscaled",
+                                                         "https://upload.wikimedia.org/wikipedia/commons/1/1a/%D0%9C%D1%83%D0%B7%D0%B5%D0%B9_%D0%90%D0%BD%D0%B8%D0%BC%D0%B0%D1%86%D0%B8%D0%B8_%D0%BD%D0%B0_%D0%92%D0%92%D0%A6.jpg?utm_source=commons.wikimedia.org\u0026utm_campaign=imageinfo\u0026utm_content=thumbnail_unscaled"
+                                                     ],
+                                         "gallerySource":  "https://commons.wikimedia.org/",
+                                         "updatedAt":  "2026-11-23T21:31:46+03:00"
+                                     },
                    "osm-node-1688852489":  {
                                                "icon":  "https://static.tildacdn.com/tild3563-6461-4261-b234-393761663035/fav.png",
                                                "iconKind":  "logo",
@@ -1046,21 +1124,23 @@
                                                "gallerySource":  "https://lilianscafe.ru/",
                                                "updatedAt":  "2026-11-23T20:53:35+03:00"
                                            },
-                   "gorky":  {
-                                 "icon":  "https://parkgorkogo.ru/wp-content/uploads/2025/03/logo_all_rgbshk-300x311.png",
-                                 "iconKind":  "logo",
-                                 "iconSource":  "https://parkgorkogo.ru/",
-                                 "gallery":  [
-                                                 "https://parkgorkogo.ru/wp-content/uploads/2024/07/pg_1237x648px.png",
-                                                 "https://parkgorkogo.ru/wp-content/uploads/2026/11/dscf3541-1920x1280.jpg",
-                                                 "https://parkgorkogo.ru/wp-content/uploads/2026/11/dscf3698-1920x1280.jpg",
-                                                 "https://parkgorkogo.ru/wp-content/uploads/2026/11/dsc05291-1920x1280.jpg",
-                                                 "https://parkgorkogo.ru/wp-content/uploads/2026/11/0v8a5283-1000x667.jpg",
-                                                 "https://parkgorkogo.ru/wp-content/uploads/2026/11/1770321114532-scaled-e1793606019164-1000x1366.jpg"
-                                             ],
-                                 "gallerySource":  "https://parkgorkogo.ru/",
-                                 "updatedAt":  "2026-11-23T18:25:33+03:00"
-                             },
+                   "aptekarsky":  {
+                                      "icon":  "https://hortus.msu.ru/apple-touch-icon.png",
+                                      "iconKind":  "logo",
+                                      "iconSource":  "https://hortus.msu.ru/ticketprice.html",
+                                      "gallery":  [
+                                                      "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/54/%D0%90%D0%BF%D1%82%D0%B5%D0%BA%D0%B0%D1%80%D1%81%D0%BA%D0%B8%D0%B9_%D0%BE%D0%B3%D0%BE%D1%80%D0%BE%D0%B4%2C_%D0%9C%D0%BE%D1%81%D0%BA%D0%B2%D0%B0_01.jpg/1920px-%D0%90%D0%BF%D1%82%D0%B5%D0%BA%D0%B0%D1%80%D1%81%D0%BA%D0%B8%D0%B9_%D0%BE%D0%B3%D0%BE%D1%80%D0%BE%D0%B4%2C_%D0%9C%D0%BE%D1%81%D0%BA%D0%B2%D0%B0_01.jpg?utm_source=commons.wikimedia.org\u0026utm_campaign=imageinfo\u0026utm_content=thumbnail",
+                                                      "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f9/%D0%90%D0%BF%D1%82%D0%B5%D0%BA%D0%B0%D1%80%D1%81%D0%BA%D0%B8%D0%B9_%D0%BE%D0%B3%D0%BE%D1%80%D0%BE%D0%B4%2C_%D0%9C%D0%BE%D1%81%D0%BA%D0%B2%D0%B0_02.jpg/1920px-%D0%90%D0%BF%D1%82%D0%B5%D0%BA%D0%B0%D1%80%D1%81%D0%BA%D0%B8%D0%B9_%D0%BE%D0%B3%D0%BE%D1%80%D0%BE%D0%B4%2C_%D0%9C%D0%BE%D1%81%D0%BA%D0%B2%D0%B0_02.jpg?utm_source=commons.wikimedia.org\u0026utm_campaign=imageinfo\u0026utm_content=thumbnail",
+                                                      "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6b/%D0%90%D0%BF%D1%82%D0%B5%D0%BA%D0%B0%D1%80%D1%81%D0%BA%D0%B8%D0%B9_%D0%BE%D0%B3%D0%BE%D1%80%D0%BE%D0%B4%2C_%D0%9C%D0%BE%D1%81%D0%BA%D0%B2%D0%B0_03.jpg/1920px-%D0%90%D0%BF%D1%82%D0%B5%D0%BA%D0%B0%D1%80%D1%81%D0%BA%D0%B8%D0%B9_%D0%BE%D0%B3%D0%BE%D1%80%D0%BE%D0%B4%2C_%D0%9C%D0%BE%D1%81%D0%BA%D0%B2%D0%B0_03.jpg?utm_source=commons.wikimedia.org\u0026utm_campaign=imageinfo\u0026utm_content=thumbnail",
+                                                      "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bd/%D0%90%D0%BF%D1%82%D0%B5%D0%BA%D0%B0%D1%80%D1%81%D0%BA%D0%B8%D0%B9_%D0%BE%D0%B3%D0%BE%D1%80%D0%BE%D0%B4%2C_%D0%9C%D0%BE%D1%81%D0%BA%D0%B2%D0%B0_04.jpg/1920px-%D0%90%D0%BF%D1%82%D0%B5%D0%BA%D0%B0%D1%80%D1%81%D0%BA%D0%B8%D0%B9_%D0%BE%D0%B3%D0%BE%D1%80%D0%BE%D0%B4%2C_%D0%9C%D0%BE%D1%81%D0%BA%D0%B2%D0%B0_04.jpg?utm_source=commons.wikimedia.org\u0026utm_campaign=imageinfo\u0026utm_content=thumbnail",
+                                                      "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/09/%D0%90%D0%BF%D1%82%D0%B5%D0%BA%D0%B0%D1%80%D1%81%D0%BA%D0%B8%D0%B9_%D0%BE%D0%B3%D0%BE%D1%80%D0%BE%D0%B4%2C_%D0%9C%D0%BE%D1%81%D0%BA%D0%B2%D0%B0_06.jpg/1920px-%D0%90%D0%BF%D1%82%D0%B5%D0%BA%D0%B0%D1%80%D1%81%D0%BA%D0%B8%D0%B9_%D0%BE%D0%B3%D0%BE%D1%80%D0%BE%D0%B4%2C_%D0%9C%D0%BE%D1%81%D0%BA%D0%B2%D0%B0_06.jpg?utm_source=commons.wikimedia.org\u0026utm_campaign=imageinfo\u0026utm_content=thumbnail",
+                                                      "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e8/%D0%90%D0%BF%D1%82%D0%B5%D0%BA%D0%B0%D1%80%D1%81%D0%BA%D0%B8%D0%B9_%D0%BE%D0%B3%D0%BE%D1%80%D0%BE%D0%B4%2C_%D0%9C%D0%BE%D1%81%D0%BA%D0%B2%D0%B0_12.jpg/1920px-%D0%90%D0%BF%D1%82%D0%B5%D0%BA%D0%B0%D1%80%D1%81%D0%BA%D0%B8%D0%B9_%D0%BE%D0%B3%D0%BE%D1%80%D0%BE%D0%B4%2C_%D0%9C%D0%BE%D1%81%D0%BA%D0%B2%D0%B0_12.jpg?utm_source=commons.wikimedia.org\u0026utm_campaign=imageinfo\u0026utm_content=thumbnail",
+                                                      "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/83/%D0%90%D0%BF%D1%82%D0%B5%D0%BA%D0%B0%D1%80%D1%81%D0%BA%D0%B8%D0%B9_%D0%BE%D0%B3%D0%BE%D1%80%D0%BE%D0%B4%2C_%D0%9C%D0%BE%D1%81%D0%BA%D0%B2%D0%B0_13.jpg/1920px-%D0%90%D0%BF%D1%82%D0%B5%D0%BA%D0%B0%D1%80%D1%81%D0%BA%D0%B8%D0%B9_%D0%BE%D0%B3%D0%BE%D1%80%D0%BE%D0%B4%2C_%D0%9C%D0%BE%D1%81%D0%BA%D0%B2%D0%B0_13.jpg?utm_source=commons.wikimedia.org\u0026utm_campaign=imageinfo\u0026utm_content=thumbnail",
+                                                      "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d7/%D0%90%D0%BF%D1%82%D0%B5%D0%BA%D0%B0%D1%80%D1%81%D0%BA%D0%B8%D0%B9_%D0%BE%D0%B3%D0%BE%D1%80%D0%BE%D0%B4%2C_%D0%9C%D0%BE%D1%81%D0%BA%D0%B2%D0%B0_18.jpg/1920px-%D0%90%D0%BF%D1%82%D0%B5%D0%BA%D0%B0%D1%80%D1%81%D0%BA%D0%B8%D0%B9_%D0%BE%D0%B3%D0%BE%D1%80%D0%BE%D0%B4%2C_%D0%9C%D0%BE%D1%81%D0%BA%D0%B2%D0%B0_18.jpg?utm_source=commons.wikimedia.org\u0026utm_campaign=imageinfo\u0026utm_content=thumbnail"
+                                                  ],
+                                      "gallerySource":  "https://commons.wikimedia.org/",
+                                      "updatedAt":  "2026-11-23T20:50:52+03:00"
+                                  },
                    "osm-node-2051171881":  {
                                                "icon":  "https://kinosfera-baltika.ru/favicon.ico",
                                                "iconKind":  "logo",
@@ -1085,17 +1165,40 @@
                                               "gallerySource":  "https://pushkinmuseum.art/museum/buildings/gallery",
                                               "updatedAt":  "2026-11-23T18:25:33+03:00"
                                           },
-                   "wd-Q4430719":  {
-                                       "icon":  "",
-                                       "iconKind":  "",
-                                       "iconSource":  "",
-                                       "gallery":  [
-                                                       "https://commons.wikimedia.org/wiki/Special:FilePath/%D0%A1%D1%82%D0%B0%D0%B4%D0%B8%D0%BE%D0%BD%20%C2%AB%D0%A1%D0%BF%D0%B0%D1%80%D1%82%D0%B0%D0%BA%D0%BE%D0%B2%D0%B5%D1%86%C2%BB%20%D0%B8%D0%BC%D0%B5%D0%BD%D0%B8%20%D0%9D.%20%D0%9F.%20%D0%A1%D1%82%D0%B0%D1%80%D0%BE%D1%81%D1%82%D0%B8%D0%BD%D0%B0.jpg",
-                                                       "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fb/%D0%A1%D1%82%D0%B0%D0%B4%D0%B8%D0%BE%D0%BD_%C2%AB%D0%A1%D0%BF%D0%B0%D1%80%D1%82%D0%B0%D0%BA%D0%BE%D0%B2%D0%B5%D1%86%C2%BB_%D0%B8%D0%BC%D0%B5%D0%BD%D0%B8_%D0%9D._%D0%9F._%D0%A1%D1%82%D0%B0%D1%80%D0%BE%D1%81%D1%82%D0%B8%D0%BD%D0%B0.jpg/1920px-%D0%A1%D1%82%D0%B0%D0%B4%D0%B8%D0%BE%D0%BD_%C2%AB%D0%A1%D0%BF%D0%B0%D1%80%D1%82%D0%B0%D0%BA%D0%BE%D0%B2%D0%B5%D1%86%C2%BB_%D0%B8%D0%BC%D0%B5%D0%BD%D0%B8_%D0%9D._%D0%9F._%D0%A1%D1%82%D0%B0%D1%80%D0%BE%D1%81%D1%82%D0%B8%D0%BD%D0%B0.jpg?utm_source=commons.wikimedia.org\u0026utm_campaign=imageinfo\u0026utm_content=thumbnail"
-                                                   ],
-                                       "gallerySource":  "https://commons.wikimedia.org/",
-                                       "updatedAt":  "2026-11-23T20:51:57+03:00"
-                                   },
+                   "osm-node-3824316546":  {
+                                               "icon":  "https://dig-store.ru/img/logo.png",
+                                               "iconKind":  "logo",
+                                               "iconSource":  "https://dig-store.ru/",
+                                               "gallery":  [
+                                                               "https://dig-store.ru/img/vk_ic.png",
+                                                               "https://dig-store.ru/img/telegram_ic.png",
+                                                               "https://dig-store.ru/img/about_pic1_ov.jpg",
+                                                               "https://dig-store.ru/img/about_pic2_ov.jpg",
+                                                               "https://dig-store.ru/img/afisha.png",
+                                                               "https://dig-store.ru/img/about_slider_angle3.png"
+                                                           ],
+                                               "gallerySource":  "https://dig-store.ru/",
+                                               "websiteChecked":  true,
+                                               "updatedAt":  "2026-11-23T21:31:46+03:00"
+                                           },
+                   "wd-Q56650116":  {
+                                        "icon":  "",
+                                        "iconKind":  "",
+                                        "iconSource":  "",
+                                        "gallery":  [
+                                                        "https://commons.wikimedia.org/wiki/Special:FilePath/Moscow%20Brateevo%20Floodplain%20asv2018-08%20img4.jpg",
+                                                        "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3e/%D0%9F%D0%B0%D1%80%D0%BA_%C2%AB%D0%91%D1%80%D0%B0%D1%82%D0%B5%D0%B5%D0%B2%D1%81%D0%BA%D0%B0%D1%8F_%D0%BF%D0%BE%D0%B9%D0%BC%D0%B0%C2%BB%2C_%D0%B2%D1%85%D0%BE%D0%B4_%D0%B2_%D1%8E%D0%B6%D0%BD%D0%BE%D0%B9_%D1%87%D0%B0%D1%81%D1%82%D0%B8_%2813.07.2018%29.jpg/1920px-%D0%9F%D0%B0%D1%80%D0%BA_%C2%AB%D0%91%D1%80%D0%B0%D1%82%D0%B5%D0%B5%D0%B2%D1%81%D0%BA%D0%B0%D1%8F_%D0%BF%D0%BE%D0%B9%D0%BC%D0%B0%C2%BB%2C_%D0%B2%D1%85%D0%BE%D0%B4_%D0%B2_%D1%8E%D0%B6%D0%BD%D0%BE%D0%B9_%D1%87%D0%B0%D1%81%D1%82%D0%B8_%2813.07.2018%29.jpg?utm_source=commons.wikimedia.org\u0026utm_campaign=imageinfo\u0026utm_content=thumbnail",
+                                                        "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a0/Brateevo-park-ortophoto_2018-09.jpg/1920px-Brateevo-park-ortophoto_2018-09.jpg?utm_source=commons.wikimedia.org\u0026utm_campaign=imageinfo\u0026utm_content=thumbnail",
+                                                        "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/06/Brateevskaya_poyma-1.jpg/1920px-Brateevskaya_poyma-1.jpg?utm_source=commons.wikimedia.org\u0026utm_campaign=imageinfo\u0026utm_content=thumbnail",
+                                                        "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f6/Brateyevo_Floodplain_Park_01.jpg/1920px-Brateyevo_Floodplain_Park_01.jpg?utm_source=commons.wikimedia.org\u0026utm_campaign=imageinfo\u0026utm_content=thumbnail",
+                                                        "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ef/Brateyevo_Floodplain_Park_02.jpg/1920px-Brateyevo_Floodplain_Park_02.jpg?utm_source=commons.wikimedia.org\u0026utm_campaign=imageinfo\u0026utm_content=thumbnail",
+                                                        "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2d/Brateyevo_Floodplain_Park_03.jpg/1920px-Brateyevo_Floodplain_Park_03.jpg?utm_source=commons.wikimedia.org\u0026utm_campaign=imageinfo\u0026utm_content=thumbnail",
+                                                        "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/27/Brateyevo_Floodplain_Park_04.jpg/1920px-Brateyevo_Floodplain_Park_04.jpg?utm_source=commons.wikimedia.org\u0026utm_campaign=imageinfo\u0026utm_content=thumbnail",
+                                                        "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f8/Brateyevo_Floodplain_Park_05.jpg/1920px-Brateyevo_Floodplain_Park_05.jpg?utm_source=commons.wikimedia.org\u0026utm_campaign=imageinfo\u0026utm_content=thumbnail"
+                                                    ],
+                                        "gallerySource":  "https://commons.wikimedia.org/",
+                                        "updatedAt":  "2026-11-23T21:35:49+03:00"
+                                    },
                    "osm-node-6044124507":  {
                                                "icon":  "https://exitgames.ru/apple-touch-icon.png",
                                                "iconKind":  "logo",
@@ -1126,6 +1229,16 @@
                                                 "gallerySource":  "https://msk.terrm.ru",
                                                 "updatedAt":  "2026-11-23T18:25:33+03:00"
                                             },
+                   "osm-node-564862319":  {
+                                              "icon":  "https://static.tildacdn.com/tild3366-3534-4461-b836-616462343464/esselogo_temp.jpg",
+                                              "iconKind":  "logo",
+                                              "iconSource":  "https://cafeesse.com/",
+                                              "gallery":  [
+
+                                                          ],
+                                              "gallerySource":  "",
+                                              "updatedAt":  "2026-11-23T18:25:33+03:00"
+                                          },
                    "osm-node-8002402841":  {
                                                "icon":  "https://quest24.ru/wp-content/uploads/2023/01/cropped-quest_512x512-180x180.png",
                                                "iconKind":  "logo",
@@ -1170,21 +1283,17 @@
                                        "gallerySource":  "https://commons.wikimedia.org/",
                                        "updatedAt":  "2026-11-23T20:51:57+03:00"
                                    },
-                   "osm-node-3501052203":  {
-                                               "icon":  "https://www.safmuseum.org/favicon.ico",
-                                               "iconKind":  "logo",
-                                               "iconSource":  "http://safmuseum.org/index.php",
-                                               "gallery":  [
-                                                               "https://www.safmuseum.org/picts/exhibitions/tn744x495-%D1%8D%D1%82%D1%83_%D1%81%D0%B4%D0%B5%D0%BB%D0%B0%D0%B9_%D0%BF%D0%B5%D1%80%D0%B2%D0%BE%D0%B9.JPG",
-                                                               "https://www.safmuseum.org/picts/exhibitions/tn744x495-DOM_BLIZNETSA_2025_142x193_oil_on_canvas_SMALL.jpg",
-                                                               "https://www.safmuseum.org/picts/exhibitions/tn744x495-photo_2025-12-18_21-05-27.jpg",
-                                                               "https://www.safmuseum.org/picts/exhibitions/tn744x495-IMG_7789.webp",
-                                                               "https://www.safmuseum.org/picts/exhibitions/tn744x495-%D0%A2%D0%B0%D0%BD%D0%B5%D1%861_page-0001.jpg",
-                                                               "https://www.safmuseum.org/picts/exhibitions/tn744x495-PA260877_gray1.jpg"
-                                                           ],
-                                               "gallerySource":  "http://safmuseum.org/index.php",
-                                               "updatedAt":  "2026-11-23T18:25:33+03:00"
-                                           },
+                   "osm-node-984569773":  {
+                                              "icon":  "http://www.bulkabakery.ru/apple-touch-icon.png",
+                                              "iconKind":  "logo",
+                                              "iconSource":  "http://www.bulkabakery.ru",
+                                              "gallery":  [
+                                                              "http://www.bulkabakery.ru/files/modules/1_1635422064.jpeg",
+                                                              "http://www.bulkabakery.ru/files/modules/1_img2_1632828459.jpg"
+                                                          ],
+                                              "gallerySource":  "http://www.bulkabakery.ru",
+                                              "updatedAt":  "2026-11-23T20:53:35+03:00"
+                                          },
                    "osm-node-10095518935":  {
                                                 "icon":  "http://icemasters.ru/wp-content/uploads/2019/12/cropped-%D0%9B%D0%BE%D0%B3%D0%BE-%D0%9A%D1%80%D1%83%D0%B3%D0%BB%D1%8B%D0%B9-2-180x180.png",
                                                 "iconKind":  "logo",
@@ -1200,36 +1309,36 @@
                                                 "gallerySource":  "http://icemasters.ru/",
                                                 "updatedAt":  "2026-11-23T18:25:33+03:00"
                                             },
-                   "osm-node-11405617550":  {
-                                                "icon":  "https://static.tildacdn.com/tild3732-3031-4533-b330-653332303130/logo_header.png",
-                                                "iconKind":  "logo",
-                                                "iconSource":  "https://showtoday.ru/moscow",
-                                                "gallery":  [
-                                                                "https://static.tildacdn.com/tild3038-3830-4337-b335-373438366630/1_1.png",
-                                                                "https://static.tildacdn.com/tild3566-6632-4464-b061-373738356235/Slice_1-30.jpg",
-                                                                "https://static.tildacdn.com/tild6134-3732-4762-b235-323632623563/Slice_27-5.jpg",
-                                                                "https://static.tildacdn.com/tild6531-6139-4566-a330-663164366530/image_238.png",
-                                                                "https://static.tildacdn.com/tild3865-3338-4465-b530-353866366237/image_237.png",
-                                                                "https://static.tildacdn.com/tild3635-6539-4866-b863-383966373330/image_236.png"
-                                                            ],
-                                                "gallerySource":  "https://showtoday.ru/moscow",
-                                                "updatedAt":  "2026-11-23T18:25:33+03:00"
-                                            },
-                   "true-gamers":  {
-                                       "icon":  "https://truegamers.ru/wp-content/themes/true/img/favicon/apple-touch-icon.png",
-                                       "iconKind":  "logo",
-                                       "iconSource":  "https://truegamers.ru/arena/moskva/moskva-severnyj/",
-                                       "gallery":  [
-                                                       "https://truegamers.ru/wp-content/themes/true/img/bg-blocks/contacts-bg.png",
-                                                       "https://truegamers.ru/wp-content/themes/true/img/truemob.png",
-                                                       "https://truegamers.ru/wp-content/themes/true/img/page-bg.jpg",
-                                                       "https://truegamers.ru/wp-content/themes/true/img/language/ru.png",
-                                                       "https://truegamers.ru/wp-content/themes/true/img/eng.png",
-                                                       "https://truegamers.ru/wp-content/themes/true/img/single/single-block.png"
-                                                   ],
-                                       "gallerySource":  "https://truegamers.ru/arena/moskva/moskva-severnyj/",
-                                       "updatedAt":  "2026-11-23T18:25:33+03:00"
-                                   },
+                   "osm-node-768883006":  {
+                                              "icon":  "https://kva-kva.ru/local/templates/main/img/apple-touch-icon.png",
+                                              "iconKind":  "logo",
+                                              "iconSource":  "https://kva-kva.ru/",
+                                              "gallery":  [
+                                                              "https://kva-kva.ru/upload/dev2fun_opengraph/012/012f84d17473e82118e84a47b7a57b4b.png",
+                                                              "https://kva-kva.ru/path/to/image.jpg",
+                                                              "https://kva-kva.ru/local/templates/main/img/apple-touch-icon.png",
+                                                              "https://kva-kva.ru/upload/webp/3c/3ca281dcb3247d888fe4f887035328aa.webp",
+                                                              "https://kva-kva.ru/upload/webp/a4/a41caa73e052e075ee6b81ed45406b11.webp",
+                                                              "https://kva-kva.ru/upload/webp/5f/5f39f3a272c6df00a413304b8d163b60.webp"
+                                                          ],
+                                              "gallerySource":  "https://kva-kva.ru/",
+                                              "updatedAt":  "2026-11-23T18:25:33+03:00"
+                                          },
+                   "osm-node-572196515":  {
+                                              "icon":  "https://www.cafemumu.ru/favicons/apple-touch-icon.png",
+                                              "iconKind":  "logo",
+                                              "iconSource":  "https://www.cafemumu.ru/",
+                                              "gallery":  [
+                                                              "https://www.cafemumu.ru/upload/resize_cache/medialibrary/f3f/vvn0hfthxwl5eld3ztwy4nsok6lw9z71/140_105_1/1.png",
+                                                              "https://www.cafemumu.ru/local/templates/mumu_new_v2022/frontend/images/google-play.png",
+                                                              "https://www.cafemumu.ru/local/templates/mumu_new_v2022/frontend/images/app-store.png",
+                                                              "https://www.cafemumu.ru/upload/iblock/666/uv4ymr2z92k2b77u54admjnvsw5h86d1/729%D1%85900.jpg",
+                                                              "https://www.cafemumu.ru/upload/iblock/e9b/zztt44pjif1nagnjca12mhg0w1pzv234/Skidka_Mu_web_729x900.jpg",
+                                                              "https://www.cafemumu.ru/upload/iblock/cc0/db0q0d9jg7f52nrbyx8jebxbh9g8bkc6/NastoyashyVkus2_Mu_web_729x900.jpg"
+                                                          ],
+                                              "gallerySource":  "https://www.cafemumu.ru/",
+                                              "updatedAt":  "2026-11-23T18:25:33+03:00"
+                                          },
                    "jewish":  {
                                   "icon":  "https://www.jewish-museum.ru/apple-touch-icon.png",
                                   "iconKind":  "logo",
@@ -1245,21 +1354,16 @@
                                   "gallerySource":  "https://commons.wikimedia.org/",
                                   "updatedAt":  "2026-11-23T20:51:57+03:00"
                               },
-                   "osm-node-1596071933":  {
-                                               "icon":  "https://coffeebean.ru/wp-content/uploads/2020/01/coffee-cup-favicon.svg",
-                                               "iconKind":  "logo",
-                                               "iconSource":  "https://www.coffeebean.ru/",
-                                               "gallery":  [
-                                                               "https://coffeebean.ru/wp-content/uploads/2020/12/Coffee_Bean_Home.jpg",
-                                                               "https://coffeebean.ru/wp-content/uploads/2020/11/magazin-tovar.jpg",
-                                                               "https://coffeebean.ru/wp-content/uploads/2026/05/ChatGPT-Image-29-%D0%BC%D0%B0%D1%8F-2026-%D0%B3.-11_37_13-1.png",
-                                                               "https://coffeebean.ru/wp-content/uploads/2026/05/ChatGPT-Image-28-%D0%BC%D0%B0%D1%8F-2026-%D0%B3.-20_10_00-1-2.png",
-                                                               "https://coffeebean.ru/wp-content/uploads/2021/09/Surreal-Coffee-coffee-bean.jpg",
-                                                               "https://coffeebean.ru/wp-content/uploads/2020/08/Surreal-Coffee-coffee-bean.jpg"
-                                                           ],
-                                               "gallerySource":  "https://www.coffeebean.ru/",
-                                               "updatedAt":  "2026-11-23T18:25:33+03:00"
-                                           },
+                   "ziferblat":  {
+                                     "icon":  "https://ziferblat.net/favicon.svg",
+                                     "iconKind":  "logo",
+                                     "iconSource":  "https://ziferblat.net/moscow/most",
+                                     "gallery":  [
+
+                                                 ],
+                                     "gallerySource":  "",
+                                     "updatedAt":  "2026-11-23T20:53:35+03:00"
+                                 },
                    "vinzavod":  {
                                     "icon":  "https://winzavod.ru/apple-touch-icon.png",
                                     "iconKind":  "logo",
