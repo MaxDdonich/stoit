@@ -676,6 +676,22 @@
     return place.emoji || categoryEmoji(place.category);
   }
 
+  // «Уточните на карте» и «Москва» — заглушки импорта, а не адрес.
+  function isPlaceholderPlace(value) {
+    const text = String(value || "").trim().toLowerCase();
+    if (!text) return true;
+    if (/^(уточните|уточнить|проверьте|check)/.test(text)) return true;
+    return /^(москва|moscow|город москва)$/.test(text);
+  }
+
+  function placeLocation(place) {
+    const metro = loc(place.metro).trim();
+    if (metro && !isPlaceholderPlace(metro)) return metro;
+    const district = loc(place.district).trim();
+    if (district && !isPlaceholderPlace(district)) return district;
+    return "";
+  }
+
   function showBadge(place) {
     const badge = loc(place.badge).toLowerCase();
     if (!badge) return false;
@@ -1072,6 +1088,11 @@
   function placeCard(place, extraClass = "") {
     const saved = state.saved.includes(place.id);
     const tier = tierOf(place.price);
+    const meta = [];
+    const placeLoc = placeLocation(place);
+    if (placeLoc) meta.push(`<span>${icon("pin")}${esc(placeLoc)}</span>`);
+    if (place.rating) meta.push(`<span class="card-rating">${icon("star")}${esc(place.rating.toFixed(1))}</span>`);
+    meta.push(`<span class="card-people">${icon("users")}${esc(companyShort(place))}</span>`);
     return `
       <article class="card ${extraClass}" data-href="#/place/${encodeURIComponent(place.id)}" tabindex="0" role="link">
         <div class="card-art">
@@ -1086,17 +1107,13 @@
           <div class="card-cat">${esc(categoryLabel(place.category))}</div>
           <h2>${esc(loc(place.name))}</h2>
           <p class="card-hook">${esc(loc(place.hook))}</p>
-          <div class="card-meta">
-            <span>${icon("pin")}${esc(loc(place.metro) || loc(place.district))}</span>
-            ${place.rating ? `<span class="sep card-rating-sep">·</span><span class="card-rating">${icon("star")}${esc(place.rating.toFixed(1))}</span>` : ""}
-            <span class="sep">·</span>
-            <span class="card-people">${icon("users")}${esc(companyShort(place))}</span>
-          </div>
+          <div class="card-meta">${meta.join(`<span class="sep">·</span>`)}</div>
         </div>
       </article>`;
   }
 
   function featureCard(place) {
+    const featureLoc = placeLocation(place);
     return `
       <a class="feature" href="#/place/${encodeURIComponent(place.id)}">
         <div class="feature-art">
@@ -1110,7 +1127,7 @@
           <h2>${esc(loc(place.name))}</h2>
           <p class="feature-hook">${esc(loc(place.hook))}</p>
           <div class="feature-foot">
-            <span>${icon("pin")} ${esc(loc(place.metro) || loc(place.district))}</span>
+            ${featureLoc ? `<span>${icon("pin")} ${esc(featureLoc)}</span>` : "<span></span>"}
             <span class="link-arrow">${esc(t("hero.open"))} ${icon("arrow")}</span>
           </div>
         </div>
@@ -1540,6 +1557,15 @@
       || (place.whatYouGet && (place.whatYouGet[state.lang] || place.whatYouGet.ru))
       || [];
     const gallery = placeGallery(place);
+    const placeLoc = placeLocation(place);
+    const addressText = loc(place.address).trim();
+    const hoursText = loc(place.hours).trim();
+    const metaItems = [];
+    if (placeLoc) metaItems.push(`<div class="meta-item">${icon("metro")}<div><small>${esc(t("detail.metro"))}</small><b>${esc(placeLoc)}</b></div></div>`);
+    if (addressText && !isPlaceholderPlace(addressText)) metaItems.push(`<div class="meta-item">${icon("pin")}<div><small>${esc(t("detail.address"))}</small><b>${esc(addressText)}</b></div></div>`);
+    if (hoursText && !/^(уточните|check|check on the map)/i.test(hoursText)) metaItems.push(`<div class="meta-item">${icon("clock")}<div><small>${esc(t("detail.hours"))}</small><b>${esc(hoursText)}</b></div></div>`);
+    metaItems.push(`<div class="meta-item">${icon("users")}<div><small>${esc(t("detail.company"))}</small><b>${esc(loc(place.company))}</b></div></div>`);
+    if (place.rating) metaItems.push(`<div class="meta-item">${icon("star")}<div><small>${esc(t("detail.rating"))}</small><b>${esc(place.rating.toFixed(1))}</b></div></div>`);
 
     view.innerHTML = `
       <article class="place-page">
@@ -1583,14 +1609,7 @@
               ${saveButton(place)}
               <button class="btn" type="button" data-share="${esc(place.id)}">${icon("share")} ${esc(t("detail.share"))}</button>
             </div>
-            <div class="meta-grid">
-              <div class="meta-item">${icon("metro")}<div><small>${esc(t("detail.metro"))}</small><b>${esc(loc(place.metro))}</b></div></div>
-              <div class="meta-item">${icon("pin")}<div><small>${esc(t("detail.address"))}</small><b>${esc(loc(place.address))}</b></div></div>
-              <div class="meta-item">${icon("clock")}<div><small>${esc(t("detail.hours"))}</small><b>${esc(loc(place.hours))}</b></div></div>
-              <div class="meta-item">${icon("users")}<div><small>${esc(t("detail.company"))}</small><b>${esc(loc(place.company))}</b></div></div>
-              <div class="meta-item">${icon("star")}<div><small>${esc(t("detail.rating"))}</small><b>${esc(place.rating ? place.rating.toFixed(1) : "—")}</b></div></div>
-              <div class="meta-item">${icon("pin")}<div><small>${esc(t("detail.district"))}</small><b>${esc(loc(place.district))}</b></div></div>
-            </div>
+            <div class="meta-grid">${metaItems.join("")}</div>
             <div class="tag-row">${tags.map((tag) => `<span class="pill">${esc(tag)}</span>`).join("")}</div>
           </div>
         </div>
