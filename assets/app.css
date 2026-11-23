@@ -552,6 +552,9 @@ button { cursor: pointer; }
   transition: transform 0.3s var(--ease);
 }
 .card:hover .card-emoji { transform: scale(1.1) rotate(-3deg); }
+.card-art:has(.card-icon) .card-emoji,
+.feature-art:has(.feature-icon) .feature-emoji,
+.place-art:has(.place-cover) .place-emoji { display: none; }
 .card-icon {
   position: absolute;
   inset: 0;
