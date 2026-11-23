@@ -153,7 +153,7 @@ function Get-PriceClause([string]$Text, [int]$Index, [int]$Length) {
 
 function New-StructuredCandidate([int]$Price, [bool]$IsFrom, [string]$Context, [string]$PageUrl, [int]$Score) {
   if ($Price -lt 50 -or $Price -gt 30000) { return $null }
-  if ($Context -match '(?i)детск|школьн|студенч|льготн|пенсион|ячейк|шкафчик|полотенц|заточк|хранение|инструктор|подкатк|абонемент|месяц|30 дн') { return $null }
+  if ($Context -match '(?i)детск|школьн|студенч|льготн|пенсион|ячейк|шкафчик|полотенц|заточк|хранение|инструктор|подкатк|абонемент|месяц|30 дн|превышен|доплат|сверх|задержк') { return $null }
   if ($Context -match '(?i)взросл') { $Score += 3 }
   $unit = Get-DiscoveredUnit $Context
   $rawQuote = Clean-PriceQuote $Context
@@ -206,7 +206,7 @@ function Get-StructuredPriceCandidates([string]$Html, [string]$PageUrl) {
     $priceMatch = [regex]::Match($rowText, '(?<![\d])(\d{1,3}(?:[ \u00A0]\d{3})+|\d{1,5})\s*(?:₽|руб(?:лей|ля)?\b|руб\.|р\.)')
     if (-not $priceMatch.Success) { continue }
     $number = [int](($priceMatch.Groups[1].Value -replace '[^\d]', ''))
-    if ($rowText -match '(?i)детск|школьн|студенч|льготн|пенсион|ячейк|шкафчик|полотенц|заточк|хранение|инструктор|подкатк|абонемент|месяц|30 дн') { continue }
+    if ($rowText -match '(?i)детск|школьн|студенч|льготн|пенсион|ячейк|шкафчик|полотенц|заточк|хранение|инструктор|подкатк|абонемент|месяц|30 дн|превышен|доплат|сверх|задержк') { continue }
     $candidate = New-StructuredCandidate $number $false $rowText $PageUrl 8
     if ($null -ne $candidate) { $result += $candidate }
   }
@@ -241,7 +241,7 @@ function Get-PriceCandidates([string]$Text, [string]$PageUrl) {
       }
     }
     if ($price -gt 30000) { continue }
-    if ($lower -match 'залог|депозит|банкет|аренда|доставка|скидк|абонемент|подарочн|сертификат|штраф|страхов|комисси|бронь|предоплат|минимальн|корпорат|свадьб|выпускн|новогодн|дополнительн|за каждого|сопровожд') { continue }
+    if ($lower -match 'залог|депозит|банкет|аренда|доставка|скидк|абонемент|подарочн|сертификат|штраф|страхов|комисси|бронь|предоплат|минимальн|корпорат|свадьб|выпускн|новогодн|дополнительн|за каждого|сопровожд|полотенц|ячейк|шкафчик|заточк|хранение|инструктор|подкатк|превышен|доплат|сверх|задержк') { continue }
     if ($near -match 'детск|школьн|студенч|льготн|пенсион') { continue }
     if ($lower -notmatch 'взросл|вход|билет|тариф|стоимост|цен[аы]|час|человек|персон|сеанс|прокат|посещ|средний чек|обед|ланч|завтрак|меню|минут|игрока') { continue }
     $unit = Get-DiscoveredUnit $context
@@ -608,7 +608,9 @@ function Invoke-PriceDiscovery {
         if ($sameUnit.Count -ge 2) {
           $minPrice = [int]$sameUnit[0].Price
           $maxPrice = [int]$sameUnit[$sameUnit.Count - 1].Price
-          if ($maxPrice -gt $minPrice * 1.15) { $range = @($minPrice, $maxPrice) }
+          if ($maxPrice -gt $minPrice * 1.15 -and $maxPrice -le ($minPrice * 8) -and $maxPrice -le 10000) {
+            $range = @($minPrice, $maxPrice)
+          }
         }
         Set-DiscoveredPlacePrice $place $best 'venue-site' $confidence $range
         $applied += [ordered]@{ kind = 'place'; id = $place.id; title = $place.name.ru; price = $best.Price; unit = $best.UnitRu; source = $best.PageUrl; confidence = $confidence; range = $range }

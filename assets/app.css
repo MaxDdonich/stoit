@@ -566,7 +566,6 @@ button { cursor: pointer; }
   margin: auto;
   padding: 0;
   object-fit: contain;
-  background: var(--surface-2);
   filter: drop-shadow(0 14px 20px rgba(0, 0, 0, 0.28));
   pointer-events: none;
 }
@@ -581,7 +580,6 @@ button { cursor: pointer; }
   margin: auto;
   padding: 0;
   object-fit: contain;
-  background: var(--surface-2);
   filter: drop-shadow(0 16px 24px rgba(0, 0, 0, 0.3));
   pointer-events: none;
 }

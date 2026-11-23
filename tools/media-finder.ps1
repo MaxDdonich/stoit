@@ -211,9 +211,11 @@ function Invoke-MediaDiscovery {
       $hostName = Get-UrlHost ([string]$place.website)
       if ($hostName) {
         $rootIcon = "https://$hostName/apple-touch-icon.png"
+        $favicon = "https://$hostName/favicon.ico"
         $googleIcon = "https://www.google.com/s2/favicons?sz=128&domain=$hostName"
         Set-PlaceField $place 'iconFallback' $rootIcon
-        Set-PlaceField $place 'iconFallback2' $googleIcon
+        Set-PlaceField $place 'iconFallback2' $favicon
+        Set-PlaceField $place 'iconFallback3' $googleIcon
         if (-not $place.icon) {
           Set-PlaceField $place 'icon' $rootIcon
           Set-PlaceField $place 'iconKind' 'favicon'
