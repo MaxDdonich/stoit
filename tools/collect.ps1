@@ -7,10 +7,10 @@ param(
   [int]$MaxSignals = 80,
   [switch]$Force,
   [switch]$NoPriceSearch,
-  [int]$MaxPriceChecks = 36,
-  [int]$MaxSignalPriceChecks = 36,
+  [int]$MaxPriceChecks = 24,
+  [int]$MaxSignalPriceChecks = 24,
   [switch]$NoMediaSearch,
-  [int]$MaxMediaChecks = 36
+  [int]$MaxMediaChecks = 24
 )
 
 $ErrorActionPreference = 'Stop'
