@@ -244,6 +244,34 @@ function Get-CommonsGallery([string]$Category, [string]$Name, [int]$Limit = 12) 
   return $photos
 }
 
+function Get-CommonsGeoGallery([double]$Lat, [double]$Lon, [int]$Radius = 180, [int]$Limit = 12) {
+  if (-not $Lat -or -not $Lon) { return @() }
+  $url = "https://commons.wikimedia.org/w/api.php?action=query&format=json&generator=geosearch&ggscoord=$Lat%7C$Lon&ggsradius=$Radius&ggsnamespace=6&ggslimit=20&prop=imageinfo&iiprop=url%7Cmime&iiurlwidth=1600"
+  $raw = Get-RemoteText $url
+  if (-not $raw) { return @() }
+  try { $doc = $raw | ConvertFrom-Json } catch { return @() }
+  if ($null -eq $doc.query -or $null -eq $doc.query.pages) { return @() }
+  $photos = @()
+  $seen = @{}
+  foreach ($prop in $doc.query.pages.PSObject.Properties) {
+    $page = $prop.Value
+    if (-not $page.imageinfo -or -not $page.imageinfo[0]) { continue }
+    $info = $page.imageinfo[0]
+    if ([string]$info.mime -notmatch '^image/(jpeg|png|webp)$') { continue }
+    $photoUrl = [string]$info.thumburl
+    if (-not $photoUrl) { $photoUrl = [string]$info.url }
+    if (-not $photoUrl) { continue }
+    $title = [string]$page.title
+    if ($title -match '(?i)logo|icon|map|plan|scheme|coat|flag|qr|diagram|poster|banner|stamp|symbol|signature|grave|могил|портрет|portrait') { continue }
+    $key = [Uri]::UnescapeDataString(([Uri]$photoUrl).Segments[-1]) -replace '^\d+px-', ''
+    if ($seen.ContainsKey($key)) { continue }
+    $seen[$key] = $true
+    $photos += $photoUrl
+    if ($photos.Count -ge $Limit) { break }
+  }
+  return $photos
+}
+
 function Get-MediaPageData([string]$Url) {
   if (-not $Url) { return $null }
   $entry = $script:MediaCache[$Url]
@@ -518,7 +546,7 @@ function Invoke-MediaDiscovery {
     $target = 6
     $topUpPlaces = @($Places | Where-Object {
       (-not $_.gallery -or @($_.gallery).Count -lt $target) -and
-      ($_.commonsCategory -or ($_.image -and $_.category -in @('walk', 'culture', 'active', 'movie')))
+      ($_.commonsCategory -or $_.image -or ($_.lat -and $_.lon -and $_.category -in @('walk', 'culture', 'active', 'movie')))
     } | Sort-Object { if ($_.gallery) { @($_.gallery).Count } else { 0 } })
     $topUpChecked = 0
     foreach ($place in $topUpPlaces) {
@@ -526,6 +554,11 @@ function Invoke-MediaDiscovery {
       $topUpChecked += 1
       $commons = @(Get-CommonsGallery ([string]$place.commonsCategory) ([string]$place.name.ru))
       Start-Sleep -Milliseconds 400
+      if ($commons.Count -lt $target -and $place.lat -and $place.lon -and $place.category -in @('walk', 'culture', 'active', 'movie')) {
+        $geo = @(Get-CommonsGeoGallery ([double]$place.lat) ([double]$place.lon) 200)
+        Start-Sleep -Milliseconds 350
+        $commons += $geo
+      }
       if ($commons.Count -eq 0) { continue }
       $existing = if ($store.ContainsKey([string]$place.id)) { $store[[string]$place.id] } else { [ordered]@{} }
       $photos = @($existing.gallery) + @($place.gallery) + $commons
