@@ -7,8 +7,8 @@ param(
   [int]$MaxSignals = 80,
   [switch]$Force,
   [switch]$NoPriceSearch,
-  [int]$MaxPriceChecks = 24,
-  [int]$MaxSignalPriceChecks = 24,
+  [int]$MaxPriceChecks = 36,
+  [int]$MaxSignalPriceChecks = 36,
   [switch]$NoMediaSearch,
   [int]$MaxMediaChecks = 24
 )

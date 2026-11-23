@@ -159,6 +159,8 @@
       "detail.priceChecked": "проверено",
       "detail.priceSite": "цена с сайта",
       "detail.priceLinked": "цена из источника",
+      "detail.priceOperator": "цена оператора",
+      "detail.priceMaps": "цена с карт",
       "detail.website": "Сайт заведения",
       "detail.photoSource": "Источник фото",
       "detail.tip": "Совет",
@@ -430,6 +432,8 @@
       "detail.priceChecked": "checked",
       "detail.priceSite": "price from the website",
       "detail.priceLinked": "price from the source",
+      "detail.priceOperator": "operator price",
+      "detail.priceMaps": "price from maps",
       "detail.website": "Venue website",
       "detail.photoSource": "Photo source",
       "detail.tip": "Tip",
@@ -1567,6 +1571,8 @@
               ${place.priceConfidence === "verified" ? `<span class="pill pill-verified">${icon("check")} ${esc(t("detail.verified"))}</span>` : ""}
               ${place.priceConfidence !== "verified" && place.priceOrigin === "venue-site" ? `<span class="pill pill-verified">${icon("check")} ${esc(t("detail.priceSite"))}</span>` : ""}
               ${place.priceOrigin === "post-link" ? `<span class="pill">${esc(t("detail.priceLinked"))}</span>` : ""}
+              ${place.priceSourceType === "operator" ? `<span class="pill">${esc(t("detail.priceOperator"))}</span>` : ""}
+              ${place.priceSourceType === "maps" ? `<span class="pill">${esc(t("detail.priceMaps"))}</span>` : ""}
             </div>
             <p class="price-note">${esc(loc(place.priceNote))}</p>
             ${place.priceQuote ? `<p class="price-quote">«${esc(place.priceQuote)}»</p>` : ""}

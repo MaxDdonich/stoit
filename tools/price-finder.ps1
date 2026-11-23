@@ -3,6 +3,33 @@
 
 $script:PriceCache = @{}
 $script:PriceCacheLoaded = $false
+$script:PriceSourceConfig = $null
+
+function Get-PriceSourceInfo([string]$Url) {
+  if ($null -eq $script:PriceSourceConfig) {
+    $path = Join-Path (Split-Path -Parent $PSScriptRoot) 'config\price-sources.json'
+    $script:PriceSourceConfig = Read-Json $path
+  }
+  $hostName = Get-UrlHost $Url
+  $kind = 'official'
+  $trust = 'A'
+  $label = 'официальный сайт'
+  if ($script:PriceSourceConfig -and $hostName) {
+    foreach ($source in @($script:PriceSourceConfig.sources)) {
+      if (-not $source.hosts) { continue }
+      foreach ($item in @($source.hosts)) {
+        if ($hostName -eq $item -or $hostName.EndsWith('.' + $item)) {
+          $kind = [string]$source.kind
+          $trust = [string]$source.trust
+          $label = [string]$source.description
+          break
+        }
+      }
+      if ($kind -ne 'official') { break }
+    }
+  }
+  return [pscustomobject]@{ Kind = $kind; Trust = $trust; Label = $label }
+}
 $script:PriceCheckedPlaces = 0
 $script:PriceCheckedSignals = 0
 
@@ -124,6 +151,68 @@ function Get-PriceClause([string]$Text, [int]$Index, [int]$Length) {
   return $chunk.Substring($left, $right - $left).Trim()
 }
 
+function New-StructuredCandidate([int]$Price, [bool]$IsFrom, [string]$Context, [string]$PageUrl, [int]$Score) {
+  if ($Price -lt 50 -or $Price -gt 30000) { return $null }
+  if ($Context -match '(?i)детск|школьн|студенч|льготн|пенсион|ячейк|шкафчик|полотенц|заточк|хранение|инструктор|подкатк|абонемент|месяц|30 дн') { return $null }
+  if ($Context -match '(?i)взросл') { $Score += 3 }
+  $unit = Get-DiscoveredUnit $Context
+  $rawQuote = Clean-PriceQuote $Context
+  if (-not $rawQuote) { return $null }
+  return [pscustomobject]@{
+    Price = $Price
+    IsFrom = $IsFrom
+    UnitKind = $unit.Kind
+    UnitRu = $unit.Ru
+    UnitEn = $unit.En
+    Quote = $rawQuote
+    CurrencyCount = 1
+    Score = $Score
+    PageUrl = $PageUrl
+    PerMinute = 0
+    Structured = $true
+  }
+}
+
+function Get-StructuredPriceCandidates([string]$Html, [string]$PageUrl) {
+  if (-not $Html) { return @() }
+  $result = @()
+  # JSON-LD и встроенные данные
+  foreach ($block in [regex]::Matches($Html, '(?is)<script[^>]+type\s*=\s*["'']application/ld\+json["''][^>]*>([\s\S]*?)</script>')) {
+    $json = $block.Groups[1].Value
+    foreach ($m in [regex]::Matches($json, '(?i)"(?:price|lowPrice|highPrice|amount)"\s*:\s*"?(\d{2,6}(?:[.,]\d+)?)"?')) {
+      $raw = $m.Groups[1].Value -replace ',', '.'
+      $number = [int][Math]::Floor([double]$raw)
+      $start = [Math]::Max(0, $m.Index - 90)
+      $length = [Math]::Min(260, $json.Length - $start)
+      $context = $json.Substring($start, $length)
+      $candidate = New-StructuredCandidate $number ($m.Value -match 'lowPrice') $context $PageUrl 11
+      if ($null -ne $candidate) { $result += $candidate }
+    }
+  }
+  # Микроразметка и meta price
+  foreach ($m in [regex]::Matches($Html, '(?is)<[^>]+itemprop\s*=\s*["'']price["''][^>]*content\s*=\s*["''](\d{2,6})["'']')) {
+    $candidate = New-StructuredCandidate ([int]$m.Groups[1].Value) $false 'Цена в структурированных данных' $PageUrl 11
+    if ($null -ne $candidate) { $result += $candidate }
+  }
+  foreach ($m in [regex]::Matches($Html, '(?is)<meta[^>]+(?:property|name)\s*=\s*["'']product:price:amount["''][^>]+content\s*=\s*["'']([\d.,]+)["'']')) {
+    $number = [int][Math]::Floor([double](($m.Groups[1].Value -replace ',', '.')))
+    $candidate = New-StructuredCandidate $number $false 'Цена в метаданных страницы' $PageUrl 10
+    if ($null -ne $candidate) { $result += $candidate }
+  }
+  # HTML-таблицы: строка «услуга — цена»
+  foreach ($row in [regex]::Matches($Html, '(?is)<tr[^>]*>([\s\S]*?)</tr>')) {
+    $rowText = ConvertTo-PriceText $row.Groups[1].Value
+    if ($rowText.Length -lt 8) { continue }
+    $priceMatch = [regex]::Match($rowText, '(?<![\d])(\d{1,3}(?:[ \u00A0]\d{3})+|\d{1,5})\s*(?:₽|руб(?:лей|ля)?\b|руб\.|р\.)')
+    if (-not $priceMatch.Success) { continue }
+    $number = [int](($priceMatch.Groups[1].Value -replace '[^\d]', ''))
+    if ($rowText -match '(?i)детск|школьн|студенч|льготн|пенсион|ячейк|шкафчик|полотенц|заточк|хранение|инструктор|подкатк|абонемент|месяц|30 дн') { continue }
+    $candidate = New-StructuredCandidate $number $false $rowText $PageUrl 8
+    if ($null -ne $candidate) { $result += $candidate }
+  }
+  return @($result | Sort-Object @{ Expression = { $_.Score }; Descending = $true }, @{ Expression = { $_.Price }; Descending = $false })
+}
+
 function Get-PriceCandidates([string]$Text, [string]$PageUrl) {
   if (-not $Text) { return @() }
   $candidates = @()
@@ -160,12 +249,13 @@ function Get-PriceCandidates([string]$Text, [string]$PageUrl) {
     $isFrom = $hasRange -or ($before -match '(?i)\bот\s*$') -or ($context -match '(?i)от\s+\d{2,5}\s*[-–—]')
     $score = 4
     if ($PageUrl -match '(?i)ticket|bilet|price|cena|tarif|стоимост|билет|цена|тариф') { $score += 2 }
-    if ($lower -match 'взросл') { $score += 2 }
+    if ($lower -match 'взросл') { $score += 4 }
     if ($lower -match 'вход|билет|тариф|стоимост|цен[аы]|прайс') { $score += 2 }
     if ($lower -match 'средний чек') { $score += 1 }
     if ($lower -match 'официальн|прайс|прейскурант') { $score += 1 }
     if ($perMinute -gt 0) { $score += 2 }
     $rawQuote = Get-PriceClause $Text $m.Index $m.Length
+    if ($rawQuote -match '(?i)льготн|детск|школьн|студенч|пенсион' -and $rawQuote -notmatch '(?i)взросл') { continue }
     $currencyCount = ([regex]::Matches($rawQuote, '(?i)₽|руб(?:лей|ля)?\b|руб\.|р\.')).Count
     $quote = Clean-PriceQuote $rawQuote
     $candidates += [pscustomobject]@{
@@ -201,7 +291,12 @@ function Get-PricePageData([string]$Url) {
     return $entry
   }
   $text = ConvertTo-PriceText $html
-  $candidates = @(Get-PriceCandidates $text $Url)
+  $candidates = @(Get-StructuredPriceCandidates $html $Url) + @(Get-PriceCandidates $text $Url)
+  $seenCandidates = @{}
+  $candidates = @($candidates | Where-Object {
+    $key = "$($_.Price)|$($_.UnitKind)"
+    if ($seenCandidates.ContainsKey($key)) { $false } else { $seenCandidates[$key] = $true; $true }
+  })
   $links = @(Get-PricePageLinks $html $Url)
   $entry = [pscustomobject]@{
     fetchedAt = $Now.ToString('yyyy-MM-ddTHH:mm:sszzz')
@@ -226,7 +321,7 @@ function Select-BestPriceCandidate($Candidates, [string]$Category, [int]$MinScor
     } elseif ($Category -in @('games','active')) {
       if ($c.UnitKind -notin @('hour','person','ticket','entry','visit')) { continue }
     } elseif ($Category -in @('culture','movie','walk')) {
-      if ($c.UnitKind -notin @('ticket','entry','session','person')) { continue }
+      if ($c.UnitKind -notin @('ticket','entry','session','person','visit')) { continue }
     }
     if ($c.Score -lt $MinScore) { continue }
     $allowed += $c
@@ -310,7 +405,10 @@ function Set-DiscoveredPlacePrice($Place, $Candidate, [string]$Origin, [string]$
     'Price from the link in the post. Check before you go.'
   }
   Set-DiscoveredField $Place 'priceNote' ([ordered]@{ ru = $noteRu; en = $noteEn })
+  $sourceInfo = Get-PriceSourceInfo ([string]$Candidate.PageUrl)
   Set-DiscoveredField $Place 'priceSource' ([string]$Candidate.PageUrl)
+  Set-DiscoveredField $Place 'priceSourceType' $sourceInfo.Kind
+  Set-DiscoveredField $Place 'priceSourceLabel' $sourceInfo.Label
   Set-DiscoveredField $Place 'priceCheckedAt' ([string]$Candidate.CheckedAt)
   Set-DiscoveredField $Place 'priceConfidence' $Confidence
   Set-DiscoveredField $Place 'priceOrigin' $Origin
@@ -331,6 +429,26 @@ function Save-PriceCache([string]$Path) {
   $pages = [ordered]@{}
   foreach ($key in $script:PriceCache.Keys) { $pages[$key] = $script:PriceCache[$key] }
   Save-Json ([ordered]@{ updatedAt = $Now.ToString('yyyy-MM-ddTHH:mm:sszzz'); pages = $pages }) $Path
+}
+
+function Get-PriceSitemapLinks([string]$Website) {
+  if (-not $Website) { return @() }
+  $baseHost = Get-UrlHost $Website
+  $links = @()
+  foreach ($path in @('/sitemap.xml', '/sitemap_index.xml', '/sitemap-pages.xml')) {
+    try { $base = ([Uri]::new([Uri]$Website, $path)).AbsoluteUri } catch { continue }
+    $xml = Get-RemoteText $base
+    if (-not $xml) { continue }
+    foreach ($m in [regex]::Matches($xml, '(?is)<loc>\s*([^<]+?)\s*</loc>')) {
+      $url = [Net.WebUtility]::HtmlDecode($m.Groups[1].Value.Trim())
+      if ((Get-UrlHost $url) -ne $baseHost) { continue }
+      if ($url -notmatch '(?i)ticket|bilet|price|cena|tarif|menu|билет|цена|тариф|стоимост|прайс|меню|uslug|посещ') { continue }
+      if ($links -notcontains $url) { $links += $url }
+      if ($links.Count -ge 6) { break }
+    }
+    if ($links.Count -ge 6) { break }
+  }
+  return $links
 }
 
 function Invoke-PriceDiscovery {
@@ -390,7 +508,10 @@ function Invoke-PriceDiscovery {
           $confidence = if ($best.Score -ge 11) { 'verified' } else { 'high' }
           Set-DiscoveredField $signal 'price' ([int]$best.Price)
           Set-DiscoveredField $signal 'priceUnit' ([ordered]@{ ru = $best.UnitRu; en = $best.UnitEn })
+          $sourceInfo = Get-PriceSourceInfo ([string]$best.PageUrl)
           Set-DiscoveredField $signal 'priceSource' ([string]$best.PageUrl)
+          Set-DiscoveredField $signal 'priceSourceType' $sourceInfo.Kind
+          Set-DiscoveredField $signal 'priceSourceLabel' $sourceInfo.Label
           Set-DiscoveredField $signal 'priceCheckedAt' ([string]$Now.ToString('yyyy-MM-ddTHH:mm:sszzz'))
           Set-DiscoveredField $signal 'priceQuote' ([string]$best.Quote)
           Set-DiscoveredField $signal 'priceOrigin' 'post-link'
@@ -423,7 +544,10 @@ function Invoke-PriceDiscovery {
         if ($best.Score -ge 9 -and (Test-AutoPriceCandidate $best)) {
           Set-DiscoveredField $signal 'price' ([int]$best.Price)
           Set-DiscoveredField $signal 'priceUnit' ([ordered]@{ ru = $best.UnitRu; en = $best.UnitEn })
+          $sourceInfo = Get-PriceSourceInfo ([string]$best.PageUrl)
           Set-DiscoveredField $signal 'priceSource' ([string]$best.PageUrl)
+          Set-DiscoveredField $signal 'priceSourceType' $sourceInfo.Kind
+          Set-DiscoveredField $signal 'priceSourceLabel' $sourceInfo.Label
           Set-DiscoveredField $signal 'priceCheckedAt' ([string]$Now.ToString('yyyy-MM-ddTHH:mm:sszzz'))
           Set-DiscoveredField $signal 'priceQuote' ([string]$best.Quote)
           Set-DiscoveredField $signal 'priceOrigin' 'post-link'
@@ -460,7 +584,15 @@ function Invoke-PriceDiscovery {
       if ($null -eq $homePage) { continue }
       $allCandidates = @($homePage.candidates)
       $homeHost = Get-UrlHost ([string]$place.website)
-      foreach ($link in @($homePage.links | Where-Object { (Get-UrlHost $_) -eq $homeHost } | Select-Object -First 2)) {
+      $extraLinks = @(Get-PriceSitemapLinks ([string]$place.website))
+      if ($extraLinks.Count -eq 0) {
+        foreach ($path in @('/tickets', '/price', '/ceny')) {
+          try { $extraLinks += ([Uri]::new([Uri]$place.website, $path)).AbsoluteUri } catch {}
+        }
+      }
+      $pageLinks = @($homePage.links | Where-Object { (Get-UrlHost $_) -eq $homeHost } | Select-Object -First 3)
+      $pageLinks += @($extraLinks | Select-Object -First 4)
+      foreach ($link in @($pageLinks | Select-Object -Unique)) {
         $page = Get-PricePageData $link
         if ($null -ne $page) { $allCandidates += $page.candidates }
       }

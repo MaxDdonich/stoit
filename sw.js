@@ -1,11 +1,11 @@
 /* СТОИТ — офлайн-кэш сайта. */
-const CACHE = "stoit-v51";
+const CACHE = "stoit-v52";
 const SHELL = [
   "./",
   "index.html",
-  "assets/app.css?v=51",
+  "assets/app.css?v=52",
   "assets/config.js?v=1",
-  "assets/app.js?v=51",
+  "assets/app.js?v=52",
   "assets/favicon.svg",
   "assets/icon-192.png",
   "assets/icon-512.png",

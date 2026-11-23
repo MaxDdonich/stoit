@@ -1,0 +1,80 @@
+{
+  "sources": [
+    {
+      "id": "official",
+      "trust": "A",
+      "kind": "official",
+      "description": "Официальный сайт заведения"
+    },
+    {
+      "id": "ticketland",
+      "trust": "B",
+      "kind": "operator",
+      "hosts": ["ticketland.ru", "www.ticketland.ru"],
+      "description": "Официальный билетный оператор"
+    },
+    {
+      "id": "afisha",
+      "trust": "B",
+      "kind": "operator",
+      "hosts": ["afisha.ru", "www.afisha.ru", "afisha.yandex.ru"],
+      "description": "Афиша и билетный оператор"
+    },
+    {
+      "id": "kassir",
+      "trust": "B",
+      "kind": "operator",
+      "hosts": ["kassir.ru", "msk.kassir.ru"],
+      "description": "Билетный оператор KASSIR.RU"
+    },
+    {
+      "id": "mts-live",
+      "trust": "B",
+      "kind": "operator",
+      "hosts": ["live.mts.ru", "mts.live"],
+      "description": "Билетный оператор MTS Live"
+    },
+    {
+      "id": "kudago",
+      "trust": "C",
+      "kind": "aggregator",
+      "hosts": ["kudago.com", "www.kudago.com"],
+      "description": "Городская афиша"
+    },
+    {
+      "id": "yandex-maps",
+      "trust": "C",
+      "kind": "maps",
+      "hosts": ["yandex.ru", "yandex.com"],
+      "description": "Яндекс Карты: средний чек и тарифы"
+    },
+    {
+      "id": "2gis",
+      "trust": "C",
+      "kind": "maps",
+      "hosts": ["2gis.ru", "2gis.com"],
+      "description": "2ГИС: средний чек и тарифы"
+    },
+    {
+      "id": "restoclub",
+      "trust": "C",
+      "kind": "directory",
+      "hosts": ["restoclub.ru", "www.restoclub.ru"],
+      "description": "Ресторанный справочник"
+    },
+    {
+      "id": "zoon",
+      "trust": "C",
+      "kind": "directory",
+      "hosts": ["zoon.ru", "www.zoon.ru"],
+      "description": "Городской справочник"
+    },
+    {
+      "id": "social",
+      "trust": "D",
+      "kind": "social",
+      "hosts": ["t.me", "instagram.com", "vk.com", "facebook.com"],
+      "description": "Социальные сети и посты"
+    }
+  ]
+}
