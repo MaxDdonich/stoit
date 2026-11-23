@@ -116,6 +116,58 @@ function Get-MediaGallery([string]$Html, [string]$BaseUrl) {
   return $clean
 }
 
+function Get-MediaGalleryLinks([string]$Html, [string]$BaseUrl) {
+  $links = @()
+  if (-not $Html -or -not $BaseUrl) { return @() }
+  $baseHost = Get-UrlHost $BaseUrl
+  foreach ($m in [regex]::Matches($Html, '(?is)<a\b[^>]*href\s*=\s*["'']([^"'']+)["''][^>]*>(.*?)</a>')) {
+    $href = [Net.WebUtility]::HtmlDecode($m.Groups[1].Value.Trim())
+    $anchor = ConvertTo-PriceText $m.Groups[2].Value
+    if ($href -match '^(#|mailto:|tel:|javascript:)') { continue }
+    $absolute = ''
+    try { $absolute = ([Uri]::new([Uri]$BaseUrl, $href)).AbsoluteUri } catch { continue }
+    if ((Get-UrlHost $absolute) -ne $baseHost) { continue }
+    $haystack = ("$absolute $anchor").ToLowerInvariant()
+    if ($haystack -notmatch 'галере|фотогалере|фото|интерьер|gallery|photo') { continue }
+    if ($haystack -match 'logo|icon|avatar|qr') { continue }
+    if ($links -notcontains $absolute) { $links += $absolute }
+    if ($links.Count -ge 3) { break }
+  }
+  return $links
+}
+
+function Get-CommonsGallery([string]$Category, [string]$Name) {
+  $params = ''
+  if ($Category) {
+    $params = 'generator=categorymembers&gcmtitle=' + [Uri]::EscapeDataString("Category:$Category") + '&gcmtype=file&gcmlimit=10'
+  } elseif ($Name) {
+    $params = 'generator=search&gsrsearch=' + [Uri]::EscapeDataString("$Name Москва") + '&gsrnamespace=6&gsrlimit=8'
+  } else {
+    return @()
+  }
+  $url = "https://commons.wikimedia.org/w/api.php?action=query&format=json&prop=imageinfo&iiprop=url%7Cmime&iiurlwidth=1400&$params"
+  $raw = Get-RemoteText $url
+  if (-not $raw) { return @() }
+  try { $doc = $raw | ConvertFrom-Json } catch { return @() }
+  if ($null -eq $doc.query -or $null -eq $doc.query.pages) { return @() }
+  $photos = @()
+  foreach ($prop in $doc.query.pages.PSObject.Properties) {
+    $page = $prop.Value
+    if (-not $page.imageinfo -or -not $page.imageinfo[0]) { continue }
+    $info = $page.imageinfo[0]
+    $mime = [string]$info.mime
+    if ($mime -notmatch '^image/(jpeg|png|webp)$') { continue }
+    $url = [string]$info.thumburl
+    if (-not $url) { $url = [string]$info.url }
+    if (-not $url) { continue }
+    $title = [string]$page.title
+    if ($title -match '(?i)logo|icon|map|plan|scheme|coat|flag|qr|diagram|poster|banner|stamp|symbol') { continue }
+    if (-not $photos.Contains($url)) { $photos += $url }
+    if ($photos.Count -ge 8) { break }
+  }
+  return $photos
+}
+
 function Get-MediaPageData([string]$Url) {
   if (-not $Url) { return $null }
   $entry = $script:MediaCache[$Url]
@@ -127,17 +179,19 @@ function Get-MediaPageData([string]$Url) {
   }
   $html = Get-RemoteText $Url
   if (-not $html) {
-    $entry = [pscustomobject]@{ fetchedAt = $Now.ToString('yyyy-MM-ddTHH:mm:sszzz'); ok = $false; icon = ''; gallery = @() }
+    $entry = [pscustomobject]@{ fetchedAt = $Now.ToString('yyyy-MM-ddTHH:mm:sszzz'); ok = $false; icon = ''; gallery = @(); galleryLinks = @() }
     $script:MediaCache[$Url] = $entry
     return $entry
   }
   $icon = Get-MediaIcon $html $Url
   $gallery = @(Get-MediaGallery $html $Url)
+  $galleryLinks = @(Get-MediaGalleryLinks $html $Url)
   $entry = [pscustomobject]@{
     fetchedAt = $Now.ToString('yyyy-MM-ddTHH:mm:sszzz')
     ok = $true
     icon = $icon
     gallery = $gallery
+    galleryLinks = $galleryLinks
   }
   $script:MediaCache[$Url] = $entry
   return $entry
@@ -232,16 +286,30 @@ function Invoke-MediaDiscovery {
       if ($script:MediaChecked -ge $MaxChecks) { break }
       if (-not $place.website) { continue }
       if (-not (Test-MediaSourceUrl ([string]$place.website))) { continue }
-      if ($place.iconKind -notin @('favicon', '') -and $place.gallery -and @($place.gallery).Count -gt 0) { continue }
+      if ($place.gallery -and @($place.gallery).Count -ge 4) { continue }
       $script:MediaChecked += 1
       $page = Get-MediaPageData ([string]$place.website)
       if ($null -eq $page -or -not $page.ok) { continue }
+      $photos = @($page.gallery)
+      foreach ($galleryLink in @($page.galleryLinks | Select-Object -First 2)) {
+        $subPage = Get-MediaPageData ([string]$galleryLink)
+        if ($null -ne $subPage -and $subPage.ok) { $photos += @($subPage.gallery) }
+      }
+      $galleryLocation = [string]$place.website
+      if ($photos.Count -lt 4) {
+        $commons = @(Get-CommonsGallery ([string]$place.commonsCategory) ([string]$place.name.ru))
+        if ($commons.Count -gt 0) {
+          $photos += $commons
+          $galleryLocation = 'https://commons.wikimedia.org/'
+        }
+      }
+      $photos = @($photos | Where-Object { Test-PhotoUrl ([string]$_) } | Select-Object -Unique | Select-Object -First 12)
       $entry = [ordered]@{
         icon = [string]$page.icon
         iconKind = if ($page.icon) { 'logo' } else { '' }
         iconSource = if ($page.icon) { [string]$place.website } else { '' }
-        gallery = @($page.gallery)
-        gallerySource = if (@($page.gallery).Count -gt 0) { [string]$place.website } else { '' }
+        gallery = $photos
+        gallerySource = if ($photos.Count -gt 0) { $galleryLocation } else { '' }
         updatedAt = $Now.ToString('yyyy-MM-ddTHH:mm:sszzz')
       }
       if ($entry.icon -or @($entry.gallery).Count -gt 0) {
@@ -249,6 +317,34 @@ function Invoke-MediaDiscovery {
         Apply-MediaEntry $place $entry
       }
     }
+  }
+
+  if (-not $SkipNetwork) {
+    $commonsChecked = 0
+    $commonsPlaces = @($Places | Where-Object {
+      $_.commonsCategory -and (-not $_.gallery -or @($_.gallery).Count -lt 3)
+    } | Sort-Object { if ($_.gallery) { @($_.gallery).Count } else { 0 } })
+    foreach ($place in $commonsPlaces) {
+      if ($commonsChecked -ge 8) { break }
+      $commonsChecked += 1
+      $commons = @(Get-CommonsGallery ([string]$place.commonsCategory) ([string]$place.name.ru))
+      Start-Sleep -Milliseconds 650
+      if ($commons.Count -eq 0) { continue }
+      $existing = if ($store.ContainsKey([string]$place.id)) { $store[[string]$place.id] } else { [ordered]@{} }
+      $photos = @($existing.gallery) + @($place.gallery) + $commons
+      $photos = @($photos | Where-Object { Test-PhotoUrl ([string]$_) } | Select-Object -Unique | Select-Object -First 12)
+      $entry = [ordered]@{
+        icon = [string]$existing.icon
+        iconKind = [string]$existing.iconKind
+        iconSource = [string]$existing.iconSource
+        gallery = $photos
+        gallerySource = 'https://commons.wikimedia.org/'
+        updatedAt = $Now.ToString('yyyy-MM-ddTHH:mm:sszzz')
+      }
+      $store[[string]$place.id] = $entry
+      Apply-MediaEntry $place $entry
+    }
+    $script:MediaChecked += $commonsChecked
   }
 
   $mediaOut = [ordered]@{ updatedAt = $Now.ToString('yyyy-MM-ddTHH:mm:sszzz'); places = $store }

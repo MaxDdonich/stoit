@@ -130,13 +130,14 @@ $all = @()
 $seen = @{}
 foreach ($class in $classes) {
   $query = @"
-SELECT ?item ?itemLabel ?coord ?image ?logo ?site WHERE {
+SELECT ?item ?itemLabel ?coord ?image ?logo ?site ?commons WHERE {
   ?item wdt:P31/wdt:P279* wd:$($class.q) .
   ?item wdt:P131 wd:Q649 .
   ?item wdt:P625 ?coord .
   OPTIONAL { ?item wdt:P18 ?image . }
   OPTIONAL { ?item wdt:P154 ?logo . }
   OPTIONAL { ?item wdt:P856 ?site . }
+  OPTIONAL { ?item wdt:P373 ?commons . }
   OPTIONAL { ?item wdt:P576 ?dissolved . }
   FILTER(!BOUND(?dissolved))
   SERVICE wikibase:label { bd:serviceParam wikibase:language "ru,en". }
@@ -163,6 +164,8 @@ SELECT ?item ?itemLabel ?coord ?image ?logo ?site WHERE {
     if ($null -ne $row.image) { $image = ([string]$row.image.value) -replace '^http://', 'https://' }
     $logo = ''
     if ($null -ne $row.logo) { $logo = ([string]$row.logo.value) -replace '^http://', 'https://' }
+    $commonsCategory = ''
+    if ($null -ne $row.commons) { $commonsCategory = [string]$row.commons.value }
     $website = ''
     if ($null -ne $row.site) { $website = ([string]$row.site.value) -replace '^http://', 'https://' }
     $price = $null
@@ -205,6 +208,7 @@ SELECT ?item ?itemLabel ?coord ?image ?logo ?site WHERE {
       lon = $lon
       image = $image
       logo = $logo
+      commonsCategory = $commonsCategory
       website = $website
       source = [ordered]@{ id = 'wikidata'; name = [ordered]@{ ru = 'Wikidata'; en = 'Wikidata' } }
       priceConfidence = 'unknown'

@@ -163,6 +163,7 @@
       "detail.priceMaps": "цена с карт",
       "detail.website": "Сайт заведения",
       "detail.photoSource": "Источник фото",
+      "detail.photos": "Фотографии места",
       "detail.tip": "Совет",
       "detail.deal": "Выгодно",
       "detail.map": "На карте",
@@ -436,6 +437,7 @@
       "detail.priceMaps": "price from maps",
       "detail.website": "Venue website",
       "detail.photoSource": "Photo source",
+      "detail.photos": "Photos of the place",
       "detail.tip": "Tip",
       "detail.deal": "Good deal",
       "detail.map": "On the map",
@@ -1549,7 +1551,7 @@
           <div class="place-visual">
             <div class="place-art">
               <span class="place-emoji" aria-hidden="true">${placeEmoji(place)}</span>
-              ${gallery.length ? `<img class="place-cover" src="${esc(gallery[0])}" data-icon="${esc(place.icon || "")}" data-fallback="${esc(place.iconFallback || "")}" data-fallback2="${esc(place.iconFallback2 || "")}" data-fallback3="${esc(place.iconFallback3 || "")}" alt="" loading="lazy" referrerpolicy="no-referrer" onload="if(!this.dataset.checked){this.dataset.checked='1';if(this.naturalWidth&&this.naturalHeight&&Math.max(this.naturalWidth,this.naturalHeight)<600){if(this.dataset.icon){this.src=this.dataset.icon;this.classList.add('place-cover-logo');}else{this.remove();}}}" onerror="if(this.dataset.fallback){this.src=this.dataset.fallback;this.dataset.fallback=this.dataset.fallback2||'';this.dataset.fallback2=this.dataset.fallback3||'';this.dataset.fallback3='';}else{this.remove()}">` : (place.icon ? `<img class="place-cover place-cover-logo" src="${esc(place.icon)}" data-fallback="${esc(place.iconFallback || "")}" data-fallback2="${esc(place.iconFallback2 || "")}" data-fallback3="${esc(place.iconFallback3 || "")}" alt="" loading="lazy" referrerpolicy="no-referrer" onload="if(this.naturalWidth&&this.naturalWidth<24){this.remove()}" onerror="if(this.dataset.fallback){this.src=this.dataset.fallback;this.dataset.fallback=this.dataset.fallback2||'';this.dataset.fallback2=this.dataset.fallback3||'';this.dataset.fallback3='';}else{this.remove()}">` : "")}
+              ${place.icon ? `<img class="place-logo" src="${esc(place.icon)}" data-fallback="${esc(place.iconFallback || "")}" data-fallback2="${esc(place.iconFallback2 || "")}" data-fallback3="${esc(place.iconFallback3 || "")}" alt="" loading="lazy" referrerpolicy="no-referrer" onload="if(this.naturalWidth&&this.naturalWidth<24){this.remove()}" onerror="if(this.dataset.fallback){this.src=this.dataset.fallback;this.dataset.fallback=this.dataset.fallback2||'';this.dataset.fallback2=this.dataset.fallback3||'';this.dataset.fallback3='';}else{this.remove()}">` : ""}
               <div class="art-top">
                 <span class="pill">${esc(tierLabel(tier))}</span>
                 ${place.hiddenGem ? `<span class="pill pill-accent">${esc(t("badge.hidden"))}</span>` : ""}
@@ -1557,8 +1559,6 @@
               </div>
               <div class="art-bottom">${esc(loc(place.source && place.source.name) || "СТОИТ")} · ${esc(categoryLabel(place.category))}</div>
             </div>
-            ${gallery.length > 1 ? `<div class="gallery-strip">${gallery.map((url, index) => `<button class="gallery-thumb ${index === 0 ? "active" : ""}" type="button" data-gallery-place="${esc(place.id)}" data-gallery-index="${index}"><img src="${esc(url)}" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.parentElement.remove()"></button>`).join("")}</div>` : ""}
-            ${gallery.length && place.gallerySource ? `<a class="gallery-source" href="${esc(place.gallerySource)}" target="_blank" rel="noopener noreferrer">${icon("up")} ${esc(t("detail.photoSource"))}</a>` : ""}
           </div>
           <div class="place-info">
             <span class="kicker"><span class="dot"></span>${esc(categoryLabel(place.category))} · ${esc(tierLabel(tier))}</span>
@@ -1594,6 +1594,15 @@
             <div class="tag-row">${tags.map((tag) => `<span class="pill">${esc(tag)}</span>`).join("")}</div>
           </div>
         </div>
+
+        ${gallery.length ? `<section class="place-gallery">
+          <div class="section-head">
+            <div><h2 class="section-title">${esc(t("detail.photos"))}</h2></div>
+            <span class="tier-count">${gallery.length}</span>
+          </div>
+          <div class="gallery-grid">${gallery.map((url, index) => `<button class="gallery-card" type="button" data-gallery-place="${esc(place.id)}" data-gallery-index="${index}"><img src="${esc(url)}" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.parentElement.remove()"></button>`).join("")}</div>
+          ${place.gallerySource ? `<a class="gallery-source" href="${esc(place.gallerySource)}" target="_blank" rel="noopener noreferrer">${icon("up")} ${esc(t("detail.photoSource"))}</a>` : ""}
+        </section>` : ""}
 
         <div class="place-body">
           <div class="prose">
