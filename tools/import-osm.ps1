@@ -37,7 +37,10 @@ $queries = @(
   @{ name = 'restaurants'; cat = 'food'; limit = 160; q = '[out:json][timeout:70];(nwr["amenity"="restaurant"]["name"](55.57,37.35,55.92,37.95););out center tags 160;' },
   @{ name = 'fastfood';  cat = 'food';  limit = 100; q = '[out:json][timeout:70];(nwr["amenity"="fast_food"]["name"](55.57,37.35,55.92,37.95);nwr["amenity"="food_court"]["name"](55.57,37.35,55.92,37.95);nwr["amenity"="ice_cream"]["name"](55.57,37.35,55.92,37.95););out center tags 100;' },
   @{ name = 'bars';      cat = 'food';  limit = 80;  q = '[out:json][timeout:70];(nwr["amenity"="bar"]["name"](55.57,37.35,55.92,37.95);nwr["amenity"="pub"]["name"](55.57,37.35,55.92,37.95););out center tags 80;' },
-  @{ name = 'active';    cat = 'active'; limit = 200; q = '[out:json][timeout:70];(nwr["leisure"="bowling_alley"]["name"](55.57,37.35,55.92,37.95);nwr["leisure"="trampoline_park"]["name"](55.57,37.35,55.92,37.95);nwr["leisure"="escape_game"]["name"](55.57,37.35,55.92,37.95);nwr["shop"="board_games"]["name"](55.57,37.35,55.92,37.95);nwr["amenity"="karaoke_box"]["name"](55.57,37.35,55.92,37.95);nwr["leisure"="ice_rink"]["name"](55.57,37.35,55.92,37.95);nwr["leisure"="water_park"]["name"](55.57,37.35,55.92,37.95););out center tags 200;' }
+  @{ name = 'active';    cat = 'active'; limit = 200; q = '[out:json][timeout:70];(nwr["leisure"="bowling_alley"]["name"](55.57,37.35,55.92,37.95);nwr["leisure"="trampoline_park"]["name"](55.57,37.35,55.92,37.95);nwr["leisure"="escape_game"]["name"](55.57,37.35,55.92,37.95);nwr["shop"="board_games"]["name"](55.57,37.35,55.92,37.95);nwr["amenity"="karaoke_box"]["name"](55.57,37.35,55.92,37.95);nwr["leisure"="ice_rink"]["name"](55.57,37.35,55.92,37.95);nwr["leisure"="water_park"]["name"](55.57,37.35,55.92,37.95););out center tags 200;' },
+  @{ name = 'culture';   cat = 'culture'; limit = 260; q = '[out:json][timeout:70];(nwr["tourism"="museum"]["name"](55.57,37.35,55.92,37.95);nwr["tourism"="gallery"]["name"](55.57,37.35,55.92,37.95);nwr["amenity"="arts_centre"]["name"](55.57,37.35,55.92,37.95);nwr["amenity"="theatre"]["name"](55.57,37.35,55.92,37.95);nwr["amenity"="cinema"]["name"](55.57,37.35,55.92,37.95);nwr["tourism"="planetarium"]["name"](55.57,37.35,55.92,37.95););out center tags 260;' },
+  @{ name = 'walks';     cat = 'walk'; limit = 180; q = '[out:json][timeout:70];(nwr["leisure"="park"]["name"](55.57,37.35,55.92,37.95);nwr["leisure"="garden"]["name"](55.57,37.35,55.92,37.95);nwr["tourism"="viewpoint"]["name"](55.57,37.35,55.92,37.95);nwr["historic"="manor"]["name"](55.57,37.35,55.92,37.95);nwr["place"="square"]["name"](55.57,37.35,55.92,37.95););out center tags 180;' },
+  @{ name = 'niche';     cat = 'shop'; limit = 180; q = '[out:json][timeout:70];(nwr["shop"="books"]["name"](55.57,37.35,55.92,37.95);nwr["shop"="music"]["name"](55.57,37.35,55.92,37.95);nwr["shop"="antiques"]["name"](55.57,37.35,55.92,37.95);nwr["shop"="second_hand"]["name"](55.57,37.35,55.92,37.95);nwr["shop"="vintage"]["name"](55.57,37.35,55.92,37.95);nwr["shop"="art"]["name"](55.57,37.35,55.92,37.95);nwr["amenity"="marketplace"]["name"](55.57,37.35,55.92,37.95););out center tags 180;' }
 )
 
 function Get-Overpass([string]$Name, [string]$Query) {
@@ -107,7 +110,8 @@ $units = @{
   walk = @{ ru = 'вход'; en = 'entry' };
   games = @{ ru = 'за визит'; en = 'per visit' };
   active = @{ ru = 'за час'; en = 'per hour' };
-  movie = @{ ru = 'за билет'; en = 'per ticket' }
+  movie = @{ ru = 'за билет'; en = 'per ticket' };
+  shop = @{ ru = 'средний чек'; en = 'average bill' }
 }
 $companies = @{
   coffee = @{ ru = '1–3 человека'; en = '1–3 people' };
@@ -117,19 +121,22 @@ $companies = @{
   walk = @{ ru = 'Любая компания'; en = 'Any group' };
   games = @{ ru = '2–6 человек'; en = '2–6 people' };
   active = @{ ru = '2–6 человек'; en = '2–6 people' };
-  movie = @{ ru = '1–4 человека'; en = '1–4 people' }
+  movie = @{ ru = '1–4 человека'; en = '1–4 people' };
+  shop = @{ ru = '1–3 человека'; en = '1–3 people' }
 }
 $tagRu = @{
   coffee = @('кофе', 'свидание'); food = @('поесть', 'с друзьями');
   antikafe = @('настолки', 'с друзьями', 'дождь'); culture = @('культура', 'свидание', 'дождь');
   walk = @('гулять', 'на улице', 'бесплатно'); games = @('с друзьями', 'на компанию', 'дождь');
-  active = @('активность', 'с друзьями'); movie = @('кино', 'дождь', 'свидание')
+  active = @('активность', 'с друзьями'); movie = @('кино', 'дождь', 'свидание');
+  shop = @('покупки', 'небанально', 'свидание')
 }
 $tagEn = @{
   coffee = @('coffee', 'date'); food = @('eat', 'with friends');
   antikafe = @('board games', 'with friends', 'rainy day'); culture = @('culture', 'date', 'rainy day');
   walk = @('walk', 'outdoors', 'free'); games = @('with friends', 'for a group', 'rainy day');
-  active = @('active', 'with friends'); movie = @('cinema', 'rainy day', 'date')
+  active = @('active', 'with friends'); movie = @('cinema', 'rainy day', 'date');
+  shop = @('shopping', 'hidden gem', 'date')
 }
 $getRu = @{
   coffee = @('Кофе и десерт', 'Можно зайти на 20–30 минут', 'Есть шанс найти свободный столик');
@@ -139,7 +146,8 @@ $getRu = @{
   walk = @('Свободный вход', 'Маршрут на 1–3 часа', 'Хорошо в любую погоду, кроме совсем плохой');
   games = @('Час игры или дорожка', 'Компания и азарт', 'Снэки и напитки рядом');
   active = @('Час активности', 'Инструктаж и снаряжение', 'Хорошо для компании');
-  movie = @('Билет в кино', 'Большой экран и звук', 'Попкорн и напитки рядом')
+  movie = @('Билет в кино', 'Большой экран и звук', 'Попкорн и напитки рядом');
+  shop = @('Книги, винил или винтаж', 'Можно найти редкую вещь', 'Хорошо для подарка')
 }
 $getEn = @{
   coffee = @('Coffee and dessert', 'Easy 20–30 minute stop', 'A chance of a free table');
@@ -149,19 +157,34 @@ $getEn = @{
   walk = @('Free entry', 'A 1–3 hour route', 'Good in most weather');
   games = @('An hour of play or a lane', 'Company and competition', 'Snacks and drinks nearby');
   active = @('An hour of activity', 'Briefing and equipment', 'Great for a group');
-  movie = @('A cinema ticket', 'Big screen and sound', 'Popcorn and drinks nearby')
+  movie = @('A cinema ticket', 'Big screen and sound', 'Popcorn and drinks nearby');
+  shop = @('Books, vinyl or vintage', 'A chance to find something rare', 'Good for a gift')
 }
 $hooksRu = @{
   coffee = 'Кофейня в районе {0}'; food = 'Место поесть в районе {0}';
   antikafe = 'Антикафе в районе {0}'; culture = 'Культурное место в районе {0}';
   walk = 'Прогулка в районе {0}'; games = 'Игры и развлечения в районе {0}';
-  active = 'Активность в районе {0}'; movie = 'Кино в районе {0}'
+  active = 'Активность в районе {0}'; movie = 'Кино в районе {0}';
+  shop = 'Книжный, винил или винтаж в районе {0}'
 }
 $hooksEn = @{
   coffee = 'A coffee spot in {0}'; food = 'A place to eat in {0}';
   antikafe = 'An anti-cafe in {0}'; culture = 'A cultural spot in {0}';
   walk = 'A walk in {0}'; games = 'Games and fun in {0}';
-  active = 'Something active in {0}'; movie = 'Cinema in {0}'
+  active = 'Something active in {0}'; movie = 'Cinema in {0}';
+  shop = 'Books, vinyl or vintage in {0}'
+}
+$whatRu = @{
+  coffee = 'Кофейня'; food = 'Кафе или ресторан'; antikafe = 'Антикафе';
+  culture = 'Музей, галерея или театр'; walk = 'Парк или прогулочное место';
+  games = 'Игровое место'; active = 'Активность'; movie = 'Кинотеатр';
+  shop = 'Книжный, виниловый или винтажный магазин'
+}
+$whatEnglish = @{
+  coffee = 'A coffee shop'; food = 'A cafe or restaurant'; antikafe = 'An anti-cafe';
+  culture = 'A museum, gallery or theatre'; walk = 'A park or walking spot';
+  games = 'A games venue'; active = 'An activity'; movie = 'A cinema';
+  shop = 'A book, vinyl or vintage shop'
 }
 
 $all = @()
@@ -222,10 +245,44 @@ foreach ($batch in $queries) {
       $priceNoteRu = 'Цена указана в OpenStreetMap; проверьте перед выходом.'
       $priceNoteEn = 'Price from OpenStreetMap; check before you go.'
     }
-    $hookRu = [string]::Format($hooksRu[$category], $district)
-    $hookEn = [string]::Format($hooksEn[$category], $district)
-    $aboutRu = if ($description) { "$description $name находится по адресу: $address. Цену нужно уточнить на месте или на сайте." } else { "$name — $($hooksRu[$category].ToLowerInvariant()). Адрес: $address. Это карточка из OpenStreetMap: цену и часы работы нужно уточнить перед выходом." }
-    $aboutEn = if ($description) { "$description $name is at $address. Check the price on site or on location." } else { "$name is $($hooksEn[$category].ToLowerInvariant()). Address: $address. This card comes from OpenStreetMap: check the price and opening hours before you go." }
+    $hookRu = if ($district -eq 'Москва') { $hooksRu[$category] -replace ' в районе \{0\}', ' в Москве' } else { [string]::Format($hooksRu[$category], $district) }
+    $hookEn = if ($district -eq 'Москва') { $hooksEn[$category] -replace ' in \{0\}', ' in Moscow' } else { [string]::Format($hooksEn[$category], $district) }
+    $whereRu = if ($district -eq 'Москва') { 'в Москве' } else { "в районе $district" }
+    $whereEn = if ($district -eq 'Москва') { 'in Moscow' } else { "in $district" }
+    $addressRu = if ($address -eq 'Москва') { 'Адрес уточните на карте.' } else { "Адрес: $address." }
+    $addressEn = if ($address -eq 'Москва') { 'Check the address on the map.' } else { "Address: $address." }
+    $what = switch ($category) {
+      'coffee' { 'Кофейня' } 'food' { 'Кафе или ресторан' } 'antikafe' { 'Антикафе' }
+      'culture' { 'Музей, галерея или театр' } 'walk' { 'Парк или прогулочное место' }
+      'games' { 'Игровое место' } 'active' { 'Активность' } 'movie' { 'Кинотеатр' }
+      'shop' { 'Книжный, виниловый или винтажный магазин' } default { 'Городское место' }
+    }
+    $whatEnglish = switch ($category) {
+      'coffee' { 'A coffee shop' } 'food' { 'A cafe or restaurant' } 'antikafe' { 'An anti-cafe' }
+      'culture' { 'A museum, gallery or theatre' } 'walk' { 'A park or walking spot' }
+      'games' { 'A games venue' } 'active' { 'An activity' } 'movie' { 'A cinema' }
+      'shop' { 'A book, vinyl or vintage shop' } default { 'A city place' }
+    }
+    if ($category -eq 'shop') {
+      $shopTag = Tag $el.tags 'shop'
+      $amenityTag = Tag $el.tags 'amenity'
+      if ($amenityTag -eq 'marketplace') {
+        $what = 'Рынок'; $whatEnglish = 'A market'
+      } else {
+        switch ($shopTag) {
+          'books' { $what = 'Книжный магазин'; $whatEnglish = 'A bookshop' }
+          'music' { $what = 'Магазин винила и музыки'; $whatEnglish = 'A vinyl and music shop' }
+          'antiques' { $what = 'Антикварный магазин'; $whatEnglish = 'An antique shop' }
+          'second_hand' { $what = 'Секонд-хенд'; $whatEnglish = 'A second-hand shop' }
+          'vintage' { $what = 'Винтажный магазин'; $whatEnglish = 'A vintage shop' }
+          'art' { $what = 'Арт-галерея или салон'; $whatEnglish = 'An art gallery or salon' }
+        }
+      }
+      $hookRu = "$what в Москве"
+      $hookEn = "$whatEnglish in Moscow"
+    }
+    $aboutRu = if ($description) { "$description $name — $($what.ToLowerInvariant()) $whereRu. $addressRu Цену и часы работы лучше уточнить на сайте заведения." } else { "$name — $($what.ToLowerInvariant()) $whereRu. $addressRu Это карточка из OpenStreetMap: цену и часы работы уточняйте перед выходом." }
+    $aboutEn = if ($description) { "$description $name is $($whatEnglish.ToLowerInvariant()) $whereEn. $addressEn Check the price and opening hours on the venue website." } else { "$name is $($whatEnglish.ToLowerInvariant()) $whereEn. $addressEn This card comes from OpenStreetMap: check the price and opening hours before you go." }
 
     $lat = $el.lat
     $lon = $el.lon
@@ -235,7 +292,7 @@ foreach ($batch in $queries) {
       id = "osm-$($el.type)-$($el.id)"
       name = [ordered]@{ ru = $name; en = $name }
       category = $category
-      emoji = switch ($category) { 'coffee' {'☕️'} 'food' {'🍲'} 'antikafe' {'🛋'} 'culture' {'🖼'} 'walk' {'🌳'} 'games' {'🎮'} 'active' {'🎳'} 'movie' {'🎬'} default {'✨'} }
+      emoji = switch ($category) { 'coffee' {'☕️'} 'food' {'🍲'} 'antikafe' {'🛋'} 'culture' {'🖼'} 'walk' {'🌳'} 'games' {'🎮'} 'active' {'🎳'} 'movie' {'🎬'} 'shop' {'🛍'} default {'✨'} }
       price = $price
       priceApprox = $approx
       priceFrom = $false
@@ -256,7 +313,9 @@ foreach ($batch in $queries) {
       indoor = ($category -ne 'walk')
       badge = $null
       hook = [ordered]@{ ru = $hookRu; en = $hookEn }
+      what = [ordered]@{ ru = $what; en = $whatEnglish }
       about = [ordered]@{ ru = $aboutRu; en = $aboutEn }
+      hiddenGem = ($category -in @('shop', 'games', 'antikafe'))
       whatYouGet = [ordered]@{ ru = $getRu[$category]; en = $getEn[$category] }
       tip = [ordered]@{ ru = 'Перед выходом проверьте стоимость и часы работы на сайте заведения.'; en = 'Check the cost and opening hours on the venue website before you go.' }
       deal = $null
@@ -274,7 +333,7 @@ foreach ($batch in $queries) {
 }
 
 # Квоты по категориям, чтобы не отдать всё одним кафе.
-$quotas = @{ coffee = 140; food = 260; antikafe = 40; games = 70; active = 70 }
+$quotas = @{ coffee = 140; food = 260; antikafe = 40; games = 70; active = 70; culture = 220; walk = 140; shop = 120 }
 $selected = @()
 foreach ($cat in $quotas.Keys) {
   $pool = @($all | Where-Object { $_.category -eq $cat })

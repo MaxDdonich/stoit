@@ -34,7 +34,7 @@ if ($Force -or (Test-Stale $WikiPath 7)) {
 
 try {
   if ($Force) {
-    & (Join-Path $PSScriptRoot 'collect.ps1') -MaxPriceChecks 24 -MaxSignalPriceChecks 24
+    & (Join-Path $PSScriptRoot 'collect.ps1') -MaxPriceChecks 48 -MaxSignalPriceChecks 48
   } else {
     & (Join-Path $PSScriptRoot 'collect.ps1')
   }

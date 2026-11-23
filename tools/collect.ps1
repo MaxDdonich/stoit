@@ -7,8 +7,8 @@ param(
   [int]$MaxSignals = 80,
   [switch]$Force,
   [switch]$NoPriceSearch,
-  [int]$MaxPriceChecks = 12,
-  [int]$MaxSignalPriceChecks = 15
+  [int]$MaxPriceChecks = 24,
+  [int]$MaxSignalPriceChecks = 24
 )
 
 $ErrorActionPreference = 'Stop'
@@ -612,6 +612,40 @@ if ($null -ne $wikiMeta -and $null -ne $wikiMeta.places) {
     lastSync = [string]$wikiMeta.updatedAt
     note = [ordered]@{ ru = 'Wikidata, CC0. Цены не выдумываются: если тарифа нет в источнике, указано «цена не указана».'; en = 'Wikidata, CC0. Prices are not invented: if the source has no tariff, the card says the price is not listed.' }
   }
+}
+
+# ---------- описание, качество и «небанальность» ----------
+$whatRu = @{
+  coffee = 'Кофейня'; food = 'Кафе или ресторан'; antikafe = 'Антикафе';
+  culture = 'Музей, галерея или театр'; walk = 'Парк или прогулочное место';
+  games = 'Игровое место'; active = 'Активность'; movie = 'Кинотеатр';
+  shop = 'Книжный, виниловый или винтажный магазин'; event = 'Городское событие'
+}
+$whatEn = @{
+  coffee = 'A coffee shop'; food = 'A cafe or restaurant'; antikafe = 'An anti-cafe';
+  culture = 'A museum, gallery or theatre'; walk = 'A park or walking spot';
+  games = 'A games venue'; active = 'An activity'; movie = 'A cinema';
+  shop = 'A book, vinyl or vintage shop'; event = 'A city event'
+}
+$nicheName = 'музей|галере|мастерск|винил|книжн|антиквар|барахолк|винтаж|рекорд|букинист|лектор|квартирник|скалодром|картинг|лазертаг|настол|антикафе|квест'
+foreach ($p in $allPlaces) {
+  $category = [string]$p.category
+  if (-not $p.what -or -not $p.what.ru) {
+    Set-PlaceField $p 'what' ([ordered]@{ ru = $whatRu[$category]; en = $whatEn[$category] })
+  }
+  $tagsRu = @()
+  if ($p.tags -and $p.tags.ru) { $tagsRu = @($p.tags.ru) }
+  $hidden = ($category -in @('shop', 'games', 'antikafe')) -or ($tagsRu -contains 'небанально') -or (([string]$p.name.ru).ToLowerInvariant() -match $nicheName)
+  Set-PlaceField $p 'hiddenGem' ([bool]$hidden)
+  $hasCoords = ($null -ne $p.lat -and $null -ne $p.lon)
+  $addressText = [string]$p.address.ru
+  $hasRealAddress = $addressText -and $addressText -ne 'Москва' -and $addressText -ne 'Moscow'
+  $hasSite = -not [string]::IsNullOrWhiteSpace([string]$p.website)
+  $verified = ([string]$p.source.id -eq 'seed') -or ($hasCoords -and ($hasRealAddress -or $hasSite))
+  Set-PlaceField $p 'verified' ([bool]$verified)
+  $sourceId = [string]$p.source.id
+  $descSource = switch ($sourceId) { 'seed' { 'редакция' } 'osm' { 'OpenStreetMap' } 'wikidata' { 'Wikidata' } default { 'СТОИТ' } }
+  Set-PlaceField $p 'descriptionSource' $descSource
 }
 
 # ---------- проверенные цены ----------

@@ -278,17 +278,33 @@ function Get-TextUrls([string]$Text) {
   return $urls
 }
 
-function Set-DiscoveredPlacePrice($Place, $Candidate, [string]$Origin, [string]$Confidence) {
-  Set-DiscoveredField $Place 'price' ([int]$Candidate.Price)
+function Set-DiscoveredPlacePrice($Place, $Candidate, [string]$Origin, [string]$Confidence, $Range = $null) {
+  $price = [int]$Candidate.Price
+  $from = [bool]$Candidate.IsFrom
+  $range = $Range
+  if ($null -ne $range -and $range.Count -ge 2) {
+    $min = [int]$range[0]
+    $max = [int]$range[1]
+    if ($max -gt $min) {
+      $price = $min
+      $from = $true
+      Set-DiscoveredField $Place 'priceRange' @($min, $max)
+    }
+  }
+  Set-DiscoveredField $Place 'price' $price
   Set-DiscoveredField $Place 'priceApprox' $false
-  Set-DiscoveredField $Place 'priceFrom' ([bool]$Candidate.IsFrom)
+  Set-DiscoveredField $Place 'priceFrom' $from
   Set-DiscoveredField $Place 'priceUnit' ([ordered]@{ ru = $Candidate.UnitRu; en = $Candidate.UnitEn })
-  $noteRu = if ($Origin -eq 'venue-site') {
+  $noteRu = if ($null -ne $range -and $range.Count -ge 2 -and [int]$range[1] -gt [int]$range[0]) {
+    'На сайте указан диапазон цен за эту услугу. Проверьте перед выходом.'
+  } elseif ($Origin -eq 'venue-site') {
     'Цена с официального сайта. Проверьте перед выходом.'
   } else {
     'Цена по ссылке из поста. Проверьте перед выходом.'
   }
-  $noteEn = if ($Origin -eq 'venue-site') {
+  $noteEn = if ($null -ne $range -and $range.Count -ge 2 -and [int]$range[1] -gt [int]$range[0]) {
+    'The website lists a price range for this service. Check before you go.'
+  } elseif ($Origin -eq 'venue-site') {
     'Price from the venue website. Check before you go.'
   } else {
     'Price from the link in the post. Check before you go.'
@@ -453,8 +469,17 @@ function Invoke-PriceDiscovery {
       $best | Add-Member -NotePropertyName CheckedAt -NotePropertyValue $Now.ToString('yyyy-MM-ddTHH:mm:sszzz') -Force
       if ($best.Score -ge 6 -and (Test-AutoPriceCandidate $best)) {
         $confidence = if ($best.Score -ge 10) { 'verified' } else { 'high' }
-        Set-DiscoveredPlacePrice $place $best 'venue-site' $confidence
-        $applied += [ordered]@{ kind = 'place'; id = $place.id; title = $place.name.ru; price = $best.Price; unit = $best.UnitRu; source = $best.PageUrl; confidence = $confidence }
+        $sameUnit = @($allCandidates | Where-Object {
+          $_.UnitKind -eq $best.UnitKind -and $_.Score -ge 6 -and $_.Price -ge 50 -and $_.Price -le 30000
+        } | Sort-Object Price)
+        $range = @()
+        if ($sameUnit.Count -ge 2) {
+          $minPrice = [int]$sameUnit[0].Price
+          $maxPrice = [int]$sameUnit[$sameUnit.Count - 1].Price
+          if ($maxPrice -gt $minPrice * 1.15) { $range = @($minPrice, $maxPrice) }
+        }
+        Set-DiscoveredPlacePrice $place $best 'venue-site' $confidence $range
+        $applied += [ordered]@{ kind = 'place'; id = $place.id; title = $place.name.ru; price = $best.Price; unit = $best.UnitRu; source = $best.PageUrl; confidence = $confidence; range = $range }
       } else {
         $review += [ordered]@{ kind = 'place'; id = $place.id; title = $place.name.ru; price = $best.Price; unit = $best.UnitRu; score = $best.Score; source = $best.PageUrl; quote = $best.Quote }
       }

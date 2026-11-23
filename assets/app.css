@@ -783,6 +783,8 @@ button { cursor: pointer; }
 }
 .page-head p { margin: 0; max-width: 620px; color: var(--muted); font-size: 14px; }
 .page-head .page-note { margin-top: 10px; max-width: 640px; color: var(--faint); font-size: 11.5px; }
+.linkish { padding: 0; border: 0; background: none; color: var(--accent-2); font: inherit; text-decoration: underline; text-underline-offset: 2px; cursor: pointer; }
+.linkish:hover { color: var(--text); }
 
 .catalog {
   width: 100%;

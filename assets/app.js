@@ -19,7 +19,7 @@
     lang: "ru",
     theme: "dark",
     saved: [],
-    filters: { cats: [], moods: [], minPrice: 0, maxPrice: null, q: "", sort: "price", knownOnly: true },
+    filters: { cats: [], moods: [], districts: [], minPrice: 0, maxPrice: null, q: "", sort: "price", knownOnly: true, verifiedOnly: false, hiddenOnly: false },
     visibleCount: 12,
     refreshing: false,
     server: false,
@@ -76,6 +76,7 @@
       "cat.culture": "Культура",
       "cat.walk": "Прогулки",
       "cat.movie": "Кино",
+      "cat.shop": "Магазины",
       "cat.event": "События",
       "home.picks.kicker": "на сегодня",
       "home.picks.title": "Выбор дня",
@@ -96,12 +97,18 @@
       "places.title": "Места и идеи",
       "places.sub": "Фильтруйте по бюджету, категории и настроению. Цены — за конкретную услугу.",
       "places.priceCoverage": "С подтверждённой ценой: {priced} из {total}. Чтобы увидеть все места, выключите «Только с ценой».",
-      "places.priceCoverageAll": "Показаны все {total} мест. С подтверждённой ценой: {priced}.",
+      "places.priceCoverageAll": "Показаны все места: {total}. С подтверждённой ценой: {priced}.",
+      "places.showAll": "Показать все {total}",
+      "places.pricedOnly": "Только с ценой",
       "filters.title": "Фильтры",
       "filters.budget": "Бюджет",
       "filters.price": "Цена",
       "filters.priced": "Только с ценой",
       "filters.category": "Категория",
+      "filters.district": "Район",
+      "filters.quality": "Качество",
+      "filters.verified": "Только проверенные",
+      "filters.hidden": "Небанальные",
       "filters.mood": "Настроение",
       "filters.multi": "можно несколько",
       "filters.customBudget": "Свой бюджет",
@@ -139,6 +146,8 @@
       "price.unit.drink": "за напиток",
       "price.unit.time": "за время",
       "detail.back": "Назад в каталог",
+      "detail.what": "Что это",
+      "badge.hidden": "небанально",
       "detail.about": "Почему стоит",
       "detail.get": "Что получите",
       "detail.withWhom": "С кем идти",
@@ -336,6 +345,7 @@
       "cat.culture": "Culture",
       "cat.walk": "Walks",
       "cat.movie": "Cinema",
+      "cat.shop": "Shops",
       "cat.event": "Events",
       "home.picks.kicker": "for today",
       "home.picks.title": "Today's picks",
@@ -357,11 +367,17 @@
       "places.sub": "Filter by budget, category and mood. Prices are for a specific service.",
       "places.priceCoverage": "{priced} places with a confirmed price are shown. To see all {total}, turn off “Priced only”.",
       "places.priceCoverageAll": "All {total} places are shown. {priced} have a confirmed price.",
+      "places.showAll": "Show all {total}",
+      "places.pricedOnly": "Priced only",
       "filters.title": "Filters",
       "filters.budget": "Budget",
       "filters.price": "Price",
       "filters.priced": "Priced only",
       "filters.category": "Category",
+      "filters.district": "District",
+      "filters.quality": "Quality",
+      "filters.verified": "Verified only",
+      "filters.hidden": "Hidden gems",
       "filters.mood": "Mood",
       "filters.multi": "pick several",
       "filters.customBudget": "Custom budget",
@@ -399,6 +415,8 @@
       "price.unit.drink": "per drink",
       "price.unit.time": "for time",
       "detail.back": "Back to catalogue",
+      "detail.what": "What it is",
+      "badge.hidden": "hidden gem",
       "detail.about": "Why it's worth it",
       "detail.get": "What you get",
       "detail.withWhom": "Who to bring",
@@ -559,6 +577,7 @@
     culture: "🖼",
     walk: "🌳",
     movie: "🎬",
+    shop: "🛍",
     event: "✨",
   };
 
@@ -673,6 +692,9 @@
   function priceText(place) {
     if (place.price == null) return t("price.tbd");
     if (place.price === 0) return t("price.free");
+    if (Array.isArray(place.priceRange) && place.priceRange.length === 2 && place.priceRange[1] > place.priceRange[0]) {
+      return money(place.priceRange[0]) + "–" + money(place.priceRange[1]);
+    }
     const base = money(place.price);
     if (place.priceFrom) return t("price.from") + " " + base;
     return place.priceApprox ? "≈ " + base : base;
@@ -884,12 +906,15 @@
     const words = f.q.trim() ? normalizeText(f.q).split(" ").filter(Boolean) : [];
     return state.feed.places.filter((p) => {
       if (f.knownOnly && p.price == null) return false;
+      if (f.verifiedOnly && !p.verified) return false;
+      if (f.hiddenOnly && !p.hiddenGem) return false;
       if (!priceFilteredPlace(p, f)) return false;
       if (!options.ignoreCats && f.cats.length && !f.cats.includes(p.category)) return false;
       if (!options.ignoreMoods && f.moods.length) {
         const tags = (p.tags && p.tags.ru) || [];
         if (!f.moods.some((m) => tags.includes(m))) return false;
       }
+      if (!options.ignoreDistricts && f.districts.length && !f.districts.includes(loc(p.district))) return false;
       if (words.length) {
         const haystack = placeSearchText(p);
         if (!words.every((word) => haystack.includes(word))) return false;
@@ -924,6 +949,17 @@
     const counts = { all: base.length };
     base.forEach((p) => {
       ((p.tags && p.tags.ru) || []).forEach((tag) => { counts[tag] = (counts[tag] || 0) + 1; });
+    });
+    return counts;
+  }
+
+  function facetDistrictCounts() {
+    const base = filterCandidates({ ignoreDistricts: true });
+    const counts = { all: base.length };
+    base.forEach((p) => {
+      const district = loc(p.district);
+      if (!district || district === "Москва" || district === "Moscow" || district === "Сеть" || district === "Citywide") return;
+      counts[district] = (counts[district] || 0) + 1;
     });
     return counts;
   }
@@ -1253,12 +1289,18 @@
     state.filters.maxPrice = params.has("max") ? (params.get("max") === "" ? null : Number(params.get("max"))) : null;
     state.filters.minPrice = params.has("min") ? (Number(params.get("min")) || 0) : 0;
     state.filters.knownOnly = params.get("all") !== "1";
+    state.filters.verifiedOnly = params.get("verified") === "1";
+    state.filters.hiddenOnly = params.get("hidden") === "1";
+    state.filters.districts = params.has("district") ? parseList(params.get("district")) : [];
 
     const catCounts = facetCategoryCounts();
     const moodCounts = facetMoodCounts();
+    const districtCounts = facetDistrictCounts();
     const knownCount = state.feed.places.filter((p) => p.price != null).length;
+    const verifiedCount = state.feed.places.filter((p) => p.verified).length;
+    const hiddenCount = state.feed.places.filter((p) => p.hiddenGem).length;
     const allTags = tagPairs();
-    const activeCount = [state.filters.cats.length > 0, state.filters.moods.length > 0, state.filters.maxPrice != null || state.filters.minPrice > 0, !!state.filters.q].filter(Boolean).length;
+    const activeCount = [state.filters.cats.length > 0, state.filters.moods.length > 0, state.filters.districts.length > 0, state.filters.maxPrice != null || state.filters.minPrice > 0, !!state.filters.q, state.filters.verifiedOnly, state.filters.hiddenOnly].filter(Boolean).length;
     const budgetActive = state.filters.maxPrice == null && state.filters.minPrice === 0;
 
     const budgetButtons = [
@@ -1283,13 +1325,22 @@
       filterButton("mood", "all", t("filters.all"), moodCounts.all || 0, state.filters.moods.length === 0),
       ...shownMoods.map((tag) => filterButton("mood", tag.ru, state.lang === "ru" ? tag.ru : tag.en, tag.count, state.filters.moods.includes(tag.ru))),
     ].join("");
+    const districtOptions = Object.entries(districtCounts)
+      .filter(([name]) => name !== "all")
+      .map(([name, count]) => ({ name, count }))
+      .sort((a, b) => b.count - a.count);
+    const shownDistricts = districtOptions.filter((item, index) => index < 12 || state.filters.districts.includes(item.name));
+    const districtButtons = [
+      filterButton("district", "all", t("filters.all"), districtCounts.all || 0, state.filters.districts.length === 0),
+      ...shownDistricts.map((item) => filterButton("district", item.name, item.name, item.count, state.filters.districts.includes(item.name))),
+    ].join("");
 
     view.innerHTML = `
       <div class="page-head">
         <span class="kicker"><span class="dot"></span>${esc(t("places.kicker"))}</span>
         <h1>${esc(t("places.title"))}</h1>
         <p>${esc(t("places.sub"))}</p>
-        <p class="page-note">${esc(t(state.filters.knownOnly ? "places.priceCoverage" : "places.priceCoverageAll", { priced: knownCount, total: state.feed.places.length }))}</p>
+        <p class="page-note">${esc(t(state.filters.knownOnly ? "places.priceCoverage" : "places.priceCoverageAll", { priced: knownCount, total: state.feed.places.length }))} <button class="linkish" type="button" data-filter="known">${esc(state.filters.knownOnly ? t("places.showAll", { total: state.feed.places.length }) : t("places.pricedOnly"))}</button></p>
       </div>
       <div class="catalog">
         <details class="filters" ${window.matchMedia("(max-width: 860px)").matches ? "" : "open"}>
@@ -1311,12 +1362,23 @@
               <div class="filter-list">${filterButton("known", "1", t("filters.priced"), knownCount, state.filters.knownOnly)}</div>
             </div>
             <div class="filter-group">
+              <div class="filter-title">${esc(t("filters.quality"))}</div>
+              <div class="filter-list">
+                ${filterButton("verified", "1", t("filters.verified"), verifiedCount, state.filters.verifiedOnly)}
+                ${filterButton("hidden", "1", t("filters.hidden"), hiddenCount, state.filters.hiddenOnly)}
+              </div>
+            </div>
+            <div class="filter-group">
               <div class="filter-title">${esc(t("filters.category"))} · ${esc(t("filters.multi"))}</div>
               <div class="filter-list">${catButtons}</div>
             </div>
             <div class="filter-group">
               <div class="filter-title">${esc(t("filters.mood"))} · ${esc(t("filters.multi"))}</div>
               <div class="filter-list">${moodButtons}</div>
+            </div>
+            <div class="filter-group">
+              <div class="filter-title">${esc(t("filters.district"))} · ${esc(t("filters.multi"))}</div>
+              <div class="filter-list">${districtButtons}</div>
             </div>
             <button class="reset-btn" type="button" data-filter-reset>${esc(t("filters.reset"))}</button>
           </div>
@@ -1467,6 +1529,7 @@
             <span class="place-emoji" aria-hidden="true">${placeEmoji(place)}</span>
             <div class="art-top">
               <span class="pill">${esc(tierLabel(tier))}</span>
+              ${place.hiddenGem ? `<span class="pill pill-accent">${esc(t("badge.hidden"))}</span>` : ""}
               ${showBadge(place) ? `<span class="pill pill-accent">${esc(loc(place.badge))}</span>` : ""}
             </div>
             <div class="art-bottom">${esc(loc(place.source && place.source.name) || "СТОИТ")} · ${esc(categoryLabel(place.category))}</div>
@@ -1506,8 +1569,10 @@
 
         <div class="place-body">
           <div class="prose">
-            <h2>${esc(t("detail.about"))}</h2>
-            <p class="lead">${esc(loc(place.about))}</p>
+            <h2>${esc(t("detail.what"))}</h2>
+            <p class="lead">${esc(loc(place.what) || loc(place.about))}</p>
+            <h2 style="margin-top:34px">${esc(t("detail.about"))}</h2>
+            <p>${esc(loc(place.about))}</p>
             <h2 style="margin-top:34px">${esc(t("detail.get"))}</h2>
             <ul class="bullets">${((place.whatYouGet && (place.whatYouGet[state.lang] || place.whatYouGet.ru)) || []).map((item) => `<li>${esc(item)}</li>`).join("")}</ul>
             <p class="faint" style="margin-top:30px;font-size:11px">${esc(t("detail.note"))}</p>
@@ -1674,9 +1739,12 @@
     const params = new URLSearchParams();
     if (state.filters.cats.length) params.set("cat", state.filters.cats.join(","));
     if (state.filters.moods.length) params.set("mood", state.filters.moods.join(","));
+    if (state.filters.districts.length) params.set("district", state.filters.districts.join(","));
     if (state.filters.maxPrice != null) params.set("max", String(state.filters.maxPrice));
     if (state.filters.minPrice > 0) params.set("min", String(state.filters.minPrice));
     if (!state.filters.knownOnly) params.set("all", "1");
+    if (state.filters.verifiedOnly) params.set("verified", "1");
+    if (state.filters.hiddenOnly) params.set("hidden", "1");
     if (state.filters.q.trim()) params.set("q", state.filters.q.trim());
     const qs = params.toString();
     const next = "#/places" + (qs ? "?" + qs : "");
@@ -2062,8 +2130,8 @@
       if (filter) {
         const group = filter.getAttribute("data-filter");
         const value = filter.getAttribute("data-value");
-        if (group === "cat" || group === "mood") {
-          const key = group === "cat" ? "cats" : "moods";
+        if (group === "cat" || group === "mood" || group === "district") {
+          const key = group === "cat" ? "cats" : group === "mood" ? "moods" : "districts";
           if (value === "all") state.filters[key] = [];
           else {
             const current = state.filters[key];
@@ -2071,6 +2139,10 @@
           }
         } else if (group === "known") {
           state.filters.knownOnly = !state.filters.knownOnly;
+        } else if (group === "verified") {
+          state.filters.verifiedOnly = !state.filters.verifiedOnly;
+        } else if (group === "hidden") {
+          state.filters.hiddenOnly = !state.filters.hiddenOnly;
         }
         state.visibleCount = 12;
         syncFiltersToUrl();
@@ -2088,7 +2160,7 @@
         return;
       }
       if (target.closest("[data-filter-reset]")) {
-        state.filters = { cats: [], moods: [], minPrice: 0, maxPrice: null, q: "", sort: state.filters.sort, knownOnly: true };
+        state.filters = { cats: [], moods: [], districts: [], minPrice: 0, maxPrice: null, q: "", sort: state.filters.sort, knownOnly: true, verifiedOnly: false, hiddenOnly: false };
         state.visibleCount = 12;
         syncFiltersToUrl();
         renderPlaces();

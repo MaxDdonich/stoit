@@ -123,6 +123,8 @@ $getEn = @{
 }
 $hooksRu = @{ culture = 'Культурное место в Москве'; walk = 'Прогулка по Москве'; active = 'Активность в Москве'; games = 'Игры в Москве'; movie = 'Кино в Москве' }
 $hooksEn = @{ culture = 'A cultural place in Moscow'; walk = 'A Moscow walk'; active = 'Something active in Moscow'; games = 'Games in Moscow'; movie = 'Cinema in Moscow' }
+$whatRu = @{ culture = 'Музей, галерея или театр'; walk = 'Парк или прогулочное место'; active = 'Активность'; games = 'Игровое место'; movie = 'Кинотеатр'; shop = 'Книжный, виниловый или винтажный магазин' }
+$whatEn = @{ culture = 'A museum, gallery or theatre'; walk = 'A park or walking spot'; active = 'An activity'; games = 'A games venue'; movie = 'A cinema'; shop = 'A book, vinyl or vintage shop' }
 
 $all = @()
 $seen = @{}
@@ -185,10 +187,12 @@ SELECT ?item ?itemLabel ?coord ?image ?site WHERE {
       indoor = ($category -ne 'walk')
       badge = $null
       hook = [ordered]@{ ru = $hooksRu[$category]; en = $hooksEn[$category] }
+      what = [ordered]@{ ru = $whatRu[$category]; en = $whatEn[$category] }
       about = [ordered]@{
-        ru = "$label — $($hooksRu[$category].ToLowerInvariant()). Карточка собрана из Wikidata и OpenStreetMap: цену и часы работы нужно уточнить перед выходом."
-        en = "$label is $($hooksEn[$category].ToLowerInvariant()). This card comes from Wikidata and OpenStreetMap: check the price and opening hours before you go."
+        ru = "$label — $($whatRu[$category].ToLowerInvariant()) в Москве. Карточка собрана из Wikidata и OpenStreetMap: адрес, цену и часы работы лучше уточнить перед выходом."
+        en = "$label is $($whatEn[$category].ToLowerInvariant()) in Moscow. This card comes from Wikidata and OpenStreetMap: check the address, price and opening hours before you go."
       }
+      hiddenGem = ($category -eq 'games')
       whatYouGet = [ordered]@{ ru = $getRu[$category]; en = $getEn[$category] }
       tip = [ordered]@{ ru = 'Проверьте цену и часы работы перед выходом.'; en = 'Check the price and opening hours before you go.' }
       deal = $null
