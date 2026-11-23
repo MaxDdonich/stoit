@@ -176,12 +176,12 @@ button { cursor: pointer; }
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 9px;
-  padding: 8px 24px;
+  gap: 10px;
+  padding: 10px 24px;
   border-bottom: 1px solid var(--line);
   background: var(--accent-soft);
   color: var(--accent-2);
-  font-size: 11px;
+  font-size: 12.5px;
   line-height: 1.35;
   text-align: center;
 }
@@ -909,6 +909,19 @@ button { cursor: pointer; }
   outline: none;
 }
 .budget-input-wrap span { color: var(--faint); font-size: 9px; white-space: nowrap; }
+
+/* кастомные стрелки бюджета: включаются только в теме «Рейд» */
+.stepper-btns { display: none; }
+.stepper-btn {
+  display: grid;
+  place-items: center;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--accent);
+  cursor: pointer;
+}
+.stepper-btn:active { transform: translateY(1px); }
 
 .reset-btn {
   width: 100%;

@@ -110,6 +110,8 @@
       "places.pricedOnly": "Только с ценой",
       "filters.title": "Фильтры",
       "filters.budget": "Бюджет",
+      "budget.up": "Увеличить бюджет",
+      "budget.down": "Уменьшить бюджет",
       "filters.price": "Цена",
       "filters.priced": "Только с ценой",
       "filters.category": "Категория",
@@ -389,6 +391,8 @@
       "places.pricedOnly": "Priced only",
       "filters.title": "Filters",
       "filters.budget": "Budget",
+      "budget.up": "Increase budget",
+      "budget.down": "Decrease budget",
       "filters.price": "Price",
       "filters.priced": "Priced only",
       "filters.category": "Category",
@@ -1319,6 +1323,17 @@
     return `<button class="filter-btn ${active ? "active" : ""}" type="button" data-budget-min="${min}" data-budget-max="${max == null ? "" : max}" aria-pressed="${active}"><span>${esc(label)}</span></button>`;
   }
 
+  function stepperButtons(targetId, step) {
+    return `<div class="stepper-btns">
+      <button class="stepper-btn" type="button" data-step-target="${esc(targetId)}" data-step="${step}" data-step-dir="1" aria-label="${esc(t("budget.up"))}" title="${esc(t("budget.up"))}">
+        <svg viewBox="0 0 7 4" width="7" height="4" aria-hidden="true" fill="currentColor" shape-rendering="crispEdges"><rect x="3" y="0" width="1" height="1"/><rect x="2" y="1" width="3" height="1"/><rect x="1" y="2" width="5" height="1"/><rect x="0" y="3" width="7" height="1"/></svg>
+      </button>
+      <button class="stepper-btn" type="button" data-step-target="${esc(targetId)}" data-step="${step}" data-step-dir="-1" aria-label="${esc(t("budget.down"))}" title="${esc(t("budget.down"))}">
+        <svg viewBox="0 0 7 4" width="7" height="4" aria-hidden="true" fill="currentColor" shape-rendering="crispEdges"><rect x="0" y="0" width="7" height="1"/><rect x="1" y="1" width="5" height="1"/><rect x="2" y="2" width="3" height="1"/><rect x="3" y="3" width="1" height="1"/></svg>
+      </button>
+    </div>`;
+  }
+
   function sortLabel(value) {
     if (value === "rating") return t("sort.rating");
     if (value === "name") return t("sort.name");
@@ -1403,6 +1418,7 @@
                 <label for="budget-max">${esc(t("filters.customBudget"))}</label>
                 <div class="budget-input-wrap">
                   <input type="number" id="budget-max" min="0" step="50" inputmode="numeric" placeholder="500" value="${state.filters.maxPrice != null ? state.filters.maxPrice : ""}">
+          ${stepperButtons("budget-max", 50)}
                   <span>₽ ${esc(t("filters.perPerson"))}</span>
                 </div>
               </div>
@@ -1470,6 +1486,51 @@
         ? `<div class="grid-3">${shown.map((p) => placeCard(p)).join("")}</div>
            ${list.length > shown.length ? `<div class="load-more"><button class="btn" type="button" data-load-more>${esc(t("results.more"))} · ${list.length - shown.length}</button></div>` : ""}`
         : `<div class="empty-state"><span class="emoji">🔎</span><h2>${esc(t("results.noneTitle"))}</h2><p>${esc(t("results.noneText"))}</p><button class="btn" type="button" data-filter-reset>${esc(t("results.reset"))}</button></div>`}`;
+  }
+
+  function updateBudgetButtons() {
+    $$("[data-budget-min]").forEach((btn) => {
+      const min = Number(btn.getAttribute("data-budget-min")) || 0;
+      const maxRaw = btn.getAttribute("data-budget-max");
+      const max = maxRaw === "" ? null : Number(maxRaw);
+      const active = min === state.filters.minPrice &&
+        (maxRaw === "" ? state.filters.maxPrice == null : max === state.filters.maxPrice);
+      btn.classList.toggle("active", active);
+      btn.setAttribute("aria-pressed", String(active));
+    });
+  }
+
+  function refreshFacetCounts() {
+    const cat = facetCategoryCounts();
+    const mood = facetMoodCounts();
+    const district = facetDistrictCounts();
+    $$('[data-filter="cat"]').forEach((btn) => {
+      const n = btn.querySelector(".n");
+      if (n) n.textContent = String(cat[btn.getAttribute("data-value")] || 0);
+    });
+    $$('[data-filter="mood"]').forEach((btn) => {
+      const n = btn.querySelector(".n");
+      if (n) n.textContent = String(mood[btn.getAttribute("data-value")] || 0);
+    });
+    $$('[data-filter="district"]').forEach((btn) => {
+      const n = btn.querySelector(".n");
+      if (n) n.textContent = String(district[btn.getAttribute("data-value")] || 0);
+    });
+  }
+
+  // Пересчитываем только результаты и счётчики — фильтры и поле бюджета остаются на месте.
+  function applyBudgetView() {
+    state.visibleCount = 12;
+    syncFiltersToUrl();
+    updateBudgetButtons();
+    refreshFacetCounts();
+    renderCatalogResults();
+  }
+
+  let budgetTimer = null;
+  function queueBudgetView(delay = 180) {
+    clearTimeout(budgetTimer);
+    budgetTimer = setTimeout(applyBudgetView, delay);
   }
 
   function renderSources() {
@@ -1757,8 +1818,10 @@
     document.title = title;
   }
 
-  function decorateCards() {
+  function decorateCards(animate = true) {
+    if (!animate) return;
     $$(".grid-3 > .card, .feature").slice(0, 12).forEach((el, index) => {
+      el.classList.add("is-enter");
       el.style.setProperty("--enter-delay", (index * 28) + "ms");
     });
   }
@@ -1998,13 +2061,22 @@
       </div>`;
   }
 
-  function renderPlanModal() {
+  function planBodyHtml(plan, total, within) {
+    if (plan && plan.steps.length) {
+      return `<div class="plan-list">${plan.steps.map(planStepCard).join("")}</div>
+             <div class="plan-total"><span>${esc(t("plan.total"))} · ${esc(t("plan.perPerson"))} · ${esc(within ? t("plan.within") : t("plan.over"))}</span><strong>${esc(money(total))}</strong></div>`;
+    }
+    return `<p class="muted" style="padding:22px 0">${esc(t("plan.empty"))}</p>`;
+  }
+
+  function renderPlanModal(options = {}) {
     if (!state.plan) state.plan = { budget: 1000, attempt: 0, party: "any", nonce: 0 };
     const { budget, attempt, party = "any", nonce = 0 } = state.plan;
     const plan = buildPlan(budget, attempt, party, nonce);
     if (plan && plan.steps.length) rememberPlan(plan.steps);
     const total = plan ? plan.total : 0;
     const within = budget === 0 || total <= budget;
+    const body = planBodyHtml(plan, total, within);
     const budgets = [
       { value: 500, label: "500 ₽" },
       { value: 1000, label: "1 000 ₽" },
@@ -2012,6 +2084,24 @@
       { value: 0, label: t("plan.any") },
     ];
     const parties = ["any", "friends", "date", "solo", "family"];
+
+    const existing = modalRoot.querySelector(".modal");
+    if (options.update && existing) {
+      $$("[data-plan-budget]", existing).forEach((btn) => {
+        const active = Number(btn.getAttribute("data-plan-budget")) === budget;
+        btn.classList.toggle("active", active);
+        btn.setAttribute("aria-pressed", String(active));
+      });
+      $$("[data-plan-party]", existing).forEach((btn) => {
+        const active = btn.getAttribute("data-plan-party") === party;
+        btn.classList.toggle("active", active);
+        btn.setAttribute("aria-pressed", String(active));
+      });
+      const bodyEl = existing.querySelector("#plan-body");
+      if (bodyEl) bodyEl.innerHTML = body;
+      return;
+    }
+
     openModal(`
       <div class="modal" role="dialog" aria-modal="true" aria-labelledby="plan-title">
         <div class="modal-head">
@@ -2024,23 +2114,21 @@
         </div>
         <div class="filter-title" style="margin-top:18px">${esc(t("plan.budget"))}</div>
         <div class="plan-budget" role="group" aria-label="${esc(t("plan.budget"))}">
-          ${budgets.map((b) => `<button class="chip ${budget === b.value ? "active" : ""}" type="button" data-plan-budget="${b.value}">${esc(b.label)}</button>`).join("")}
+          ${budgets.map((b) => `<button class="chip ${budget === b.value ? "active" : ""}" type="button" data-plan-budget="${b.value}" aria-pressed="${budget === b.value}">${esc(b.label)}</button>`).join("")}
         </div>
         <div class="budget-custom modal-budget">
           <label for="plan-custom-budget">${esc(t("plan.custom"))} · ${esc(t("plan.perPerson"))}</label>
           <div class="budget-input-wrap">
             <input type="number" id="plan-custom-budget" min="0" step="100" inputmode="numeric" placeholder="750" value="${budget > 0 ? budget : ""}">
             <span>₽</span>
+            ${stepperButtons("plan-custom-budget", 100)}
           </div>
         </div>
         <div class="filter-title" style="margin-top:14px">${esc(t("plan.party"))}</div>
         <div class="plan-budget" role="group" aria-label="${esc(t("plan.party"))}">
-          ${parties.map((p) => `<button class="chip ${party === p ? "active" : ""}" type="button" data-plan-party="${p}">${esc(t("party." + p))}</button>`).join("")}
+          ${parties.map((p) => `<button class="chip ${party === p ? "active" : ""}" type="button" data-plan-party="${p}" aria-pressed="${party === p}">${esc(t("party." + p))}</button>`).join("")}
         </div>
-        ${plan && plan.steps.length
-          ? `<div class="plan-list">${plan.steps.map(planStepCard).join("")}</div>
-             <div class="plan-total"><span>${esc(t("plan.total"))} · ${esc(t("plan.perPerson"))} · ${esc(within ? t("plan.within") : t("plan.over"))}</span><strong>${esc(money(total))}</strong></div>`
-          : `<p class="muted" style="padding:22px 0">${esc(t("plan.empty"))}</p>`}
+        <div id="plan-body">${body}</div>
         <div class="plan-actions">
           <button class="btn" type="button" data-plan-again>${icon("refresh")} ${esc(t("plan.again"))}</button>
           <button class="btn btn-primary" type="button" data-close-modal>${esc(t("plan.close"))}</button>
@@ -2247,13 +2335,16 @@
       }
       const planBudget = target.closest("[data-plan-budget]");
       if (planBudget) {
+        const planBudgetValue = Number(planBudget.getAttribute("data-plan-budget"));
         state.plan = {
-          budget: Number(planBudget.getAttribute("data-plan-budget")),
+          budget: planBudgetValue,
           attempt: 0,
           party: state.plan ? state.plan.party : "any",
           nonce: (state.plan ? state.plan.nonce : 0) + 1,
         };
-        renderPlanModal();
+        const planInput = modalRoot.querySelector("#plan-custom-budget");
+        if (planInput) planInput.value = planBudgetValue > 0 ? String(planBudgetValue) : "";
+        renderPlanModal({ update: true });
         return;
       }
       const planParty = target.closest("[data-plan-party]");
@@ -2264,13 +2355,13 @@
           party: planParty.getAttribute("data-plan-party"),
           nonce: (state.plan ? state.plan.nonce : 0) + 1,
         };
-        renderPlanModal();
+        renderPlanModal({ update: true });
         return;
       }
       if (target.closest("[data-plan-again]")) {
         state.plan.attempt += 1;
         state.plan.nonce += 1;
-        renderPlanModal();
+        renderPlanModal({ update: true });
         return;
       }
 
@@ -2311,14 +2402,29 @@
         renderPlaces();
         return;
       }
+      const stepBtn = target.closest("[data-step-target]");
+      if (stepBtn) {
+        event.preventDefault();
+        const stepInput = document.getElementById(stepBtn.getAttribute("data-step-target"));
+        if (stepInput) {
+          const stepBy = Number(stepBtn.getAttribute("data-step")) || 1;
+          const direction = Number(stepBtn.getAttribute("data-step-dir")) || 1;
+          const current = stepInput.value.trim() === "" ? 0 : Math.max(0, Number(stepInput.value) || 0);
+          stepInput.value = String(Math.max(0, current + stepBy * direction));
+          stepInput.dispatchEvent(new Event("change", { bubbles: true }));
+        }
+        return;
+      }
       const budget = target.closest("[data-budget-min]");
       if (budget) {
         state.filters.minPrice = Number(budget.getAttribute("data-budget-min")) || 0;
         const maxAttr = budget.getAttribute("data-budget-max");
         state.filters.maxPrice = maxAttr === "" ? null : Number(maxAttr);
+        const budgetInput = document.getElementById("budget-max");
+        if (budgetInput) budgetInput.value = state.filters.maxPrice != null ? String(state.filters.maxPrice) : "";
         state.visibleCount = 12;
         syncFiltersToUrl();
-        renderPlaces();
+        applyBudgetView();
         return;
       }
       if (target.closest("[data-filter-reset]")) {
@@ -2391,7 +2497,7 @@
         const raw = event.target.value.trim();
         const value = raw === "" ? 0 : Math.max(0, Number(raw) || 0);
         state.plan = { budget: value, attempt: 0, party: state.plan ? state.plan.party : "any", nonce: (state.plan ? state.plan.nonce : 0) + 1 };
-        renderPlanModal();
+        renderPlanModal({ update: true });
         return;
       }
       if (event.target.id === "budget-max") {
@@ -2400,8 +2506,7 @@
         state.filters.minPrice = 0;
         state.filters.maxPrice = Number.isFinite(value) ? value : null;
         state.visibleCount = 12;
-        syncFiltersToUrl();
-        renderPlaces();
+        queueBudgetView();
       }
     });
 
