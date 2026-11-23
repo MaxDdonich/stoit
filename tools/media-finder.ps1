@@ -4,6 +4,64 @@
 $script:MediaCache = @{}
 $script:MediaCacheLoaded = $false
 $script:MediaChecked = 0
+$script:SiteFilters = $null
+
+# Взрослый контент и парковка домена — такие сайты не показываем как сайт заведения.
+$script:AdultPattern = '(?i)(?<![а-яёa-z])(эскорт|интим|проститут|секс[- ]услуг|досуг\s+девушек|девушки\s+по\s+вызову|escort|porn)(?![а-яёa-z])'
+$script:ParkedPattern = '(?i)домен\s+прода|продаётся\s+домен|parked\s+domain|domain\s+for\s+sale|buy\s+this\s+domain|срок\s+регистрации\s+домена\s+(истёк|закончил)'
+$script:GamblingPattern = '(?i)казино|casino|parimatch|букмекер|ставки\s+на\s+спорт|1xbet|vulkan|joycasino|слоты|бездепозитн|промокод'
+$script:PiratePattern = '(?i)смотреть\s+фильмы\s+онлайн|скачать\s+фильм|фильмы\s+онлайн\s+бесплатно'
+$script:DeadSitePattern = '(?i)сайт\s+закрыт|сайт\s+не\s+работает|домен\s+не\s+активен|domain\s+expired|account\s+suspended'
+$script:ClosedPattern = '(?i)(временно\s+закрыт[а-яё]*|закрыт[а-яё]*\s+на\s+(ремонт|реконструкц)[а-яё]*|закрыт[а-яё]*\s+на\s+ремонтно|временно\s+не\s+работает|temporarily\s+closed)'
+# Если рядом закрыт зал, каток, выставка или ресторан — это не значит, что закрыто всё место.
+$script:SubObjectPattern = '(?i)зал|павильон|выставк|экспозиц|каток|башн|смотров|флигел|корпус|этаж|киоск|касс|ресторан|кафе|магазин|площадк|маршрут|участок|набережн|вход|сеанс|лекци|концерт|библиотек|зон[аы]|гараж|парковк'
+# Слова, которые есть в названии почти любого места и ничего не доказывают.
+$script:GenericNameTokens = @('музей', 'музеи', 'театр', 'парк', 'кинотеатр', 'центр', 'дом', 'усадьба', 'галерея', 'библиотека', 'москва', 'московский', 'московская', 'государственный')
+
+function Get-SiteFilters {
+  if ($null -ne $script:SiteFilters) { return $script:SiteFilters }
+  $rootDir = if ($Root) { [string]$Root } else { Split-Path -Parent $PSScriptRoot }
+  $path = Join-Path $rootDir 'config/site-filters.json'
+  $raw = $null
+  try { if (Test-Path $path) { $raw = Get-Content $path -Raw -Encoding UTF8 | ConvertFrom-Json } } catch {}
+  $blocked = @()
+  $closed = @()
+  if ($null -ne $raw) {
+    foreach ($item in @($raw.blockedHosts)) {
+      if ($null -eq $item) { continue }
+      $hostName = if ($item -is [string]) { [string]$item } else { [string]$item.host }
+      if ($hostName) { $blocked += ($hostName.ToLowerInvariant() -replace '^www\.', '') }
+    }
+    foreach ($item in @($raw.closedPlaceIds)) { if ($item) { $closed += [string]$item } }
+  }
+  $script:SiteFilters = [pscustomobject]@{ BlockedHosts = $blocked; ClosedPlaceIds = $closed }
+  return $script:SiteFilters
+}
+
+function Test-BlockedHost([string]$Url) {
+  if (-not $Url) { return $false }
+  $hostName = Get-UrlHost $Url
+  if (-not $hostName) { return $false }
+  $hostName = $hostName -replace '^www\.', ''
+  $filters = Get-SiteFilters
+  foreach ($blocked in $filters.BlockedHosts) {
+    if ($hostName -eq $blocked -or $hostName.EndsWith('.' + $blocked)) { return $true }
+  }
+  return $false
+}
+
+function Test-ClosedContext([string]$Context, [string]$PlaceName) {
+  if (-not $Context) { return $false }
+  if ($Context -match '(?i)будет|планиру|с\s+\d{1,2}\s+(январ|феврал|март|апрел|ма[йя]|июн|июл|август|сентябр|октябр|ноябр|декабр)') { return $false }
+  if ($Context -match $script:SubObjectPattern) { return $false }
+  $lower = $Context.ToLowerInvariant()
+  foreach ($token in @($PlaceName.ToLowerInvariant() -split '[^a-zа-яё0-9]+')) {
+    if ($token.Length -lt 4) { continue }
+    if ($script:GenericNameTokens -contains $token) { continue }
+    if ($lower.Contains($token)) { return $true }
+  }
+  return $false
+}
 
 function Resolve-MediaUrl([string]$BaseUrl, [string]$Value) {
   if (-not $Value) { return '' }
@@ -179,9 +237,30 @@ function Get-MediaPageData([string]$Url) {
   }
   $html = Get-RemoteText $Url
   if (-not $html) {
-    $entry = [pscustomobject]@{ fetchedAt = $Now.ToString('yyyy-MM-ddTHH:mm:sszzz'); ok = $false; icon = ''; gallery = @(); galleryLinks = @() }
+    $entry = [pscustomobject]@{ fetchedAt = $Now.ToString('yyyy-MM-ddTHH:mm:sszzz'); ok = $false; icon = ''; gallery = @(); galleryLinks = @(); adult = $false; spamReason = ''; closedContexts = @() }
     $script:MediaCache[$Url] = $entry
     return $entry
+  }
+  $text = ConvertTo-PriceText $html
+  $titleMatch = [regex]::Match($html, '(?is)<title[^>]*>(.*?)</title>')
+  $title = if ($titleMatch.Success) { ConvertTo-PriceText $titleMatch.Groups[1].Value } else { '' }
+  $descMatch = [regex]::Match($html, '(?is)<meta[^>]+name\s*=\s*["'']description["''][^>]+content\s*=\s*["'']([^"'']*)["'']')
+  $description = if ($descMatch.Success) { [Net.WebUtility]::HtmlDecode($descMatch.Groups[1].Value) } else { '' }
+  $pageText = "$title $description $text"
+  $head = "$title $description"
+  $adult = ($head -match $script:AdultPattern) -or ($pageText -match $script:AdultPattern)
+  $spamReason = ''
+  if ($adult) { $spamReason = 'adult-website' }
+  elseif ($head -match $script:GamblingPattern) { $spamReason = 'gambling-website' }
+  elseif ($head -match $script:PiratePattern) { $spamReason = 'pirate-website' }
+  elseif ($pageText -match $script:ParkedPattern) { $spamReason = 'parked-domain' }
+  elseif ($head -match $script:DeadSitePattern) { $spamReason = 'dead-site' }
+  $closedContexts = @()
+  foreach ($m in [regex]::Matches($pageText, $script:ClosedPattern)) {
+    $start = [Math]::Max(0, $m.Index - 90)
+    $len = [Math]::Min(220, $pageText.Length - $start)
+    $closedContexts += $pageText.Substring($start, $len)
+    if ($closedContexts.Count -ge 3) { break }
   }
   $icon = Get-MediaIcon $html $Url
   $gallery = @(Get-MediaGallery $html $Url)
@@ -192,6 +271,9 @@ function Get-MediaPageData([string]$Url) {
     icon = $icon
     gallery = $gallery
     galleryLinks = $galleryLinks
+    adult = [bool]$adult
+    spamReason = $spamReason
+    closedContexts = @($closedContexts)
   }
   $script:MediaCache[$Url] = $entry
   return $entry
@@ -220,18 +302,48 @@ function Save-MediaCache([string]$Path) {
   Save-Json ([ordered]@{ updatedAt = $Now.ToString('yyyy-MM-ddTHH:mm:sszzz'); pages = $pages }) $Path
 }
 
+function Clear-BlockedWebsite($Place, [string]$Reason, [string]$BadHost) {
+  Set-PlaceField $Place 'websiteChecked' $true
+  Set-PlaceField $Place 'websiteBlocked' $true
+  if ($Reason) { Set-PlaceField $Place 'blockedReason' $Reason }
+  Set-PlaceField $Place 'website' ''
+  Set-PlaceField $Place 'icon' ''
+  Set-PlaceField $Place 'iconKind' ''
+  Set-PlaceField $Place 'iconSource' ''
+  Set-PlaceField $Place 'iconFallback' ''
+  Set-PlaceField $Place 'iconFallback2' ''
+  Set-PlaceField $Place 'iconFallback3' ''
+  Set-PlaceField $Place 'gallery' @()
+  Set-PlaceField $Place 'gallerySource' ''
+  if ($BadHost -and $Place.priceSource -and ((Get-UrlHost ([string]$Place.priceSource)) -eq $BadHost)) {
+    Set-PlaceField $Place 'price' $null
+    Set-PlaceField $Place 'priceSource' ''
+    Set-PlaceField $Place 'priceConfidence' 'unknown'
+  }
+}
+
 function Apply-MediaEntry($Place, $Entry) {
   if ($null -eq $Entry) { return }
-  if ($Entry.icon -and (Test-MediaSourceUrl ([string]$Entry.iconSource))) {
+  if ($Entry.websiteBlocked) {
+    Clear-BlockedWebsite $Place ([string]$Entry.blockedReason) ([string]$Entry.blockedHost)
+    return
+  }
+  if ($Entry.closedPlace) {
+    Set-PlaceField $Place 'closed' $true
+    Set-PlaceField $Place 'websiteChecked' $true
+    return
+  }
+  if ($Entry.icon -and (Test-MediaSourceUrl ([string]$Entry.iconSource)) -and -not (Test-BlockedHost ([string]$Entry.icon))) {
     Set-PlaceField $Place 'icon' (([string]$Entry.icon) -replace '^http://', 'https://')
     Set-PlaceField $Place 'iconKind' ([string]$Entry.iconKind)
     Set-PlaceField $Place 'iconSource' ([string]$Entry.iconSource)
   }
-  $gallery = @($Entry.gallery | Where-Object { Test-PhotoUrl ([string]$_) } | ForEach-Object { ([string]$_) -replace '^http://', 'https://' })
+  $gallery = @($Entry.gallery | Where-Object { (Test-PhotoUrl ([string]$_)) -and -not (Test-BlockedHost ([string]$_)) } | ForEach-Object { ([string]$_) -replace '^http://', 'https://' })
   if ($gallery.Count -gt 0 -and (Test-MediaSourceUrl ([string]$Entry.gallerySource))) {
     Set-PlaceField $Place 'gallery' $gallery
     Set-PlaceField $Place 'gallerySource' ([string]$Entry.gallerySource)
   }
+  if ($Entry.websiteChecked) { Set-PlaceField $Place 'websiteChecked' $true }
 }
 
 function Invoke-MediaDiscovery {
@@ -249,9 +361,18 @@ function Invoke-MediaDiscovery {
   $galleries = 0
 
   # Сначала применяем уже найденное и данные Wikidata/OSM.
+  $filters = Get-SiteFilters
   foreach ($place in $Places) {
     $id = [string]$place.id
+    $hoursText = [string]$place.hours.ru
+    if ($hoursText -match '^\s*(closed|закрыто)\s*$' -or ([string]$place.name.ru) -match '(?i)временно\s+закрыт|temporarily\s+closed') {
+      Set-PlaceField $place 'closed' $true
+    }
     if ($store.ContainsKey($id)) { Apply-MediaEntry $place $store[$id] }
+    if ($filters.ClosedPlaceIds -contains $id) { Set-PlaceField $place 'closed' $true }
+    if ($place.website -and (Test-BlockedHost ([string]$place.website))) {
+      Clear-BlockedWebsite $place 'listed-block' (Get-UrlHost ([string]$place.website))
+    }
     if (-not $place.icon -and $place.logo) {
       Set-PlaceField $place 'icon' ([string]$place.logo)
       Set-PlaceField $place 'iconKind' 'logo'
@@ -282,18 +403,57 @@ function Invoke-MediaDiscovery {
   }
 
   if (-not $SkipNetwork) {
-    foreach ($place in $Places) {
+    $candidates = @($Places | Where-Object {
+      $_.website -and (Test-MediaSourceUrl ([string]$_.website)) -and
+      -not ($_.websiteChecked -and $_.gallery -and @($_.gallery).Count -ge 4)
+    })
+    $candidates = @($candidates | Sort-Object {
+      $sid = [string]$_.id
+      if ($store.ContainsKey($sid) -and $store[$sid].updatedAt) { [string]$store[$sid].updatedAt } else { '' }
+    })
+    foreach ($place in $candidates) {
       if ($script:MediaChecked -ge $MaxChecks) { break }
-      if (-not $place.website) { continue }
-      if (-not (Test-MediaSourceUrl ([string]$place.website))) { continue }
-      if ($place.gallery -and @($place.gallery).Count -ge 4) { continue }
       $script:MediaChecked += 1
       $page = Get-MediaPageData ([string]$place.website)
       if ($null -eq $page -or -not $page.ok) { continue }
+      $spamReason = [string]$page.spamReason
+      if (-not $spamReason -and $page.adult) { $spamReason = 'adult-website' }
+      if (-not $spamReason -and $page.parked) { $spamReason = 'parked-domain' }
+      if ($spamReason) {
+        $badHost = Get-UrlHost ([string]$place.website)
+        Clear-BlockedWebsite $place $spamReason $badHost
+        $store[[string]$place.id] = [ordered]@{
+          websiteBlocked = $true
+          blockedReason = $spamReason
+          blockedHost = [string]$badHost
+          websiteChecked = $true
+          icon = ''
+          iconKind = ''
+          iconSource = ''
+          gallery = @()
+          gallerySource = ''
+          updatedAt = $Now.ToString('yyyy-MM-ddTHH:mm:sszzz')
+        }
+        continue
+      }
+      $closedHit = $false
+      foreach ($closedContext in @($page.closedContexts)) {
+        if (Test-ClosedContext ([string]$closedContext) ([string]$place.name.ru)) { $closedHit = $true; break }
+      }
+      if ($closedHit) {
+        Set-PlaceField $place 'websiteChecked' $true
+        Set-PlaceField $place 'closed' $true
+        $closedEntry = if ($store.ContainsKey([string]$place.id)) { $store[[string]$place.id] } else { [ordered]@{} }
+        $closedEntry.closedPlace = $true
+        $closedEntry.websiteChecked = $true
+        $closedEntry.updatedAt = $Now.ToString('yyyy-MM-ddTHH:mm:sszzz')
+        $store[[string]$place.id] = $closedEntry
+        continue
+      }
       $photos = @($page.gallery)
       foreach ($galleryLink in @($page.galleryLinks | Select-Object -First 2)) {
         $subPage = Get-MediaPageData ([string]$galleryLink)
-        if ($null -ne $subPage -and $subPage.ok) { $photos += @($subPage.gallery) }
+        if ($null -ne $subPage -and $subPage.ok -and -not $subPage.adult -and -not $subPage.spamReason) { $photos += @($subPage.gallery) }
       }
       $galleryLocation = [string]$place.website
       if ($photos.Count -lt 4) {
@@ -310,6 +470,7 @@ function Invoke-MediaDiscovery {
         iconSource = if ($page.icon) { [string]$place.website } else { '' }
         gallery = $photos
         gallerySource = if ($photos.Count -gt 0) { $galleryLocation } else { '' }
+        websiteChecked = $true
         updatedAt = $Now.ToString('yyyy-MM-ddTHH:mm:sszzz')
       }
       if ($entry.icon -or @($entry.gallery).Count -gt 0) {

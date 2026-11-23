@@ -1,0 +1,21 @@
+{
+  "note": "Ручные ограничения поверх автоматической проверки. blockedHosts — домены, которые нельзя показывать как сайт заведения. closedPlaceIds — места, которые закрыты и не должны попадать в каталог.",
+  "blockedHosts": [
+    { "host": "shalyapin-museum.org", "reason": "adult-website" },
+    { "host": "semplice.su", "reason": "adult-website" },
+    { "host": "loftbar.ru", "reason": "parked-domain" },
+    { "host": "katokkaleidoskop.ru", "reason": "parked-domain" },
+    { "host": "kronverkcinema.ru", "reason": "parked-domain" },
+    { "host": "benefistheatre.com", "reason": "gambling-website" },
+    { "host": "dzigartheater.ru", "reason": "gambling-website" },
+    { "host": "rozaazora.ru", "reason": "gambling-website" },
+    { "host": "murtuz.ru", "reason": "gambling-website" },
+    { "host": "bitsevskipark.ru", "reason": "gambling-website" },
+    { "host": "kinostardelux.ru", "reason": "pirate-website" },
+    { "host": "tochkag.net", "reason": "dead-site" }
+  ],
+  "closedPlaceIds": [
+    "wd-Q60851018",
+    "osm-way-32693356"
+  ]
+}

@@ -917,6 +917,10 @@ try {
   Write-Host "  ! Медиа: $($_.Exception.Message)" -ForegroundColor DarkYellow
 }
 
+$closedRemoved = @($allPlaces | Where-Object { $_.closed }).Count
+$allPlaces = @($allPlaces | Where-Object { -not $_.closed })
+$pricedCount = @($allPlaces | Where-Object { $null -ne $_.price }).Count
+
 $freshCount = @($finalSignals | Where-Object { ([DateTimeOffset]::Parse($_.publishedAt) -gt $Now.AddDays(-1)) }).Count
 $okCount = @($sourceOut | Where-Object { $_.status -eq 'ok' -or $_.status -eq 'cached' }).Count
 
@@ -943,6 +947,7 @@ $feed = [ordered]@{
     mediaChecked = $media.checked
     mediaIcons = $media.icons
     mediaGalleries = $media.galleries
+    closedRemoved = $closedRemoved
     signals = $finalSignals.Count
     fresh = $freshCount
     sourcesOk = $okCount
